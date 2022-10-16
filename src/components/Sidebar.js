@@ -9,6 +9,7 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { RiSettings5Fill } from 'react-icons/ri';
 import { SiProducthunt } from 'react-icons/si';
 import { SlBriefcase } from 'react-icons/sl';
+import DashboardHeader from './DashboardHeader';
 
 const Sidebar = () => {
     const sideMenus = [

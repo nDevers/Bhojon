@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/home/home';
 import Dashboard from './pages/dashboard/dashboard';
-import DashboardSummary from "./pages/dashboard/summary";
+import DashboardSummary from "./pages/dashboard/DashboardSummary";
 
 import ManageOrder from "./pages/dashboard/ManageOrder/manageOrder";
 import ManageOrderSummary from "./pages/dashboard/ManageOrder/ManageOrderSummary";
