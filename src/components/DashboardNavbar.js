@@ -1,9 +1,8 @@
 import React from 'react';
-import { BsSearch, BsCart3 } from 'react-icons/bs';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const DashboardNavbar = () => {
   const navbar = [
     {
       name: 'Home',
@@ -28,25 +27,13 @@ const Navbar = () => {
     {
       name: 'Login',
       link: '/login'
-    },
-    {
-      name: <BsSearch />,
-      link: '/search'
-    },
-    {
-      name: <BsCart3 />,
-      link: '/cart'
-    },
-    {
-      name: 'Dashboard',
-      link: '/dashboard'
     }
   ];
 
   const navbarMenu = navbar.map(navbarItems => <li key={navbarItems.link}><Link to={navbarItems.link}>{navbarItems.name}</Link></li>);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 border-b">
       <div className="navbar-start">
         <a className="btn btn-ghost normal-case text-xl">Bhojon</a>
       </div>
@@ -62,7 +49,7 @@ const Navbar = () => {
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <HiMenuAlt3 className='text-2xl' />
           </label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-compact dropdown-content shadow bg-base-100 rounded-box">
             {
               navbarMenu
             }
@@ -73,4 +60,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default DashboardNavbar;
