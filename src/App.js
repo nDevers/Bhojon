@@ -84,7 +84,7 @@ function App() {
         </Route>
 
         // purchase management routes
-        <Route path="purchase-manage" element={<PurchaseManage />} >
+        <Route path="purchase-manage" element={<PurchaseManageSummary />} >
           <Route index element={<PurchaseManageSummary />} />
           <Route path="purchase-item" element={<PurchaseItem />} />
           <Route path="add-purchase" element={<AddPurchase />} />
