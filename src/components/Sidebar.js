@@ -11,6 +11,7 @@ import { RiSettings5Fill } from 'react-icons/ri';
 import { SiProducthunt, SiFoodpanda } from 'react-icons/si';
 import { SlBriefcase } from 'react-icons/sl';
 import DefaultUserImage from '../assets/images/defaultUser.png';
+import DashboardNavbar from './DashboardNavbar';
 
 const Sidebar = () => {
     const sideMenus = [
@@ -94,6 +95,7 @@ const Sidebar = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content p-4 flex flex-col items-center justify-center">
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                <DashboardNavbar />
                 <Outlet />
             </div>
             <div className="drawer-side">

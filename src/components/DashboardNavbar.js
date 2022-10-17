@@ -47,7 +47,7 @@ const DashboardNavbar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 mt-10">
       <div className="navbar-start">
         <a className="btn btn-ghost normal-case text-2xl"><CgMenuGridO /></a>
       </div>
