@@ -1,9 +1,10 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const Reservation = () => {
     return (
         <div>
-            <h1>Reservation</h1>
+            <Outlet />
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 const ManageOrder = () => {
     return (
         <div>
-            <h1>Manage Order</h1>
+            <Outlet />
         </div>
     );
 };

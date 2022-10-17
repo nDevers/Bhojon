@@ -67,7 +67,7 @@ function App() {
         <Route index element={<DashboardSummary />} />
 
         // orders routes
-        <Route path="manage-order" element={<ManageOrderSummary />} >
+        <Route path="manage-order" element={<ManageOrder />} >
           <Route index element={<ManageOrderSummary />} />
           <Route path="order-list" element={<OrderList />} />
           <Route path="pending-order" element={<PendingOrder />} />
@@ -76,7 +76,7 @@ function App() {
         </Route>
 
         // reservation routes
-        <Route path="reservation" element={<ReservationSummary />} >
+        <Route path="reservation" element={<Reservation />} >
           <Route index element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
@@ -84,7 +84,7 @@ function App() {
         </Route>
 
         // purchase management routes
-        <Route path="purchase-manage" element={<PurchaseManageSummary />} >
+        <Route path="purchase-manage" element={<PurchaseManage />} >
           <Route index element={<PurchaseManageSummary />} />
           <Route path="purchase-item" element={<PurchaseItem />} />
           <Route path="add-purchase" element={<AddPurchase />} />
@@ -92,7 +92,7 @@ function App() {
         </Route>
 
         // report routes
-        <Route path="report" element={<ReportSummary />} >
+        <Route path="report" element={<Report />} >
           <Route index element={<ReportSummary />} />
           <Route path="purchase-report" element={<PurchaseReport />} />
           <Route path="stock-report" element={<StockReport />} />
@@ -101,7 +101,7 @@ function App() {
         </Route>
 
         // food management routes
-        <Route path="food-management" element={<FoodManagementSummary />} >
+        <Route path="food-management" element={<FoodManagement />} >
           <Route index element={<FoodManagementSummary />} />
           <Route path="manage-category" element={<ManageCategory />} />
           <Route path="manage-food" element={<ManageFood />} />
@@ -113,7 +113,7 @@ function App() {
         <Route path="human-resource" element={<HumanResource />} />
 
         // user management routes
-        <Route path="user-management" element={<UserManagementSummary />} >
+        <Route path="user-management" element={<UserManagement />} >
           <Route index element={<UserManagementSummary />} />
           <Route path="add-user" element={<AddUser />} />
           <Route path="user-list" element={<UserList />} />
@@ -121,10 +121,10 @@ function App() {
       </Route>
 
       // user routes
-      <Route path="user" element={<UserSummary />} >
+      <Route path="user" element={<User />} >
         <Route index element={<UserSummary />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="user-settings" element={<UserSettings />} />
+        <Route path="settings" element={<UserSettings />} />
       </Route>
 
       // authentication routes
