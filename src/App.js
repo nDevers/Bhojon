@@ -121,7 +121,7 @@ function App() {
       </Route>
 
       // user routes
-      <Route path="user" element={<User />} >
+      <Route path="user" element={<UserSummary />} >
         <Route index element={<UserSummary />} />
         <Route path="profile" element={<Profile />} />
         <Route path="user-settings" element={<UserSettings />} />
