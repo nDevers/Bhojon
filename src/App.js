@@ -101,7 +101,7 @@ function App() {
         </Route>
 
         // food management routes
-        <Route path="food-management" element={<FoodManagement />} >
+        <Route path="food-management" element={<FoodManagementSummary />} >
           <Route index element={<FoodManagementSummary />} />
           <Route path="manage-category" element={<ManageCategory />} />
           <Route path="manage-food" element={<ManageFood />} />
