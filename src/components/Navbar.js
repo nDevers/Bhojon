@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsSearch, BsCart3 } from 'react-icons/bs';
 import { HiMenuAlt3 } from 'react-icons/hi';
+import { SiFoodpanda } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -8,10 +9,6 @@ const Navbar = () => {
     {
       name: 'Home',
       link: '/home'
-    },
-    {
-      name: 'Dashboard',
-      link: '/dashboard'
     },
     {
       name: 'Reservation',
@@ -46,9 +43,12 @@ const Navbar = () => {
   const navbarMenu = navbar.map(navbarItems => <li key={navbarItems.link}><Link to={navbarItems.link}>{navbarItems.name}</Link></li>);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 border-b font-mono">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">Bhojon</a>
+        <div className='flex gap-x-4 items-center justify-center text-2xl text-center text-black font-semibold uppercase'>
+          <SiFoodpanda />
+          <h1><span className='text-red-500'>B</span>hojon</h1>
+        </div>
       </div>
 
       <div className="navbar-end">

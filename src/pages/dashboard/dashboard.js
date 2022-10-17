@@ -307,7 +307,7 @@ const Dashboard = () => {
                     </ul>
                 </div> */}
 
-                <div className="drawer-side bg-slate-900 text-gray-50">
+                <div className="drawer-side bg-base-100 text-gray-50">
                     <label htmlFor="sidebar" className="drawer-overlay"></label>
                     <div className='bg-[#2c3136] overflow-hidden'>
                         <div className='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b'>

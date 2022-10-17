@@ -282,7 +282,7 @@ const PurchaseManageSummary = () => {
 
     return (
         <div>
-            <div className='grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-x-6'>
+            <div className='grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 lg:gap-6 md:gap-5 gap-4'>
                 {
                     summaryData?.map(summary => <div className='p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center'>
                         <h2 className='text-3xl font-semibold'>{summary?.value}</h2>
@@ -291,7 +291,7 @@ const PurchaseManageSummary = () => {
                 }
             </div>
 
-            <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-6'>
+            <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-6 md:gap-5 gap-4'>
                 {
                     latestSummary?.map(summary => <div className='h-96 p-4 border rounded-md scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-hidden hover:overflow-y-auto'>
                         <h4 className='text-lg font-medium pb-4 mb-4 border-b'>{summary?.title}</h4>
