@@ -4,7 +4,7 @@ import Sidebar from '../../components/Sidebar';
 
 const dashboard = () => {
     return (
-        <div className='scrollbar-thin scrollbar-thumb-gray-400 h-screen overflow-y-scroll'>
+        <div>
             <DashboardNavbar />
             <Sidebar />
         </div>

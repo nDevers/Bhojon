@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 
 const home = () => {
     return (
-        <div className='scrollbar-thin scrollbar-thumb-gray-400 h-screen overflow-y-scroll'>
+        <div>
             <Navbar />
         </div>
     );
