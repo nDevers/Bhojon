@@ -113,7 +113,7 @@ function App() {
         <Route path="human-resource" element={<HumanResource />} />
 
         // user management routes
-        <Route path="user-management" element={<UserManagement />} >
+        <Route path="user-management" element={<UserManagementSummary />} >
           <Route index element={<UserManagementSummary />} />
           <Route path="add-user" element={<AddUser />} />
           <Route path="user-list" element={<UserList />} />
