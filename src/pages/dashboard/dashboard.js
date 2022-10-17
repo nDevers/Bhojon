@@ -92,14 +92,13 @@ const dashboard = () => {
 
     return (
         <div className="drawer drawer-mobile">
-            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content p-4 flex flex-col items-center justify-center">
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+            <input id="sidebar" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content p-4 flex flex-col items-center justify-center scroll-smooth scrollbar-thin scrollbar-thumb-gray-400">
                 <DashboardNavbar />
                 <Outlet />
             </div>
             <div className="drawer-side">
-                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                <label htmlFor="sidebar" className="drawer-overlay"></label>
                 <div className='bg-[#2c3136] overflow-hidden'>
                     <div className='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b'>
                         <SiFoodpanda />

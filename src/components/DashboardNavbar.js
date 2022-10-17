@@ -5,6 +5,7 @@ import { FiSettings } from 'react-icons/fi';
 import { GiRiceCooker } from 'react-icons/gi';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { RiListUnordered } from 'react-icons/ri';
+import { SiFoodpanda } from 'react-icons/si';
 import { TbLanguage } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 
@@ -54,6 +55,10 @@ const DashboardNavbar = () => {
   return (
     <div className="navbar bg-base-100 px-4 fixed top-0 left-0 right-0 z-50">
       <div className="navbar-start">
+        <div className='flex gap-x-2 items-center justify-center text-xl text-center text-gray-900 font-semibold font-mono uppercase md:hidden lg:hidden'>
+          <SiFoodpanda />
+          <h1><span className='text-red-500'>B</span>hojon</h1>
+        </div>
       </div>
 
       <div className='navbar-middle'>
