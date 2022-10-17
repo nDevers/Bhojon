@@ -4,12 +4,13 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BiLineChartDown, BiCube } from 'react-icons/bi';
 import { BsTags, BsCart4 } from 'react-icons/bs';
 import { FaFirstOrder, FaUser } from 'react-icons/fa';
+import { GoPrimitiveDot } from 'react-icons/go';
 import { HiOutlineUserGroup } from 'react-icons/hi';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { RiSettings5Fill } from 'react-icons/ri';
-import { SiProducthunt } from 'react-icons/si';
+import { SiProducthunt, SiFoodpanda } from 'react-icons/si';
 import { SlBriefcase } from 'react-icons/sl';
-import DashboardHeader from './DashboardHeader';
+import DefaultUserImage from '../assets/images/defaultUser.png';
 
 const Sidebar = () => {
     const sideMenus = [
@@ -97,23 +98,38 @@ const Sidebar = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-1 overflow-y-auto w-60 bg-[#2c3136] text-[#fff2e6] text-sm">
-                    {
-                        sideMenus.map(sideMenu =>
-                            <li key={sideMenu?.link}>
-                                {
-                                    <Link className='flex items-center justify-between' to={sideMenu?.link}>
-                                        <span className='flex items-center justify-end'>
-                                            <span className='mr-3'>{sideMenu?.icon}</span>{sideMenu?.name}
-                                        </span>
-                                        <MdKeyboardArrowLeft className='text-xl' />
-                                    </Link>
-                                }
-                            </li>
-                        )
-                    }
-                </ul>
+                <div className='bg-[#2c3136] overflow-hidden'>
+                    <div className='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b'>
+                        <SiFoodpanda />
+                        <h1><span className='text-red-500'>B</span>hojon</h1>
+                    </div>
 
+                    <div className='flex flex-col items-center justify-center mb-4'>
+                        <div className='w-20 p-2 m-4 border rounded-full'>
+                            <img src={DefaultUserImage} alt="default user image" />
+                        </div>
+
+                        <p className='text-sm text-sky-500 flex items-center gap-x-1 mb-1'><GoPrimitiveDot /> Admin</p>
+                        <h3 className='text-md text-white font-semibold uppercase'>John Doe</h3>
+                    </div>
+
+                    <ul className="menu p-1 w-60 text-[#fff2e6] text-sm">
+                        {
+                            sideMenus.map(sideMenu =>
+                                <li key={sideMenu?.link}>
+                                    {
+                                        <Link className='flex items-center justify-between' to={sideMenu?.link}>
+                                            <span className='flex items-center justify-end'>
+                                                <span className='mr-3'>{sideMenu?.icon}</span>{sideMenu?.name}
+                                            </span>
+                                            <MdKeyboardArrowLeft className='text-xl' />
+                                        </Link>
+                                    }
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     );
