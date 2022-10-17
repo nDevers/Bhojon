@@ -10,6 +10,10 @@ const Navbar = () => {
       link: '/home'
     },
     {
+      name: 'Dashboard',
+      link: '/dashboard'
+    },
+    {
       name: 'Reservation',
       link: '/reservation'
     },
@@ -27,7 +31,7 @@ const Navbar = () => {
     },
     {
       name: 'Login',
-      link: '/login'
+      link: '/authentication/login'
     },
     {
       name: <BsSearch />,
@@ -36,10 +40,6 @@ const Navbar = () => {
     {
       name: <BsCart3 />,
       link: '/cart'
-    },
-    {
-      name: 'Dashboard',
-      link: '/dashboard'
     }
   ];
 

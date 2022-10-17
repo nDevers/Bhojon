@@ -60,7 +60,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="home" element={<Home />} />
+      <Route index element={<Home />} />
+      <Route path="/home" element={<Home />} />
 
       // dashboard routes
       <Route path="dashboard" element={<Dashboard />}>
