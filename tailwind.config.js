@@ -8,7 +8,7 @@ module.exports = {
   },
 
   // add daisyUI plugin
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require('tailwind-scrollbar')],
 
   // daisyUI config (optional)
   daisyui: {
