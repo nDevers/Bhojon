@@ -47,12 +47,12 @@ const DashboardNavbar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-100 mt-10">
+    <div className="navbar bg-base-100 px-4 fixed top-0 left-0 right-0 z-50">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-2xl"><CgMenuGridO /></a>
       </div>
 
       <div className='navbar-middle'>
+        <a className="btn btn-ghost normal-case text-2xl"><CgMenuGridO /></a>
         <ul className="menu menu-horizontal lg:flex gap-x-2 hidden">
           {
             navbarMiddle.map(navbarItems => <li key={navbarItems.link} className='border rounded-md'>
