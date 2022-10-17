@@ -11,6 +11,11 @@ import { Link } from 'react-router-dom';
 const DashboardNavbar = () => {
   const navbarMiddle = [
     {
+      name: '',
+      link: '',
+      icon: <CgMenuGridO />
+    },
+    {
       name: 'Order List',
       link: '/dashboard/order-list',
       icon: <RiListUnordered />
@@ -52,7 +57,6 @@ const DashboardNavbar = () => {
       </div>
 
       <div className='navbar-middle'>
-        <a className="btn btn-ghost normal-case text-2xl"><CgMenuGridO /></a>
         <ul className="menu menu-horizontal lg:flex gap-x-2 hidden">
           {
             navbarMiddle.map(navbarItems => <li key={navbarItems.link} className='border rounded-md'>
