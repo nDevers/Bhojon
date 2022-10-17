@@ -76,7 +76,7 @@ function App() {
         </Route>
 
         // reservation routes
-        <Route path="reservation" element={<Reservation />} >
+        <Route path="reservation" element={<ReservationSummary />} >
           <Route index element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
