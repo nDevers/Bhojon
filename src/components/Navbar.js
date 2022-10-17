@@ -1,12 +1,17 @@
 import React from 'react';
 import { BsSearch, BsCart3 } from 'react-icons/bs';
 import { HiMenuAlt3 } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const navbar = [
     {
       name: 'Home',
       link: '/home'
+    },
+    {
+      name: 'Dashboard',
+      link: '/dashboard'
     },
     {
       name: 'Reservation',
@@ -26,7 +31,7 @@ const Navbar = () => {
     },
     {
       name: 'Login',
-      link: '/login'
+      link: '/authentication/login'
     },
     {
       name: <BsSearch />,
@@ -38,7 +43,7 @@ const Navbar = () => {
     }
   ];
 
-  const navbarMenu = navbar.map(navbarItems => <li key={navbarItems.link}><a href={navbarItems.link}>{navbarItems.name}</a></li>);
+  const navbarMenu = navbar.map(navbarItems => <li key={navbarItems.link}><Link to={navbarItems.link}>{navbarItems.name}</Link></li>);
 
   return (
     <div className="navbar bg-base-100">
