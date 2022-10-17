@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-const manageOrder = () => {
+const ManageOrder = () => {
     return (
         <div>
             <h1>Manage Order</h1>
@@ -9,4 +9,4 @@ const manageOrder = () => {
     );
 };
 
-export default manageOrder;
+export default ManageOrder;

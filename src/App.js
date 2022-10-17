@@ -3,7 +3,7 @@ import Home from './pages/home/home';
 import Dashboard from './pages/dashboard/dashboard';
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
 
-import ManageOrder from "./pages/dashboard/ManageOrder/manageOrder";
+import ManageOrder from "./pages/dashboard/ManageOrder/ManageOrder";
 import ManageOrderSummary from "./pages/dashboard/ManageOrder/ManageOrderSummary";
 import OrderList from "./pages/dashboard/ManageOrder/OrderList";
 import PendingOrder from "./pages/dashboard/ManageOrder/PendingOrder";
@@ -67,7 +67,7 @@ function App() {
         <Route index element={<DashboardSummary />} />
 
         // orders routes
-        <Route path="manage-order" element={<ManageOrder />} >
+        <Route path="manage-order" element={<ManageOrderSummary />} >
           <Route index element={<ManageOrderSummary />} />
           <Route path="order-list" element={<OrderList />} />
           <Route path="pending-order" element={<PendingOrder />} />
