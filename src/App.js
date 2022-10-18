@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/home/home';
-import Dashboard from './pages/dashboard/dashboard';
+import Dashboard from './pages/dashboard/Dashboard';
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
 
 import ManageOrder from "./pages/dashboard/ManageOrder/ManageOrder";
@@ -34,10 +34,10 @@ import FoodManagementSummary from "./pages/dashboard/FoodManagement/FoodManageme
 import ManageCategory from "./pages/dashboard/FoodManagement/ManageCategory";
 import ManageFood from "./pages/dashboard/FoodManagement/ManageFood";
 
-import Production from "./pages/dashboard/production";
-import Settings from "./pages/dashboard/settings";
+import Production from "./pages/dashboard/Production";
+import Settings from "./pages/dashboard/Settings";
 import Accounts from "./pages/dashboard/accounts";
-import HumanResource from "./pages/dashboard/humanResource";
+import HumanResource from "./pages/dashboard/HumanResource";
 
 import UserManagement from "./pages/dashboard/UserManagement/UserManagement";
 import UserManagementSummary from "./pages/dashboard/UserManagement/UserManagementSummary";
@@ -54,7 +54,7 @@ import Login from "./pages/dashboard/Authentication/Login";
 import SignUp from "./pages/dashboard/Authentication/SignUp";
 import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
 
-import NotFound from "./pages/notFound";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

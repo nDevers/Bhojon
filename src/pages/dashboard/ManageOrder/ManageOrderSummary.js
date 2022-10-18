@@ -281,7 +281,7 @@ const ManageOrderSummary = () => {
     ];
 
     return (
-        <div className='mt-[125px]'>
+        <div>
             <div className='grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-x-6'>
                 {
                     summaryData?.map(summary => <div className='p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center'>
@@ -291,7 +291,7 @@ const ManageOrderSummary = () => {
                 }
             </div>
 
-            <div className='my-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-6'>
+            <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-6'>
                 {
                     latestSummary?.map(summary => <div className='h-96 p-4 border rounded-md scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-hidden hover:overflow-y-auto'>
                         <h4 className='text-lg font-medium pb-4 mb-4 border-b'>{summary?.title}</h4>
