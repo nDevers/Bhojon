@@ -53,7 +53,7 @@ const DashboardNavbar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-100 px-4 fixed top-0 left-0 right-0 z-50">
+    <navbar className="navbar bg-base-100 px-4">
       <div className="navbar-start">
         <div className='flex gap-x-2 items-center justify-center text-xl text-center text-gray-900 font-semibold font-mono uppercase md:hidden lg:hidden'>
           <SiFoodpanda />
@@ -75,12 +75,6 @@ const DashboardNavbar = () => {
       </div>
 
       <div className="navbar-end">
-        <ul className="menu menu-horizontal lg:flex gap-x-2 hidden">
-          {
-            navbarRight.map(navbarItems => <li key={navbarItems.link} className='bg-gray-200 rounded-md'><Link to={navbarItems.link}>{navbarItems.icon}</Link></li>)
-          }
-        </ul>
-
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <HiMenuAlt3 className='text-2xl' />
@@ -93,8 +87,14 @@ const DashboardNavbar = () => {
             }
           </ul>
         </div>
+
+        <ul className="menu menu-horizontal lg:flex gap-x-2 hidden">
+          {
+            navbarRight.map(navbarItems => <li key={navbarItems.link} className='bg-gray-200 rounded-md'><Link to={navbarItems.link}>{navbarItems.icon}</Link></li>)
+          }
+        </ul>
       </div>
-    </div>
+    </navbar>
   );
 };
 

@@ -281,7 +281,7 @@ const OrderList = () => {
     ];
 
     return (
-        <div className='border rounded-md mt-[125px]'>
+        <div className='border rounded-md'>
             <div className='flex items-center justify-end border-b pb-4 mb-4'>
                 <h2>Order list</h2>
 
