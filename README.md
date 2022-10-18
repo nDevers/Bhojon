@@ -4,7 +4,6 @@
 
 1. Landing Page
   - Login
-  - 
 
 ## Management View
 
