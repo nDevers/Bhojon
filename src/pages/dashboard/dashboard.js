@@ -134,7 +134,7 @@ const Dashboard = () => {
         <div data-theme="light">
             <div className="drawer drawer-mobile">
                 <input id="sidebar" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col">
+                <div className="drawer-content flex flex-col scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto">
                     <navbar className="navbar sticky top-0 z-50 bg-base-100 border-b">
                         <div className="navbar-start">
                             <div className="dropdown">
