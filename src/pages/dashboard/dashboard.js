@@ -2,16 +2,19 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiLineChartDown, BiCube } from 'react-icons/bi';
-import { BsTags, BsCart4 } from 'react-icons/bs';
+import { BsTags, BsCart4, BsArrowsFullscreen, BsBell } from 'react-icons/bs';
+import { CgMenuGridR, CgMenuGridO } from 'react-icons/cg';
 import { FaFirstOrder, FaUser } from 'react-icons/fa';
+import { FiSettings } from 'react-icons/fi';
+import { GiRiceCooker } from 'react-icons/gi';
 import { GoPrimitiveDot } from 'react-icons/go';
-import { HiOutlineUserGroup } from 'react-icons/hi';
+import { HiOutlineUserGroup, HiMenuAlt3 } from 'react-icons/hi';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { RiSettings5Fill } from 'react-icons/ri';
+import { RiSettings5Fill, RiListUnordered } from 'react-icons/ri';
 import { SiProducthunt, SiFoodpanda } from 'react-icons/si';
 import { SlBriefcase } from 'react-icons/sl';
+import { TbLanguage } from 'react-icons/tb';
 import DefaultUserImage from '../../assets/images/defaultUser.png';
-import DashboardNavbar from '../../components/DashboardNavbar';
 
 const Dashboard = () => {
     const sideMenus = [
@@ -90,6 +93,43 @@ const Dashboard = () => {
         }
     ];
 
+    const navbarMiddle = [
+        {
+            name: 'Order List',
+            link: '/dashboard/order-list',
+            icon: <RiListUnordered />
+        },
+        {
+            name: 'Kitchen Dashboard',
+            link: '/dashboard/kitchen-dashboard',
+            icon: <GiRiceCooker />
+        },
+        {
+            name: 'Counter Dashboard',
+            link: '/dashboard/counter-dashboard',
+            icon: <CgMenuGridR />
+        }
+    ];
+
+    const navbarRight = [
+        {
+            icon: <BsArrowsFullscreen />,
+            link: ''
+        },
+        {
+            icon: <BsBell />,
+            link: '/dashboard/notification'
+        },
+        {
+            icon: <FiSettings />,
+            link: '/dashboard/settings'
+        },
+        {
+            icon: <TbLanguage />,
+            link: '/dashboard/select-language'
+        }
+    ];
+
     return (
         <div data-theme="light">
             <div className="drawer drawer-mobile">
@@ -118,34 +158,18 @@ const Dashboard = () => {
                                     tabIndex={0}
                                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                                 >
-                                    <li>
-                                        <a>Item 1</a>
-                                    </li>
-                                    <li tabIndex={0}>
-                                        <a className="justify-between">
-                                            Parent
-                                            <svg
-                                                className="fill-current"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                            </svg>
-                                        </a>
-                                        <ul className="p-2">
-                                            <li>
-                                                <a>Submenu 1</a>
-                                            </li>
-                                            <li>
-                                                <a>Submenu 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a>Item 3</a>
-                                    </li>
+                                    {
+                                        navbarRight.map(navbarItems => <li key={navbarItems.link} className='bg-gray-200 rounded-md'><Link to={navbarItems.link}>{navbarItems.icon}</Link></li>)
+                                    }
+                                    {
+                                        navbarMiddle.map(navbarItems =>
+                                            <li key={navbarItems.link} className='border rounded-md'>
+                                                <Link to={navbarItems.link}>
+                                                    <span>{navbarItems?.icon}</span>
+                                                    {navbarItems.name}
+                                                </Link>
+                                            </li>)
+                                    }
                                 </ul>
                             </div>
                             <label
@@ -170,39 +194,27 @@ const Dashboard = () => {
                             </label>
                         </div>
                         <div className="navbar-center hidden lg:flex">
-                            <ul className="menu menu-horizontal p-0">
-                                <li>
-                                    <a>Item 1</a>
-                                </li>
-                                <li tabIndex={0}>
-                                    <a>
-                                        Parent
-                                        <svg
-                                            className="fill-current"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                        </svg>
-                                    </a>
-                                    <ul className="p-2">
-                                        <li>
-                                            <a>Submenu 1</a>
-                                        </li>
-                                        <li>
-                                            <a>Submenu 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a>Item 3</a>
-                                </li>
+                            <ul className="menu menu-horizontal p-0 gap-x-4">
+                                {
+                                    navbarMiddle.map(navbarItems =>
+                                        <li key={navbarItems.link} className='border rounded-md'>
+                                            <Link to={navbarItems.link}>
+                                                <span>{navbarItems?.icon}</span>
+                                                {navbarItems.name}
+                                            </Link>
+                                        </li>)
+                                }
                             </ul>
                         </div>
                         <div className="navbar-end">
-                            <a className="btn btn-md">Get started</a>
+                            <ul className="menu menu-horizontal p-0 gap-x-4">
+                                {
+                                    navbarRight.map(navbarItems =>
+                                        <li key={navbarItems.link} className='bg-gray-200 rounded-md'>
+                                            <Link to={navbarItems.link}>{navbarItems.icon}</Link>
+                                        </li>)
+                                }
+                            </ul>
                         </div>
                     </navbar>
 
