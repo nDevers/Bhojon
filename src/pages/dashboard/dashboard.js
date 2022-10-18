@@ -130,6 +130,8 @@ const Dashboard = () => {
     },
   ];
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div data-theme="light">
       <div className="drawer drawer-mobile">
@@ -277,10 +279,19 @@ const Dashboard = () => {
           </main>
 
           {/* footer is always bottom */}
-          <footer className="footer footer-center p-4 bg-base-300 text-base-content sticky top-[100vh]">
+          <footer className="footer footer-center py-2 bg-gray-300 text-base-content sticky top-[100vh] font-mono">
             <div>
-              <p>
-                Copyright © 2022 - All right reserved by ACME Industries Ltd
+              <p className="flex items-center">
+                Copyright <span>&copy; {currentYear}</span> - All right reserved
+                by
+                <Link to="/" className="ml-2">
+                  <span className="flex gap-x-2 items-center justify-center text-md md:text-lg lg:text-lg text-center text-black-50 font-semibold uppercase">
+                    <SiFoodpanda />
+                    <h1>
+                      <span className="text-red-500">B</span>hojon
+                    </h1>
+                  </span>
+                </Link>
               </p>
             </div>
           </footer>
