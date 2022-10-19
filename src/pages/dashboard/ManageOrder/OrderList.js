@@ -304,7 +304,7 @@ const OrderList = () => {
                 </div>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className='scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto'>
                 <table className="table table-compact w-full">
                     <thead>
                         <tr>

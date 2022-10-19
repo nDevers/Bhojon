@@ -1,14 +1,13 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiLineChartDown, BiCube } from 'react-icons/bi';
 import { BsTags, BsCart4, BsArrowsFullscreen, BsBell } from 'react-icons/bs';
-import { CgMenuGridR, CgMenuGridO } from 'react-icons/cg';
+import { CgMenuGridR } from 'react-icons/cg';
 import { FaFirstOrder, FaUser } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import { GiRiceCooker } from 'react-icons/gi';
 import { GoPrimitiveDot } from 'react-icons/go';
-import { HiOutlineUserGroup, HiMenuAlt3 } from 'react-icons/hi';
+import { HiOutlineUserGroup } from 'react-icons/hi';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { RiSettings5Fill, RiListUnordered } from 'react-icons/ri';
 import { SiProducthunt, SiFoodpanda } from 'react-icons/si';
@@ -134,10 +133,65 @@ const Dashboard = () => {
         <div data-theme="light">
             <div className="drawer drawer-mobile">
                 <input id="sidebar" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col">
+                <div className="drawer-content flex flex-col scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-x-auto">
                     <navbar className="navbar sticky top-0 z-50 bg-base-100 border-b">
+                        {/* navbar left */}
                         <div className="navbar-start">
-                            <div className="dropdown">
+                            <div className='flex lg:hidden gap-x-3 items-center justify-center text-xl md:text-2xl lg:text-2xl text-center text-black font-semibold font-mono uppercase pl-4'>
+                                <SiFoodpanda />
+                                <h1><span className='text-red-500'>B</span>hojon</h1>
+                            </div>
+
+                            <label
+                                tabIndex={0}
+                                className="btn btn-ghost hidden lg:flex"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h8m-8 6h16"
+                                    />
+                                </svg>
+                            </label>
+                        </div>
+
+                        {/* navbar middle */}
+                        <div className="navbar-center hidden lg:flex">
+                            <ul className="menu menu-horizontal gap-x-4 text-sm">
+                                {
+                                    navbarMiddle.map(navbarItems =>
+                                        <Link to={navbarItems.link} key={navbarItems.link} className='border rounded-md p-1 md:p-2 lg:p-2'>
+                                            <span className="flex items-center gap-x-2">
+                                                {navbarItems?.icon}
+                                                {navbarItems.name}
+                                            </span>
+                                        </Link>)
+                                }
+                            </ul>
+                        </div>
+
+                        {/* navbar right */}
+                        <div className="navbar-end">
+                            <ul className="menu menu-horizontal gap-x-4 hidden lg:flex">
+                                {
+                                    navbarRight.map(navbarItems =>
+                                        <Link to={navbarItems.link} key={navbarItems.link} className='bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md'>
+                                            <Link>{navbarItems.icon}</Link>
+                                        </Link>)
+                                }
+                            </ul>
+
+
+                            {/* mobile navbar */}
+                            <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -156,65 +210,39 @@ const Dashboard = () => {
                                 </label>
                                 <ul
                                     tabIndex={0}
-                                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                                    className="menu menu-compact dropdown-content mt-2 md:mt-3 lg:mt-3 shadow bg-base-100 rounded-box w-52"
                                 >
                                     {
-                                        navbarRight.map(navbarItems => <li key={navbarItems.link} className='bg-gray-200 rounded-md'><Link to={navbarItems.link}>{navbarItems.icon}</Link></li>)
+                                        sideMenus.map(sideMenu =>
+                                            <li key={sideMenu?.link}>
+                                                {
+                                                    <Link className='flex items-center justify-between' to={sideMenu?.link}>
+                                                        <span className='flex items-center justify-end'>
+                                                            <span className='mr-3'>{sideMenu?.icon}</span>{sideMenu?.name}
+                                                        </span>
+                                                        <MdKeyboardArrowLeft className='text-xl' />
+                                                    </Link>
+                                                }
+                                            </li>
+                                        )
                                     }
                                     {
                                         navbarMiddle.map(navbarItems =>
-                                            <li key={navbarItems.link} className='border rounded-md'>
-                                                <Link to={navbarItems.link}>
-                                                    <span>{navbarItems?.icon}</span>
-                                                    {navbarItems.name}
-                                                </Link>
-                                            </li>)
+                                            <li li key={navbarItems?.link}>
+                                                {
+                                                    <Link className='flex items-center justify-between' to={navbarItems?.link}>
+                                                        <span className='flex items-center justify-end gap-x-3'>
+                                                            {navbarItems?.icon}
+                                                            {navbarItems?.name}
+                                                        </span>
+                                                        <MdKeyboardArrowLeft className='text-xl' />
+                                                    </Link>
+                                                }
+                                            </li>
+                                        )
                                     }
                                 </ul>
                             </div>
-                            <label
-                                htmlFor="sidebar"
-                                tabIndex={0}
-                                className="btn btn-ghost"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M4 6h16M4 12h8m-8 6h16"
-                                    />
-                                </svg>
-                            </label>
-                        </div>
-                        <div className="navbar-center hidden lg:flex">
-                            <ul className="menu menu-horizontal p-0 gap-x-4">
-                                {
-                                    navbarMiddle.map(navbarItems =>
-                                        <li key={navbarItems.link} className='border rounded-md'>
-                                            <Link to={navbarItems.link}>
-                                                <span>{navbarItems?.icon}</span>
-                                                {navbarItems.name}
-                                            </Link>
-                                        </li>)
-                                }
-                            </ul>
-                        </div>
-                        <div className="navbar-end">
-                            <ul className="menu menu-horizontal p-0 gap-x-4">
-                                {
-                                    navbarRight.map(navbarItems =>
-                                        <li key={navbarItems.link} className='bg-gray-200 rounded-md'>
-                                            <Link to={navbarItems.link}>{navbarItems.icon}</Link>
-                                        </li>)
-                                }
-                            </ul>
                         </div>
                     </navbar>
 
@@ -342,8 +370,8 @@ const Dashboard = () => {
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

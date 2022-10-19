@@ -36,7 +36,7 @@ import ManageFood from "./pages/dashboard/FoodManagement/ManageFood";
 
 import Production from "./pages/dashboard/Production";
 import Settings from "./pages/dashboard/Settings";
-import Accounts from "./pages/dashboard/accounts";
+import Accounts from "./pages/dashboard/Accounts";
 import HumanResource from "./pages/dashboard/HumanResource";
 
 import UserManagement from "./pages/dashboard/UserManagement/UserManagement";
