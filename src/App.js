@@ -36,7 +36,7 @@ import ManageFood from "./pages/dashboard/FoodManagement/ManageFood/ManageFood";
 
 import Production from "./pages/dashboard/Production";
 import Settings from "./pages/dashboard/Settings/Settings";
-import Accounts from "./pages/dashboard/Accounts";
+import Accounts from "./pages/dashboard/Accounts/Accounts";
 import HumanResource from "./pages/dashboard/HumanResource";
 
 import UserManagement from "./pages/dashboard/UserManagement/UserManagement";
@@ -72,6 +72,9 @@ import FactoryReset from "./pages/dashboard/Settings/FactoryReset";
 import Language from "./pages/dashboard/Settings/Language";
 import PayRoleCommission from "./pages/dashboard/Settings/PayRoleCommission";
 import Currency from "./pages/dashboard/Settings/Currency";
+import AccountsBoard from "./pages/dashboard/Accounts/AccountsBoard";
+import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
+import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
 
 function App() {
   return (
@@ -150,7 +153,12 @@ function App() {
           <Route path="language" element={<Language />} />
           <Route path="pay-role-commission" element={<PayRoleCommission />} />
         </Route>
-        <Route path="accounts" element={<Accounts />} />
+        // accounts routes
+        <Route path="accounts" element={<Accounts />}>
+          <Route index element={<AccountsBoard />} />
+          <Route path="accounts-report" element={<AccountsReport />} />
+          <Route path="supplier-payment" element={<SupplierPayment />} />
+        </Route>
         <Route path="human-resource" element={<HumanResource />} />
         // user management routes
         <Route path="user-management" element={<UserManagement />}>
