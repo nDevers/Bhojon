@@ -1,14 +1,13 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiLineChartDown, BiCube } from 'react-icons/bi';
 import { BsTags, BsCart4, BsArrowsFullscreen, BsBell } from 'react-icons/bs';
-import { CgMenuGridR, CgMenuGridO } from 'react-icons/cg';
+import { CgMenuGridR } from 'react-icons/cg';
 import { FaFirstOrder, FaUser } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import { GiRiceCooker } from 'react-icons/gi';
 import { GoPrimitiveDot } from 'react-icons/go';
-import { HiOutlineUserGroup, HiMenuAlt3 } from 'react-icons/hi';
+import { HiOutlineUserGroup } from 'react-icons/hi';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { RiSettings5Fill, RiListUnordered } from 'react-icons/ri';
 import { SiProducthunt, SiFoodpanda } from 'react-icons/si';
@@ -134,7 +133,7 @@ const Dashboard = () => {
         <div data-theme="light">
             <div className="drawer drawer-mobile">
                 <input id="sidebar" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto">
+                <div className="drawer-content flex flex-col scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-x-auto">
                     <navbar className="navbar sticky top-0 z-50 bg-base-100 border-b">
                         {/* navbar left */}
                         <div className="navbar-start">
