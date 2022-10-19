@@ -31,7 +31,7 @@ import CashRegisterReport from "./pages/dashboard/Report/CashRegisterReport";
 
 import FoodManagement from "./pages/dashboard/FoodManagement/FoodManagement";
 import FoodManagementSummary from "./pages/dashboard/FoodManagement/FoodManagementSummary";
-import ManageCategory from "./pages/dashboard/FoodManagement/ManageCategory";
+import ManageCategory from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategory";
 import ManageFood from "./pages/dashboard/FoodManagement/ManageFood";
 
 import Production from "./pages/dashboard/Production";
@@ -55,6 +55,9 @@ import SignUp from "./pages/dashboard/Authentication/SignUp";
 import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
 
 import NotFound from "./pages/NotFound";
+import ManageCategorySummary from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategorySummary";
+import AddCategory from "./pages/dashboard/FoodManagement/ManageCategory/AddCategory";
+import CategoryList from "./pages/dashboard/FoodManagement/ManageCategory/CategoryList";
 
 function App() {
   return (
@@ -105,7 +108,14 @@ function App() {
         // food management routes
         <Route path="food-management" element={<FoodManagement />} >
           <Route index element={<FoodManagementSummary />} />
-          <Route path="manage-category" element={<ManageCategory />} />
+
+          // manage category routes
+          <Route path="manage-category" element={<ManageCategory />} >
+            <Route index element={<ManageCategorySummary />} />
+            <Route path="add-category" element={<AddCategory />} />
+            <Route path="category-list" element={<CategoryList />} />
+          </Route>
+
           <Route path="manage-food" element={<ManageFood />} />
         </Route>
 
