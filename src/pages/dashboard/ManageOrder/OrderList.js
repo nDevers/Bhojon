@@ -1,4 +1,6 @@
 import React from 'react';
+import { AiFillEdit, AiFillDelete, AiFillInfoCircle } from 'react-icons/ai';
+import { BiSearch } from 'react-icons/bi';
 
 const OrderList = () => {
     const summaryData = [
@@ -282,20 +284,29 @@ const OrderList = () => {
 
     return (
         <div className='border rounded-md'>
-            <div className='flex items-center justify-end border-b pb-4 mb-4'>
-                <h2>Order list</h2>
+            <div className='flex items-center justify-between border-b p-2 mb-4'>
+                <h2 className='uppercase font-semibold'>Order list</h2>
+
+                <div className="form-control">
+                    <div className="input-group">
+                        <input type="text" placeholder="Search…" className="input input-xs input-bordered" />
+                        <button className="btn btn-xs flex items-center gap-x-2 uppercase">
+                            <BiSearch /> Search
+                        </button>
+                    </div>
+                </div>
 
                 <div className='flex items-center gap-x-4'>
                     <div className="form-control">
                         <label className="input-group input-group-xs">
-                            <span>From</span>
-                            <input type="text" placeholder="Start Date" className="input input-bordered input-xs" />
+                            <span className='btn btn-xs bg-gray-700'>From</span>
+                            <input type="date" placeholder="Start Date" className="input input-bordered input-xs" />
                         </label>
                     </div>
                     <div className="form-control">
                         <label className="input-group input-group-xs">
-                            <span>To</span>
-                            <input type="text" placeholder="End Date" className="input input-bordered input-xs" />
+                            <span className='btn btn-xs bg-gray-700'>To</span>
+                            <input type="date" placeholder="End Date" className="input input-bordered input-xs" />
                         </label>
                     </div>
 
@@ -304,37 +315,63 @@ const OrderList = () => {
                 </div>
             </div>
 
-            <div className='scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto'>
-                <table className="table table-compact w-full">
-                    <thead>
+            <div className='scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto p-2'>
+                <table className="table table-zebra table-compact w-full">
+                    <thead className='text-gray-600'>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>company</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
+                            <th>SL</th>
+                            <th>Invoice No</th>
+                            <th>Customer Name</th>
+                            <th>Waiter</th>
+                            <th>Table</th>
+                            <th>State</th>
+                            <th>Order Date</th>
+                            <th>Amount</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr className="hover">
                             <th>1</th>
                             <td>Cy Ganderton</td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>Canada</td>
-                            <td>12/16/2020</td>
+                            <td>
+                                <select className="select select-error select-xs w-fullmax-w-xs">
+                                    <option selected>Pending</option>
+                                    <option>Completed</option>
+                                    <option>Canceled</option>
+                                </select>
+                            </td>
                             <td>Blue</td>
+                            <td>Blue</td>
+                            <td className='flex items-center gap-x-2'>
+                                <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
+                                <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
+                                <AiFillInfoCircle className="text-indigo-400 text-2xl border rounded-md p-1" />
+                            </td>
                         </tr>
-                        <tr>
+                        <tr className="active">
                             <th>2</th>
                             <td>Hart Hagerty</td>
                             <td>Desktop Support Technician</td>
                             <td>Zemlak, Daniel and Leannon</td>
                             <td>United States</td>
-                            <td>12/5/2020</td>
+                            <td>
+                                <select className="select select-warning select-xs w-fullmax-w-xs">
+                                    <option >Pending</option>
+                                    <option selected>Completed</option>
+                                    <option>Canceled</option>
+                                </select>
+                            </td>
                             <td>Purple</td>
+                            <td>Purple</td>
+                            <td className='flex items-center gap-x-2'>
+                                <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
+                                <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
+                                <AiFillInfoCircle className="text-indigo-400 text-2xl border rounded-md p-1" />
+                            </td>
                         </tr>
                         <tr>
                             <th>3</th>
@@ -342,8 +379,20 @@ const OrderList = () => {
                             <td>Tax Accountant</td>
                             <td>Carroll Group</td>
                             <td>China</td>
+                            <td>
+                                <select className="select select-info select-xs w-fullmax-w-xs">
+                                    <option>Pending</option>
+                                    <option>Completed</option>
+                                    <option selected>Canceled</option>
+                                </select>
+                            </td>
+                            <td>China</td>
                             <td>8/15/2020</td>
-                            <td>Red</td>
+                            <td className='flex items-center gap-x-2'>
+                                <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
+                                <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
+                                <AiFillInfoCircle className="text-indigo-400 text-2xl border rounded-md p-1" />
+                            </td>
                         </tr>
                         <tr>
                             <th>4</th>
@@ -352,7 +401,13 @@ const OrderList = () => {
                             <td>Rowe-Schoen</td>
                             <td>Russia</td>
                             <td>3/25/2021</td>
-                            <td>Crimson</td>
+                            <td>3/25/2021</td>
+                            <td>3/25/2021</td>
+                            <td className='flex items-center gap-x-2'>
+                                <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
+                                <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
+                                <AiFillInfoCircle className="text-indigo-400 text-2xl border rounded-md p-1" />
+                            </td>
                         </tr>
                         <tr>
                             <th>5</th>
@@ -499,17 +554,6 @@ const OrderList = () => {
                             <td>Red</td>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>company</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
