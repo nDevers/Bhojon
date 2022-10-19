@@ -258,7 +258,7 @@ const Dashboard = () => {
 
           <main className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-x-auto">
             <div className="m-2">
-              <Breadcrumbs />
+              {/* <Breadcrumbs /> */}
 
               <Outlet />
             </div>
