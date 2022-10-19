@@ -3,7 +3,7 @@ import { AiOutlineHome, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-ic
 
 const Pagination = () => {
     return (
-        <div className='flex items-center justify-between px-2 mt-2'>
+        <div className='flex items-center justify-between mx-3 my-2'>
             <h5 className='text-sm'>
                 Showing
                 <span className='text-ms font-bold'> 1 </span>

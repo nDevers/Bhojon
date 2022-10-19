@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
+import Pagination from '../../../../components/Pagination';
 
 const CategoryList = () => {
     const summaryData = [
@@ -491,6 +492,8 @@ const CategoryList = () => {
                     </tbody>
                 </table>
             </div>
+
+            <Pagination />
         </div>
     );
 };
