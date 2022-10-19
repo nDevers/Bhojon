@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import Home from './pages/home/Home';
-import Dashboard from './pages/dashboard/Dashboard';
+import Home from "./pages/home/Home";
+import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
 
 import ManageOrder from "./pages/dashboard/ManageOrder/ManageOrder";
@@ -32,7 +32,7 @@ import CashRegisterReport from "./pages/dashboard/Report/CashRegisterReport";
 import FoodManagement from "./pages/dashboard/FoodManagement/FoodManagement";
 import FoodManagementSummary from "./pages/dashboard/FoodManagement/FoodManagementSummary";
 import ManageCategory from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategory";
-import ManageFood from "./pages/dashboard/FoodManagement/ManageFood";
+import ManageFood from "./pages/dashboard/FoodManagement/ManageFood/ManageFood";
 
 import Production from "./pages/dashboard/Production";
 import Settings from "./pages/dashboard/Settings";
@@ -58,6 +58,13 @@ import NotFound from "./pages/NotFound";
 import ManageCategorySummary from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategorySummary";
 import AddCategory from "./pages/dashboard/FoodManagement/ManageCategory/AddCategory";
 import CategoryList from "./pages/dashboard/FoodManagement/ManageCategory/CategoryList";
+import ManageFoodSummary from "./pages/dashboard/FoodManagement/ManageFood/ManageFoodSummary";
+import AddFood from "./pages/dashboard/FoodManagement/ManageFood/AddFood";
+import FoodList from "./pages/dashboard/FoodManagement/ManageFood/FoodList";
+import FoodAvailability from "./pages/dashboard/FoodManagement/ManageFood/FoodAvailability";
+import FoodGroup from "./pages/dashboard/FoodManagement/ManageFood/FoodGroup";
+import FoodVariant from "./pages/dashboard/FoodManagement/ManageFood/FoodVariant";
+import MenuType from "./pages/dashboard/FoodManagement/ManageFood/MenuType";
 
 function App() {
   return (
@@ -66,88 +73,87 @@ function App() {
       <Route index element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
-
       // dashboard routes
       <Route path="dashboard" element={<Dashboard />}>
         <Route index element={<DashboardSummary />} />
-
         // orders routes
-        <Route path="manage-order" element={<ManageOrder />} >
+        <Route path="manage-order" element={<ManageOrder />}>
           <Route index element={<ManageOrderSummary />} />
           <Route path="order-list" element={<OrderList />} />
           <Route path="pending-order" element={<PendingOrder />} />
           <Route path="complete-order" element={<CompleteOrder />} />
           <Route path="cancel-order" element={<CancelOrder />} />
         </Route>
-
         // reservation routes
-        <Route path="reservation" element={<Reservation />} >
+        <Route path="reservation" element={<Reservation />}>
           <Route index element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
-          <Route path="reservation-settings" element={<ReservationSettings />} />
+          <Route
+            path="reservation-settings"
+            element={<ReservationSettings />}
+          />
         </Route>
-
         // purchase management routes
-        <Route path="purchase-manage" element={<PurchaseManage />} >
+        <Route path="purchase-manage" element={<PurchaseManage />}>
           <Route index element={<PurchaseManageSummary />} />
           <Route path="purchase-item" element={<PurchaseItem />} />
           <Route path="add-purchase" element={<AddPurchase />} />
           <Route path="purchase-return" element={<PurchaseReturn />} />
         </Route>
-
         // report routes
-        <Route path="report" element={<Report />} >
+        <Route path="report" element={<Report />}>
           <Route index element={<ReportSummary />} />
           <Route path="purchase-report" element={<PurchaseReport />} />
           <Route path="stock-report" element={<StockReport />} />
           <Route path="sell-report" element={<SellReport />} />
           <Route path="cash-register-report" element={<CashRegisterReport />} />
         </Route>
-
         // food management routes
-        <Route path="food-management" element={<FoodManagement />} >
+        <Route path="food-management" element={<FoodManagement />}>
           <Route index element={<FoodManagementSummary />} />
-
           // manage category routes
-          <Route path="manage-category" element={<ManageCategory />} >
+          <Route path="manage-category" element={<ManageCategory />}>
             <Route index element={<ManageCategorySummary />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="category-list" element={<CategoryList />} />
           </Route>
-
-          <Route path="manage-food" element={<ManageFood />} />
+          // manage food routes
+          <Route path="manage-food" element={<ManageFood />}>
+            <Route index element={<ManageFoodSummary />} />
+            <Route path="add-food" element={<AddFood />} />
+            <Route path="food-availability" element={<FoodAvailability />} />
+            <Route path="food-group" element={<FoodGroup />} />
+            <Route path="food-list" element={<FoodList />} />
+            <Route path="food-variant" element={<FoodVariant />} />
+            <Route path="menu-type" element={<MenuType />} />
+          </Route>
         </Route>
-
         <Route path="production" element={<Production />} />
         <Route path="settings" element={<Settings />} />
         <Route path="accounts" element={<Accounts />} />
         <Route path="human-resource" element={<HumanResource />} />
-
         // user management routes
-        <Route path="user-management" element={<UserManagement />} >
+        <Route path="user-management" element={<UserManagement />}>
           <Route index element={<UserManagementSummary />} />
           <Route path="add-user" element={<AddUser />} />
           <Route path="user-list" element={<UserList />} />
         </Route>
       </Route>
-
       // user routes
-      <Route path="user" element={<User />} >
+      <Route path="user" element={<User />}>
         <Route index element={<UserSummary />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<UserSettings />} />
       </Route>
-
       // authentication routes
-      <Route path="authentication" element={<Authentication />} >
+      <Route path="authentication" element={<Authentication />}>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="reset-password" element={<ResetPassword />} />
       </Route>
-
       <Route path="*" element={<NotFound />} />
-    </Routes >
+    </Routes>
   );
 }
 
