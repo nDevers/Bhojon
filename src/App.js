@@ -35,7 +35,7 @@ import ManageCategory from "./pages/dashboard/FoodManagement/ManageCategory/Mana
 import ManageFood from "./pages/dashboard/FoodManagement/ManageFood/ManageFood";
 
 import Production from "./pages/dashboard/Production";
-import Settings from "./pages/dashboard/Settings";
+import Settings from "./pages/dashboard/Settings/Settings";
 import Accounts from "./pages/dashboard/Accounts";
 import HumanResource from "./pages/dashboard/HumanResource";
 
@@ -65,6 +65,13 @@ import FoodAvailability from "./pages/dashboard/FoodManagement/ManageFood/FoodAv
 import FoodGroup from "./pages/dashboard/FoodManagement/ManageFood/FoodGroup";
 import FoodVariant from "./pages/dashboard/FoodManagement/ManageFood/FoodVariant";
 import MenuType from "./pages/dashboard/FoodManagement/ManageFood/MenuType";
+import SettingsBoard from "./pages/dashboard/Settings/SettingsBoard";
+import ApplicationSettings from "./pages/dashboard/Settings/ApplicationSettings";
+import Country from "./pages/dashboard/Settings/Country";
+import FactoryReset from "./pages/dashboard/Settings/FactoryReset";
+import Language from "./pages/dashboard/Settings/Language";
+import PayRoleCommission from "./pages/dashboard/Settings/PayRoleCommission";
+import Currency from "./pages/dashboard/Settings/Currency";
 
 function App() {
   return (
@@ -130,7 +137,19 @@ function App() {
           </Route>
         </Route>
         <Route path="production" element={<Production />} />
-        <Route path="settings" element={<Settings />} />
+        // settings routes
+        <Route path="settings" element={<Settings />}>
+          <Route index element={<SettingsBoard />} />
+          <Route
+            path="application-settings"
+            element={<ApplicationSettings />}
+          />
+          <Route path="country" element={<Country />} />
+          <Route path="currency" element={<Currency />} />
+          <Route path="factory-reset" element={<FactoryReset />} />
+          <Route path="language" element={<Language />} />
+          <Route path="pay-role-commission" element={<PayRoleCommission />} />
+        </Route>
         <Route path="accounts" element={<Accounts />} />
         <Route path="human-resource" element={<HumanResource />} />
         // user management routes
