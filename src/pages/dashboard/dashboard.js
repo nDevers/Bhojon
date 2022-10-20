@@ -159,8 +159,8 @@ const Dashboard = () => {
               icon: <BiCube />,
             },
             {
-              name: "Food Group",
-              link: "/dashboard/food-management/manage-food/food-group",
+              name: "Add Food Group",
+              link: "/dashboard/food-management/manage-food/add-food-group",
               icon: <BiCube />,
             },
             {

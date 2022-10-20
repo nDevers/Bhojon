@@ -41,7 +41,7 @@ import ManageFoodSummary from "./pages/dashboard/FoodManagement/ManageFood/Manag
 import AddFood from "./pages/dashboard/FoodManagement/ManageFood/AddFood";
 import FoodList from "./pages/dashboard/FoodManagement/ManageFood/FoodList";
 import FoodAvailability from "./pages/dashboard/FoodManagement/ManageFood/FoodAvailability";
-import FoodGroup from "./pages/dashboard/FoodManagement/ManageFood/FoodGroup";
+import AddFoodGroup from "./pages/dashboard/FoodManagement/ManageFood/AddFoodGroup";
 import FoodVariant from "./pages/dashboard/FoodManagement/ManageFood/FoodVariant";
 import MenuType from "./pages/dashboard/FoodManagement/ManageFood/MenuType";
 
@@ -138,7 +138,7 @@ function App() {
             <Route index element={<ManageFoodSummary />} />
             <Route path="add-food" element={<AddFood />} />
             <Route path="food-availability" element={<FoodAvailability />} />
-            <Route path="food-group" element={<FoodGroup />} />
+            <Route path="add-food-group" element={<AddFoodGroup />} />
             <Route path="food-list" element={<FoodList />} />
             <Route path="food-variant" element={<FoodVariant />} />
             <Route path="menu-type" element={<MenuType />} />
