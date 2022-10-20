@@ -14,7 +14,6 @@ import { SiProducthunt, SiFoodpanda } from "react-icons/si";
 import { SlBriefcase } from "react-icons/sl";
 import { TbLanguage } from "react-icons/tb";
 import DefaultUserImage from "../../assets/images/defaultUser.png";
-import Pagination from "../../components/Pagination";
 import Breadcrumbs from "../../components/Breadcrumbs";
 
 const Dashboard = () => {
@@ -262,8 +261,6 @@ const Dashboard = () => {
               <Breadcrumbs />
 
               <Outlet />
-
-              <Pagination />
             </div>
           </main>
 

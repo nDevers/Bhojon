@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillEdit, AiFillDelete, AiFillInfoCircle } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
+import Pagination from '../../../components/Pagination';
 
 const OrderList = () => {
     const summaryData = [
@@ -556,6 +557,8 @@ const OrderList = () => {
                     </tbody>
                 </table>
             </div>
+
+            <Pagination />
         </div>
     );
 };
