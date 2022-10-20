@@ -80,6 +80,7 @@ import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
 
 import NotFound from "./pages/NotFound";
 import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
   return (
@@ -87,11 +88,9 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route index element={<Home />} />
       <Route path="/home" element={<Home />} />
-
       // dashboard routes
       <Route path="dashboard" element={<Dashboard />}>
         <Route index element={<DashboardSummary />} />
-
         // orders routes
         <Route path="manage-order" element={<ManageOrder />}>
           <Route index element={<ManageOrderSummary />} />
@@ -100,15 +99,16 @@ function App() {
           <Route path="complete-order" element={<CompleteOrder />} />
           <Route path="cancel-order" element={<CancelOrder />} />
         </Route>
-
         // reservation routes
         <Route path="reservation" element={<Reservation />}>
           <Route index element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
-          <Route path="reservation-settings" element={<ReservationSettings />} />
+          <Route
+            path="reservation-settings"
+            element={<ReservationSettings />}
+          />
         </Route>
-
         // purchase management routes
         <Route path="purchase-manage" element={<PurchaseManage />}>
           <Route index element={<PurchaseManageSummary />} />
@@ -116,7 +116,6 @@ function App() {
           <Route path="add-purchase" element={<AddPurchase />} />
           <Route path="purchase-return" element={<PurchaseReturn />} />
         </Route>
-
         // report routes
         <Route path="report" element={<Report />}>
           <Route index element={<ReportSummary />} />
@@ -125,18 +124,15 @@ function App() {
           <Route path="sell-report" element={<SellReport />} />
           <Route path="cash-register-report" element={<CashRegisterReport />} />
         </Route>
-
         // food management routes
         <Route path="food-management" element={<FoodManagement />}>
           <Route index element={<FoodManagementSummary />} />
-
           // manage category routes
           <Route path="manage-category" element={<ManageCategory />}>
             <Route index element={<ManageCategorySummary />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="category-list" element={<CategoryList />} />
           </Route>
-
           // manage food routes
           <Route path="manage-food" element={<ManageFood />}>
             <Route index element={<ManageFoodSummary />} />
@@ -148,29 +144,27 @@ function App() {
             <Route path="menu-type" element={<MenuType />} />
           </Route>
         </Route>
-
         <Route path="production" element={<Production />} />
-
         // settings routes
         <Route path="settings" element={<Settings />}>
           <Route index element={<SettingsBoard />} />
-          <Route path="application-settings" element={<ApplicationSettings />} />
+          <Route
+            path="application-settings"
+            element={<ApplicationSettings />}
+          />
           <Route path="country" element={<Country />} />
           <Route path="currency" element={<Currency />} />
           <Route path="factory-reset" element={<FactoryReset />} />
           <Route path="language" element={<Language />} />
           <Route path="pay-role-commission" element={<PayRoleCommission />} />
         </Route>
-
         // accounts routes
         <Route path="accounts" element={<Accounts />}>
           <Route index element={<AccountsBoard />} />
           <Route path="accounts-report" element={<AccountsReport />} />
           <Route path="supplier-payment" element={<SupplierPayment />} />
         </Route>
-
         <Route path="human-resource" element={<HumanResource />} />
-
         // user management routes
         <Route path="user-management" element={<UserManagement />}>
           <Route index element={<UserManagementSummary />} />
@@ -178,14 +172,12 @@ function App() {
           <Route path="user-list" element={<UserList />} />
         </Route>
       </Route>
-
       // user routes
       <Route path="user" element={<User />}>
         <Route index element={<UserSummary />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<UserSettings />} />
       </Route>
-
       // authentication routes
       <Route path="authentication" element={<Authentication />}>
         <Route path="login" element={<Login />} />
@@ -193,7 +185,7 @@ function App() {
         <Route path="reset-password" element={<ResetPassword />} />
         <Route path="verify-email" element={<VerifyEmail />} />
       </Route>
-
+      <Route path="/loading" element={<LoadingSpinner />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
