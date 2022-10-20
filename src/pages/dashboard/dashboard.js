@@ -97,6 +97,11 @@ const Dashboard = () => {
           link: "/dashboard/purchase-manage/return-invoice",
           icon: <BsCart4 />,
         },
+        {
+          name: "Supplier Manage",
+          link: "/dashboard/purchase-manage/supplier-manage",
+          icon: <BsCart4 />,
+        },
       ],
     },
     {
