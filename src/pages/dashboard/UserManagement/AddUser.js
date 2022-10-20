@@ -1,18 +1,21 @@
 import React from "react";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import Button from "../../../components/Button";
 import FileInput from "../../../components/FileInput";
 import Input from "../../../components/Input";
 import Select from "../../../components/Select";
+import Toggle from "../../../components/Toggle";
 
 const AddUser = () => {
   return (
     <div>
-      <h3 className="my-6 md:my-8 lg:my-10 pl-2">
-        This section is use Only for Store Management.
-      </h3>
+      <div className="m-2">
+        < Breadcrumbs />
+      </div >
       <div className="border rounded-md">
-        <h3 className="uppercase font-semibold p-2 md:p-3 lg:p-3">Add User</h3>
+        <h3 className="uppercase font-semibold p-2">Add User</h3>
         <div className="border-t">
-          <div className="flex flex-col gap-5 items-center justify-center m-4 md:m-6 lg:m-10">
+          <div className="flex flex-col gap-5 items-center justify-center m-2 md:m-6 lg:m-10">
             <Input
               inputTitle="First Name"
               inputType="text"
@@ -53,10 +56,17 @@ const AddUser = () => {
               selectTitle="Customer Type"
               selectOptions={["Active", "Inactive"]}
             />
+            <Toggle toggleTitle='Hide User' />
+            <div className="grid w-full md:w-3/6 lg:w-3/6">
+              <div className="flex justify-end gap-x-2">
+                <Button customClass='btn btn-sm btn-error text-xs text-white' buttonTitle='Reset' />
+                <Button buttonTitle='Save' />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

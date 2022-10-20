@@ -14,7 +14,7 @@ import { SiProducthunt, SiFoodpanda } from "react-icons/si";
 import { SlBriefcase } from "react-icons/sl";
 import { TbLanguage } from "react-icons/tb";
 import DefaultUserImage from "../../assets/images/defaultUser.png";
-import Breadcrumbs from "../../components/Breadcrumbs";
+import Logo from "../../components/Logo";
 
 const Dashboard = () => {
   const sideMenus = [
@@ -356,12 +356,7 @@ const Dashboard = () => {
           <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
             {/* navbar left */}
             <div className="navbar-start">
-              <div className="flex lg:hidden gap-x-3 items-center justify-center text-xl md:text-2xl lg:text-2xl text-center text-black font-semibold font-mono uppercase pl-4">
-                <SiFoodpanda />
-                <h1>
-                  <span className="text-red-500">B</span>hojon
-                </h1>
-              </div>
+              <Logo />
 
               <label tabIndex={0} className="btn btn-ghost hidden lg:flex">
                 <svg
@@ -472,42 +467,28 @@ const Dashboard = () => {
             </div>
           </header>
 
-          <main className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-x-auto">
+          <main>
             <div className="m-2">
-              {/* <Breadcrumbs /> */}
-
               <Outlet />
             </div>
           </main>
 
           {/* footer is always bottom */}
-          <footer className="footer footer-center py-2 bg-gray-300 text-base-content sticky top-[100vh] font-mono">
-            <div>
-              <p className="flex items-center">
-                Copyright <span>&copy; {currentYear}</span> - All right reserved
-                by
-                <Link to="/" className="ml-2">
-                  <span className="flex gap-x-2 items-center justify-center text-md md:text-lg lg:text-lg text-center text-black-50 font-semibold uppercase">
-                    <SiFoodpanda />
-                    <h1>
-                      <span className="text-red-500">B</span>hojon
-                    </h1>
-                  </span>
-                </Link>
-              </p>
-            </div>
+          <footer className="footer footer-center p-4 md:p-3 lg:p-3 mt-10 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono">
+            <p className="flex items-center">
+              Copyright <span>&copy; {currentYear}</span> - All right reserved
+              by
+              <Link to="/" className="ml-2">
+                <Logo customClass='flex gap-x-2 items-center justify-center text-md md:text-lg lg:text-lg text-center text-black-50 font-semibold uppercase' />
+              </Link>
+            </p>
           </footer>
         </div>
 
         <div className="drawer-side bg-base-100 text-gray-50">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="bg-[#2c3136]">
-            <div className="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b">
-              <SiFoodpanda />
-              <h1>
-                <span className="text-red-500">B</span>hojon
-              </h1>
-            </div>
+            <Logo customClass='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b' />
 
             <div className="flex flex-col items-center justify-center mb-4">
               <div className="w-20 p-2 m-4 border rounded-full">
