@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { BsFillSave2Fill } from "react-icons/bs";
 import Pagination from "../../../components/Pagination";
