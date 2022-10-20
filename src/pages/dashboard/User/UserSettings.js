@@ -12,7 +12,7 @@ const UserSettings = () => {
                 < Breadcrumbs />
             </div >
             <div className="border rounded-md">
-                <h3 className="uppercase font-semibold p-2">User Settings</h3>
+                <h3 className="uppercase font-semibold p-2">Settings</h3>
                 <div className="border-t">
                     <div className="flex flex-col gap-5 items-center justify-center m-2 md:m-6 lg:m-10">
                         <Input
@@ -39,7 +39,6 @@ const UserSettings = () => {
                         <Toggle toggleTitle='Delete Account' />
                         <div className="grid w-full md:w-3/6 lg:w-3/6">
                             <div className="flex justify-end gap-x-2">
-                                <Button customClass='btn btn-sm btn-error text-xs text-white' buttonTitle='Reset' />
                                 <Button buttonTitle='Save' />
                             </div>
                         </div>
