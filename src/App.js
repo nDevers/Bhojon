@@ -84,6 +84,7 @@ import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
 import NotFound from "./pages/NotFound";
 import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
 import LoadingSpinner from "./components/LoadingSpinner";
+import StockOutIngredients from "./pages/dashboard/PurchaseManage/StockOutIngredients";
 
 function App() {
   return (
@@ -121,6 +122,7 @@ function App() {
           <Route path="return-invoice" element={<ReturnInvoice />} />
           <Route path="supplier-manage" element={<SupplierManage />} />
           <Route path="supplier-ledger" element={<SupplierLedger />} />
+          <Route path="stock-out-ingredients" element={<StockOutIngredients />} />
         </Route>
         // report routes
         <Route path="report" element={<Report />}>

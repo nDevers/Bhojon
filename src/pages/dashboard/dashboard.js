@@ -107,6 +107,11 @@ const Dashboard = () => {
           link: "/dashboard/purchase-manage/supplier-ledger",
           icon: <BsCart4 />,
         },
+        {
+          name: "Stock Out Ingredients",
+          link: "/dashboard/purchase-manage/stock-out-ingredients",
+          icon: <BsCart4 />,
+        },
       ],
     },
     {
