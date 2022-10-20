@@ -23,6 +23,15 @@ const SettingsBoard = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 items-center w-3/6">
+          <h3>Website Favicon</h3>
+          <div className="flex items-center gap-x-4">
+            <input type="file" id="myfile" name="myfile" />
+            <button className="p-1 text-cyan-400 border-0">
+              <AiFillInfoCircle />
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 items-center w-3/6">
           <h3>Address</h3>
           <input
             type="text"
