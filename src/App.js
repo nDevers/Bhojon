@@ -32,11 +32,35 @@ import CashRegisterReport from "./pages/dashboard/Report/CashRegisterReport";
 import FoodManagement from "./pages/dashboard/FoodManagement/FoodManagement";
 import FoodManagementSummary from "./pages/dashboard/FoodManagement/FoodManagementSummary";
 import ManageCategory from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategory";
+import ManageCategorySummary from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategorySummary";
+import AddCategory from "./pages/dashboard/FoodManagement/ManageCategory/AddCategory";
+import CategoryList from "./pages/dashboard/FoodManagement/ManageCategory/CategoryList";
+
 import ManageFood from "./pages/dashboard/FoodManagement/ManageFood/ManageFood";
+import ManageFoodSummary from "./pages/dashboard/FoodManagement/ManageFood/ManageFoodSummary";
+import AddFood from "./pages/dashboard/FoodManagement/ManageFood/AddFood";
+import FoodList from "./pages/dashboard/FoodManagement/ManageFood/FoodList";
+import FoodAvailability from "./pages/dashboard/FoodManagement/ManageFood/FoodAvailability";
+import FoodGroup from "./pages/dashboard/FoodManagement/ManageFood/FoodGroup";
+import FoodVariant from "./pages/dashboard/FoodManagement/ManageFood/FoodVariant";
+import MenuType from "./pages/dashboard/FoodManagement/ManageFood/MenuType";
 
 import Production from "./pages/dashboard/Production";
+
 import Settings from "./pages/dashboard/Settings/Settings";
+import SettingsBoard from "./pages/dashboard/Settings/SettingsBoard";
+import ApplicationSettings from "./pages/dashboard/Settings/ApplicationSettings";
+import Country from "./pages/dashboard/Settings/Country";
+import FactoryReset from "./pages/dashboard/Settings/FactoryReset";
+import Language from "./pages/dashboard/Settings/Language";
+import PayRoleCommission from "./pages/dashboard/Settings/PayRoleCommission";
+import Currency from "./pages/dashboard/Settings/Currency";
+
 import Accounts from "./pages/dashboard/Accounts/Accounts";
+import AccountsBoard from "./pages/dashboard/Accounts/AccountsBoard";
+import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
+import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
+
 import HumanResource from "./pages/dashboard/HumanResource";
 
 import UserManagement from "./pages/dashboard/UserManagement/UserManagement";
@@ -55,26 +79,7 @@ import SignUp from "./pages/dashboard/Authentication/SignUp";
 import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
 
 import NotFound from "./pages/NotFound";
-import ManageCategorySummary from "./pages/dashboard/FoodManagement/ManageCategory/ManageCategorySummary";
-import AddCategory from "./pages/dashboard/FoodManagement/ManageCategory/AddCategory";
-import CategoryList from "./pages/dashboard/FoodManagement/ManageCategory/CategoryList";
-import ManageFoodSummary from "./pages/dashboard/FoodManagement/ManageFood/ManageFoodSummary";
-import AddFood from "./pages/dashboard/FoodManagement/ManageFood/AddFood";
-import FoodList from "./pages/dashboard/FoodManagement/ManageFood/FoodList";
-import FoodAvailability from "./pages/dashboard/FoodManagement/ManageFood/FoodAvailability";
-import FoodGroup from "./pages/dashboard/FoodManagement/ManageFood/FoodGroup";
-import FoodVariant from "./pages/dashboard/FoodManagement/ManageFood/FoodVariant";
-import MenuType from "./pages/dashboard/FoodManagement/ManageFood/MenuType";
-import SettingsBoard from "./pages/dashboard/Settings/SettingsBoard";
-import ApplicationSettings from "./pages/dashboard/Settings/ApplicationSettings";
-import Country from "./pages/dashboard/Settings/Country";
-import FactoryReset from "./pages/dashboard/Settings/FactoryReset";
-import Language from "./pages/dashboard/Settings/Language";
-import PayRoleCommission from "./pages/dashboard/Settings/PayRoleCommission";
-import Currency from "./pages/dashboard/Settings/Currency";
-import AccountsBoard from "./pages/dashboard/Accounts/AccountsBoard";
-import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
-import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
+import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
 
 function App() {
   return (
@@ -82,10 +87,11 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route index element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+
       // dashboard routes
       <Route path="dashboard" element={<Dashboard />}>
         <Route index element={<DashboardSummary />} />
+
         // orders routes
         <Route path="manage-order" element={<ManageOrder />}>
           <Route index element={<ManageOrderSummary />} />
@@ -94,16 +100,15 @@ function App() {
           <Route path="complete-order" element={<CompleteOrder />} />
           <Route path="cancel-order" element={<CancelOrder />} />
         </Route>
+
         // reservation routes
         <Route path="reservation" element={<Reservation />}>
           <Route index element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
-          <Route
-            path="reservation-settings"
-            element={<ReservationSettings />}
-          />
+          <Route path="reservation-settings" element={<ReservationSettings />} />
         </Route>
+
         // purchase management routes
         <Route path="purchase-manage" element={<PurchaseManage />}>
           <Route index element={<PurchaseManageSummary />} />
@@ -111,6 +116,7 @@ function App() {
           <Route path="add-purchase" element={<AddPurchase />} />
           <Route path="purchase-return" element={<PurchaseReturn />} />
         </Route>
+
         // report routes
         <Route path="report" element={<Report />}>
           <Route index element={<ReportSummary />} />
@@ -119,15 +125,18 @@ function App() {
           <Route path="sell-report" element={<SellReport />} />
           <Route path="cash-register-report" element={<CashRegisterReport />} />
         </Route>
+
         // food management routes
         <Route path="food-management" element={<FoodManagement />}>
           <Route index element={<FoodManagementSummary />} />
+
           // manage category routes
           <Route path="manage-category" element={<ManageCategory />}>
             <Route index element={<ManageCategorySummary />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="category-list" element={<CategoryList />} />
           </Route>
+
           // manage food routes
           <Route path="manage-food" element={<ManageFood />}>
             <Route index element={<ManageFoodSummary />} />
@@ -139,27 +148,29 @@ function App() {
             <Route path="menu-type" element={<MenuType />} />
           </Route>
         </Route>
+
         <Route path="production" element={<Production />} />
+
         // settings routes
         <Route path="settings" element={<Settings />}>
           <Route index element={<SettingsBoard />} />
-          <Route
-            path="application-settings"
-            element={<ApplicationSettings />}
-          />
+          <Route path="application-settings" element={<ApplicationSettings />} />
           <Route path="country" element={<Country />} />
           <Route path="currency" element={<Currency />} />
           <Route path="factory-reset" element={<FactoryReset />} />
           <Route path="language" element={<Language />} />
           <Route path="pay-role-commission" element={<PayRoleCommission />} />
         </Route>
+
         // accounts routes
         <Route path="accounts" element={<Accounts />}>
           <Route index element={<AccountsBoard />} />
           <Route path="accounts-report" element={<AccountsReport />} />
           <Route path="supplier-payment" element={<SupplierPayment />} />
         </Route>
+
         <Route path="human-resource" element={<HumanResource />} />
+
         // user management routes
         <Route path="user-management" element={<UserManagement />}>
           <Route index element={<UserManagementSummary />} />
@@ -167,18 +178,22 @@ function App() {
           <Route path="user-list" element={<UserList />} />
         </Route>
       </Route>
+
       // user routes
       <Route path="user" element={<User />}>
         <Route index element={<UserSummary />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<UserSettings />} />
       </Route>
+
       // authentication routes
       <Route path="authentication" element={<Authentication />}>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="reset-password" element={<ResetPassword />} />
+        <Route path="verify-email" element={<VerifyEmail />} />
       </Route>
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
