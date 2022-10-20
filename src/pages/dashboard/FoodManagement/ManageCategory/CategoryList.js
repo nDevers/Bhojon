@@ -331,7 +331,13 @@ const CategoryList = () => {
                     <tbody>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -347,7 +353,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -363,7 +375,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -379,7 +397,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -395,7 +419,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -411,7 +441,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -427,7 +463,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -443,7 +485,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -459,7 +507,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
@@ -475,7 +529,13 @@ const CategoryList = () => {
                         </tr>
                         <tr className="hover">
                             <th>1</th>
-                            <td>Cy Ganderton</td>
+                            <td>
+                                <span className="avatar">
+                                    <span className="mask mask-squircle w-12 h-12">
+                                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                    </span>
+                                </span>
+                            </td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
                             <td>
