@@ -281,42 +281,30 @@ const FoodList = () => {
   ];
 
   return (
-    <div className="border rounded-md">
-      <div className="flex items-center justify-between border-b p-2 mb-4">
-        <h2 className="uppercase font-semibold">Food list</h2>
+    <div className='border rounded-md'>
+      <div className='flex items-center justify-between border-b p-2 mb-4'>
+        <h2 className='uppercase font-semibold'>Food list</h2>
 
         <div className="form-control">
           <div className="input-group">
-            <input
-              type="text"
-              placeholder="Search…"
-              className="input input-xs input-bordered"
-            />
+            <input type="text" placeholder="Search…" className="input input-xs input-bordered" />
             <button className="btn btn-xs flex items-center gap-x-2 uppercase">
               <BiSearch /> Search
             </button>
           </div>
         </div>
 
-        <div className="flex items-center gap-x-4">
+        <div className='flex items-center gap-x-4'>
           <div className="form-control">
             <label className="input-group input-group-xs">
-              <span className="btn btn-xs bg-gray-700">From</span>
-              <input
-                type="date"
-                placeholder="Start Date"
-                className="input input-bordered input-xs"
-              />
+              <span className='btn btn-xs bg-gray-700'>From</span>
+              <input type="date" placeholder="Start Date" className="input input-bordered input-xs" />
             </label>
           </div>
           <div className="form-control">
             <label className="input-group input-group-xs">
-              <span className="btn btn-xs bg-gray-700">To</span>
-              <input
-                type="date"
-                placeholder="End Date"
-                className="input input-bordered input-xs"
-              />
+              <span className='btn btn-xs bg-gray-700'>To</span>
+              <input type="date" placeholder="End Date" className="input input-bordered input-xs" />
             </label>
           </div>
 
@@ -325,14 +313,16 @@ const FoodList = () => {
         </div>
       </div>
 
-      <div className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto p-2">
+      <div className='scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto p-2'>
         <table className="table table-zebra table-compact w-full">
-          <thead className="text-gray-600">
+          <thead className='text-gray-600'>
             <tr>
               <th>SL</th>
               <th>Image</th>
               <th>Category Name</th>
-              <th>Parent Menu</th>
+              <th>Food Name</th>
+              <th>Component</th>
+              <th>Vat</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -340,8 +330,16 @@ const FoodList = () => {
           <tbody>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -349,15 +347,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -365,15 +371,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -381,15 +395,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -397,15 +419,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -413,15 +443,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -429,15 +467,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -445,15 +491,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -461,15 +515,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -477,15 +539,23 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                  </span>
+                </span>
+              </td>
               <td>Quality Control Specialist</td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -493,7 +563,7 @@ const FoodList = () => {
                   <option>Inactive</option>
                 </select>
               </td>
-              <td className="flex items-center gap-x-2">
+              <td className='flex items-center gap-x-2'>
                 <AiFillEdit className="text-cyan-400 text-2xl border rounded-md p-1" />
                 <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
               </td>
