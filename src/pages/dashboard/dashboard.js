@@ -137,7 +137,7 @@ const Dashboard = () => {
       <div className="drawer drawer-mobile">
         <input id="sidebar" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <navbar className="navbar sticky top-0 z-50 bg-base-100 border-b">
+          <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
             {/* navbar left */}
             <div className="navbar-start">
               <div className="flex lg:hidden gap-x-3 items-center justify-center text-xl md:text-2xl lg:text-2xl text-center text-black font-semibold font-mono uppercase pl-4">
@@ -254,7 +254,7 @@ const Dashboard = () => {
                 </ul>
               </div>
             </div>
-          </navbar>
+          </header>
 
           <main className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-x-auto">
             <div className="m-2">
