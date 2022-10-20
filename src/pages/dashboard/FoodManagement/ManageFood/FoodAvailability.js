@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
+import Pagination from "../../../../components/Pagination";
 
 const FoodAvailability = () => {
   const summaryData = [
@@ -330,8 +331,9 @@ const FoodAvailability = () => {
             <tr>
               <th>SL</th>
               <th>Image</th>
-              <th>Category Name</th>
-              <th>Parent Menu</th>
+              <th>Food Name</th>
+              <th>Available Day</th>
+              <th>Available Time</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -339,8 +341,18 @@ const FoodAvailability = () => {
           <tbody>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -355,8 +367,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -371,8 +393,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -387,8 +419,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -403,8 +445,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -419,8 +471,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -435,8 +497,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -451,8 +523,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -467,8 +549,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -483,8 +575,18 @@ const FoodAvailability = () => {
             </tr>
             <tr className="hover">
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
+              <td>
+                <span className="avatar">
+                  <span className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </span>
+                </span>
+              </td>
+              <td>Littel, Schaden and Vandervort</td>
+              <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
                 <select className="select select-error select-xs w-fullmax-w-xs">
@@ -500,6 +602,7 @@ const FoodAvailability = () => {
           </tbody>
         </table>
       </div>
+      <Pagination />
     </div>
   );
 };
