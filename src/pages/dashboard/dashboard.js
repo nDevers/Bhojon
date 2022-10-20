@@ -31,18 +31,22 @@ const Dashboard = () => {
         {
           name: "Order List",
           link: "/dashboard/manage-order/order-list",
+          icon: <FaFirstOrder />,
         },
         {
           name: "Pending Order",
           link: "/dashboard/manage-order/pending-order",
+          icon: <FaFirstOrder />,
         },
         {
           name: "Complete Order",
           link: "/dashboard/manage-order/complete-order",
+          icon: <FaFirstOrder />,
         },
         {
           name: "Cancel Order",
           link: "/dashboard/manage-order/cancel-order",
+          icon: <FaFirstOrder />,
         },
       ],
     },
@@ -50,21 +54,133 @@ const Dashboard = () => {
       name: "Reservation",
       link: "/dashboard/reservation",
       icon: <BsTags />,
+      subMenus: [
+        {
+          name: "Add Booking",
+          link: "/dashboard/reservation/add-booking",
+          icon: <BsTags />,
+        },
+        {
+          name: "Unavailable Day",
+          link: "/dashboard/reservation/unavailable-day",
+          icon: <BsTags />,
+        },
+        {
+          name: "Reservation Settings",
+          link: "/dashboard/reservation/reservation-settings",
+          icon: <BsTags />,
+        },
+      ],
     },
     {
       name: "Purchase Manage",
       link: "/dashboard/purchase-manage",
       icon: <BsCart4 />,
+      subMenus: [
+        {
+          name: "Purchase Item",
+          link: "/dashboard/purchase-manage/purchase-item",
+          icon: <BsCart4 />,
+        },
+        {
+          name: "Add Purchase",
+          link: "/dashboard/purchase-manage/add-purchase",
+          icon: <BsCart4 />,
+        },
+        {
+          name: "Purchase Return",
+          link: "/dashboard/purchase-manage/purchase-return",
+          icon: <BsCart4 />,
+        },
+      ],
     },
     {
       name: "Report",
       link: "/dashboard/report",
       icon: <BiLineChartDown />,
+      subMenus: [
+        {
+          name: "Purchase Report",
+          link: "/dashboard/report/purchase-report",
+          icon: <BiLineChartDown />,
+        },
+        {
+          name: "Stock Report",
+          link: "/dashboard/report/stock-report",
+          icon: <BiLineChartDown />,
+        },
+        {
+          name: "Sell Report",
+          link: "/dashboard/report/sell-report",
+          icon: <BiLineChartDown />,
+        },
+        {
+          name: "Cash Register Report",
+          link: "/dashboard/report/cash-register-report",
+          icon: <BiLineChartDown />,
+        },
+      ],
     },
     {
       name: "Food Management",
       link: "/dashboard/food-management",
       icon: <BiCube />,
+      subMenus: [
+        {
+          name: "Manage Category",
+          link: "/dashboard/food-management/manage-category",
+          icon: <BiCube />,
+          subSubMenus: [
+            {
+              name: "Manage Category",
+              link: "/dashboard/food-management/manage-category/add-category",
+              icon: <BiCube />,
+            },
+            {
+              name: "Manage Category",
+              link: "/dashboard/food-management/manage-category/category-list",
+              icon: <BiCube />,
+            },
+          ],
+        },
+        {
+          name: "Manage Food",
+          link: "/dashboard/food-management/manage-food",
+          icon: <BiCube />,
+          subSubMenus: [
+            {
+              name: "Add Food",
+              link: "/dashboard/food-management/manage-food/add-food",
+              icon: <BiCube />,
+            },
+            {
+              name: "Food Availability",
+              link: "/dashboard/food-management/manage-food/food-availability",
+              icon: <BiCube />,
+            },
+            {
+              name: "Food Group",
+              link: "/dashboard/food-management/manage-food/food-group",
+              icon: <BiCube />,
+            },
+            {
+              name: "Food List",
+              link: "/dashboard/food-management/manage-food/food-list",
+              icon: <BiCube />,
+            },
+            {
+              name: "Food Variant",
+              link: "/dashboard/food-management/manage-food/food-variant",
+              icon: <BiCube />,
+            },
+            {
+              name: "Menu Type",
+              link: "/dashboard/food-management/manage-food/menu-type",
+              icon: <BiCube />,
+            },
+          ],
+        },
+      ],
     },
     {
       name: "Production",
@@ -75,11 +191,55 @@ const Dashboard = () => {
       name: "Settings",
       link: "/dashboard/settings",
       icon: <RiSettings5Fill />,
+      subMenus: [
+        {
+          name: "Purchase Report",
+          link: "/dashboard/settings/application-settings",
+          icon: <RiSettings5Fill />,
+        },
+        {
+          name: "Country",
+          link: "/dashboard/settings/country",
+          icon: <RiSettings5Fill />,
+        },
+        {
+          name: "Currency",
+          link: "/dashboard/settings/currency",
+          icon: <RiSettings5Fill />,
+        },
+        {
+          name: "Factory Reset",
+          link: "/dashboard/settings/factory-reset",
+          icon: <RiSettings5Fill />,
+        },
+        {
+          name: "Language",
+          link: "/dashboard/settings/language",
+          icon: <RiSettings5Fill />,
+        },
+        {
+          name: "Payroll Commission",
+          link: "/dashboard/settings/pay-role-commission",
+          icon: <RiSettings5Fill />,
+        },
+      ],
     },
     {
       name: "Accounts",
       link: "/dashboard/accounts",
       icon: <SlBriefcase />,
+      subMenus: [
+        {
+          name: "Accounts Report",
+          link: "/dashboard/accounts/accounts-report",
+          icon: <SlBriefcase />,
+        },
+        {
+          name: "Supplier Payment",
+          link: "/dashboard/accounts/supplier-payment",
+          icon: <SlBriefcase />,
+        },
+      ],
     },
     {
       name: "Human Resource",
@@ -90,6 +250,62 @@ const Dashboard = () => {
       name: "User Management",
       link: "/dashboard/user-management",
       icon: <FaUser />,
+      subMenus: [
+        {
+          name: "Add User",
+          link: "/dashboard/user-management/add-user",
+          icon: <FaUser />,
+        },
+        {
+          name: "User List",
+          link: "/dashboard/user-management/user-list",
+          icon: <FaUser />,
+        },
+      ],
+    },
+    {
+      name: "User",
+      link: "/user",
+      icon: <AiOutlineHome />,
+      subMenus: [
+        {
+          name: "Profile",
+          link: "/user/profile",
+          icon: <FaUser />,
+        },
+        {
+          name: "Settings",
+          link: "/user/settings",
+          icon: <FaUser />,
+        },
+      ],
+    },
+    {
+      name: "Authentication",
+      link: "/authentication",
+      icon: <AiOutlineHome />,
+      subMenus: [
+        {
+          name: "Login",
+          link: "/authentication/login",
+          icon: <FaUser />,
+        },
+        {
+          name: "Signup",
+          link: "/authentication/signup",
+          icon: <FaUser />,
+        },
+        {
+          name: "Reset Password",
+          link: "/authentication/reset-password",
+          icon: <FaUser />,
+        },
+        {
+          name: "Verify Email",
+          link: "/authentication/verify-email",
+          icon: <FaUser />,
+        },
+      ],
     },
   ];
 
@@ -282,29 +498,10 @@ const Dashboard = () => {
             </div>
           </footer>
         </div>
-        {/* <div className="drawer-side bg-slate-900 text-gray-50">
-                    <label htmlFor="sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 overflow-y-auto w-60">
-                        {
-                            sideMenus.map(sideMenu =>
-                                <li key={sideMenu?.link}>
-                                    {
-                                        <Link className='flex items-center justify-between' to={sideMenu?.link}>
-                                            <span className='flex items-center justify-end'>
-                                                <span className='mr-3'>{sideMenu?.icon}</span>{sideMenu?.name}
-                                            </span>
-                                            <MdKeyboardArrowLeft className='text-xl' />
-                                        </Link>
-                                    }
-                                </li>
-                            )
-                        }
-                    </ul>
-                </div> */}
 
         <div className="drawer-side bg-base-100 text-gray-50">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
-          <div className="bg-[#2c3136] overflow-hidden">
+          <div className="bg-[#2c3136]">
             <div className="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b">
               <SiFoodpanda />
               <h1>
@@ -325,7 +522,7 @@ const Dashboard = () => {
               </h3>
             </div>
 
-            <ul className="menu p-4 w-60 text-[#fff2e6] text-sm overflow-y-auto">
+            <ul className="menu p-4 w-64 text-[#fff2e6] text-sm overflow-y-auto">
               {sideMenus.map((sideMenu) => (
                 <li key={sideMenu?.link}>
                   {
@@ -340,6 +537,25 @@ const Dashboard = () => {
                       <MdKeyboardArrowLeft className="text-xl" />
                     </Link>
                   }
+                  {sideMenu?.subMenus &&
+                    sideMenu?.subMenus?.map((subMenu) => (
+                      <Link
+                        key={subMenu?.link}
+                        className="flex items-center justify-between ml-4"
+                        to={subMenu?.link}
+                      >
+                        <span className="flex items-center justify-end">
+                          <span className="mr-3">{subMenu?.icon}</span>
+                          {subMenu?.name}
+                        </span>
+                        <MdKeyboardArrowLeft className="text-xl" />
+                      </Link>
+                    ))}
+                  {sideMenu?.subMenus?.map((subMenu) => {
+                    subMenu?.subSubMenus?.map((subSubMenu) =>
+                      console.log(subSubMenu)
+                    );
+                  })}
                 </li>
               ))}
             </ul>
