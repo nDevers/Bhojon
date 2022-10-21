@@ -7,8 +7,12 @@ import FileInput from "../../../components/FileInput";
 import Input from "../../../components/Input";
 import Select from "../../../components/Select";
 import TextArea from "../../../components/TextArea";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const AddPurchase = () => {
+    // set website title
+    useWebsiteTitle('Purchase Manage | Add Purchase')
+
     return (
         <div>
             <div className="m-2">

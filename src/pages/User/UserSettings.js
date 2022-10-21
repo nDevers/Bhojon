@@ -3,8 +3,12 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Toggle from "../../components/Toggle";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const UserSettings = () => {
+    // set website title
+    useWebsiteTitle('User | Settings')
+
     return (
         <div className="mx-2 md:mx-32 lg:mx-40 h-screen">
             <div className="m-2">

@@ -5,8 +5,12 @@ import Input from "../../../../components/Input";
 import Select from "../../../../components/Select";
 import TextArea from "../../../../components/TextArea";
 import Toggle from "../../../../components/Toggle";
+import useWebsiteTitle from "../../../../hooks/useWebsiteTitle";
 
 const AddFood = () => {
+  // set website title
+  useWebsiteTitle('Manage Food | Add Food')
+
   return (
     <div className="my-10">
       <div className="flex flex-col gap-5 items-center justify-center p-2 m-2">

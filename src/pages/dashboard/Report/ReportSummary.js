@@ -1,4 +1,5 @@
 import React from "react";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const ReportSummary = () => {
   const summaryData = [
@@ -276,6 +277,9 @@ const ReportSummary = () => {
       ],
     },
   ];
+
+  // set website title
+  useWebsiteTitle('Dashboard | Report')
 
   return (
     <div>

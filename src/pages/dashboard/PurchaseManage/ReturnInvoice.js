@@ -3,6 +3,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { BsFillSave2Fill } from "react-icons/bs";
 import Pagination from "../../../components/Pagination";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const ReturnInvoice = () => {
     const summaryData = [
@@ -280,6 +281,9 @@ const ReturnInvoice = () => {
             ],
         },
     ];
+
+    // set website title
+    useWebsiteTitle('Purchase Manage | Return Invoice')
 
     return (
         <div className="border rounded-md">

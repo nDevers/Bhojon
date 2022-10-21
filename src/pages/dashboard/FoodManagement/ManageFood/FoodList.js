@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import Pagination from "../../../../components/Pagination";
+import useWebsiteTitle from "../../../../hooks/useWebsiteTitle";
 
 const FoodList = () => {
   const summaryData = [
@@ -279,6 +280,9 @@ const FoodList = () => {
       ],
     },
   ];
+
+  // set website title
+  useWebsiteTitle('Manage Food | Food List')
 
   return (
     <div className='border rounded-md'>

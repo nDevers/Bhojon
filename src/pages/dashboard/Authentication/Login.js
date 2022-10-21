@@ -1,6 +1,10 @@
 import React from 'react';
+import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const Login = () => {
+    // set website title
+    useWebsiteTitle('Bhojon | Login')
+
     return (
         <div div class="relative w-7/12 py-16 before:absolute before:inset-0 before:w-fit before:h-[50%] before:bg-gray-200" >
             <div class="relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40">

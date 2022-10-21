@@ -15,6 +15,7 @@ import { SlBriefcase } from "react-icons/sl";
 import { TbLanguage } from "react-icons/tb";
 import DefaultUserImage from "../../assets/images/defaultUser.png";
 import Logo from "../../components/Logo";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Dashboard = () => {
   const sideMenus = [
@@ -394,6 +395,9 @@ const Dashboard = () => {
   ];
 
   const currentYear = new Date().getFullYear();
+
+  // set website title
+  useWebsiteTitle('Bhojon | Dashboard')
 
   return (
     <div data-theme="light">

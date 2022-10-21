@@ -109,6 +109,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<UserSettings />} />
         </Route>
+
       // authentication routes
         <Route path="authentication" element={<Authentication />}>
           <Route path="login" element={<Login />} />
@@ -121,6 +122,7 @@ function App() {
       // dashboard routes
       <Route path="dashboard" element={<Dashboard />}>
         <Route index element={<DashboardSummary />} />
+
         // orders routes
         <Route path="manage-order" element={<ManageOrder />}>
           <Route index element={<ManageOrderSummary />} />
@@ -129,6 +131,7 @@ function App() {
           <Route path="complete-order" element={<CompleteOrder />} />
           <Route path="cancel-order" element={<CancelOrder />} />
         </Route>
+
         // reservation routes
         <Route path="reservation" element={<Reservation />}>
           <Route index element={<ReservationSummary />} />
@@ -140,6 +143,7 @@ function App() {
             element={<ReservationSettings />}
           />
         </Route>
+
         // purchase management routes
         <Route path="purchase-manage" element={<PurchaseManage />}>
           <Route index element={<PurchaseManageSummary />} />
@@ -151,6 +155,7 @@ function App() {
           <Route path="supplier-ledger" element={<SupplierLedger />} />
           <Route path="stock-out-ingredients" element={<StockOutIngredients />} />
         </Route>
+
         // report routes
         <Route path="report" element={<Report />}>
           <Route index element={<ReportSummary />} />
@@ -159,15 +164,18 @@ function App() {
           <Route path="sell-report" element={<SellReport />} />
           <Route path="cash-register-report" element={<CashRegisterReport />} />
         </Route>
+
         // food management routes
         <Route path="food-management" element={<FoodManagement />}>
           <Route index element={<FoodManagementSummary />} />
+
           // manage category routes
           <Route path="manage-category" element={<ManageCategory />}>
             <Route index element={<ManageCategorySummary />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="category-list" element={<CategoryList />} />
           </Route>
+
           // manage food routes
           <Route path="manage-food" element={<ManageFood />}>
             <Route index element={<ManageFoodSummary />} />
@@ -179,7 +187,9 @@ function App() {
             <Route path="menu-type" element={<MenuType />} />
           </Route>
         </Route>
+
         <Route path="production" element={<Production />} />
+
         // settings routes
         <Route path="settings" element={<Settings />}>
           <Route index element={<SettingsBoard />} />
@@ -193,6 +203,7 @@ function App() {
           <Route path="language" element={<Language />} />
           <Route path="pay-role-commission" element={<PayRoleCommission />} />
         </Route>
+
         // accounts routes
         <Route path="accounts" element={<Accounts />}>
           <Route index element={<AccountsBoard />} />

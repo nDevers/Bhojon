@@ -1,4 +1,5 @@
 import React from "react";
+import useWebsiteTitle from "../../../../hooks/useWebsiteTitle";
 
 const ManageFoodSummary = () => {
   const summaryData = [
@@ -276,6 +277,9 @@ const ManageFoodSummary = () => {
       ],
     },
   ];
+
+  // set website title
+  useWebsiteTitle('Food Management | Manage Food')
 
   return (
     <div>

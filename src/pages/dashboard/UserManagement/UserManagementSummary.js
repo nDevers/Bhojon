@@ -1,4 +1,5 @@
 import React from "react";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const UserManagementSummary = () => {
   const summaryData = [
@@ -276,6 +277,9 @@ const UserManagementSummary = () => {
       ],
     },
   ];
+
+  // set website title
+  useWebsiteTitle('Bhojon | User')
 
   return (
     <div>

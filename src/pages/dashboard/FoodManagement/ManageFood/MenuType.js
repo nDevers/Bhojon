@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
+import useWebsiteTitle from "../../../../hooks/useWebsiteTitle";
 
 const MenuType = () => {
   const summaryData = [
@@ -278,6 +279,9 @@ const MenuType = () => {
       ],
     },
   ];
+
+  // set website title
+  useWebsiteTitle('Manage Food | Menu Type')
 
   return (
     <div className="border rounded-md">

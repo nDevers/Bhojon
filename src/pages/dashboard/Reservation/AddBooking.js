@@ -2,9 +2,12 @@ import React from "react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
-import Select from "../../../components/Select";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const AddBooking = () => {
+    // set website title
+    useWebsiteTitle('Reservation | Add Booking')
+
     return (
         <div>
             <div className="m-2">

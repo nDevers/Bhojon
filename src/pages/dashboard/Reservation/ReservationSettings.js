@@ -2,8 +2,12 @@ import React from "react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const ReservationSettings = () => {
+    // set website title
+    useWebsiteTitle('Reservation | Settings')
+
     return (
         <div>
             <div className="m-2">

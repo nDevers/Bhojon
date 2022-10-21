@@ -1,8 +1,12 @@
 import React from 'react';
 import { SiFoodpanda } from 'react-icons/si';
 import Navbar from '../components/Navbar';
+import useWebsiteTitle from '../hooks/useWebsiteTitle';
 
 const NotFound = () => {
+    // set website title
+    useWebsiteTitle('Error | Not Found')
+
     return (
         <div>
             <Navbar />

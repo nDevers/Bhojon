@@ -1,4 +1,5 @@
 import React from "react";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const PurchaseManageSummary = () => {
   const summaryData = [
@@ -276,6 +277,9 @@ const PurchaseManageSummary = () => {
       ],
     },
   ];
+
+  // set website title
+  useWebsiteTitle('Dashboard | Purchase Manage')
 
   return (
     <div>
