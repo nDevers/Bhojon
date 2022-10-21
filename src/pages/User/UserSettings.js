@@ -1,9 +1,8 @@
 import React from "react";
-import Breadcrumbs from "../../../components/Breadcrumbs";
-import Button from "../../../components/Button";
-import FileInput from "../../../components/FileInput";
-import Input from "../../../components/Input";
-import Toggle from "../../../components/Toggle";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import Toggle from "../../components/Toggle";
 
 const UserSettings = () => {
     return (

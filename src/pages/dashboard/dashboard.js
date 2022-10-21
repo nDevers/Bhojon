@@ -270,6 +270,28 @@ const Dashboard = () => {
       name: "Human Resource",
       link: "/dashboard/human-resource",
       icon: <HiOutlineUserGroup />,
+      subMenus: [
+        {
+          name: "Designation",
+          link: "/dashboard/human-resource/designation",
+          icon: <HiOutlineUserGroup />,
+        },
+        {
+          name: "Add Employee",
+          link: "/dashboard/human-resource/add-employee",
+          icon: <HiOutlineUserGroup />,
+        },
+        {
+          name: "Manage Employee",
+          link: "/dashboard/human-resource/manage-employee",
+          icon: <HiOutlineUserGroup />,
+        },
+        {
+          name: "Manage Employee Salary",
+          link: "/dashboard/human-resource/manage-employee-salary",
+          icon: <HiOutlineUserGroup />,
+        },
+      ],
     },
     {
       name: "User Management",
@@ -528,7 +550,7 @@ const Dashboard = () => {
               </h3>
             </div>
 
-            <ul className="menu p-4 w-64 text-[#fff2e6] text-sm overflow-y-auto">
+            <ul className="menu p-1 w-60 text-[#fff2e6] text-sm overflow-y-auto">
               {sideMenus.map((sideMenu) => (
                 <li key={sideMenu?.link}>
                   {
