@@ -88,6 +88,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
 import HumanResourceSummary from "./pages/dashboard/HumanResource/HumanResourceSummary";
+import AddEmployee from "./pages/dashboard/HumanResource/AddEmployee";
 
 function App() {
   return (
@@ -180,7 +181,7 @@ function App() {
         // human resources routes
         <Route path="human-resource" element={<HumanResource />} >
           <Route index element={<HumanResourceSummary />} />
-          <Route path="accounts-report" element={<AccountsReport />} />
+          <Route path="add-employee" element={<AddEmployee />} />
           <Route path="supplier-payment" element={<SupplierPayment />} />
         </Route>
 

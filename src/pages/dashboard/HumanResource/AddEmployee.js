@@ -13,7 +13,7 @@ const AddEmployee = () => {
                 < Breadcrumbs />
             </div >
             <div className="border rounded-md">
-                <h3 className="uppercase font-semibold p-2">Add User</h3>
+                <h3 className="uppercase font-semibold p-2">Add Employee</h3>
                 <div className="border-t">
                     <div className="flex flex-col gap-5 items-center justify-center m-2 md:m-6 lg:m-10">
                         <Input
@@ -25,6 +25,11 @@ const AddEmployee = () => {
                             inputTitle="Last Name"
                             inputType="text"
                             inputPlaceHolder="Last Name"
+                        />
+                        <Input
+                            inputTitle="National ID"
+                            inputType="number"
+                            inputPlaceHolder="1234567891234567"
                         />
                         <FileInput fileInputTitle="Profile Picture" />
                         <Input
@@ -56,7 +61,7 @@ const AddEmployee = () => {
                             selectTitle="Customer Type"
                             selectOptions={["Active", "Inactive"]}
                         />
-                        <Toggle toggleTitle='Hide User' />
+                        <Toggle toggleTitle='Hide Employee' />
                         <div className="grid w-full md:w-3/6 lg:w-3/6">
                             <div className="flex justify-end gap-x-2">
                                 <Button customClass='btn btn-sm btn-error text-xs text-white' buttonTitle='Reset' />
