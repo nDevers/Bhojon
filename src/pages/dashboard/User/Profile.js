@@ -3,7 +3,6 @@ import Breadcrumbs from "../../../components/Breadcrumbs";
 import Button from "../../../components/Button";
 import FileInput from "../../../components/FileInput";
 import Input from "../../../components/Input";
-import Toggle from "../../../components/Toggle";
 
 const UserSettings = () => {
     return (
