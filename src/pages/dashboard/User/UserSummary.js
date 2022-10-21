@@ -30,7 +30,7 @@ const UserSummary = () => {
 
   const latestSummary = [
     {
-      title: "Latest Order",
+      title: "Pending Order",
       data: [
         {
           name: "Kamal Hassan",
@@ -278,7 +278,7 @@ const UserSummary = () => {
   ];
 
   return (
-    <div>
+    <div className="mx-2 md:mx-32 lg:mx-40 h-screen">
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 lg:gap-6 md:gap-5 gap-4">
         {summaryData?.map((summary) => (
           <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center">
