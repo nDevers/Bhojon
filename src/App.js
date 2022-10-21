@@ -22,6 +22,7 @@ import PurchaseItem from "./pages/dashboard/PurchaseManage/PurchaseItem";
 import AddPurchase from "./pages/dashboard/PurchaseManage/AddPurchase";
 import PurchaseReturn from "./pages/dashboard/PurchaseManage/PurchaseReturn";
 import ReturnInvoice from "./pages/dashboard/PurchaseManage/ReturnInvoice";
+import SupplierManage from "./pages/dashboard/PurchaseManage/SupplierManage";
 
 import Report from "./pages/dashboard/Report/Report";
 import ReportSummary from "./pages/dashboard/Report/ReportSummary";
@@ -117,6 +118,7 @@ function App() {
           <Route path="add-purchase" element={<AddPurchase />} />
           <Route path="purchase-return" element={<PurchaseReturn />} />
           <Route path="return-invoice" element={<ReturnInvoice />} />
+          <Route path="supplier-manage" element={<SupplierManage />} />
         </Route>
         // report routes
         <Route path="report" element={<Report />}>
