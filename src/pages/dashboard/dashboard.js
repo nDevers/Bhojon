@@ -102,6 +102,11 @@ const Dashboard = () => {
           link: "/dashboard/purchase-manage/supplier-manage",
           icon: <BsCart4 />,
         },
+        {
+          name: "Supplier Ledger",
+          link: "/dashboard/purchase-manage/supplier-ledger",
+          icon: <BsCart4 />,
+        },
       ],
     },
     {
