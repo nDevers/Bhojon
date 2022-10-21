@@ -14,6 +14,7 @@ import Reservation from "./pages/dashboard/Reservation/Reservation";
 import ReservationSummary from "./pages/dashboard/Reservation/ReservationSummary";
 import AddBooking from "./pages/dashboard/Reservation/AddBooking";
 import UnavailableDay from "./pages/dashboard/Reservation/UnavailableDay";
+import ReservedDay from "./pages/dashboard/Reservation/ReservedDay";
 import ReservationSettings from "./pages/dashboard/Reservation/ReservationSettings";
 
 import PurchaseManage from "./pages/dashboard/PurchaseManage/PurchaseManage";
@@ -24,6 +25,7 @@ import PurchaseReturn from "./pages/dashboard/PurchaseManage/PurchaseReturn";
 import ReturnInvoice from "./pages/dashboard/PurchaseManage/ReturnInvoice";
 import SupplierManage from "./pages/dashboard/PurchaseManage/SupplierManage";
 import SupplierLedger from "./pages/dashboard/PurchaseManage/SupplierLedger";
+import StockOutIngredients from "./pages/dashboard/PurchaseManage/StockOutIngredients";
 
 import Report from "./pages/dashboard/Report/Report";
 import ReportSummary from "./pages/dashboard/Report/ReportSummary";
@@ -80,11 +82,11 @@ import Authentication from "./pages/dashboard/Authentication/Authentication";
 import Login from "./pages/dashboard/Authentication/Login";
 import SignUp from "./pages/dashboard/Authentication/SignUp";
 import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
+import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
+
+import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
-import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
-import LoadingSpinner from "./components/LoadingSpinner";
-import StockOutIngredients from "./pages/dashboard/PurchaseManage/StockOutIngredients";
 
 function App() {
   return (
@@ -107,6 +109,7 @@ function App() {
         <Route path="reservation" element={<Reservation />}>
           <Route index element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
+          <Route path="reserved-day" element={<ReservedDay />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
           <Route
             path="reservation-settings"

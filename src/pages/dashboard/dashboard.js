@@ -61,6 +61,11 @@ const Dashboard = () => {
           icon: <BsTags />,
         },
         {
+          name: "Reserved Day",
+          link: "/dashboard/reservation/reserved-day",
+          icon: <BsTags />,
+        },
+        {
           name: "Unavailable Day",
           link: "/dashboard/reservation/unavailable-day",
           icon: <BsTags />,
