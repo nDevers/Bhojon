@@ -67,6 +67,11 @@ import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
 import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
 
 import HumanResource from "./pages/dashboard/HumanResource/HumanResource";
+import HumanResourceSummary from "./pages/dashboard/HumanResource/HumanResourceSummary";
+import AddEmployee from "./pages/dashboard/HumanResource/AddEmployee";
+import ManageEmployee from "./pages/dashboard/HumanResource/ManageEmployee";
+import Designation from "./pages/dashboard/HumanResource/Designation";
+import ManageEmployeeSalary from "./pages/dashboard/HumanResource/ManageEmployeeSalary";
 
 import UserManagement from "./pages/dashboard/UserManagement/UserManagement";
 import UserManagementSummary from "./pages/dashboard/UserManagement/UserManagementSummary";
@@ -87,10 +92,6 @@ import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
-import HumanResourceSummary from "./pages/dashboard/HumanResource/HumanResourceSummary";
-import AddEmployee from "./pages/dashboard/HumanResource/AddEmployee";
-import ManageEmployee from "./pages/dashboard/HumanResource/ManageEmployee";
-import Designation from "./pages/dashboard/HumanResource/Designation";
 
 function App() {
   return (
@@ -186,6 +187,7 @@ function App() {
           <Route path="designation" element={<Designation />} />
           <Route path="add-employee" element={<AddEmployee />} />
           <Route path="manage-employee" element={<ManageEmployee />} />
+          <Route path="manage-employee-salary" element={<ManageEmployeeSalary />} />
         </Route>
 
         // user management routes
