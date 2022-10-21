@@ -10,7 +10,7 @@ import { GoPrimitiveDot } from "react-icons/go";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiSettings5Fill, RiListUnordered } from "react-icons/ri";
-import { SiProducthunt, SiFoodpanda } from "react-icons/si";
+import { SiProducthunt } from "react-icons/si";
 import { SlBriefcase } from "react-icons/sl";
 import { TbLanguage } from "react-icons/tb";
 import DefaultUserImage from "../../assets/images/defaultUser.png";
@@ -90,6 +90,11 @@ const Dashboard = () => {
         {
           name: "Purchase Return",
           link: "/dashboard/purchase-manage/purchase-return",
+          icon: <BsCart4 />,
+        },
+        {
+          name: "Return Invoice",
+          link: "/dashboard/purchase-manage/return-invoice",
           icon: <BsCart4 />,
         },
       ],
