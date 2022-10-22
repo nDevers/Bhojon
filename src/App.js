@@ -66,17 +66,17 @@ import AccountsBoard from "./pages/dashboard/Accounts/AccountsBoard";
 import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
 import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
 
-import HumanResource from "./pages/dashboard/HumanResource";
+import HumanResource from "./pages/dashboard/HumanResource/HumanResource";
 
 import UserManagement from "./pages/dashboard/UserManagement/UserManagement";
 import UserManagementSummary from "./pages/dashboard/UserManagement/UserManagementSummary";
 import AddUser from "./pages/dashboard/UserManagement/AddUser";
 import UserList from "./pages/dashboard/UserManagement/UserList";
 
-import User from "./pages/dashboard/User/User";
-import UserSummary from "./pages/dashboard/User/UserSummary";
-import Profile from "./pages/dashboard/User/Profile";
-import UserSettings from "./pages/dashboard/User/UserSettings";
+import User from "./pages/User/User";
+import UserSummary from "./pages/User/UserSummary";
+import Profile from "./pages/User/Profile";
+import UserSettings from "./pages/User/UserSettings";
 
 import Authentication from "./pages/dashboard/Authentication/Authentication";
 import Login from "./pages/dashboard/Authentication/Login";
@@ -87,6 +87,7 @@ import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
+import HumanResourceSummary from "./pages/dashboard/HumanResource/HumanResourceSummary";
 
 function App() {
   return (
@@ -175,7 +176,14 @@ function App() {
           <Route path="accounts-report" element={<AccountsReport />} />
           <Route path="supplier-payment" element={<SupplierPayment />} />
         </Route>
-        <Route path="human-resource" element={<HumanResource />} />
+
+        // human resources routes
+        <Route path="human-resource" element={<HumanResource />} >
+          <Route index element={<HumanResourceSummary />} />
+          <Route path="accounts-report" element={<AccountsReport />} />
+          <Route path="supplier-payment" element={<SupplierPayment />} />
+        </Route>
+
         // user management routes
         <Route path="user-management" element={<UserManagement />}>
           <Route index element={<UserManagementSummary />} />
