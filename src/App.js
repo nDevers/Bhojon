@@ -89,6 +89,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import NotFound from "./pages/NotFound";
 import HumanResourceSummary from "./pages/dashboard/HumanResource/HumanResourceSummary";
 import AddEmployee from "./pages/dashboard/HumanResource/AddEmployee";
+import ManageEmployee from "./pages/dashboard/HumanResource/ManageEmployee";
 
 function App() {
   return (
@@ -182,7 +183,7 @@ function App() {
         <Route path="human-resource" element={<HumanResource />} >
           <Route index element={<HumanResourceSummary />} />
           <Route path="add-employee" element={<AddEmployee />} />
-          <Route path="supplier-payment" element={<SupplierPayment />} />
+          <Route path="manage-employee" element={<ManageEmployee />} />
         </Route>
 
         // user management routes
