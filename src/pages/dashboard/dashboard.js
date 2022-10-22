@@ -18,6 +18,7 @@ import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import ScrollToTop from "../../components/ScrollToTop";
 import Footer from "../../components/Footer";
+import DashboardHeader from "../../components/DashboardHeader";
 
 const Dashboard = () => {
   const sideMenus = [
@@ -425,126 +426,12 @@ const Dashboard = () => {
     <div data-theme="light">
       <div className="drawer drawer-mobile">
         <input id="sidebar" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
-          <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
-            {/* navbar left */}
-            <div className="navbar-start">
-              <Logo />
+        <div className="drawer-content flex flex-col justify-between">
+          <DashboardHeader />
 
-              <label tabIndex={0} className="btn btn-ghost hidden lg:flex">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </label>
-            </div>
-
-            {/* navbar middle */}
-            <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal gap-x-4 text-sm">
-                {navbarMiddle.map((navbarItems) => (
-                  <Link
-                    to={navbarItems.link}
-                    key={navbarItems.link}
-                    className="border rounded-md p-1 md:p-2 lg:p-2"
-                  >
-                    <span className="flex items-center gap-x-2">
-                      {navbarItems?.icon}
-                      {navbarItems.name}
-                    </span>
-                  </Link>
-                ))}
-              </ul>
-            </div>
-
-            {/* navbar right */}
-            <div className="navbar-end">
-              <ul className="menu menu-horizontal gap-x-4 hidden lg:flex">
-                {navbarRight.map((navbarItems) => (
-                  <Link
-                    to={navbarItems.link}
-                    key={navbarItems.link}
-                    className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md"
-                  >
-                    <Link>{navbarItems.icon}</Link>
-                  </Link>
-                ))}
-              </ul>
-
-              {/* mobile navbar */}
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h8m-8 6h16"
-                    />
-                  </svg>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-2 md:mt-3 lg:mt-3 shadow bg-base-100 rounded-box w-52"
-                >
-                  {sideMenus.map((sideMenu) => (
-                    <li key={sideMenu?.link}>
-                      {
-                        <Link
-                          className="flex items-center justify-between"
-                          to={sideMenu?.link}
-                        >
-                          <span className="flex items-center justify-end">
-                            <span className="mr-3">{sideMenu?.icon}</span>
-                            {sideMenu?.name}
-                          </span>
-                          <MdKeyboardArrowLeft className="text-xl" />
-                        </Link>
-                      }
-                    </li>
-                  ))}
-                  {navbarMiddle.map((navbarItems) => (
-                    <li li key={navbarItems?.link}>
-                      {
-                        <Link
-                          className="flex items-center justify-between"
-                          to={navbarItems?.link}
-                        >
-                          <span className="flex items-center justify-end gap-x-3">
-                            {navbarItems?.icon}
-                            {navbarItems?.name}
-                          </span>
-                          <MdKeyboardArrowLeft className="text-xl" />
-                        </Link>
-                      }
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </header>
-
-          <main className="mt-2 md:mt-3 lg:mt-4 mb-6 md:mb-8 lg:mb-10">
-            <div className="m-2">
-              <Outlet />
-            </div>
-          </main>
+          <div className="m-2 ">
+            <Outlet />
+          </div>
 
           {/* footer is always bottom */}
           <Footer />
@@ -553,7 +440,7 @@ const Dashboard = () => {
           <ScrollToTop />
         </div>
 
-        <div className="drawer-side bg-base-100 text-gray-50">
+        <div className="drawer-side bg-base-100 text-gray-50 overflow-hidden">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="bg-[#2c3136]">
             <Logo customClass='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b' />
@@ -571,7 +458,7 @@ const Dashboard = () => {
               </h3>
             </div>
 
-            <ul className="menu p-1 w-60 text-[#fff2e6] text-sm overflow-y-auto">
+            <ul className="menu p-1 w-60 text-[#fff2e6] text-sm">
               {sideMenus.map((sideMenu) => (
                 <li key={sideMenu?.link}>
                   {

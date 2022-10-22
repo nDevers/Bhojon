@@ -290,7 +290,7 @@ const ReservationSummary = () => {
 
       <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-6 md:gap-5 gap-4">
         {latestSummary?.map((summary) => (
-          <div className="h-96 p-4 border rounded-md scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-hidden hover:overflow-y-auto">
+          <div className="h-96 p-4 border rounded-md overflow-y-auto">
             <h4 className="text-lg font-medium pb-4 mb-4 border-b">
               {summary?.title}
             </h4>
