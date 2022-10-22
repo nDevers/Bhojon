@@ -80,7 +80,6 @@ import PayRoleCommission from "./pages/dashboard/Settings/PayRoleCommission";
 import Currency from "./pages/dashboard/Settings/Currency";
 
 import Accounts from "./pages/dashboard/Accounts/Accounts";
-import AccountsBoard from "./pages/dashboard/Accounts/AccountsBoard";
 import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
 import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
 
@@ -99,6 +98,7 @@ import UserList from "./pages/dashboard/UserManagement/UserList";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
+import AccountsSummary from "./pages/dashboard/Accounts/AccountsSummary";
 
 function App() {
   return (
@@ -217,7 +217,7 @@ function App() {
 
         // accounts routes
         <Route path="accounts" element={<Accounts />}>
-          <Route index element={<AccountsBoard />} />
+          <Route index element={<AccountsSummary />} />
           <Route path="accounts-report" element={<AccountsReport />} />
           <Route path="supplier-payment" element={<SupplierPayment />} />
         </Route>
