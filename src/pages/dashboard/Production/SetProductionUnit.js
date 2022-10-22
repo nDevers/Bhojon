@@ -1,12 +1,8 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { BiAddToQueue } from "react-icons/bi";
-import Breadcrumbs from "../../../components/Breadcrumbs";
 import Button from "../../../components/Button";
-import FileInput from "../../../components/FileInput";
-import Input from "../../../components/Input";
 import Select from "../../../components/Select";
-import TextArea from "../../../components/TextArea";
 import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const SetProductionUnit = () => {
