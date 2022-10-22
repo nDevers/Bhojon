@@ -1,7 +1,5 @@
 import React from "react";
-import { AiFillEdit } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { BsFillSave2Fill } from "react-icons/bs";
 import Pagination from "../../../components/Pagination";
 import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 

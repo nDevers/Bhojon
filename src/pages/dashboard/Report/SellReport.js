@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiFillDelete, AiFillEdit, AiFillInfoCircle } from 'react-icons/ai';
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
 import Pagination from '../../../components/Pagination';

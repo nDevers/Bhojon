@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const Login = () => {
@@ -42,7 +43,7 @@ const Login = () => {
 
                                 <p class="border-t pt-6 text-sm">
                                     Don't have an account ?
-                                    <a href="#" class="text-sky-500">Sign up</a>
+                                    <Link to="/signup" class="text-sky-500">Sign up</Link>
                                 </p>
                             </form>
                         </div>

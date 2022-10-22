@@ -560,7 +560,7 @@ const Dashboard = () => {
 
             <div className="flex flex-col items-center justify-center mb-4">
               <div className="w-20 p-2 m-4 border rounded-full">
-                <img src={DefaultUserImage} alt="default user image" />
+                <img src={DefaultUserImage} alt="default user" />
               </div>
 
               <p className="text-sm text-sky-500 flex items-center gap-x-1 mb-1">
@@ -600,11 +600,6 @@ const Dashboard = () => {
                         <MdKeyboardArrowLeft className="text-xl" />
                       </Link>
                     ))}
-                  {sideMenu?.subMenus?.map((subMenu) => {
-                    subMenu?.subSubMenus?.map((subSubMenu) =>
-                      console.log(subSubMenu)
-                    );
-                  })}
                 </li>
               ))}
             </ul>
