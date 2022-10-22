@@ -2,7 +2,6 @@ import React from "react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
-import Select from "../../../components/Select";
 
 const ReservationSettings = () => {
     return (
