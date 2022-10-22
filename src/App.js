@@ -63,7 +63,12 @@ import AddFoodGroup from "./pages/dashboard/FoodManagement/ManageFood/AddFoodGro
 import FoodVariant from "./pages/dashboard/FoodManagement/ManageFood/FoodVariant";
 import MenuType from "./pages/dashboard/FoodManagement/ManageFood/MenuType";
 
-import Production from "./pages/dashboard/Production";
+import Production from "./pages/dashboard/Production/Production";
+import ProductionSummary from "./pages/dashboard/Production/ProductionSummary";
+import ProductionList from "./pages/dashboard/Production/ProductionList";
+import AddProduction from "./pages/dashboard/Production/AddProduction";
+import ProductionSettings from "./pages/dashboard/Production/ProductionSettings";
+import SetProductionUnit from "./pages/dashboard/Production/SetProductionUnit";
 
 import Settings from "./pages/dashboard/Settings/Settings";
 import SettingsBoard from "./pages/dashboard/Settings/SettingsBoard";
@@ -188,7 +193,13 @@ function App() {
           </Route>
         </Route>
 
-        <Route path="production" element={<Production />} />
+        <Route path="production" element={<Production />} >
+          <Route index element={<ProductionSummary />} />
+          <Route path="add-production" element={<AddProduction />} />
+          <Route path="production-list" element={<ProductionList />} />
+          <Route path="set-production-unit" element={<SetProductionUnit />} />
+          <Route path="production-settings" element={<ProductionSettings />} />
+        </Route>
 
         // settings routes
         <Route path="settings" element={<Settings />}>

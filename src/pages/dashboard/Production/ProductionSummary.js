@@ -1,15 +1,15 @@
 import React from 'react';
-import useWebsiteTitle from '../../hooks/useWebsiteTitle';
+import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
-const Production = () => {
+const ProductionSummary = () => {
     // set website title
     useWebsiteTitle('Dashboard | Production')
 
     return (
         <div>
-            Production
+
         </div>
     );
 };
 
-export default Production;
+export default ProductionSummary;
