@@ -1,5 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
+import HomePage from "./pages/home/homePage/HomePage";
+
+import User from "./pages/User/User";
+import UserSummary from "./pages/User/UserSummary";
+import Profile from "./pages/User/Profile";
+import UserSettings from "./pages/User/UserSettings";
+
+import Authentication from "./pages/dashboard/Authentication/Authentication";
+import Login from "./pages/dashboard/Authentication/Login";
+import SignUp from "./pages/dashboard/Authentication/SignUp";
+import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
+import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
+
 import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
 
@@ -78,17 +91,6 @@ import UserManagementSummary from "./pages/dashboard/UserManagement/UserManageme
 import AddUser from "./pages/dashboard/UserManagement/AddUser";
 import UserList from "./pages/dashboard/UserManagement/UserList";
 
-import User from "./pages/User/User";
-import UserSummary from "./pages/User/UserSummary";
-import Profile from "./pages/User/Profile";
-import UserSettings from "./pages/User/UserSettings";
-
-import Authentication from "./pages/dashboard/Authentication/Authentication";
-import Login from "./pages/dashboard/Authentication/Login";
-import SignUp from "./pages/dashboard/Authentication/SignUp";
-import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
-import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
-
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
@@ -96,9 +98,26 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route index element={<Home />} />
-      <Route path="/home" element={<Home />} />
+      // home routes
+      <Route path="/" element={<Home />} >
+        <Route index element={<HomePage />} />
+        <Route path="home" element={<HomePage />} />
+
+      // user routes
+        <Route path="user" element={<User />}>
+          <Route index element={<UserSummary />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<UserSettings />} />
+        </Route>
+      // authentication routes
+        <Route path="authentication" element={<Authentication />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="reset-password" element={<ResetPassword />} />
+          <Route path="verify-email" element={<VerifyEmail />} />
+        </Route>
+      </Route>
+
       // dashboard routes
       <Route path="dashboard" element={<Dashboard />}>
         <Route index element={<DashboardSummary />} />
@@ -196,19 +215,6 @@ function App() {
           <Route path="add-user" element={<AddUser />} />
           <Route path="user-list" element={<UserList />} />
         </Route>
-      </Route>
-      // user routes
-      <Route path="user" element={<User />}>
-        <Route index element={<UserSummary />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="settings" element={<UserSettings />} />
-      </Route>
-      // authentication routes
-      <Route path="authentication" element={<Authentication />}>
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="reset-password" element={<ResetPassword />} />
-        <Route path="verify-email" element={<VerifyEmail />} />
       </Route>
       <Route path="/loading" element={<LoadingSpinner />} />
       <Route path="*" element={<NotFound />} />
