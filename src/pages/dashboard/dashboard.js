@@ -212,6 +212,28 @@ const Dashboard = () => {
       name: "Production",
       link: "/dashboard/production",
       icon: <SiProducthunt />,
+      subMenus: [
+        {
+          name: "Add Production",
+          link: "/dashboard/production/add-production",
+          icon: <SiProducthunt />,
+        },
+        {
+          name: "Production List",
+          link: "/dashboard/production/production-list",
+          icon: <SiProducthunt />,
+        },
+        {
+          name: "Set Production Unit",
+          link: "/dashboard/production/set-production-unit",
+          icon: <SiProducthunt />,
+        },
+        {
+          name: "Production Settings",
+          link: "/dashboard/production/production-settings",
+          icon: <SiProducthunt />,
+        },
+      ],
     },
     {
       name: "Settings",
