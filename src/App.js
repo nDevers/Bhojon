@@ -90,6 +90,7 @@ import NotFound from "./pages/NotFound";
 import HumanResourceSummary from "./pages/dashboard/HumanResource/HumanResourceSummary";
 import AddEmployee from "./pages/dashboard/HumanResource/AddEmployee";
 import ManageEmployee from "./pages/dashboard/HumanResource/ManageEmployee";
+import Designation from "./pages/dashboard/HumanResource/Designation";
 
 function App() {
   return (
@@ -182,6 +183,7 @@ function App() {
         // human resources routes
         <Route path="human-resource" element={<HumanResource />} >
           <Route index element={<HumanResourceSummary />} />
+          <Route path="designation" element={<Designation />} />
           <Route path="add-employee" element={<AddEmployee />} />
           <Route path="manage-employee" element={<ManageEmployee />} />
         </Route>
