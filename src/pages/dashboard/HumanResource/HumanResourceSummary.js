@@ -1,4 +1,5 @@
 import React from "react";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const HumanResourceSummary = () => {
     const summaryData = [
@@ -276,6 +277,9 @@ const HumanResourceSummary = () => {
             ],
         },
     ];
+
+    // set website title
+    useWebsiteTitle('Dashboard | Human Resource')
 
     return (
         <div>

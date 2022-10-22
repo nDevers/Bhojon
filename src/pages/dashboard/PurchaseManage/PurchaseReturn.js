@@ -2,8 +2,12 @@ import React from "react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import Button from "../../../components/Button";
 import Select from "../../../components/Select";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const PurchaseReturn = () => {
+    // set website title
+    useWebsiteTitle('Purchase Manage | Purchase Return')
+
     return (
         <div>
             <div className="m-2">

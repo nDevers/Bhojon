@@ -1,8 +1,12 @@
 import React from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
 import Input from "../../../components/Input";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const SettingsBoard = () => {
+  // set website title
+  useWebsiteTitle('Dashboard | Settings')
+
   return (
     <div className="my-10">
       <div className="flex flex-col gap-5 items-center justify-center p-2 m-2">

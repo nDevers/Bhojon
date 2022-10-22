@@ -2,6 +2,7 @@ import React from 'react';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import Pagination from '../../../../components/Pagination';
+import useWebsiteTitle from '../../../../hooks/useWebsiteTitle';
 
 const CategoryList = () => {
     const summaryData = [
@@ -282,6 +283,9 @@ const CategoryList = () => {
             ]
         }
     ];
+
+    // set website title
+    useWebsiteTitle('Manage Category | Category List')
 
     return (
         <div className='border rounded-md'>

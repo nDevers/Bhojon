@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import Pagination from "../../../components/Pagination";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const ReservedDay = () => {
     const summaryData = [
@@ -279,6 +280,9 @@ const ReservedDay = () => {
             ],
         },
     ];
+
+    // set website title
+    useWebsiteTitle('Reservation | Reserve Day')
 
     return (
         <div className="border rounded-md">

@@ -1,11 +1,15 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../../components/LoadingSpinner";
+import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 import Features from './Features';
 import Hero from './Hero';
 
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
+
+    // set website title
+    useWebsiteTitle('Home')
 
     const onLoadEffect = () => {
         setTimeout(() => {

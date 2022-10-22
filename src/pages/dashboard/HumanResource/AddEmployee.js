@@ -5,8 +5,12 @@ import FileInput from "../../../components/FileInput";
 import Input from "../../../components/Input";
 import Select from "../../../components/Select";
 import Toggle from "../../../components/Toggle";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const AddEmployee = () => {
+    // set website title
+    useWebsiteTitle('Human Resource | Add Employee')
+
     return (
         <div>
             <div className="m-2">

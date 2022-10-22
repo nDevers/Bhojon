@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillEye, AiFillPrinter } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
+import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const CancelOrder = () => {
     const summaryData = [
@@ -281,6 +282,10 @@ const CancelOrder = () => {
             ]
         }
     ];
+
+
+    // set website title
+    useWebsiteTitle('Manage Order | Cancel Order')
 
     return (
         <div className='border rounded-md'>

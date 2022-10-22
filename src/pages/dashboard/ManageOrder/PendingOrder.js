@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillEye, AiFillPrinter } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
+import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const PendingOrder = () => {
     const summaryData = [
@@ -281,6 +282,9 @@ const PendingOrder = () => {
             ]
         }
     ];
+
+    // set website title
+    useWebsiteTitle('Manage Order | Pending Order')
 
     return (
         <div className='border rounded-md'>

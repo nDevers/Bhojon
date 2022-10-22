@@ -2,6 +2,7 @@ import React from 'react';
 import { AiFillEdit, AiFillDelete, AiFillInfoCircle } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import Pagination from '../../../components/Pagination';
+import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const OrderList = () => {
     const summaryData = [
@@ -282,6 +283,9 @@ const OrderList = () => {
             ]
         }
     ];
+
+    // set website title
+    useWebsiteTitle('Manage Order | Order List')
 
     return (
         <div className='border rounded-md'>
