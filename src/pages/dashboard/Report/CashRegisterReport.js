@@ -1,4 +1,5 @@
 import React from 'react';
+import ComingSoon from '../../../components/ComingSoon';
 import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const CashRegisterReport = () => {
@@ -6,8 +7,9 @@ const CashRegisterReport = () => {
     useWebsiteTitle('Report | Cash Register Report')
 
     return (
-        <div>
-            CashRegisterReport
+        <div className='flex flex-col items-center justify-center'>
+
+            <ComingSoon />
         </div>
     );
 };

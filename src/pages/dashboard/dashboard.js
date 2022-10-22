@@ -540,7 +540,7 @@ const Dashboard = () => {
             </div>
           </header>
 
-          <main>
+          <main className="mt-2 md:mt-3 lg:mt-4 mb-6 md:mb-8 lg:mb-10">
             <div className="m-2">
               <Outlet />
             </div>
