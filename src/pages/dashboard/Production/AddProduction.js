@@ -1,6 +1,4 @@
 import React from "react";
-import { AiFillDelete } from "react-icons/ai";
-import { BiAddToQueue } from "react-icons/bi";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import Select from "../../../components/Select";
