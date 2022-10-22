@@ -16,6 +16,8 @@ import { TbLanguage } from "react-icons/tb";
 import DefaultUserImage from "../../assets/images/defaultUser.png";
 import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import ScrollToTop from "../../components/ScrollToTop";
+import Footer from "../../components/Footer";
 
 const Dashboard = () => {
   const sideMenus = [
@@ -416,8 +418,6 @@ const Dashboard = () => {
     },
   ];
 
-  const currentYear = new Date().getFullYear();
-
   // set website title
   useWebsiteTitle('Bhojon | Dashboard')
 
@@ -547,15 +547,10 @@ const Dashboard = () => {
           </main>
 
           {/* footer is always bottom */}
-          <footer className="footer footer-center p-4 md:p-3 lg:p-3 mt-10 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono">
-            <p className="flex items-center">
-              Copyright <span>&copy; {currentYear}</span> - All right reserved
-              by
-              <Link to="/" className="ml-2">
-                <Logo customClass='flex gap-x-2 items-center justify-center text-md md:text-lg lg:text-lg text-center text-black-50 font-semibold uppercase' />
-              </Link>
-            </p>
-          </footer>
+          <Footer />
+
+          {/* scroll to top button */}
+          <ScrollToTop />
         </div>
 
         <div className="drawer-side bg-base-100 text-gray-50">
