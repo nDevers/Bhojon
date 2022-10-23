@@ -6,7 +6,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="footer footer-center p-4 md:p-3 lg:p-3 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono">
+        <footer className="footer footer-center p-3 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono">
             <p className="flex items-center">
                 Copyright <span>&copy; {currentYear}</span> - All right reserved
                 by

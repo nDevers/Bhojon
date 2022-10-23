@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHome, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 
 const Pagination = () => {
     return (

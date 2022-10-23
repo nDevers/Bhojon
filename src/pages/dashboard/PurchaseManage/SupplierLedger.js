@@ -1,7 +1,5 @@
 import React from "react";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { BsFillSave2Fill } from "react-icons/bs";
 import Pagination from "../../../components/Pagination";
 import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
@@ -330,7 +328,7 @@ const SupplerLedger = () => {
                 </div>
             </div>
 
-            <div className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto p-2">
+            <div className="  -smooth   bar-thin   bar-thumb-gray-400 p-2">
                 <table className="table table-zebra table-compact w-full">
                     <thead className="text-gray-600">
                         <tr>

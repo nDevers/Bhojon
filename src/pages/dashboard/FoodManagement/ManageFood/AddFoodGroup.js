@@ -1,5 +1,4 @@
 import React from "react";
-import { AiFillInfoCircle } from "react-icons/ai";
 import Button from "../../../../components/Button";
 import FileInput from "../../../../components/FileInput";
 import Input from "../../../../components/Input";

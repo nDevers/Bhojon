@@ -330,7 +330,7 @@ const ProductionList = () => {
                 </div>
             </div>
 
-            <div className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto p-2">
+            <div className="  -smooth   bar-thin   bar-thumb-gray-400 p-2">
                 <table className="table table-zebra table-compact w-full">
                     <thead className="text-gray-600">
                         <tr>

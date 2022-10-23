@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiFillDelete, AiFillEdit, AiFillInfoCircle } from 'react-icons/ai';
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
 import Pagination from '../../../components/Pagination';
@@ -42,7 +41,7 @@ const SellReport = () => {
                     </div>
 
 
-                    <div className='scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 overflow-y-auto p-2'>
+                    <div className='  -smooth   bar-thin   bar-thumb-gray-400 p-2'>
                         <table className="table table-zebra table-compact w-full">
                             <thead className='text-gray-600'>
                                 <tr>

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Breadcrumbs = () => {
     return (
         <div className="text-xs md:text-sm lg:text-sm breadcrumbs">
             <ul>
                 <li>
-                    <a>
+                    <Link to='/dashboard'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -20,10 +21,10 @@ const Breadcrumbs = () => {
                             ></path>
                         </svg>
                         Home
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a>
+                    <Link to='/dashboard'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -38,7 +39,7 @@ const Breadcrumbs = () => {
                             ></path>
                         </svg>
                         Documents
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <svg
