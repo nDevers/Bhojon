@@ -266,7 +266,7 @@ const OrderList = () => {
                     <thead className='text-gray-600'>
                         <tr>
                             {
-                                tableHeads?.map(tableHead => <th key={tableHead?.name}>{tableHead?.name}</th>)
+                                tableHeads?.map(tableHead => <td key={tableHead?.name}>{tableHead?.name}</td>)
                             }
                         </tr>
                     </thead>
