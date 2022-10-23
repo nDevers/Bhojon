@@ -19,6 +19,10 @@ const dasboardMenus = [
         icon: <FaFirstOrder />,
         subMenus: [
             {
+                name: "Order Summary",
+                link: "/dashboard/manage-order/order-summary",
+                icon: <FaFirstOrder />,
+            }, {
                 name: "Order List",
                 link: "/dashboard/manage-order/order-list",
                 icon: <FaFirstOrder />,
@@ -46,6 +50,11 @@ const dasboardMenus = [
         icon: <BsTags />,
         subMenus: [
             {
+                name: "Reservation Summary",
+                link: "/dashboard/reservation/reservation-summary",
+                icon: <BsTags />,
+            },
+            {
                 name: "Add Booking",
                 link: "/dashboard/reservation/add-booking",
                 icon: <BsTags />,
@@ -72,6 +81,11 @@ const dasboardMenus = [
         link: "/dashboard/purchase-manage",
         icon: <BsCart4 />,
         subMenus: [
+            {
+                name: "Purchase Summary",
+                link: "/dashboard/purchase-manage/purchase-summary",
+                icon: <BsCart4 />,
+            },
             {
                 name: "Purchase Item",
                 link: "/dashboard/purchase-manage/purchase-item",
@@ -115,6 +129,11 @@ const dasboardMenus = [
         icon: <BiLineChartDown />,
         subMenus: [
             {
+                name: "Report Summary",
+                link: "/dashboard/report/report-summary",
+                icon: <BiLineChartDown />,
+            },
+            {
                 name: "Purchase Report",
                 link: "/dashboard/report/purchase-report",
                 icon: <BiLineChartDown />,
@@ -142,10 +161,20 @@ const dasboardMenus = [
         icon: <BiCube />,
         subMenus: [
             {
+                name: "Food Management Summary",
+                link: "/dashboard/food-management/food-management-summary",
+                icon: <BiCube />,
+            },
+            {
                 name: "Manage Category",
                 link: "/dashboard/food-management/manage-category",
                 icon: <BiCube />,
                 subSubMenus: [
+                    {
+                        name: "Category Summary",
+                        link: "/dashboard/food-management/manage-category/category-summary",
+                        icon: <BiCube />,
+                    },
                     {
                         name: "Add Category",
                         link: "/dashboard/food-management/manage-category/add-category",
@@ -163,6 +192,11 @@ const dasboardMenus = [
                 link: "/dashboard/food-management/manage-food",
                 icon: <BiCube />,
                 subSubMenus: [
+                    {
+                        name: "Food Summary",
+                        link: "/dashboard/food-management/manage-food/food-summary",
+                        icon: <BiCube />,
+                    },
                     {
                         name: "Add Food",
                         link: "/dashboard/food-management/manage-food/add-food",
@@ -203,6 +237,11 @@ const dasboardMenus = [
         icon: <SiProducthunt />,
         subMenus: [
             {
+                name: "Production Summary",
+                link: "/dashboard/production/production-summary",
+                icon: <SiProducthunt />,
+            },
+            {
                 name: "Add Production",
                 link: "/dashboard/production/add-production",
                 icon: <SiProducthunt />,
@@ -230,7 +269,12 @@ const dasboardMenus = [
         icon: <RiSettings5Fill />,
         subMenus: [
             {
-                name: "Purchase Report",
+                name: "Manage Settings",
+                link: "/dashboard/settings/manage-settings",
+                icon: <RiSettings5Fill />,
+            },
+            {
+                name: "Application Settings",
                 link: "/dashboard/settings/application-settings",
                 icon: <RiSettings5Fill />,
             },
@@ -267,6 +311,11 @@ const dasboardMenus = [
         icon: <SlBriefcase />,
         subMenus: [
             {
+                name: "Accounts Summary",
+                link: "/dashboard/accounts/accounts-summary",
+                icon: <SlBriefcase />,
+            },
+            {
                 name: "Accounts Report",
                 link: "/dashboard/accounts/accounts-report",
                 icon: <SlBriefcase />,
@@ -283,6 +332,11 @@ const dasboardMenus = [
         link: "/dashboard/human-resource",
         icon: <HiOutlineUserGroup />,
         subMenus: [
+            {
+                name: "HR Management",
+                link: "/dashboard/human-resource/hr-management",
+                icon: <HiOutlineUserGroup />,
+            },
             {
                 name: "Designation",
                 link: "/dashboard/human-resource/designation",
@@ -311,6 +365,11 @@ const dasboardMenus = [
         icon: <FaUser />,
         subMenus: [
             {
+                name: "User Summary",
+                link: "/dashboard/user-management/user-summary",
+                icon: <FaUser />,
+            },
+            {
                 name: "Add User",
                 link: "/dashboard/user-management/add-user",
                 icon: <FaUser />,
@@ -327,6 +386,11 @@ const dasboardMenus = [
         link: "/user",
         icon: <AiOutlineHome />,
         subMenus: [
+            {
+                name: "User Summary",
+                link: "/user/user-summary",
+                icon: <FaUser />,
+            },
             {
                 name: "Profile",
                 link: "/user/profile",
