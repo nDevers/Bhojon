@@ -13,7 +13,6 @@
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
-    "react-scroll": "^1.8.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -43,7 +42,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
-    "tailwind-scrollbar": "^2.1.0-preview.0",
+    "tailwind-  bar": "^2.1.0-preview.0",
     "tailwindcss": "^3.1.8"
   }
 }

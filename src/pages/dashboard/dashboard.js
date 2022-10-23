@@ -16,9 +16,9 @@ import { TbLanguage } from "react-icons/tb";
 import DefaultUserImage from "../../assets/images/defaultUser.png";
 import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
-import ScrollToTop from "../../components/ScrollToTop";
 import Footer from "../../components/Footer";
 import DashboardHeader from "../../components/DashboardHeader";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const Dashboard = () => {
   const sideMenus = [
@@ -436,11 +436,11 @@ const Dashboard = () => {
           {/* footer is always bottom */}
           <Footer />
 
-          {/* scroll to top button */}
+          {/*    to top button */}
           <ScrollToTop />
         </div>
 
-        <div className="drawer-side bg-base-100 text-gray-50 overflow-hidden">
+        <div className="drawer-side bg-base-100 text-gray-50 overflow-y-     -smooth">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="bg-[#2c3136]">
             <Logo customClass='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b' />

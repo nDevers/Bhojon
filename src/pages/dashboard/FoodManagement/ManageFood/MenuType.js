@@ -328,7 +328,7 @@ const MenuType = () => {
         </div>
       </div>
 
-      <div className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 p-2">
+      <div className="p-2">
         <table className="table table-zebra table-compact w-full">
           <thead className="text-gray-600">
             <tr>

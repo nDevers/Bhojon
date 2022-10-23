@@ -27,7 +27,7 @@ const SetProductionUnit = () => {
                         />
                     </div>
 
-                    <div className="scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 p-2">
+                    <div className="  -smooth   bar-thin   bar-thumb-gray-400 p-2">
                         <table className="table table-compact w-full">
                             <thead className="text-gray-600">
                                 <tr>
