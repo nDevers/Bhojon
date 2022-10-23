@@ -279,7 +279,7 @@ const DashboardSummary = () => {
 
   return (
     <div>
-      <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 lg:gap-6 md:gap-5 gap-4">
+      <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
         {summaryData?.map((summary) => (
           <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center">
             <h2 className="text-2xl font-semibold">{summary?.value}</h2>
@@ -288,7 +288,7 @@ const DashboardSummary = () => {
         ))}
       </div>
 
-      <div className="mt-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-6 md:gap-5 gap-4">
+      <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {latestSummary?.map((summary) => (
           <div className="h-96 p-2 border rounded-md overflow-y-auto scroll-smooth">
             <h4 className="text-lg font-medium pb-4 mb-4 border-b">

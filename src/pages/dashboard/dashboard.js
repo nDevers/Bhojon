@@ -433,11 +433,13 @@ const Dashboard = () => {
             <Outlet />
           </div>
 
-          {/* footer is always bottom */}
-          <Footer />
-
           {/*    to top button */}
           <ScrollToTop />
+
+          <div className="flex flex-col justify-end h-screen">
+            {/* footer is always bottom */}
+            <Footer />
+          </div>
         </div>
 
         <div className="drawer-side bg-base-100 text-gray-50 overflow-y-     -smooth">
