@@ -1,11 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
-import { BsArrowsFullscreen, BsBell, BsDot } from "react-icons/bs";
-import { CgMenuGridR } from "react-icons/cg";
-import { FiSettings } from "react-icons/fi";
-import { GiRiceCooker } from "react-icons/gi";
+import { BsDot } from "react-icons/bs";
 import { IoIosArrowUp } from "react-icons/io";
-import { RiListUnordered } from "react-icons/ri";
-import { TbLanguage } from "react-icons/tb";
 import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import Footer from "../../components/Footer";
@@ -15,43 +10,6 @@ import defaultUserImage from "../../assets/images/defaultUser.png";
 import dasboardMenus from '../../hooks/useDashboardMenu';
 
 const Dashboard = () => {
-  const navbarMiddle = [
-    {
-      name: "Order List",
-      link: "/dashboard/order-list",
-      icon: <RiListUnordered />,
-    },
-    {
-      name: "Kitchen Dashboard",
-      link: "/dashboard/kitchen-dashboard",
-      icon: <GiRiceCooker />,
-    },
-    {
-      name: "Counter Dashboard",
-      link: "/dashboard/counter-dashboard",
-      icon: <CgMenuGridR />,
-    },
-  ];
-
-  const navbarRight = [
-    {
-      icon: <BsArrowsFullscreen />,
-      link: "",
-    },
-    {
-      icon: <BsBell />,
-      link: "/dashboard/notification",
-    },
-    {
-      icon: <FiSettings />,
-      link: "/dashboard/settings",
-    },
-    {
-      icon: <TbLanguage />,
-      link: "/dashboard/select-language",
-    },
-  ];
-
   // set website title
   useWebsiteTitle('Bhojon | Dashboard')
 
