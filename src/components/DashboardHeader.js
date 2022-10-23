@@ -6,7 +6,7 @@ import { CgMenuGridR } from 'react-icons/cg';
 import { FaFirstOrder, FaUser } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import { GiRiceCooker } from 'react-icons/gi';
-import { HiOutlineUserGroup } from 'react-icons/hi';
+import { HiMenu, HiOutlineUserGroup } from 'react-icons/hi';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { RiListUnordered, RiSettings5Fill } from 'react-icons/ri';
 import { SiProducthunt } from 'react-icons/si';
@@ -420,20 +420,7 @@ const DashboardHeader = () => {
                 {/* mobile navbar */}
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16"
-                            />
-                        </svg>
+                        <HiMenu className='text-2xl text-black' />
                     </label>
                     <ul
                         tabIndex={0}
