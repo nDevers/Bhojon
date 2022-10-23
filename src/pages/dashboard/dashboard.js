@@ -20,7 +20,7 @@ const Dashboard = () => {
         <div className="drawer-content flex flex-col">
           <DashboardHeader />
 
-          <div className="m-2 ">
+          <div className="m-2">
             <Outlet />
           </div>
 
