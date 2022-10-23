@@ -426,7 +426,7 @@ const Dashboard = () => {
     <div data-theme="light">
       <div className="drawer drawer-mobile">
         <input id="sidebar" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col justify-between">
+        <div className="drawer-content flex flex-col">
           <DashboardHeader />
 
           <div className="m-2 ">
