@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHome } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineMenuFold } from 'react-icons/ai';
 import { BiCube, BiLineChartDown } from 'react-icons/bi';
 import { BsArrowsFullscreen, BsBell, BsCart4, BsTags } from 'react-icons/bs';
 import { CgMenuGridR } from 'react-icons/cg';
@@ -368,20 +368,7 @@ const DashboardHeader = () => {
                 <Logo />
 
                 <label tabIndex={0} className="btn btn-ghost hidden lg:flex">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M4 6h16M4 12h8m-8 6h16"
-                        />
-                    </svg>
+                    <AiOutlineMenuFold className='text-xl font-black' />
                 </label>
             </div>
 
@@ -420,7 +407,7 @@ const DashboardHeader = () => {
                 {/* mobile navbar */}
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <HiMenu className='text-2xl text-black' />
+                        <HiMenu className='text-xl text-black' />
                     </label>
                     <ul
                         tabIndex={0}
