@@ -1,24 +1,23 @@
 import { Link, Outlet } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiLineChartDown, BiCube } from "react-icons/bi";
-import { BsTags, BsCart4, BsArrowsFullscreen, BsBell } from "react-icons/bs";
+import { BsTags, BsCart4, BsArrowsFullscreen, BsBell, BsDot } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { FaFirstOrder, FaUser } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { GiRiceCooker } from "react-icons/gi";
-import { GoPrimitiveDot } from "react-icons/go";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { MdKeyboardArrowLeft } from "react-icons/md";
+import { IoIosArrowUp } from "react-icons/io";
 import { RiSettings5Fill, RiListUnordered } from "react-icons/ri";
 import { SiProducthunt } from "react-icons/si";
 import { SlBriefcase } from "react-icons/sl";
 import { TbLanguage } from "react-icons/tb";
-import DefaultUserImage from "../../assets/images/defaultUser.png";
 import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import Footer from "../../components/Footer";
 import DashboardHeader from "../../components/DashboardHeader";
 import ScrollToTop from "../../components/ScrollToTop";
+import defaultUserImage from "../../assets/images/defaultUser.png";
 
 const Dashboard = () => {
   const sideMenus = [
@@ -161,12 +160,12 @@ const Dashboard = () => {
           icon: <BiCube />,
           subSubMenus: [
             {
-              name: "Manage Category",
+              name: "Add Category",
               link: "/dashboard/food-management/manage-category/add-category",
               icon: <BiCube />,
             },
             {
-              name: "Manage Category",
+              name: "Category List",
               link: "/dashboard/food-management/manage-category/category-list",
               icon: <BiCube />,
             },
@@ -442,56 +441,114 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="drawer-side bg-base-100 text-gray-50 overflow-y-     -smooth">
+        <div className="drawer-side">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
-          <div className="bg-[#2c3136]">
-            <Logo customClass='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 border-b' />
+          <div class="flex flex-col justify-between bg-[#2c3136] w-60">
+            <div>
+              <Logo customClass='flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4' />
 
-            <div className="flex flex-col items-center justify-center mb-4">
-              <div className="w-20 p-2 m-4 border rounded-full">
-                <img src={DefaultUserImage} alt="default user" />
+              <div class="text-gray-50 border-t">
+                <Link
+                  to="/user"
+                  class="flex gap-x-3 items-center p-4"
+                >
+                  <img
+                    alt="Default user"
+                    src={defaultUserImage}
+                    class="h-16 w-16 rounded-full object-cover"
+                  />
+
+                  <div className="flex flex-col items-start gap-y-2">
+                    <p class="flex items-center text-sm text-success">Super Admin <BsDot className="text-xl" /></p>
+                    <p className="text-xs underline"> admin@bhojon.com </p>
+                  </div>
+                </Link>
               </div>
 
-              <p className="text-sm text-sky-500 flex items-center gap-x-1 mb-1">
-                <GoPrimitiveDot /> Admin
-              </p>
-              <h3 className="text-md text-white font-semibold uppercase">
-                John Doe
-              </h3>
-            </div>
-
-            <ul className="menu p-1 w-60 text-[#fff2e6] text-sm">
-              {sideMenus.map((sideMenu) => (
-                <li key={sideMenu?.link}>
+              <nav aria-label="Main Nav" class="mt-6 p-2 flex flex-col space-y-1">
+                <>
                   {
-                    <Link
-                      className="flex items-center justify-between"
-                      to={sideMenu?.link}
-                    >
-                      <span className="flex items-center justify-end">
-                        <span className="mr-3">{sideMenu?.icon}</span>
-                        {sideMenu?.name}
-                      </span>
-                      <MdKeyboardArrowLeft className="text-xl" />
-                    </Link>
+                    sideMenus?.map(sideMenu =>
+                      sideMenu?.subMenus ? <details class="group">
+                        <summary
+                          class="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                        >
+                          {sideMenu?.icon}
+
+                          <span class="ml-3 text-sm font-medium"> {sideMenu?.name} </span>
+
+                          <span
+                            class="ml-auto shrink-0 transition duration-300 group-open:-rotate-180"
+                          >
+                            <IoIosArrowUp />
+                          </span>
+                        </summary>
+
+                        <nav aria-label="Teams Nav" class="mt-1.5 ml-8 flex flex-col">
+                          {
+                            sideMenu?.subMenus?.map(subMenu =>
+                              subMenu?.subSubMenus ?
+                                <details class="group">
+                                  <summary
+                                    class="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                  >
+                                    {subMenu?.icon}
+
+                                    <span class="ml-3 text-sm font-medium"> {subMenu?.name} </span>
+
+                                    <span
+                                      class="ml-auto shrink-0 transition duration-300 group-open:-rotate-180"
+                                    >
+                                      <IoIosArrowUp />
+                                    </span>
+                                  </summary>
+
+                                  <nav aria-label="Teams Nav" class="mt-1.5 ml-8 flex flex-col">
+                                    {
+                                      subMenu?.subSubMenus?.map(subSubMenu =>
+                                        <Link
+                                          to={subSubMenu?.link}
+                                          class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                        >
+                                          {subSubMenu?.icon}
+
+                                          <span class="ml-3 text-sm font-medium"> {subSubMenu?.name} </span>
+                                        </Link>
+                                      )
+                                    }
+                                  </nav>
+                                </details>
+                                :
+                                <Link
+                                  to={subMenu?.link}
+                                  class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                >
+                                  {subMenu?.icon}
+
+                                  <span class="ml-3 text-sm font-medium"> {subMenu?.name} </span>
+                                </Link>
+                            )
+                          }
+
+
+                        </nav>
+                      </details>
+                        :
+                        <Link
+                          to={sideMenu?.link}
+                          class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                        >
+                          {sideMenu?.icon}
+
+                          <span class="ml-3 text-sm font-medium"> {sideMenu?.name} </span>
+                        </Link>
+                    )
                   }
-                  {sideMenu?.subMenus &&
-                    sideMenu?.subMenus?.map((subMenu) => (
-                      <Link
-                        key={subMenu?.link}
-                        className="flex items-center justify-between ml-4"
-                        to={subMenu?.link}
-                      >
-                        <span className="flex items-center justify-end">
-                          <span className="mr-3">{subMenu?.icon}</span>
-                          {subMenu?.name}
-                        </span>
-                        <MdKeyboardArrowLeft className="text-xl" />
-                      </Link>
-                    ))}
-                </li>
-              ))}
-            </ul>
+                </>
+
+
+              </nav>
+            </div>
           </div>
         </div>
       </div>
