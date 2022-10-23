@@ -100,14 +100,14 @@ const DashboardHeader = () => {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-2 md:mt-3 lg:mt-3 shadow bg-base-100 rounded-box w-52"
+                        className="menu menu-compact dropdown-content mt-2 md:mt-3 lg:mt-3 shadow bg-base-100 rounded-box w-60"
                     >
                         <>
                             {
                                 dasboardMenus?.map(sideMenu =>
                                     sideMenu?.subMenus ? <details class="group">
                                         <summary
-                                            class="flex cursor-pointer items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                            class="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                         >
                                             {sideMenu?.icon}
 
@@ -126,7 +126,7 @@ const DashboardHeader = () => {
                                                     subMenu?.subSubMenus ?
                                                         <details class="group">
                                                             <summary
-                                                                class="flex cursor-pointer items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                                                class="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                                             >
                                                                 {subMenu?.icon}
 
@@ -157,7 +157,7 @@ const DashboardHeader = () => {
                                                         :
                                                         <Link
                                                             to={subMenu?.link}
-                                                            class="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                                            class="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                                         >
                                                             {subMenu?.icon}
 
@@ -172,7 +172,7 @@ const DashboardHeader = () => {
                                         :
                                         <Link
                                             to={sideMenu?.link}
-                                            class="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                            class="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                         >
                                             {sideMenu?.icon}
 
