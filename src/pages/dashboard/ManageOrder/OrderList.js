@@ -7,6 +7,9 @@ import Pagination from '../../../components/Pagination';
 import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
 
 const OrderList = () => {
+    // set website title
+    useWebsiteTitle('Manage Order | Order List');
+
     const tableHeads = [
         { name: 'SL' },
         { name: 'Invoice No' },
@@ -222,15 +225,12 @@ const OrderList = () => {
         },
     ];
 
-    // set website title
-    useWebsiteTitle('Manage Order | Order List')
-
     return (
         <div className='border rounded-md'>
-            <div className='flex flex-col border-b p-2'>
-                <h2 className='uppercase font-semibold sm:mb-2'>Order list</h2>
+            <div className='row border-b p-2'>
+                <h2 className='col-2 uppercase font-semibold sm:mb-2'>Order list</h2>
 
-                <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 items-center gap-2 mt-2 md:mt-0 lg:mt-0'>
+                <div className='col-8 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 items-center gap-2 mt-2 md:mt-0 lg:mt-0'>
                     <div className="input-group">
                         <input type="text" placeholder="Search…" className="input input-xs input-bordered w-full" />
                         <button className="btn btn-xs flex items-center gap-x-2 uppercase">
@@ -287,7 +287,8 @@ const OrderList = () => {
                                         <AiFillDelete className="text-rose-500 text-2xl border rounded-md p-1" />
                                         <AiFillInfoCircle className="text-indigo-400 text-2xl border rounded-md p-1" />
                                     </td>
-                                </tr>)
+                                </tr>
+                            )
                         }
                     </tbody>
                 </table>

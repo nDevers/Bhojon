@@ -111,6 +111,7 @@ function App() {
         {/* user routes */}
         <Route path="user" element={<User />}>
           <Route index element={<UserSummary />} />
+          <Route path="user-summary" element={<UserSummary />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<UserSettings />} />
         </Route>
@@ -131,6 +132,7 @@ function App() {
         {/* orders routes */}
         <Route path="manage-order" element={<ManageOrder />}>
           <Route index element={<ManageOrderSummary />} />
+          <Route path="order-summary" element={<ManageOrderSummary />} />
           <Route path="order-list" element={<OrderList />} />
           <Route path="pending-order" element={<PendingOrder />} />
           <Route path="complete-order" element={<CompleteOrder />} />
@@ -140,6 +142,7 @@ function App() {
         {/* reservation routes */}
         <Route path="reservation" element={<Reservation />}>
           <Route index element={<ReservationSummary />} />
+          <Route path="reservation-summary" element={<ReservationSummary />} />
           <Route path="add-booking" element={<AddBooking />} />
           <Route path="reserved-day" element={<ReservedDay />} />
           <Route path="unavailable-day" element={<UnavailableDay />} />
@@ -152,6 +155,7 @@ function App() {
         {/* purchase management routes */}
         <Route path="purchase-manage" element={<PurchaseManage />}>
           <Route index element={<PurchaseManageSummary />} />
+          <Route path="purchase-summary" element={<PurchaseManageSummary />} />
           <Route path="purchase-item" element={<PurchaseItem />} />
           <Route path="add-purchase" element={<AddPurchase />} />
           <Route path="purchase-return" element={<PurchaseReturn />} />
@@ -164,6 +168,7 @@ function App() {
         {/* report routes */}
         <Route path="report" element={<Report />}>
           <Route index element={<ReportSummary />} />
+          <Route path="report-summary" element={<ReportSummary />} />
           <Route path="purchase-report" element={<PurchaseReport />} />
           <Route path="stock-report" element={<StockReport />} />
           <Route path="sell-report" element={<SellReport />} />
@@ -173,10 +178,12 @@ function App() {
         {/* food management routes */}
         <Route path="food-management" element={<FoodManagement />}>
           <Route index element={<FoodManagementSummary />} />
+          <Route path="food-management-summary" element={<FoodManagementSummary />} />
 
           {/* manage category routes */}
           <Route path="manage-category" element={<ManageCategory />}>
             <Route index element={<ManageCategorySummary />} />
+            <Route path="category-summary" element={<ManageCategorySummary />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="category-list" element={<CategoryList />} />
           </Route>
@@ -184,6 +191,7 @@ function App() {
           {/* manage food routes */}
           <Route path="manage-food" element={<ManageFood />}>
             <Route index element={<ManageFoodSummary />} />
+            <Route path="food-summary" element={<ManageFoodSummary />} />
             <Route path="add-food" element={<AddFood />} />
             <Route path="food-availability" element={<FoodAvailability />} />
             <Route path="add-food-group" element={<AddFoodGroup />} />
@@ -196,6 +204,7 @@ function App() {
         {/* production routes */}
         <Route path="production" element={<Production />} >
           <Route index element={<ProductionSummary />} />
+          <Route path="production-summary" element={<ProductionSummary />} />
           <Route path="add-production" element={<AddProduction />} />
           <Route path="production-list" element={<ProductionList />} />
           <Route path="set-production-unit" element={<SetProductionUnit />} />
@@ -205,10 +214,8 @@ function App() {
         {/* settings routes */}
         <Route path="settings" element={<Settings />}>
           <Route index element={<SettingsBoard />} />
-          <Route
-            path="application-settings"
-            element={<ApplicationSettings />}
-          />
+          <Route path="manage-settings" element={<SettingsBoard />} />
+          <Route path="application-settings" element={<ApplicationSettings />} />
           <Route path="country" element={<Country />} />
           <Route path="currency" element={<Currency />} />
           <Route path="factory-reset" element={<FactoryReset />} />
@@ -219,6 +226,7 @@ function App() {
         {/* accounts routes */}
         <Route path="accounts" element={<Accounts />}>
           <Route index element={<AccountsSummary />} />
+          <Route path="accounts-summary" element={<AccountsSummary />} />
           <Route path="accounts-report" element={<AccountsReport />} />
           <Route path="supplier-payment" element={<SupplierPayment />} />
         </Route>
@@ -226,6 +234,7 @@ function App() {
         {/* human resources routes */}
         <Route path="human-resource" element={<HumanResource />} >
           <Route index element={<HumanResourceSummary />} />
+          <Route path="hr-management" element={<HumanResourceSummary />} />
           <Route path="designation" element={<Designation />} />
           <Route path="add-employee" element={<AddEmployee />} />
           <Route path="manage-employee" element={<ManageEmployee />} />
@@ -235,6 +244,7 @@ function App() {
         {/* user management routes */}
         <Route path="user-management" element={<UserManagement />}>
           <Route index element={<UserManagementSummary />} />
+          <Route path="user-summary" element={<UserManagementSummary />} />
           <Route path="add-user" element={<AddUser />} />
           <Route path="user-list" element={<UserList />} />
         </Route>

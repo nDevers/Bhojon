@@ -278,7 +278,7 @@ const DashboardSummary = () => {
   ];
 
   return (
-    <div>
+    <>
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
         {summaryData?.map((summary) => (
           <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center">
@@ -308,7 +308,7 @@ const DashboardSummary = () => {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
