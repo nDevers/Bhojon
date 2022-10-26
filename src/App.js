@@ -8,7 +8,6 @@ import Profile from "./pages/User/Profile";
 import UserSettings from "./pages/User/UserSettings";
 
 import Authentication from "./pages/dashboard/Authentication/Authentication";
-import Login from "./pages/dashboard/Authentication/Login";
 import SignUp from "./pages/dashboard/Authentication/SignUp";
 import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
 import VerifyEmail from "./pages/Authentication/VerifyEmail";
@@ -99,6 +98,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
 import AccountsSummary from "./pages/dashboard/Accounts/AccountsSummary";
+import Login from "./pages/Authentication/Login";
 
 function App() {
   return (
