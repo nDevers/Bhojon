@@ -11,7 +11,7 @@ import Authentication from "./pages/dashboard/Authentication/Authentication";
 import Login from "./pages/dashboard/Authentication/Login";
 import SignUp from "./pages/dashboard/Authentication/SignUp";
 import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
-import VerifyEmail from "./pages/dashboard/Authentication/VerifyEmail";
+import VerifyEmail from "./pages/Authentication/VerifyEmail";
 
 import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
@@ -104,7 +104,7 @@ function App() {
   return (
     <Routes>
       {/* home routes */}
-      <Route path="/" element={<Home />} >
+      <Route path="/" element={<Home />}>
         <Route index element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
 
@@ -162,7 +162,10 @@ function App() {
           <Route path="return-invoice" element={<ReturnInvoice />} />
           <Route path="supplier-manage" element={<SupplierManage />} />
           <Route path="supplier-ledger" element={<SupplierLedger />} />
-          <Route path="stock-out-ingredients" element={<StockOutIngredients />} />
+          <Route
+            path="stock-out-ingredients"
+            element={<StockOutIngredients />}
+          />
         </Route>
 
         {/* report routes */}
@@ -178,12 +181,18 @@ function App() {
         {/* food management routes */}
         <Route path="food-management" element={<FoodManagement />}>
           <Route index element={<FoodManagementSummary />} />
-          <Route path="food-management-summary" element={<FoodManagementSummary />} />
+          <Route
+            path="food-management-summary"
+            element={<FoodManagementSummary />}
+          />
 
           {/* manage category routes */}
           <Route path="manage-category" element={<ManageCategory />}>
             <Route index element={<ManageCategorySummary />} />
-            <Route path="category-summary" element={<ManageCategorySummary />} />
+            <Route
+              path="category-summary"
+              element={<ManageCategorySummary />}
+            />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="category-list" element={<CategoryList />} />
           </Route>
@@ -202,7 +211,7 @@ function App() {
         </Route>
 
         {/* production routes */}
-        <Route path="production" element={<Production />} >
+        <Route path="production" element={<Production />}>
           <Route index element={<ProductionSummary />} />
           <Route path="production-summary" element={<ProductionSummary />} />
           <Route path="add-production" element={<AddProduction />} />
@@ -215,7 +224,10 @@ function App() {
         <Route path="settings" element={<Settings />}>
           <Route index element={<SettingsBoard />} />
           <Route path="manage-settings" element={<SettingsBoard />} />
-          <Route path="application-settings" element={<ApplicationSettings />} />
+          <Route
+            path="application-settings"
+            element={<ApplicationSettings />}
+          />
           <Route path="country" element={<Country />} />
           <Route path="currency" element={<Currency />} />
           <Route path="factory-reset" element={<FactoryReset />} />
@@ -232,13 +244,16 @@ function App() {
         </Route>
 
         {/* human resources routes */}
-        <Route path="human-resource" element={<HumanResource />} >
+        <Route path="human-resource" element={<HumanResource />}>
           <Route index element={<HumanResourceSummary />} />
           <Route path="hr-management" element={<HumanResourceSummary />} />
           <Route path="designation" element={<Designation />} />
           <Route path="add-employee" element={<AddEmployee />} />
           <Route path="manage-employee" element={<ManageEmployee />} />
-          <Route path="manage-employee-salary" element={<ManageEmployeeSalary />} />
+          <Route
+            path="manage-employee-salary"
+            element={<ManageEmployeeSalary />}
+          />
         </Route>
 
         {/* user management routes */}
