@@ -94,7 +94,9 @@ const Login = () => {
     <section class="relative flex flex-wrap lg:h-screen lg:items-center">
       <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div class="mx-auto max-w-lg text-center">
-          <h1 class="text-2xl font-bold sm:text-3xl">Get started today!</h1>
+          <h1 class="text-2xl font-bold sm:text-3xl">
+            Sign up or log in to continue
+          </h1>
 
           <p class="mt-4 text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
