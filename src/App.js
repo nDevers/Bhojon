@@ -118,10 +118,10 @@ function App() {
 
         {/* authentication routes */}
         <Route path="authentication" element={<Authentication />}>
+          <Route path="verify-email" element={<VerifyEmail />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="reset-password" element={<ResetPassword />} />
-          <Route path="verify-email" element={<VerifyEmail />} />
         </Route>
       </Route>
 

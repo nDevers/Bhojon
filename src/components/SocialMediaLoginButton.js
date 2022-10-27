@@ -11,7 +11,7 @@ const SocialMediaLoginButton = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Facebook
+        Continue with Facebook
         <FaFacebookF className="ml-2" />
       </Link>
 
@@ -21,7 +21,7 @@ const SocialMediaLoginButton = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Google
+        Continue with Google
         <FaGoogle className="ml-2" />
       </Link>
 
@@ -31,7 +31,7 @@ const SocialMediaLoginButton = () => {
         target="_blank"
         rel="noreferrer"
       >
-        GitHub
+        Continue with GitHub
         <FaGithub className="ml-2" />
       </Link>
 
@@ -41,7 +41,7 @@ const SocialMediaLoginButton = () => {
         target="_blank"
         rel="noreferrer"
       >
-        LinkedIn
+        Continue with LinkedIn
         <FaLinkedinIn className="ml-2" />
       </Link>
     </div>
