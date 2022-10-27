@@ -7,11 +7,11 @@ import UserSummary from "./pages/User/UserSummary";
 import Profile from "./pages/User/Profile";
 import UserSettings from "./pages/User/UserSettings";
 
-import Authentication from "./pages/dashboard/Authentication/Authentication";
-import Login from "./pages/dashboard/Authentication/Login";
-import SignUp from "./pages/dashboard/Authentication/SignUp";
-import ResetPassword from "./pages/dashboard/Authentication/ResetPassword";
+import Login from "./pages/Authentication/Login";
 import VerifyEmail from "./pages/Authentication/VerifyEmail";
+import Authentication from "./pages/Authentication/Authentication";
+import SignUp from "./pages/Authentication/SignUp";
+import ResetPassword from "./pages/Authentication/ResetPassword";
 
 import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
@@ -80,6 +80,7 @@ import PayRoleCommission from "./pages/dashboard/Settings/PayRoleCommission";
 import Currency from "./pages/dashboard/Settings/Currency";
 
 import Accounts from "./pages/dashboard/Accounts/Accounts";
+import AccountsSummary from "./pages/dashboard/Accounts/AccountsSummary";
 import AccountsReport from "./pages/dashboard/Accounts/AccountsReport";
 import SupplierPayment from "./pages/dashboard/Accounts/SupplierPayment";
 
@@ -98,7 +99,6 @@ import UserList from "./pages/dashboard/UserManagement/UserList";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
-import AccountsSummary from "./pages/dashboard/Accounts/AccountsSummary";
 
 function App() {
   return (
@@ -118,10 +118,10 @@ function App() {
 
         {/* authentication routes */}
         <Route path="authentication" element={<Authentication />}>
+          <Route path="verify-email" element={<VerifyEmail />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="reset-password" element={<ResetPassword />} />
-          <Route path="verify-email" element={<VerifyEmail />} />
         </Route>
       </Route>
 

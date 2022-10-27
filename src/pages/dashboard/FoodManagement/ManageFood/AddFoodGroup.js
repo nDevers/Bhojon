@@ -9,7 +9,7 @@ import useWebsiteTitle from "../../../../hooks/useWebsiteTitle";
 
 const AddFoodGroup = () => {
   // set website title
-  useWebsiteTitle('Manage Food | Add Food Group')
+  useWebsiteTitle("Manage Food | Add Food Group");
 
   return (
     <div className="my-10">
@@ -38,7 +38,7 @@ const AddFoodGroup = () => {
         <div className="grid items-center justify-end w-3/6">
           <div className="flex justify-end gap-x-2">
             <Button
-              customClass="btn btn-sm btn-error text-xs text-white"
+              customclassName="btn btn-sm btn-error text-xs text-white"
               buttonTitle="Reset"
             />
             <Button buttonTitle="Save" />

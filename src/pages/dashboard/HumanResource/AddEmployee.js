@@ -8,75 +8,78 @@ import Toggle from "../../../components/Toggle";
 import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const AddEmployee = () => {
-    // set website title
-    useWebsiteTitle('Human Resource | Add Employee')
+  // set website title
+  useWebsiteTitle("Human Resource | Add Employee");
 
-    return (
-        <div>
-            <div className="m-2">
-                < Breadcrumbs />
-            </div >
-            <div className="border rounded-md">
-                <h3 className="uppercase font-semibold p-2">Add Employee</h3>
-                <div className="border-t">
-                    <div className="flex flex-col gap-5 items-center justify-center m-2 md:m-6 lg:m-10">
-                        <Input
-                            inputTitle="First Name"
-                            inputType="text"
-                            inputPlaceHolder="First Name"
-                        />
-                        <Input
-                            inputTitle="Last Name"
-                            inputType="text"
-                            inputPlaceHolder="Last Name"
-                        />
-                        <Input
-                            inputTitle="National ID"
-                            inputType="number"
-                            inputPlaceHolder="1234567891234567"
-                        />
-                        <FileInput fileInputTitle="Profile Picture" />
-                        <Input
-                            inputTitle="Email Address"
-                            inputType="email"
-                            inputPlaceHolder="company@email.com"
-                        />
-                        <Input
-                            inputTitle="Password"
-                            inputType="password"
-                            inputPlaceHolder="Password"
-                        />
-                        <Input
-                            inputTitle="Confirm Password"
-                            inputType="password"
-                            inputPlaceHolder="Confirm Password"
-                        />
-                        <Input
-                            inputTitle="Phone"
-                            inputType="tel"
-                            inputPlaceHolder="+8801700000000"
-                        />
-                        <Input
-                            inputTitle="Address"
-                            inputType="text"
-                            inputPlaceHolder="Address"
-                        />
-                        <Select
-                            selectTitle="Customer Type"
-                            selectOptions={["Active", "Inactive"]}
-                        />
-                        <Toggle toggleTitle='Hide Employee' />
-                        <div className="grid w-full md:w-3/6 lg:w-3/6">
-                            <div className="flex justify-end gap-x-2">
-                                <Button customClass='btn btn-sm btn-error text-xs text-white' buttonTitle='Reset' />
-                                <Button buttonTitle='Save' />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div>
+      <div className="m-2">
+        <Breadcrumbs />
+      </div>
+      <div className="border rounded-md">
+        <h3 className="uppercase font-semibold p-2">Add Employee</h3>
+        <div className="border-t">
+          <div className="flex flex-col gap-5 items-center justify-center m-2 md:m-6 lg:m-10">
+            <Input
+              inputTitle="First Name"
+              inputType="text"
+              inputPlaceHolder="First Name"
+            />
+            <Input
+              inputTitle="Last Name"
+              inputType="text"
+              inputPlaceHolder="Last Name"
+            />
+            <Input
+              inputTitle="National ID"
+              inputType="number"
+              inputPlaceHolder="1234567891234567"
+            />
+            <FileInput fileInputTitle="Profile Picture" />
+            <Input
+              inputTitle="Email Address"
+              inputType="email"
+              inputPlaceHolder="company@email.com"
+            />
+            <Input
+              inputTitle="Password"
+              inputType="password"
+              inputPlaceHolder="Password"
+            />
+            <Input
+              inputTitle="Confirm Password"
+              inputType="password"
+              inputPlaceHolder="Confirm Password"
+            />
+            <Input
+              inputTitle="Phone"
+              inputType="tel"
+              inputPlaceHolder="+8801700000000"
+            />
+            <Input
+              inputTitle="Address"
+              inputType="text"
+              inputPlaceHolder="Address"
+            />
+            <Select
+              selectTitle="Customer Type"
+              selectOptions={["Active", "Inactive"]}
+            />
+            <Toggle toggleTitle="Hide Employee" />
+            <div className="grid w-full md:w-3/6 lg:w-3/6">
+              <div className="flex justify-end gap-x-2">
+                <Button
+                  customclassName="btn btn-sm btn-error text-xs text-white"
+                  buttonTitle="Reset"
+                />
+                <Button buttonTitle="Save" />
+              </div>
             </div>
-        </div >
-    );
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AddEmployee;
