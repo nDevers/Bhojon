@@ -16,7 +16,7 @@ function RequireAuth({ children }) {
     if (!user) {
         Swal.fire({
             icon: 'error',
-            title: 'You are not a member',
+            title: 'You are not logged in',
             text: `Please login to continue.`,
         });
 
