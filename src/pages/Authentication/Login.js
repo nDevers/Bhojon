@@ -1,13 +1,65 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
+import { toast } from 'react-toastify';
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import auth from "../../hooks/firebase.init";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    }
+  });
+
+  const [
+    signInWithEmailAndPassword,
+    user,
+    signInWithEmailAndPasswordLoading,
+    signInWithEmailAndPasswordError,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
+
   // set website title
   useWebsiteTitle("Bhojon | Login");
+
+  const onSubmit = (data, errors) => {
+    console.log(data, errors);
+    signInWithEmailAndPassword(watch('email'), watch('password'))
+  };
+
+  if (user) {
+    toast.success(`Welcome ${watch('firstName')}`, {
+      toastId: 'loginToastMessage'
+    });
+
+    navigate('/dashboard')
+  }
+
+  if (signInWithEmailAndPasswordLoading) {
+    return <LoadingSpinner />
+  }
+
+  if (signInWithEmailAndPasswordError) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: `${signInWithEmailAndPasswordError}`,
+    });
+  }
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -23,7 +75,7 @@ const Login = () => {
           </p>
         </div>
 
-        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4">
+        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="email" className="sr-only">
               Email
@@ -31,15 +83,24 @@ const Login = () => {
 
             <div className="relative">
               <input
-                type="email"
+                type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                {...register("email", {
+                  required: '* Email is required',
+                  minLength: { value: 5, message: '* Minimum 5 character' },
+                  maxLength: { value: 25, message: '* Maximum 25 character' },
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
                 <MdOutlineAlternateEmail className="text-gray-400" />
               </span>
             </div>
+
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.email?.message}
+            </p>
           </div>
 
           <div>
@@ -51,19 +112,28 @@ const Login = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
+                {...register("password", {
+                  required: '* Password is required',
+                  minLength: { value: 10, message: '* Minimum 10 character' },
+                  maxLength: { value: 20, message: '* Maximum 20 character' },
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
                 <BiShowAlt className="text-gray-400" />
               </span>
             </div>
+
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.password?.message}
+            </p>
           </div>
 
-          <div className="flex items-center justify-between py-10">
-            <div className="flex flex-col gap-2">
+          <div className="flex items-center justify-between py-6">
+            <div className="flex flex-col gap-3">
               <p className="text-sm text-gray-500">
                 No account?
-                <Link to="/authentication/signup" className="underline">
+                <Link to="/authentication/signup" className="underline ml-2">
                   Sign up
                 </Link>
               </p>

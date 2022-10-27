@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Swal from 'sweetalert2'
-import { toast } from 'react-toastify';
 import { BiShowAlt } from "react-icons/bi";
 import { HiUser } from "react-icons/hi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
