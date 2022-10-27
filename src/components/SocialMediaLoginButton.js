@@ -16,7 +16,7 @@ const SocialMediaLoginButton = () => {
       </Link>
 
       <Link
-        class="inline-flex items-center justify-center rounded border-2 border-[#eeeeee] bg-[#FAF7F0] px-5 py-3 text-sm font-medium text-[#757575] transition-colors hover:bg-transparent focus:outline-none focus:ring active:opacity-75"
+        class="inline-flex items-center justify-center rounded border-2 border-[#eee]  px-5 py-3 text-sm font-medium text-[#757575] transition-colors hover:bg-transparent focus:outline-none focus:ring active:opacity-75 shadow-lg"
         to="/google"
         target="_blank"
         rel="noreferrer"
