@@ -68,7 +68,7 @@ const Dashboard = () => {
                     <p className="flex items-center text-sm text-success">
                       {user?.displayName ? user?.displayName : 'Default User'} <BsDot className="text-xl" />
                     </p>
-                    <p className="text-xs underline"> {user?.email} </p>
+                    <p className="text-xs underline"> {user?.email ? user?.email : 'user@email.com'} </p>
                   </div>
                 </Link>
               </div>
@@ -80,7 +80,7 @@ const Dashboard = () => {
                 <>
                   {dasboardMenus?.map((sideMenu) =>
                     sideMenu?.subMenus ? (
-                      <details className="group">
+                      <details className="group" key={sideMenu?.name}>
                         <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
                           {sideMenu?.icon}
 
@@ -100,7 +100,7 @@ const Dashboard = () => {
                         >
                           {sideMenu?.subMenus?.map((subMenu) =>
                             subMenu?.subSubMenus ? (
-                              <details className="group">
+                              <details className="group" key={subMenu?.link}>
                                 <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
                                   {subMenu?.icon}
 
@@ -120,6 +120,7 @@ const Dashboard = () => {
                                 >
                                   {subMenu?.subSubMenus?.map((subSubMenu) => (
                                     <Link
+                                      key={subSubMenu?.link}
                                       to={subSubMenu?.link}
                                       className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                     >
@@ -135,6 +136,7 @@ const Dashboard = () => {
                               </details>
                             ) : (
                               <Link
+                                key={subMenu?.link}
                                 to={subMenu?.link}
                                 className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                               >
@@ -151,6 +153,7 @@ const Dashboard = () => {
                       </details>
                     ) : (
                       <Link
+                        key={sideMenu?.link}
                         to={sideMenu?.link}
                         className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                       >

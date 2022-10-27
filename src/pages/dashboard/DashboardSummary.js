@@ -281,7 +281,7 @@ const DashboardSummary = () => {
     <>
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
         {summaryData?.map((summary) => (
-          <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center">
+          <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center" key={summary?.name}>
             <h2 className="text-2xl font-semibold">{summary?.value}</h2>
             <h3 className="text-md font-medium">{summary?.name}</h3>
           </div>
@@ -290,12 +290,12 @@ const DashboardSummary = () => {
 
       <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {latestSummary?.map((summary) => (
-          <div className="h-96 p-2 border rounded-md overflow-y-auto scroll-smooth">
+          <div className="h-96 p-2 border rounded-md overflow-y-auto scroll-smooth" key={summary?.title}>
             <h4 className="text-lg font-medium pb-4 mb-4 border-b">
               {summary?.title}
             </h4>
             {summary?.data?.map((customer) => (
-              <div className="border-b mb-2 pb-2">
+              <div className="border-b mb-2 pb-2" key={customer?.time}>
                 <h2 className="font-medium">Name: {customer?.name}</h2>
                 <span className="text-sm font-light">
                   <p>Phone: {customer?.phone}</p>
