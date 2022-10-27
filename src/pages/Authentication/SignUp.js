@@ -95,14 +95,14 @@ const SignUp = () => {
             <div className="flex flex-col gap-2">
               <p class="text-sm text-gray-500">
                 ALready have an account?
-                <Link to="/login" class="underline">
+                <Link to="/authentication/login" class="underline">
                   Login
                 </Link>
               </p>
 
               <p class="text-sm text-gray-500">
                 Forgot password?
-                <Link to="/signup" class="underline">
+                <Link to="/authentication/reset-password" class="underline">
                   Reset password
                 </Link>
               </p>
