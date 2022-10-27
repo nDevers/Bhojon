@@ -2,11 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BiShowAlt } from "react-icons/bi";
+import { HiUser } from "react-icons/hi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const SignUp = () => {
+  let firstNameError,
+    lastNameError,
+    userNameError,
+    emailError,
+    passwordError,
+    confirmPasswordError;
+
   // set website title
   useWebsiteTitle("Bhojon | Signup");
 
@@ -17,7 +25,28 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data, errors) => console.log(data, errors);
+
+  if (errors) {
+    if (errors?.firstName) {
+      firstNameError = "visible";
+    }
+    if (errors?.lastName) {
+      lastNameError = "visible";
+    }
+    if (errors?.userName) {
+      userNameError = "visible";
+    }
+    if (errors?.email) {
+      emailError = "visible";
+    }
+    if (errors?.password) {
+      passwordError = "visible";
+    }
+    if (errors?.confirmPassword) {
+      confirmPasswordError = "visible";
+    }
+  }
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -33,23 +62,96 @@ const SignUp = () => {
           </p>
         </div>
 
-        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4">
+        <form
+          action=""
+          className="mx-auto mt-8 mb-0 max-w-md space-y-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
             <label htmlFor="email" className="sr-only">
-              Name
+              First Name
             </label>
 
             <div className="relative">
               <input
                 type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter name"
+                placeholder="Enter first name"
+                {...register("firstName", {
+                  required: true,
+                  minLength: 3,
+                  maxLength: 20,
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
                 <MdEdit className="text-gray-400" />
               </span>
             </div>
+
+            <p className={`${firstNameError} text-error mt-2`}>
+              {errors.firstName?.type === "required" && (
+                <small role="alert"> * First name is required</small>
+              )}
+            </p>
+          </div>
+
+          <div>
+            <label htmlFor="email" className="sr-only">
+              Last Name
+            </label>
+
+            <div className="relative">
+              <input
+                type="text"
+                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                placeholder="Enter last name"
+                {...register("lastName", {
+                  required: true,
+                  minLength: 3,
+                  maxLength: 20,
+                })}
+              />
+
+              <span className="absolute inset-y-0 right-4 inline-flex items-center">
+                <MdEdit className="text-gray-400" />
+              </span>
+            </div>
+
+            <p className={`${lastNameError} text-error mt-2`}>
+              {errors.lastName?.type === "required" && (
+                <small role="alert"> * Last name is required</small>
+              )}
+            </p>
+          </div>
+
+          <div>
+            <label htmlFor="email" className="sr-only">
+              User Name
+            </label>
+
+            <div className="relative">
+              <input
+                type="text"
+                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                placeholder="Enter username"
+                {...register("userName", {
+                  required: true,
+                  minLength: 5,
+                  maxLength: 10,
+                })}
+              />
+
+              <span className="absolute inset-y-0 right-4 inline-flex items-center">
+                <HiUser className="text-gray-400" />
+              </span>
+            </div>
+
+            <p className={`${userNameError} text-error mt-2`}>
+              {errors.userName?.type === "required" && (
+                <small role="alert"> * Username is required</small>
+              )}
+            </p>
           </div>
 
           <div>
@@ -62,12 +164,23 @@ const SignUp = () => {
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                {...register("email", {
+                  required: true,
+                  minLength: 3,
+                  maxLength: 25,
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
                 <MdOutlineAlternateEmail className="text-gray-400" />
               </span>
             </div>
+
+            <p className={`${emailError} text-error mt-2`}>
+              {errors.email?.type === "required" && (
+                <small role="alert"> * Email is required</small>
+              )}
+            </p>
           </div>
 
           <div>
@@ -79,12 +192,23 @@ const SignUp = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
+                {...register("password", {
+                  required: true,
+                  minLength: 12,
+                  maxLength: 20,
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
                 <BiShowAlt className="text-gray-400" />
               </span>
             </div>
+
+            <p className={`${passwordError} text-error mt-2`}>
+              {errors.password?.type === "required" && (
+                <small role="alert"> * Password is required</small>
+              )}
+            </p>
           </div>
 
           <div>
@@ -96,12 +220,23 @@ const SignUp = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Confirm password"
+                {...register("confirmPassword", {
+                  required: true,
+                  minLength: 12,
+                  maxLength: 20,
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
                 <BiShowAlt className="text-gray-400" />
               </span>
             </div>
+
+            <p className={`${confirmPasswordError} text-error mt-2`}>
+              {errors.confirmPassword?.type === "required" && (
+                <small role="alert"> * Confirm password is required</small>
+              )}
+            </p>
           </div>
 
           <div className="flex items-center justify-between py-10">
