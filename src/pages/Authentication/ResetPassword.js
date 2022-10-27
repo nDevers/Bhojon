@@ -1,15 +1,11 @@
-import React from 'react';
-import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
+import React from "react";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const ResetPassword = () => {
-    // set website title
-    useWebsiteTitle('Bhojon | Reset Password')
+  // set website title
+  useWebsiteTitle("Bhojon | Reset Password");
 
-    return (
-        <div>
-            ResetPassword
-        </div>
-    );
+  return <div>ResetPassword</div>;
 };
 
 export default ResetPassword;
