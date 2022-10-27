@@ -1,19 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import { BiShowAlt } from "react-icons/bi";
 import { HiUser } from "react-icons/hi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import auth from "../../hooks/firebase.init";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const SignUp = () => {
-  let firstNameError,
-    lastNameError,
-    userNameError,
-    emailError,
-    passwordError,
-    confirmPasswordError;
+  let password, confirmPassword;
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    createUserWithEmailAndPasswordLoading,
+    createUserWithEmailAndPasswordError,
+  ] = useCreateUserWithEmailAndPassword(auth);
+
 
   // set website title
   useWebsiteTitle("Bhojon | Signup");
@@ -23,29 +29,28 @@ const SignUp = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      userName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
+  });
 
-  const onSubmit = (data, errors) => console.log(data, errors);
+  const onSubmit = (data, errors) => {
+    console.log(data, errors);
+    createUserWithEmailAndPassword(watch('email'), watch('password'))
+  };
 
-  if (errors) {
-    if (errors?.firstName) {
-      firstNameError = "visible";
-    }
-    if (errors?.lastName) {
-      lastNameError = "visible";
-    }
-    if (errors?.userName) {
-      userNameError = "visible";
-    }
-    if (errors?.email) {
-      emailError = "visible";
-    }
-    if (errors?.password) {
-      passwordError = "visible";
-    }
-    if (errors?.confirmPassword) {
-      confirmPasswordError = "visible";
-    }
+  if (createUserWithEmailAndPasswordLoading) {
+    <LoadingSpinner />
+  }
+
+  if (user) {
+    toast.success(`Welcome ${watch('firstName')}`);
   }
 
   return (
@@ -62,7 +67,7 @@ const SignUp = () => {
           </p>
         </div>
 
-        <form
+        <form action=""
           className="mx-auto mt-8 mb-0 max-w-md space-y-4"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -77,9 +82,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter first name"
                 {...register("firstName", {
-                  required: true,
-                  minLength: 3,
-                  maxLength: 20,
+                  required: '* First name is required',
+                  minLength: { value: 3, message: '* Minimum 3 character' },
+                  maxLength: { value: 20, message: '* Maximum 20 character' },
                 })}
               />
 
@@ -88,10 +93,8 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p className={`${firstNameError} text-error mt-2`}>
-              {errors.firstName?.type === "required" && (
-                <small role="alert"> * First name is required</small>
-              )}
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.firstName?.message}
             </p>
           </div>
 
@@ -106,9 +109,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter last name"
                 {...register("lastName", {
-                  required: true,
-                  minLength: 3,
-                  maxLength: 20,
+                  required: '* Last name is required',
+                  minLength: { value: 3, message: '* Minimum 3 character' },
+                  maxLength: { value: 20, message: '* Maximum 20 character' },
                 })}
               />
 
@@ -117,10 +120,8 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p className={`${lastNameError} text-error mt-2`}>
-              {errors.lastName?.type === "required" && (
-                <small role="alert"> * Last name is required</small>
-              )}
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.lastName?.message}
             </p>
           </div>
 
@@ -135,9 +136,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter username"
                 {...register("userName", {
-                  required: true,
-                  minLength: 5,
-                  maxLength: 10,
+                  required: '* Username is required',
+                  minLength: { value: 5, message: '* Minimum 5 character' },
+                  maxLength: { value: 10, message: '* Maximum 10 character' },
                 })}
               />
 
@@ -146,10 +147,8 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p className={`${userNameError} text-error mt-2`}>
-              {errors.userName?.type === "required" && (
-                <small role="alert"> * Username is required</small>
-              )}
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.userName?.message}
             </p>
           </div>
 
@@ -160,13 +159,13 @@ const SignUp = () => {
 
             <div className="relative">
               <input
-                type="email"
+                type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
-                  required: true,
-                  minLength: 3,
-                  maxLength: 25,
+                  required: '* Email is required',
+                  minLength: { value: 5, message: '* Minimum 5 character' },
+                  maxLength: { value: 25, message: '* Maximum 25 character' },
                 })}
               />
 
@@ -175,10 +174,8 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p className={`${emailError} text-error mt-2`}>
-              {errors.email?.type === "required" && (
-                <small role="alert"> * Email is required</small>
-              )}
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.email?.message}
             </p>
           </div>
 
@@ -192,9 +189,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
                 {...register("password", {
-                  required: true,
-                  minLength: 12,
-                  maxLength: 20,
+                  required: '* Password is required',
+                  minLength: { value: 10, message: '* Minimum 10 character' },
+                  maxLength: { value: 20, message: '* Maximum 20 character' },
                 })}
               />
 
@@ -203,10 +200,8 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p className={`${passwordError} text-error mt-2`}>
-              {errors.password?.type === "required" && (
-                <small role="alert"> * Password is required</small>
-              )}
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.password?.message}
             </p>
           </div>
 
@@ -220,9 +215,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Confirm password"
                 {...register("confirmPassword", {
-                  required: true,
-                  minLength: 12,
-                  maxLength: 20,
+                  required: '* Confirm Password is required',
+                  minLength: { value: 10, message: '* Minimum 10 character' },
+                  maxLength: { value: 20, message: '* Maximum 20 character' },
                 })}
               />
 
@@ -231,10 +226,8 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p className={`${confirmPasswordError} text-error mt-2`}>
-              {errors.confirmPassword?.type === "required" && (
-                <small role="alert"> * Confirm password is required</small>
-              )}
+            <p role='alert' className='text-error text-sm mt-2'>
+              {errors.confirmPassword?.message}
             </p>
           </div>
 
