@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2'
 import { BiShowAlt } from "react-icons/bi";
 import { HiUser } from "react-icons/hi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
@@ -12,17 +12,6 @@ import auth from "../../hooks/firebase.init";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 const SignUp = () => {
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    createUserWithEmailAndPasswordLoading,
-    createUserWithEmailAndPasswordError,
-  ] = useCreateUserWithEmailAndPassword(auth);
-
-
-  // set website title
-  useWebsiteTitle("Bhojon | Signup");
-
   const {
     register,
     handleSubmit,
@@ -39,20 +28,44 @@ const SignUp = () => {
     }
   });
 
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    createUserWithEmailAndPasswordLoading,
+    createUserWithEmailAndPasswordError,
+  ] = useCreateUserWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
+
+
+  // set website title
+  useWebsiteTitle("Bhojon | Signup");
+
   const onSubmit = (data, errors) => {
     console.log(data, errors);
     createUserWithEmailAndPassword(watch('email'), watch('password'))
   };
 
   if (createUserWithEmailAndPasswordLoading) {
-    <LoadingSpinner />
+    return <LoadingSpinner />;
   }
 
   if (user) {
-    toast(`Welcome ${watch('firstName')}`, {
-      toastId: "signupSuccessfull",
+    Swal.fire({
+      icon: 'success',
+      title: 'Verification email sent',
+      text: 'Please verify your email',
     });
-    redirect("/dashboard")
+
+    navigate('/authentication/login')
+  }
+
+  if (createUserWithEmailAndPasswordError) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: `${createUserWithEmailAndPasswordError}`,
+    });
   }
 
   return (
