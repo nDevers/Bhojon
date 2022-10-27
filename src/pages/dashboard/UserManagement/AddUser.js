@@ -9,13 +9,13 @@ import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const AddUser = () => {
   // set website title
-  useWebsiteTitle('User | Add User')
+  useWebsiteTitle("User | Add User");
 
   return (
     <div>
       <div className="m-2">
-        < Breadcrumbs />
-      </div >
+        <Breadcrumbs />
+      </div>
       <div className="border rounded-md">
         <h3 className="uppercase font-semibold p-2">Add User</h3>
         <div className="border-t">
@@ -60,17 +60,20 @@ const AddUser = () => {
               selectTitle="Customer Type"
               selectOptions={["Active", "Inactive"]}
             />
-            <Toggle toggleTitle='Hide User' />
+            <Toggle toggleTitle="Hide User" />
             <div className="grid w-full md:w-3/6 lg:w-3/6">
               <div className="flex justify-end gap-x-2">
-                <Button customClass='btn btn-sm btn-error text-xs text-white' buttonTitle='Reset' />
-                <Button buttonTitle='Save' />
+                <Button
+                  customclassName="btn btn-sm btn-error text-xs text-white"
+                  buttonTitle="Reset"
+                />
+                <Button buttonTitle="Save" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

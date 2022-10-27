@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
