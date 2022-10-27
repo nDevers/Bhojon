@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
@@ -12,7 +12,6 @@ import auth from "../../hooks/firebase.init";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 const SignUp = () => {
-  let password, confirmPassword;
   const [
     createUserWithEmailAndPassword,
     user,
@@ -50,7 +49,10 @@ const SignUp = () => {
   }
 
   if (user) {
-    toast.success(`Welcome ${watch('firstName')}`);
+    toast(`Welcome ${watch('firstName')}`, {
+      toastId: "signupSuccessfull",
+    });
+    redirect("/dashboard")
   }
 
   return (
