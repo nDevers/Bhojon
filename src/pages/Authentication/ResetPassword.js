@@ -24,7 +24,7 @@ const ResetPassword = () => {
 
         <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4">
           <div>
-            <label for="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               New Password
             </label>
             <div className="relative">
@@ -41,7 +41,7 @@ const ResetPassword = () => {
           </div>
 
           <div>
-            <label for="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               Confirm New Password
             </label>
             <div className="relative">

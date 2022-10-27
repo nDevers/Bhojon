@@ -34,7 +34,7 @@ const Dashboard = () => {
         </div>
 
         <div className="drawer-side">
-          <label htmlFor="sidebar" className="drawer-overlay"></label>
+          <label htmlhtmlFor="sidebar" className="drawer-overlay"></label>
           <div className="flex flex-col justify-between bg-[#2c3136] w-60">
             <div>
               <Logo customclassName="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" />

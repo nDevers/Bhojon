@@ -23,7 +23,7 @@ function Hero() {
                   </h2>
                   <form action="" className="space-y-8">
                     <div className="space-y-2">
-                      <label for="email" className="text-gray-700">
+                      <label htmlFor="email" className="text-gray-700">
                         Email
                       </label>
                       <input
@@ -37,7 +37,7 @@ function Hero() {
                     </div>
                     <div>
                       <div className="flex items-center justify-between">
-                        <label for="pwd" className="text-gray-700">
+                        <label htmlFor="pwd" className="text-gray-700">
                           Password
                         </label>
                         <button className="p-2 -mr-2" type="reset">

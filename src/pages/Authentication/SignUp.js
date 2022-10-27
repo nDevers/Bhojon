@@ -38,7 +38,7 @@ const SignUp = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div>
-            <label for="email" className="sr-only">
+            <label htmlFor="email" className="sr-only">
               First Name
             </label>
 
@@ -57,7 +57,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="email" className="sr-only">
+            <label htmlFor="email" className="sr-only">
               Last Name
             </label>
 
@@ -76,7 +76,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="email" className="sr-only">
+            <label htmlFor="email" className="sr-only">
               Email
             </label>
 
@@ -94,7 +94,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               Password
             </label>
             <div className="relative">
@@ -111,7 +111,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               Confirm Password
             </label>
             <div className="relative">

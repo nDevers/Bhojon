@@ -22,7 +22,7 @@ const VerifyEmail = () => {
 
         <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4">
           <div>
-            <label for="email" className="sr-only">
+            <label htmlFor="email" className="sr-only">
               Email
             </label>
 
