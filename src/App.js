@@ -103,6 +103,8 @@ import LoadingSpinner from "./components/LoadingSpinner";
 
 import NotFound from "./pages/NotFound";
 
+import RequireAuth from "./hooks/RequireAuth";
+
 function App() {
   return (
     <div>
@@ -113,7 +115,11 @@ function App() {
           <Route path="home" element={<HomePage />} />
 
           {/* user routes */}
-          <Route path="user" element={<User />}>
+          <Route path="user" element={
+            <RequireAuth>
+              <User />
+            </RequireAuth>
+          }>
             <Route index element={<UserSummary />} />
             <Route path="user-summary" element={<UserSummary />} />
             <Route path="profile" element={<Profile />} />
@@ -130,7 +136,10 @@ function App() {
         </Route>
 
         {/* dashboard routes */}
-        <Route path="dashboard" element={<Dashboard />}>
+        <Route path="dashboard" element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>}>
           <Route index element={<DashboardSummary />} />
 
           {/* orders routes */}
@@ -286,7 +295,7 @@ function App() {
         pauseOnHover={true}
         theme="dark"
       />
-    </div>
+    </div >
   );
 }
 
