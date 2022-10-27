@@ -9,11 +9,9 @@ const Home = () => {
     <div>
       <Navbar />
 
-      <main className="my-20">
+      <main className="my-10">
         <Outlet />
       </main>
-
-      <Footer />
 
       {/* scroll to top button */}
       <ScrollToTop />
