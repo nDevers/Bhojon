@@ -35,20 +35,20 @@ const Dashboard = () => {
 
         <div className="drawer-side">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
-          <div class="flex flex-col justify-between bg-[#2c3136] w-60">
+          <div className="flex flex-col justify-between bg-[#2c3136] w-60">
             <div>
               <Logo customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" />
 
-              <div class="text-gray-50 border-t">
-                <Link to="/user" class="flex gap-x-3 items-center p-4">
+              <div className="text-gray-50 border-t">
+                <Link to="/user" className="flex gap-x-3 items-center p-4">
                   <img
                     alt="Default user"
                     src={defaultUserImage}
-                    class="h-16 w-16 rounded-full object-cover"
+                    className="h-16 w-16 rounded-full object-cover"
                   />
 
                   <div className="flex flex-col items-start gap-y-2">
-                    <p class="flex items-center text-sm text-success">
+                    <p className="flex items-center text-sm text-success">
                       Super Admin <BsDot className="text-xl" />
                     </p>
                     <p className="text-xs underline"> admin@bhojon.com </p>
@@ -58,57 +58,57 @@ const Dashboard = () => {
 
               <nav
                 aria-label="Main Nav"
-                class="mt-6 p-2 flex flex-col space-y-1"
+                className="mt-6 p-2 flex flex-col space-y-1"
               >
                 <>
                   {dasboardMenus?.map((sideMenu) =>
                     sideMenu?.subMenus ? (
-                      <details class="group">
-                        <summary class="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
+                      <details className="group">
+                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
                           {sideMenu?.icon}
 
-                          <span class="ml-3 text-sm font-medium">
+                          <span className="ml-3 text-sm font-medium">
                             {" "}
                             {sideMenu?.name}{" "}
                           </span>
 
-                          <span class="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
+                          <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
                             <IoIosArrowUp />
                           </span>
                         </summary>
 
                         <nav
                           aria-label="Teams Nav"
-                          class="mt-1.5 ml-8 flex flex-col"
+                          className="mt-1.5 ml-8 flex flex-col"
                         >
                           {sideMenu?.subMenus?.map((subMenu) =>
                             subMenu?.subSubMenus ? (
-                              <details class="group">
-                                <summary class="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
+                              <details className="group">
+                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
                                   {subMenu?.icon}
 
-                                  <span class="ml-3 text-sm font-medium">
+                                  <span className="ml-3 text-sm font-medium">
                                     {" "}
                                     {subMenu?.name}{" "}
                                   </span>
 
-                                  <span class="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
+                                  <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
                                     <IoIosArrowUp />
                                   </span>
                                 </summary>
 
                                 <nav
                                   aria-label="Teams Nav"
-                                  class="mt-1.5 ml-8 flex flex-col"
+                                  className="mt-1.5 ml-8 flex flex-col"
                                 >
                                   {subMenu?.subSubMenus?.map((subSubMenu) => (
                                     <Link
                                       to={subSubMenu?.link}
-                                      class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                     >
                                       {subSubMenu?.icon}
 
-                                      <span class="ml-3 text-sm font-medium">
+                                      <span className="ml-3 text-sm font-medium">
                                         {" "}
                                         {subSubMenu?.name}{" "}
                                       </span>
@@ -119,11 +119,11 @@ const Dashboard = () => {
                             ) : (
                               <Link
                                 to={subMenu?.link}
-                                class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                               >
                                 {subMenu?.icon}
 
-                                <span class="ml-3 text-sm font-medium">
+                                <span className="ml-3 text-sm font-medium">
                                   {" "}
                                   {subMenu?.name}{" "}
                                 </span>
@@ -135,11 +135,11 @@ const Dashboard = () => {
                     ) : (
                       <Link
                         to={sideMenu?.link}
-                        class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                       >
                         {sideMenu?.icon}
 
-                        <span class="ml-3 text-sm font-medium">
+                        <span className="ml-3 text-sm font-medium">
                           {" "}
                           {sideMenu?.name}{" "}
                         </span>
