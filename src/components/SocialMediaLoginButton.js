@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 const SocialMediaLoginButton = () => {
   return (
     <div className="flex flex-col gap-2">
+      <p className="text-center text-gray-600 font-medium pb-2 mb-3 border-b border-gray-400">
+        Continue With social media
+      </p>
       <Link
         class="inline-flex items-center justify-center rounded border-2 border-[#3b5998] bg-[#3b5998] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-[#3b5998] focus:outline-none focus:ring active:opacity-75"
         to="/facebook"

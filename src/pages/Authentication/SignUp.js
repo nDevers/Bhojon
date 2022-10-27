@@ -94,7 +94,7 @@ const SignUp = () => {
           <div class="flex items-center justify-between py-10">
             <div className="flex flex-col gap-2">
               <p class="text-sm text-gray-500">
-                ALready have an account?
+                Already have an account?
                 <Link to="/authentication/login" class="underline">
                   Login
                 </Link>
