@@ -63,7 +63,6 @@ const SignUp = () => {
         </div>
 
         <form
-          action=""
           className="mx-auto mt-8 mb-0 max-w-md space-y-4"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -239,18 +238,18 @@ const SignUp = () => {
             </p>
           </div>
 
-          <div className="flex items-center justify-between py-10">
-            <div className="flex flex-col gap-2">
+          <div className="flex items-center justify-between py-6">
+            <div className="flex flex-col gap-3">
               <p className="text-sm text-gray-500">
                 Already have an account?
-                <Link to="/authentication/login" className="underline">
+                <Link to="/authentication/login" className="underline ml-2">
                   Login
                 </Link>
               </p>
 
               <p className="text-sm text-gray-500">
                 Forgot password?
-                <Link to="/authentication/reset-password" className="underline">
+                <Link to="/authentication/reset-password" className="underline ml-2">
                   Reset password
                 </Link>
               </p>

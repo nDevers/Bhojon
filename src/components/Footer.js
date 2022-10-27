@@ -6,11 +6,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer footer-center p-3 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono">
-      <p className="flex items-center">
+    <footer className="p-3 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono z-10">
+      <p className="flex items-center justify-center">
         Copyright <span>&copy; {currentYear}</span> - All right reserved by
-        <Link to="/" className="ml-2">
-          <Logo customclassName="flex gap-x-2 items-center justify-center text-md md:text-lg lg:text-lg text-center text-black-50 font-semibold uppercase" />
+        <Link to="/">
+          <Logo />
         </Link>
       </p>
     </footer>
