@@ -54,9 +54,9 @@ const Dashboard = () => {
 
         <div className="drawer-side">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
-          <div className="flex flex-col justify-between bg-[#2c3136] w-60">
+          <div className="flex flex-col justify-between bg-[#2c3136]">
             <div>
-              <Logo customclassName="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" />
+              <Logo customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" />
 
               <div className="text-gray-50 border-t">
                 <Link to="/user" className="flex gap-x-3 items-center p-4">
