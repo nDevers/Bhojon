@@ -328,26 +328,25 @@ const SignUp = () => {
             }
           </div>
 
-          <div className="flex items-center justify-between py-6">
-            <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-500">
-                Already have an account?
-                <Link to="/authentication/login" className="underline ml-2">
-                  Login
-                </Link>
-              </p>
+          <div className="flex flex-col gap-3 mx-4 py-4">
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>Already a member?</p>
 
-              <p className="text-sm text-gray-500">
-                Forgot password?
-                <Link
-                  to="/authentication/reset-password"
-                  className="underline ml-2"
-                >
-                  Reset password
-                </Link>
-              </p>
+              <Link to="/authentication/login" className="underline">
+                Login
+              </Link>
             </div>
 
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>Forgot password?</p>
+
+              <Link to="/authentication/reset-password" className="underline">
+                Reset password
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex justify-end mr-4">
             <button
               type="submit"
               className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"

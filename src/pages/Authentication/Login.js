@@ -169,7 +169,7 @@ const Login = () => {
               type="submit"
               className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
             >
-              Sign in
+              Login
             </button>
           </div>
 
