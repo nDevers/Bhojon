@@ -16,6 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 import dasboardMenus from "../hooks/useDashboardMenu";
 import auth from "../hooks/firebase.init";
 import LoadingSpinner from "./LoadingSpinner";
+import Logo from "./Logo";
 
 const DashboardHeader = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -72,6 +73,8 @@ const DashboardHeader = () => {
     <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
       {/* navbar left */}
       <div className="navbar-start">
+        <Logo customClass="flex md:flex lg:hidden gap-x-3 items-center text-xl md:text-2xl lg:text-2xl text-center text-black-50 font-semibold font-mono uppercase ml-4" />
+
         <label tabIndex={0} className="btn btn-ghost hidden lg:flex">
           <AiOutlineMenuFold className="text-xl font-black" />
         </label>
