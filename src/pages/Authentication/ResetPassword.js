@@ -1,12 +1,46 @@
 import React from "react";
+import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { BiShowAlt } from "react-icons/bi";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const ResetPassword = () => {
+  let passwordMatchedText, passwordNotMatchedText;
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
   // set website title
   useWebsiteTitle("Bhojon | Reset Password");
+
+  // check if password and confirm password are same
+  const matchPasswordAndConfirmPassword = () => {
+    if (watch("password") === '' || watch("confirmPassword") === '') {
+      passwordMatchedText = '';
+    }
+    else if (watch("password") === watch("confirmPassword")) {
+      passwordMatchedText = 'Password matched';
+    }
+    else {
+      passwordNotMatchedText = 'Password do not match';
+    }
+  }
+
+  // reset password
+  const onSubmit = async (data, errors) => {
+
+  }
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -22,51 +56,114 @@ const ResetPassword = () => {
           </p>
         </div>
 
-        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4">
+        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="password" className="sr-only">
-              New Password
+              Password
             </label>
             <div className="relative">
               <input
+                onChange={matchPasswordAndConfirmPassword()}
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter new password"
+                placeholder="Enter password"
+                {...register("password", {
+                  required: "* Password is required",
+                  pattern: {
+                    value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                    message: "Invalid password",
+                  },
+                })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400" />
+                <BiShowAlt className="text-gray-400 text-lg" />
               </span>
             </div>
-          </div>
 
-          <div>
-            <label htmlFor="password" className="sr-only">
-              Confirm New Password
-            </label>
-            <div className="relative">
-              <input
-                type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Confirm new password"
-              />
+            {/* password strength bar */}
+            {watch("password") && <PasswordStrengthBar password={watch("password")} className='mx-4 mt-4' />}
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400" />
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between py-10">
-            <div className="flex flex-col gap-2">
-              <p className="text-sm text-gray-500">
-                Remember your password?
-                <Link to="/authentication/login" className="underline">
-                  Login
-                </Link>
+            {
+              passwordNotMatchedText &&
+              <p role="alert" className="text-error text-sm mt-2 mx-4">
+                {passwordNotMatchedText}
               </p>
+            }
+
+            {
+              (passwordMatchedText && !errors.password?.message) &&
+              <p role="alert" className="text-success text-sm mt-2 mx-4">
+                {passwordMatchedText}
+              </p>
+            }
+
+            {
+              (errors.password?.message && !passwordNotMatchedText) && <p role="alert" className="text-error text-sm mt-2 mx-4">
+                {errors.password?.message}
+              </p>
+            }
+          </div>
+
+          <div>
+            <label htmlFor="password" className="sr-only">
+              Confirm Password
+            </label>
+            <div className="relative">
+              <input
+                onChange={matchPasswordAndConfirmPassword()}
+                type="password"
+                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                placeholder="Confirm password"
+                {...register("confirmPassword", {
+                  required: "* Confirm Password is required",
+                  pattern: {
+                    value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                    message: "Invalid confirm password",
+                  },
+                })}
+              />
+
+              <span className="absolute inset-y-0 right-4 inline-flex items-center">
+                <BiShowAlt className="text-gray-400 text-lg" />
+              </span>
             </div>
 
+            {/* password strength bar */}
+            {watch("confirmPassword") && <PasswordStrengthBar password={watch("confirmPassword")} className='mx-4 mt-4' />}
+
+            {
+              passwordNotMatchedText &&
+              <p role="alert" className="text-error text-sm mt-2 mx-4">
+                {passwordNotMatchedText}
+              </p>
+            }
+
+            {
+              (passwordMatchedText && !errors.password?.message) &&
+              <p role="alert" className="text-success text-sm mt-2 mx-4">
+                {passwordMatchedText}
+              </p>
+            }
+
+            {
+              (errors.confirmPassword?.message && !passwordNotMatchedText) && <p role="alert" className="text-error text-sm mt-2 mx-4">
+                {errors.confirmPassword?.message}
+              </p>
+            }
+          </div>
+
+          <div className="flex flex-col gap-3 mx-4 py-4">
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>Remember your password?</p>
+
+              <Link to="/authentication/login" className="underline">
+                Login
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex justify-end mr-4">
             <button
               type="submit"
               className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
