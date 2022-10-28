@@ -1,17 +1,24 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import PasswordStrengthBar from 'react-password-strength-bar';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
-import LoadingSpinner from "../../components/LoadingSpinner";
 
 const Login = () => {
+  const [currentUser, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  // prevent logged in user to visit login page
+  currentUser && navigate("/");
+
   const {
     register,
     handleSubmit,
@@ -31,35 +38,38 @@ const Login = () => {
     signInWithEmailAndPasswordError,
   ] = useSignInWithEmailAndPassword(auth);
 
-  const navigate = useNavigate();
-
   // set website title
   useWebsiteTitle("Bhojon | Login");
 
-  const onSubmit = (data, errors) => {
-    console.log(data, errors);
-    signInWithEmailAndPassword(watch("email"), watch("password"));
-  };
+  // login
+  const onSubmit = async (data, errors) => signInWithEmailAndPassword(watch("email"), watch("password"));
 
   if (user) {
+    // after successfull login display toast message
     toast.success(`Welcome ${watch("firstName")}`, {
       toastId: "loginToastMessage",
     });
 
+    // after successfull login redirect to dashboard page
     navigate("/dashboard");
   }
 
-  if (signInWithEmailAndPasswordLoading) {
-    return <LoadingSpinner />;
-  }
+  // display loading spinner 
+  signInWithEmailAndPasswordLoading || loading && <LoadingSpinner />;
 
-  if (signInWithEmailAndPasswordError) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: `${signInWithEmailAndPasswordError}`,
-    });
-  }
+  // display login error
+  signInWithEmailAndPasswordError && Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: `${signInWithEmailAndPasswordError}`,
+  });
+
+  // display user data error
+  error && Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: `${error}`,
+  });
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -104,7 +114,7 @@ const Login = () => {
               </span>
             </div>
 
-            <p role="alert" className="text-error text-sm mt-2">
+            <p role="alert" className="text-error text-sm mt-2 mx-4">
               {errors.email?.message}
             </p>
           </div>
@@ -120,46 +130,46 @@ const Login = () => {
                 placeholder="Enter password"
                 {...register("password", {
                   required: "* Password is required",
-                  minLength: { value: 10, message: "* Minimum 10 character" },
-                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400" />
+                <BiShowAlt className="text-gray-400 text-lg" />
               </span>
             </div>
 
-            <p role="alert" className="text-error text-sm mt-2">
+            {/* password strength bar */}
+            {watch("password") && <PasswordStrengthBar password={watch("password")} className='m-4' />}
+
+            <p role="alert" className="text-error text-sm mt-2 mx-4">
               {errors.password?.message}
             </p>
           </div>
 
-          <div className="flex items-center justify-between py-6">
-            <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-500">
-                No account?
-                <Link to="/authentication/signup" className="underline ml-2">
-                  Sign up
-                </Link>
-              </p>
+          <div className="flex flex-col gap-3 mx-4 py-4">
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>New to our site?</p>
 
-              <p className="text-sm text-gray-500">
-                Forgot password?
-                <Link
-                  to="/authentication/reset-password"
-                  className="underline ml-2"
-                >
-                  Reset password
-                </Link>
-              </p>
+              <Link to="/authentication/signup" className="underline">
+                Sign up
+              </Link>
             </div>
 
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>Forgot password?</p>
+
+              <Link to="/authentication/reset-password" className="underline">
+                Reset password
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex justify-end mr-4">
             <button
               type="submit"
               className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
             >
-              Sign in
+              Login
             </button>
           </div>
 
