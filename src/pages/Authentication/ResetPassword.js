@@ -1,14 +1,14 @@
 import React from "react";
-import PasswordStrengthBar from 'react-password-strength-bar';
+import Swal from "sweetalert2";
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { BiShowAlt } from "react-icons/bi";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import auth from "../../hooks/firebase.init";
+import { MdOutlineAlternateEmail } from "react-icons/md";
 
 const ResetPassword = () => {
-  let passwordMatchedText, passwordNotMatchedText;
-
   const {
     register,
     handleSubmit,
@@ -16,30 +16,56 @@ const ResetPassword = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      password: "",
-      confirmPassword: "",
+      email: "",
     },
   });
+
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+
+  const actionCodeSettings = {
+    url: 'https://www.example.com/login',
+  };
+
+  let temporaryEmailAddressMatchedText;
 
   // set website title
   useWebsiteTitle("Bhojon | Reset Password");
 
-  // check if password and confirm password are same
-  const matchPasswordAndConfirmPassword = () => {
-    if (watch("password") === '' || watch("confirmPassword") === '') {
-      passwordMatchedText = '';
-    }
-    else if (watch("password") === watch("confirmPassword")) {
-      passwordMatchedText = 'Password matched';
-    }
-    else {
-      passwordNotMatchedText = 'Password do not match';
-    }
+  // checking temporary email
+  const checkTemporaryEmailAddress = () => {
+    watch("email") &&
+      fetch(`https://www.disify.com/api/email/${watch("email")}`)
+        .then(response => response.json())
+        .then(isTemporaryEmail => {
+          if (isTemporaryEmail?.disposable === true) {
+            temporaryEmailAddressMatchedText = 'Sorry temporary email address is not allowed';
+          }
+        });
   }
 
-  // reset password
+  // send reset password email
   const onSubmit = async (data, errors) => {
+    // prevent signup using temporary email
+    if (temporaryEmailAddressMatchedText) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: `${temporaryEmailAddressMatchedText}`,
+      });
+    }
+    else {
+      // createUserWithEmailAndPassword(watch("email"), watch("password"));
 
+      // send password reset email
+      await sendPasswordResetEmail(watch("email"), actionCodeSettings);
+
+      // after sending password reset email display alert
+      Swal.fire({
+        icon: "success",
+        title: "Pasword reset email sent",
+        text: 'Please check your email',
+      });
+    }
   }
 
   return (
@@ -58,99 +84,40 @@ const ResetPassword = () => {
 
         <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <label htmlFor="password" className="sr-only">
-              Password
+            <label htmlFor="email" className="sr-only">
+              Enter Email
             </label>
+
             <div className="relative">
               <input
-                onChange={matchPasswordAndConfirmPassword()}
-                type="password"
+                onBlur={checkTemporaryEmailAddress()}
+                type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter password"
-                {...register("password", {
-                  required: "* Password is required",
+                placeholder="Enter email"
+                {...register("email", {
+                  required: "* Email is required",
                   pattern: {
-                    value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
-                    message: "Invalid password",
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,40}$/i,
+                    message: "Invalid email address",
                   },
                 })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400 text-lg" />
+                <MdOutlineAlternateEmail className="text-gray-400" />
               </span>
             </div>
 
-            {/* password strength bar */}
-            {watch("password") && <PasswordStrengthBar password={watch("password")} className='mx-4 mt-4' />}
-
             {
-              passwordNotMatchedText &&
+              errors.email?.message &&
               <p role="alert" className="text-error text-sm mt-2 mx-4">
-                {passwordNotMatchedText}
+                {errors.email?.message}
               </p>
             }
 
-            {
-              (passwordMatchedText && !errors.password?.message) &&
-              <p role="alert" className="text-success text-sm mt-2 mx-4">
-                {passwordMatchedText}
-              </p>
-            }
-
-            {
-              (errors.password?.message && !passwordNotMatchedText) && <p role="alert" className="text-error text-sm mt-2 mx-4">
-                {errors.password?.message}
-              </p>
-            }
-          </div>
-
-          <div>
-            <label htmlFor="password" className="sr-only">
-              Confirm Password
-            </label>
-            <div className="relative">
-              <input
-                onChange={matchPasswordAndConfirmPassword()}
-                type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Confirm password"
-                {...register("confirmPassword", {
-                  required: "* Confirm Password is required",
-                  pattern: {
-                    value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
-                    message: "Invalid confirm password",
-                  },
-                })}
-              />
-
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400 text-lg" />
-              </span>
-            </div>
-
-            {/* password strength bar */}
-            {watch("confirmPassword") && <PasswordStrengthBar password={watch("confirmPassword")} className='mx-4 mt-4' />}
-
-            {
-              passwordNotMatchedText &&
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
-                {passwordNotMatchedText}
-              </p>
-            }
-
-            {
-              (passwordMatchedText && !errors.password?.message) &&
-              <p role="alert" className="text-success text-sm mt-2 mx-4">
-                {passwordMatchedText}
-              </p>
-            }
-
-            {
-              (errors.confirmPassword?.message && !passwordNotMatchedText) && <p role="alert" className="text-error text-sm mt-2 mx-4">
-                {errors.confirmPassword?.message}
-              </p>
-            }
+            <p role="alert" className="text-error text-sm mt-2 mx-4">
+              {temporaryEmailAddressMatchedText}
+            </p>
           </div>
 
           <div className="flex flex-col gap-3 mx-4 py-4">
@@ -168,7 +135,7 @@ const ResetPassword = () => {
               type="submit"
               className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
             >
-              Reset Password
+              Send Email
             </button>
           </div>
 

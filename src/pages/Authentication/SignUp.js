@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Swal from "sweetalert2";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuthState, useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { BiShowAlt } from "react-icons/bi";
-import { HiUser } from "react-icons/hi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
