@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import Swal from 'sweetalert2'
+import { useAuthState } from "react-firebase-hooks/auth";
+import Swal from "sweetalert2";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import auth from "../../hooks/firebase.init";
 import { BsDot } from "react-icons/bs";
@@ -12,6 +12,7 @@ import DashboardHeader from "../../components/DashboardHeader";
 import ScrollToTop from "../../components/ScrollToTop";
 import defaultUserImage from "../../assets/images/defaultUser.png";
 import dasboardMenus from "../../hooks/useDashboardMenu";
+import DashboardFooter from "../../components/DashboardFooter";
 // import userInfo from "../../hooks/useUserInfo";
 
 const Dashboard = () => {
@@ -24,11 +25,12 @@ const Dashboard = () => {
 
   loading && <LoadingSpinner />;
 
-  error && Swal.fire({
-    icon: 'error',
-    title: 'Error',
-    text: `${error}`,
-  });
+  error &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${error}`,
+    });
 
   return (
     <div data-theme="light">
@@ -46,7 +48,7 @@ const Dashboard = () => {
 
           <div className="flex flex-col justify-end h-screen">
             {/* footer is always bottom */}
-            <Footer />
+            <DashboardFooter />
           </div>
         </div>
 
@@ -66,9 +68,13 @@ const Dashboard = () => {
 
                   <div className="flex flex-col items-start gap-y-2">
                     <p className="flex items-center text-sm text-success">
-                      {user?.displayName ? user?.displayName : 'Default User'} <BsDot className="text-xl" />
+                      {user?.displayName ? user?.displayName : "Default User"}{" "}
+                      <BsDot className="text-xl" />
                     </p>
-                    <p className="text-xs underline"> {user?.email ? user?.email : 'user@email.com'} </p>
+                    <p className="text-xs underline">
+                      {" "}
+                      {user?.email ? user?.email : "user@email.com"}{" "}
+                    </p>
                   </div>
                 </Link>
               </div>

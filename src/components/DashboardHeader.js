@@ -1,8 +1,8 @@
 import React from "react";
-import Swal from 'sweetalert2'
-import { toast } from 'react-toastify';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { signOut } from 'firebase/auth';
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { BsArrowsFullscreen, BsBell } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
@@ -13,9 +13,9 @@ import { IoIosArrowUp } from "react-icons/io";
 import { RiListUnordered } from "react-icons/ri";
 import { TbLanguage } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "./Logo";
 import dasboardMenus from "../hooks/useDashboardMenu";
 import auth from "../hooks/firebase.init";
+import LoadingSpinner from "./LoadingSpinner";
 
 const DashboardHeader = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -59,12 +59,19 @@ const DashboardHeader = () => {
 
   const navigate = useNavigate();
 
+  loading && <LoadingSpinner />;
+
+  error &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${error}`,
+    });
+
   return (
     <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
       {/* navbar left */}
       <div className="navbar-start">
-        <Logo />
-
         <label tabIndex={0} className="btn btn-ghost hidden lg:flex">
           <AiOutlineMenuFold className="text-xl font-black" />
         </label>
@@ -101,32 +108,36 @@ const DashboardHeader = () => {
             </Link>
           ))}
 
-          {
-            user &&
-            <Link onClick={() => Swal.fire({
-              icon: 'warning',
-              title: 'Are you sure want to sign out?',
-              showCancelButton: true,
-              confirmButtonText: 'Yes',
-              customClass: {
-                actions: 'my-actions',
-                cancelButton: 'order-2 right-gap',
-                confirmButton: 'order-1',
-              },
-            }).then((result) => {
-              if (result.isConfirmed) {
-                signOut(auth);
+          {user && (
+            <Link
+              onClick={() =>
+                Swal.fire({
+                  icon: "warning",
+                  title: "Are you sure want to sign out?",
+                  showCancelButton: true,
+                  confirmButtonText: "Yes",
+                  customClass: {
+                    actions: "my-actions",
+                    cancelButton: "order-2 right-gap",
+                    confirmButton: "order-1",
+                  },
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    signOut(auth);
 
-                navigate('/');
+                    navigate("/");
 
-                toast.success('See you soon!');
+                    toast.success("See you soon!");
+                  }
+                })
               }
-            })}
               className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md"
             >
-              <Link><HiOutlineLogout /></Link>
+              <Link>
+                <HiOutlineLogout />
+              </Link>
             </Link>
-          }
+          )}
         </ul>
 
         {/* mobile navbar */}
@@ -180,7 +191,8 @@ const DashboardHeader = () => {
                               className="mt-1.5 ml-8 flex flex-col"
                             >
                               {subMenu?.subSubMenus?.map((subSubMenu) => (
-                                <Link key={subSubMenu?.name}
+                                <Link
+                                  key={subSubMenu?.name}
                                   to={subSubMenu?.link}
                                   className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
                                 >
@@ -230,7 +242,7 @@ const DashboardHeader = () => {
           </ul>
         </div>
       </div>
-    </header >
+    </header>
   );
 };
 
