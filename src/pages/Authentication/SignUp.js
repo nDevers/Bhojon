@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
@@ -15,9 +15,6 @@ import auth from "../../hooks/firebase.init";
 const SignUp = () => {
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
-  // prevent logged in user to visit signup page
-  currentUser && navigate("/");
 
   const {
     register,
@@ -42,13 +39,40 @@ const SignUp = () => {
     createUserWithEmailAndPasswordError,
   ] = useCreateUserWithEmailAndPassword(auth);
 
-  let passwordMatchedText, passwordNotMatchedText;
+  let passwordMatchedText, passwordNotMatchedText, temporaryEmailAddressMatchedText;
 
   // set website title
   useWebsiteTitle("Bhojon | Signup");
 
+  // prevent logged in user to visit signup page
+  currentUser && navigate("/");
+
+  // checking temporary email
+  const checkTemporaryEmailAddress = () => {
+    watch("email") &&
+      fetch(`https://www.disify.com/api/email/${watch("email")}`)
+        .then(response => response.json())
+        .then(isTemporaryEmail => {
+          if (isTemporaryEmail?.disposable === true) {
+            temporaryEmailAddressMatchedText = 'Sorry temporary email address is not allowed';
+          }
+        });
+  }
+
   // signup
-  const onSubmit = async (data, errors) => createUserWithEmailAndPassword(watch("email"), watch("password"));
+  const onSubmit = async (data, errors) => {
+    // prevent signup using temporary email
+    if (temporaryEmailAddressMatchedText) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: `${temporaryEmailAddressMatchedText}`,
+      });
+    }
+    else {
+      createUserWithEmailAndPassword(watch("email"), watch("password"));
+    }
+  }
 
   // check if password and confirm password are same
   const matchPasswordAndConfirmPassword = () => {
@@ -178,13 +202,14 @@ const SignUp = () => {
 
             <div className="relative">
               <input
+                onBlur={checkTemporaryEmailAddress()}
                 type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
                   required: "* Email is required",
                   pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{5,30}$/i,
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,40}$/i,
                     message: "Invalid email address",
                   },
                 })}
@@ -195,8 +220,15 @@ const SignUp = () => {
               </span>
             </div>
 
+            {
+              errors.email?.message &&
+              <p role="alert" className="text-error text-sm mt-2 mx-4">
+                {errors.email?.message}
+              </p>
+            }
+
             <p role="alert" className="text-error text-sm mt-2 mx-4">
-              {errors.email?.message}
+              {temporaryEmailAddressMatchedText}
             </p>
           </div>
 
@@ -206,7 +238,7 @@ const SignUp = () => {
             </label>
             <div className="relative">
               <input
-                onKeyUp={matchPasswordAndConfirmPassword()}
+                onChange={matchPasswordAndConfirmPassword()}
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
@@ -254,7 +286,7 @@ const SignUp = () => {
             </label>
             <div className="relative">
               <input
-                onKeyUp={matchPasswordAndConfirmPassword()}
+                onChange={matchPasswordAndConfirmPassword()}
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Confirm password"
