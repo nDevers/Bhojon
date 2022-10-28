@@ -16,6 +16,7 @@ const Login = () => {
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
+  // prevent logged in user to visit login page
   currentUser && navigate("/");
 
   const {
@@ -40,7 +41,7 @@ const Login = () => {
   // set website title
   useWebsiteTitle("Bhojon | Login");
 
-  // send data for validation
+  // login
   const onSubmit = async (data, errors) => signInWithEmailAndPassword(watch("email"), watch("password"));
 
   if (user) {
@@ -54,7 +55,7 @@ const Login = () => {
   }
 
   // display loading spinner 
-  signInWithEmailAndPasswordLoading && loading && <LoadingSpinner />;
+  signInWithEmailAndPasswordLoading || loading && <LoadingSpinner />;
 
   // display login error
   signInWithEmailAndPasswordError && Swal.fire({
@@ -63,6 +64,7 @@ const Login = () => {
     text: `${signInWithEmailAndPasswordError}`,
   });
 
+  // display user data error
   error && Swal.fire({
     icon: "error",
     title: "Error",
@@ -136,6 +138,7 @@ const Login = () => {
               </span>
             </div>
 
+            {/* password strength bar */}
             {watch("password") && <PasswordStrengthBar password={watch("password")} className='m-4' />}
 
             <p role="alert" className="text-error text-sm mt-2 mx-4">
