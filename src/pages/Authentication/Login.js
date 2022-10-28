@@ -2,7 +2,7 @@ import React from "react";
 import Swal from "sweetalert2";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { BiShowAlt } from "react-icons/bi";
@@ -13,6 +13,11 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
 
 const Login = () => {
+  const [currentUser, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  currentUser && navigate("/");
+
   const {
     register,
     handleSubmit,
@@ -31,8 +36,6 @@ const Login = () => {
     signInWithEmailAndPasswordLoading,
     signInWithEmailAndPasswordError,
   ] = useSignInWithEmailAndPassword(auth);
-
-  const navigate = useNavigate();
 
   // set website title
   useWebsiteTitle("Bhojon | Login");
