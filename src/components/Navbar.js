@@ -1,43 +1,156 @@
 import React from "react";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
+import { BsSearch, BsCart3 } from "react-icons/bs";
+import { HiMenuAlt3, HiOutlineLogout } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import auth from "../hooks/firebase.init";
+import LoadingSpinner from "./LoadingSpinner";
 
-function Navbar() {
+const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+  const navbar = [
+    {
+      name: "Home",
+      link: "/home",
+    },
+    {
+      name: "Reservation",
+      link: "/reservation",
+    },
+    {
+      name: "Menu",
+      link: "/menu",
+    },
+    {
+      name: "About Us",
+      link: "/about-Us",
+    },
+    {
+      name: "Contact Us",
+      link: "/contact-us",
+    },
+    {
+      name: "Login",
+      link: "/authentication/login",
+    },
+    {
+      name: <BsSearch />,
+      link: "/search",
+    },
+    {
+      name: <BsCart3 />,
+      link: "/cart",
+    },
+  ];
+
+  const navbarMenu = navbar.map((navbarItems) => (
+    <li key={navbarItems.link}>
+      <Link to={navbarItems.link}>{navbarItems.name}</Link>
+    </li>
+  ));
+
+  const useSignOut = user && (
+    <li>
+      <Link
+        onClick={() =>
+          Swal.fire({
+            icon: "warning",
+            title: "Are you sure want to sign out?",
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            customClass: {
+              actions: "my-actions",
+              cancelButton: "order-2 right-gap",
+              confirmButton: "order-1",
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              signOut(auth);
+
+              toast.success("See you soon!");
+            }
+          })
+        }
+      >
+        <Link>
+          <HiOutlineLogout />
+        </Link>
+      </Link>
+    </li>
+  );
+
+  loading && <LoadingSpinner />;
+
+  error &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${error}`,
+    });
+
   return (
-    <div className="fixed top-0 right-0 z-50 w-screen mx-6 mt-3 mb-16">
-      <div className="flex justify-between items-center">
-        <Logo customclassName="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4 ml-12 cursor-pointer" />
+    <div className="navbar bg-base-100">
+      <div className="navbar-start">
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          <Logo />
+        </Link>
+      </div>
 
-        <ul className="flex gap-x-4 font-medium">
-          <li className="text-lg cursor-pointer">
-            <Link to="hero" duration={500}>
-              Home
-            </Link>
-          </li>
-          <li className="text-lg cursor-pointer">
-            <Link to="features" duration={500}>
-              Features
-            </Link>
-          </li>
-          <li className="text-lg cursor-pointer">
-            <Link to="hero" duration={500}>
-              Services
-            </Link>
-          </li>
-          <li className="text-lg cursor-pointer">
-            <Link to="hero" duration={500}>
-              About
-            </Link>
-          </li>
-          <li className="text-lg cursor-pointer">
-            <Link to="hero" duration={500}>
-              Contact
-            </Link>
-          </li>
+      <div className="navbar-end">
+        <ul className="menu menu-horizontal font-medium p-0 lg:flex hidden">
+          {navbarMenu}
+
+          {useSignOut}
         </ul>
+
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <HiMenuAlt3 className="text-2xl" />
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            {navbarMenu}
+
+            {user && (
+              <Link
+                onClick={() =>
+                  Swal.fire({
+                    icon: "warning",
+                    title: "Are you sure want to sign out?",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    customClass: {
+                      actions: "my-actions",
+                      cancelButton: "order-2 right-gap",
+                      confirmButton: "order-1",
+                    },
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      signOut(auth);
+
+                      toast.success("See you soon!");
+                    }
+                  })
+                }
+                className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md"
+              >
+                <Link>
+                  <HiOutlineLogout />
+                </Link>
+              </Link>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
