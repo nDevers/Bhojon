@@ -69,7 +69,7 @@ const Footer = () => {
                 action=""
               >
                 <div className="relative mx-auto max-w-lg lg:mx-0">
-                  <label className="sr-only" for="email">
+                  <label className="sr-only" htmlFor="email">
                     {" "}
                     Email{watch("email")}
                   </label>
