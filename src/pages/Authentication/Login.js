@@ -54,13 +54,19 @@ const Login = () => {
   }
 
   // display loading spinner 
-  signInWithEmailAndPasswordLoading && <LoadingSpinner />;
+  signInWithEmailAndPasswordLoading && loading && <LoadingSpinner />;
 
   // display login error
   signInWithEmailAndPasswordError && Swal.fire({
     icon: "error",
     title: "Error",
     text: `${signInWithEmailAndPasswordError}`,
+  });
+
+  error && Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: `${error}`,
   });
 
   return (
