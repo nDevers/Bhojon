@@ -1,15 +1,15 @@
 import React from "react";
+import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
-import LoadingSpinner from "../../components/LoadingSpinner";
 
 const Login = () => {
   const {
@@ -36,16 +36,16 @@ const Login = () => {
   // set website title
   useWebsiteTitle("Bhojon | Login");
 
-  const onSubmit = async (data, errors) => {
-    console.log(data, errors);
-    signInWithEmailAndPassword(watch("email"), watch("password"));
-  };
+  // send data for validation
+  const onSubmit = async (data, errors) => signInWithEmailAndPassword(watch("email"), watch("password"));
 
   if (user) {
+    // after successfull login display toast message
     toast.success(`Welcome ${watch("firstName")}`, {
       toastId: "loginToastMessage",
     });
 
+    // after successfull login redirect to dashboard page
     navigate("/dashboard");
   }
 
