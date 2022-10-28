@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import Swal from 'sweetalert2'
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import Swal from "sweetalert2";
 import { BiShowAlt } from "react-icons/bi";
 import { HiUser } from "react-icons/hi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
@@ -19,13 +19,13 @@ const SignUp = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      userName: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    }
+      firstName: "",
+      lastName: "",
+      userName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
   });
 
   const [
@@ -37,13 +37,12 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-
   // set website title
   useWebsiteTitle("Bhojon | Signup");
 
   const onSubmit = (data, errors) => {
     console.log(data, errors);
-    createUserWithEmailAndPassword(watch('email'), watch('password'))
+    createUserWithEmailAndPassword(watch("email"), watch("password"));
   };
 
   if (createUserWithEmailAndPasswordLoading) {
@@ -52,18 +51,18 @@ const SignUp = () => {
 
   if (user) {
     Swal.fire({
-      icon: 'success',
-      title: 'Verification email sent',
-      text: 'Please verify your email',
+      icon: "success",
+      title: "Verification email sent",
+      text: "Please verify your email",
     });
 
-    navigate('/authentication/login')
+    navigate("/authentication/login");
   }
 
   if (createUserWithEmailAndPasswordError) {
     Swal.fire({
-      icon: 'error',
-      title: 'Error',
+      icon: "error",
+      title: "Error",
       text: `${createUserWithEmailAndPasswordError}`,
     });
   }
@@ -82,7 +81,8 @@ const SignUp = () => {
           </p>
         </div>
 
-        <form action=""
+        <form
+          action=""
           className="mx-auto mt-8 mb-0 max-w-md space-y-4"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -97,9 +97,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter first name"
                 {...register("firstName", {
-                  required: '* First name is required',
-                  minLength: { value: 3, message: '* Minimum 3 character' },
-                  maxLength: { value: 20, message: '* Maximum 20 character' },
+                  required: "* First name is required",
+                  minLength: { value: 3, message: "* Minimum 3 character" },
+                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
@@ -108,7 +108,7 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.firstName?.message}
             </p>
           </div>
@@ -124,9 +124,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter last name"
                 {...register("lastName", {
-                  required: '* Last name is required',
-                  minLength: { value: 3, message: '* Minimum 3 character' },
-                  maxLength: { value: 20, message: '* Maximum 20 character' },
+                  required: "* Last name is required",
+                  minLength: { value: 3, message: "* Minimum 3 character" },
+                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
@@ -135,7 +135,7 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.lastName?.message}
             </p>
           </div>
@@ -151,9 +151,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter username"
                 {...register("userName", {
-                  required: '* Username is required',
-                  minLength: { value: 5, message: '* Minimum 5 character' },
-                  maxLength: { value: 10, message: '* Maximum 10 character' },
+                  required: "* Username is required",
+                  minLength: { value: 5, message: "* Minimum 5 character" },
+                  maxLength: { value: 10, message: "* Maximum 10 character" },
                 })}
               />
 
@@ -162,7 +162,7 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.userName?.message}
             </p>
           </div>
@@ -178,9 +178,11 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
-                  required: '* Email is required',
-                  minLength: { value: 5, message: '* Minimum 5 character' },
-                  maxLength: { value: 25, message: '* Maximum 25 character' },
+                  required: "* Email is required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid email address",
+                  },
                 })}
               />
 
@@ -189,7 +191,7 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.email?.message}
             </p>
           </div>
@@ -204,9 +206,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
                 {...register("password", {
-                  required: '* Password is required',
-                  minLength: { value: 10, message: '* Minimum 10 character' },
-                  maxLength: { value: 20, message: '* Maximum 20 character' },
+                  required: "* Password is required",
+                  minLength: { value: 10, message: "* Minimum 10 character" },
+                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
@@ -215,7 +217,7 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.password?.message}
             </p>
           </div>
@@ -230,9 +232,9 @@ const SignUp = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Confirm password"
                 {...register("confirmPassword", {
-                  required: '* Confirm Password is required',
-                  minLength: { value: 10, message: '* Minimum 10 character' },
-                  maxLength: { value: 20, message: '* Maximum 20 character' },
+                  required: "* Confirm Password is required",
+                  minLength: { value: 10, message: "* Minimum 10 character" },
+                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
@@ -241,7 +243,7 @@ const SignUp = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.confirmPassword?.message}
             </p>
           </div>
@@ -257,7 +259,10 @@ const SignUp = () => {
 
               <p className="text-sm text-gray-500">
                 Forgot password?
-                <Link to="/authentication/reset-password" className="underline ml-2">
+                <Link
+                  to="/authentication/reset-password"
+                  className="underline ml-2"
+                >
                   Reset password
                 </Link>
               </p>

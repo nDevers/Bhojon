@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
-import { toast } from 'react-toastify';
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
@@ -19,9 +19,9 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      email: '',
-      password: '',
-    }
+      email: "",
+      password: "",
+    },
   });
 
   const [
@@ -38,25 +38,25 @@ const Login = () => {
 
   const onSubmit = (data, errors) => {
     console.log(data, errors);
-    signInWithEmailAndPassword(watch('email'), watch('password'))
+    signInWithEmailAndPassword(watch("email"), watch("password"));
   };
 
   if (user) {
-    toast.success(`Welcome ${watch('firstName')}`, {
-      toastId: 'loginToastMessage'
+    toast.success(`Welcome ${watch("firstName")}`, {
+      toastId: "loginToastMessage",
     });
 
-    navigate('/dashboard')
+    navigate("/dashboard");
   }
 
   if (signInWithEmailAndPasswordLoading) {
-    return <LoadingSpinner />
+    return <LoadingSpinner />;
   }
 
   if (signInWithEmailAndPasswordError) {
     Swal.fire({
-      icon: 'error',
-      title: 'Error',
+      icon: "error",
+      title: "Error",
       text: `${signInWithEmailAndPasswordError}`,
     });
   }
@@ -75,7 +75,11 @@ const Login = () => {
           </p>
         </div>
 
-        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          action=""
+          className="mx-auto mt-8 mb-0 max-w-md space-y-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
             <label htmlFor="email" className="sr-only">
               Email
@@ -87,9 +91,11 @@ const Login = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
-                  required: '* Email is required',
-                  minLength: { value: 5, message: '* Minimum 5 character' },
-                  maxLength: { value: 25, message: '* Maximum 25 character' },
+                  required: "* Email is required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid email address",
+                  },
                 })}
               />
 
@@ -98,7 +104,7 @@ const Login = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.email?.message}
             </p>
           </div>
@@ -113,9 +119,9 @@ const Login = () => {
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
                 {...register("password", {
-                  required: '* Password is required',
-                  minLength: { value: 10, message: '* Minimum 10 character' },
-                  maxLength: { value: 20, message: '* Maximum 20 character' },
+                  required: "* Password is required",
+                  minLength: { value: 10, message: "* Minimum 10 character" },
+                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
@@ -124,7 +130,7 @@ const Login = () => {
               </span>
             </div>
 
-            <p role='alert' className='text-error text-sm mt-2'>
+            <p role="alert" className="text-error text-sm mt-2">
               {errors.password?.message}
             </p>
           </div>
@@ -140,7 +146,10 @@ const Login = () => {
 
               <p className="text-sm text-gray-500">
                 Forgot password?
-                <Link to="/authentication/reset-password" className="underline">
+                <Link
+                  to="/authentication/reset-password"
+                  className="underline ml-2"
+                >
                   Reset password
                 </Link>
               </p>

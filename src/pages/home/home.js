@@ -13,6 +13,8 @@ const Home = () => {
         <Outlet />
       </main>
 
+      <Footer />
+
       {/* scroll to top button */}
       <ScrollToTop />
     </div>
