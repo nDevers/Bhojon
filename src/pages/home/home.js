@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <Navbar />
 
-      <main className="my-10">
+      <main>
         <Outlet />
       </main>
 
