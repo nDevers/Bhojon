@@ -36,7 +36,7 @@ const Login = () => {
   // set website title
   useWebsiteTitle("Bhojon | Login");
 
-  const onSubmit = (data, errors) => {
+  const onSubmit = async (data, errors) => {
     console.log(data, errors);
     signInWithEmailAndPassword(watch("email"), watch("password"));
   };
