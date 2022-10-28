@@ -1,5 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
+import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -125,6 +126,8 @@ const Login = () => {
                 <BiShowAlt className="text-gray-400 text-lg" />
               </span>
             </div>
+
+            {watch("password") && <PasswordStrengthBar password={watch("password")} className='m-4' />}
 
             <p role="alert" className="text-error text-sm mt-2 mx-4">
               {errors.password?.message}
