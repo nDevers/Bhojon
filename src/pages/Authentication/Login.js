@@ -49,17 +49,15 @@ const Login = () => {
     navigate("/dashboard");
   }
 
-  if (signInWithEmailAndPasswordLoading) {
-    return <LoadingSpinner />;
-  }
+  // display loading spinner 
+  signInWithEmailAndPasswordLoading && <LoadingSpinner />;
 
-  if (signInWithEmailAndPasswordError) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: `${signInWithEmailAndPasswordError}`,
-    });
-  }
+  // display login error
+  signInWithEmailAndPasswordError && Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: `${signInWithEmailAndPasswordError}`,
+  });
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
