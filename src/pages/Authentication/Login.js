@@ -102,7 +102,7 @@ const Login = () => {
               </span>
             </div>
 
-            <p role="alert" className="text-error text-sm mt-2">
+            <p role="alert" className="text-error text-sm mt-2 mx-4">
               {errors.email?.message}
             </p>
           </div>
@@ -118,41 +118,38 @@ const Login = () => {
                 placeholder="Enter password"
                 {...register("password", {
                   required: "* Password is required",
-                  minLength: { value: 10, message: "* Minimum 10 character" },
-                  maxLength: { value: 20, message: "* Maximum 20 character" },
                 })}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400" />
+                <BiShowAlt className="text-gray-400 text-lg" />
               </span>
             </div>
 
-            <p role="alert" className="text-error text-sm mt-2">
+            <p role="alert" className="text-error text-sm mt-2 mx-4">
               {errors.password?.message}
             </p>
           </div>
 
-          <div className="flex items-center justify-between py-6">
-            <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-500">
-                No account?
-                <Link to="/authentication/signup" className="underline ml-2">
-                  Sign up
-                </Link>
-              </p>
+          <div className="flex flex-col gap-3 mx-4 py-4">
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>New to our site?</p>
 
-              <p className="text-sm text-gray-500">
-                Forgot password?
-                <Link
-                  to="/authentication/reset-password"
-                  className="underline ml-2"
-                >
-                  Reset password
-                </Link>
-              </p>
+              <Link to="/authentication/signup" className="underline">
+                Sign up
+              </Link>
             </div>
 
+            <div className="flex justify-between items-center text-sm text-gray-500">
+              <p>Forgot password?</p>
+
+              <Link to="/authentication/reset-password" className="underline">
+                Reset password
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex justify-end mr-4">
             <button
               type="submit"
               className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
