@@ -35,10 +35,6 @@ const Navbar = () => {
       link: "/contact-us",
     },
     {
-      name: "Login",
-      link: "/authentication/login",
-    },
-    {
       name: <BsSearch />,
       link: "/search",
     },
@@ -84,6 +80,16 @@ const Navbar = () => {
     </li>
   );
 
+  const dashboardMenu =
+    user?.emailVerified && <li>
+      <Link to='/dashboard'>Dashboard</Link>
+    </li>
+
+  const loginMenu =
+    !user && <li>
+      <Link to='/authentication/login'>Login</Link>
+    </li>
+
   loading && <LoadingSpinner />;
 
   error &&
@@ -105,6 +111,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal font-medium p-0 lg:flex hidden">
           {navbarMenu}
 
+          {loginMenu}
+
+          {dashboardMenu}
+
           {useSignOut}
         </ul>
 
@@ -118,34 +128,11 @@ const Navbar = () => {
           >
             {navbarMenu}
 
-            {user && (
-              <Link
-                onClick={() =>
-                  Swal.fire({
-                    icon: "warning",
-                    title: "Are you sure want to sign out?",
-                    showCancelButton: true,
-                    confirmButtonText: "Yes",
-                    customClass: {
-                      actions: "my-actions",
-                      cancelButton: "order-2 right-gap",
-                      confirmButton: "order-1",
-                    },
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      signOut(auth);
+            {loginMenu}
 
-                      toast.success("See you soon!");
-                    }
-                  })
-                }
-                className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md"
-              >
-                <Link>
-                  <HiOutlineLogout />
-                </Link>
-              </Link>
-            )}
+            {dashboardMenu}
+
+            {useSignOut}
           </ul>
         </div>
       </div>
