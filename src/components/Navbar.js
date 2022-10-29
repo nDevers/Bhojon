@@ -9,6 +9,13 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import auth from "../hooks/firebase.init";
 import LoadingSpinner from "./LoadingSpinner";
+import { MdSettings } from "react-icons/md";
+import { FaFirstOrder, FaUser } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
+import defaultUserImage from "../assets/images/defaultUser.png";
+import { RiUser5Fill, RiUser6Fill } from "react-icons/ri";
+import { IoMdSettings } from "react-icons/io";
+import { BiChevronDown } from "react-icons/bi";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -51,32 +58,72 @@ const Navbar = () => {
   ));
 
   const useSignOut = user && (
-    <li>
-      <Link
-        onClick={() =>
-          Swal.fire({
-            icon: "warning",
-            title: "Are you sure want to sign out?",
-            showCancelButton: true,
-            confirmButtonText: "Yes",
-            customClass: {
-              actions: "my-actions",
-              cancelButton: "order-2 right-gap",
-              confirmButton: "order-1",
-            },
-          }).then((result) => {
-            if (result.isConfirmed) {
-              signOut(auth);
+    <li className="dropdown dropdown-hover">
+      <label tabIndex={0} className="flex items-center">
+        <span class="mr-1"> {user?.email ? user?.email.split('@')[0] : "defaultuser"} </span>
 
-              toast.success("See you soon!");
-            }
-          })
-        }
-      >
-        <Link>
-          <HiOutlineLogout />
+        <img
+          alt="Default user"
+          src={user?.photoURL ? user?.photoURL : defaultUserImage}
+          className="h-7 w-7 rounded-full object-cover"
+        />
+      </label>
+      <ul tabIndex={0} className="dropdown-content dropdown-end menu p-2 shadow bg-base-100 rounded-box w-52">
+        <Link
+          to="/user/user-summary"
+          class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+        >
+          <FaFirstOrder />
+
+          <span class="ml-3 text-sm font-medium"> Orders </span>
         </Link>
-      </Link>
+
+        <Link
+          to="/user/profile"
+          class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+        >
+          <RiUser5Fill />
+
+          <span class="ml-3 text-sm font-medium"> Profile </span>
+        </Link>
+
+        <Link
+          to="/user/settings"
+          class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+        >
+          <IoMdSettings />
+
+          <span class="ml-3 text-sm font-medium"> Settings </span>
+        </Link>
+        <li>
+          <Link
+            onClick={() =>
+              Swal.fire({
+                icon: "warning",
+                title: "Are you sure want to sign out?",
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                customClass: {
+                  actions: "my-actions",
+                  cancelButton: "order-2 right-gap",
+                  confirmButton: "order-1",
+                },
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  signOut(auth);
+
+                  toast.success("See you soon!");
+                }
+              })
+            }
+            class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+          >
+            <HiOutlineLogout />
+
+            <span class="text-sm font-medium"> Logout </span>
+          </Link>
+        </li>
+      </ul>
     </li>
   );
 
@@ -100,14 +147,14 @@ const Navbar = () => {
     });
 
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
+    <div className="navbar md:flex md:items-center md:justify-between lg:flex lg:items-center lg:justify-between bg-base-100">
+      <div className="navbar-start md:navbar lg:navbar">
         <Link to="/" className="normal-case text-xl ml-3">
           <Logo />
         </Link>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end md:navbar lg:navbar">
         <ul className="menu menu-horizontal font-medium p-0 lg:flex hidden">
           {navbarMenu}
 

@@ -7,13 +7,11 @@ import { BsDot } from "react-icons/bs";
 import { IoIosArrowUp } from "react-icons/io";
 import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
-import Footer from "../../components/Footer";
 import DashboardHeader from "../../components/DashboardHeader";
 import ScrollToTop from "../../components/ScrollToTop";
 import defaultUserImage from "../../assets/images/defaultUser.png";
 import dasboardMenus from "../../hooks/useDashboardMenu";
 import DashboardFooter from "../../components/DashboardFooter";
-// import userInfo from "../../hooks/useUserInfo";
 
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
