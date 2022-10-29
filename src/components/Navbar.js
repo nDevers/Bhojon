@@ -58,7 +58,7 @@ const Navbar = () => {
   ));
 
   const useSignOut = user && (
-    <li className="dropdown dropdown-hover">
+    <li className="dropdown">
       <label tabIndex={0} className="flex items-center">
         <span class="mr-1"> {user?.email ? user?.email.split('@')[0] : "defaultuser"} </span>
 
@@ -68,7 +68,7 @@ const Navbar = () => {
           className="h-7 w-7 rounded-full object-cover"
         />
       </label>
-      <ul tabIndex={0} className="dropdown-content dropdown-end menu p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
         <Link
           to="/user/user-summary"
           class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
