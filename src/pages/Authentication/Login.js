@@ -4,7 +4,6 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
@@ -15,9 +14,6 @@ import auth from "../../hooks/firebase.init";
 const Login = () => {
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
-  // prevent logged in user to visit login page
-  currentUser && navigate("/");
 
   const {
     register,
@@ -41,28 +37,28 @@ const Login = () => {
   // set website title
   useWebsiteTitle("Bhojon | Login");
 
-  // login
-  const onSubmit = async (data, errors) => signInWithEmailAndPassword(watch("email"), watch("password"));
+  // prevent logged in user to visit login page
+  currentUser && navigate("/");
 
-  if (user) {
-    // after successfull login display toast message
-    toast.success(`Welcome ${watch("firstName")}`, {
-      toastId: "loginToastMessage",
+  // login
+  const onSubmit = async (data, errors) => {
+    // display login error
+    signInWithEmailAndPasswordError && Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${signInWithEmailAndPasswordError}`,
     });
 
+    signInWithEmailAndPassword(watch("email"), watch("password"));
+  }
+
+  if (user) {
     // after successfull login redirect to dashboard page
     navigate("/dashboard");
   }
 
   // display loading spinner 
   signInWithEmailAndPasswordLoading || loading && <LoadingSpinner />;
-
-  // display login error
-  signInWithEmailAndPasswordError && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${signInWithEmailAndPasswordError}`,
-  });
 
   // display user data error
   error && Swal.fire({
