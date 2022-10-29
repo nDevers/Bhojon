@@ -70,6 +70,8 @@ const SignUp = () => {
     }
     else {
       createUserWithEmailAndPassword(watch("email"), watch("password"));
+
+      navigate('/authentication/verify-email')
     }
   }
 
@@ -91,12 +93,6 @@ const SignUp = () => {
 
   // after successfull signup display email verification message
   if (user) {
-    Swal.fire({
-      icon: "success",
-      title: "Verification email sent",
-      text: "Please verify your email",
-    });
-
     // after successfull signup redirect to login page
     navigate("/authentication/login");
   }
@@ -108,11 +104,11 @@ const SignUp = () => {
     text: `${createUserWithEmailAndPasswordError}`,
   });
 
-  // display user data error
-  error && Swal.fire({
+  // display user error
+  createUserWithEmailAndPasswordError && Swal.fire({
     icon: "error",
     title: "Error",
-    text: `${createUserWithEmailAndPasswordError}`,
+    text: `${error}`,
   });
 
   return (
