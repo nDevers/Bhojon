@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useAuthState, useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification } from "react-firebase-hooks/auth";
 import { BiShowAlt } from "react-icons/bi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
@@ -37,6 +37,12 @@ const SignUp = () => {
     createUserWithEmailAndPasswordLoading,
     createUserWithEmailAndPasswordError,
   ] = useCreateUserWithEmailAndPassword(auth);
+
+  const [
+    sendEmailVerification,
+    sendEmailVerificationSending,
+    sendEmailVerificationError
+  ] = useSendEmailVerification(auth);
 
   let passwordMatchedText, passwordNotMatchedText, temporaryEmailAddressMatchedText;
 
@@ -72,6 +78,22 @@ const SignUp = () => {
       createUserWithEmailAndPassword(watch("email"), watch("password"));
 
       navigate('/authentication/verify-email')
+
+      Swal.fire({
+        icon: "success",
+        title: "Verification email sent",
+        text: 'Please check your inbox',
+        confirmButtonText: "Yes",
+        customClass: {
+          actions: "my-actions",
+          cancelButton: "order-2 right-gap",
+          confirmButton: "order-1",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          sendEmailVerification();
+        }
+      })
     }
   }
 
@@ -89,19 +111,20 @@ const SignUp = () => {
   }
 
   // display loading spinner 
-  (createUserWithEmailAndPasswordLoading || loading) && <LoadingSpinner />;
-
-  // after successfull signup display email verification message
-  if (user) {
-    // after successfull signup redirect to login page
-    navigate("/authentication/login");
-  }
+  (createUserWithEmailAndPasswordLoading || sendEmailVerificationSending || loading) && <LoadingSpinner />;
 
   // display signup error
   createUserWithEmailAndPasswordError && Swal.fire({
     icon: "error",
     title: "Error",
     text: `${createUserWithEmailAndPasswordError}`,
+  });
+
+  // display verification email error
+  sendEmailVerificationError && Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: `${sendEmailVerificationError}`,
   });
 
   // display user error
