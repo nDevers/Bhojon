@@ -382,28 +382,6 @@ const dasboardMenus = [
         ],
     },
     {
-        name: "User",
-        link: "/user",
-        icon: <AiOutlineHome />,
-        subMenus: [
-            {
-                name: "User Summary",
-                link: "/user/user-summary",
-                icon: <FaUser />,
-            },
-            {
-                name: "Profile",
-                link: "/user/profile",
-                icon: <FaUser />,
-            },
-            {
-                name: "Settings",
-                link: "/user/settings",
-                icon: <FaUser />,
-            },
-        ],
-    },
-    {
         name: "Authentication",
         link: "/authentication",
         icon: <AiOutlineHome />,
