@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification } from "react-firebase-hooks/auth";
 import { BiShowAlt } from "react-icons/bi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
-import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
+import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import auth from "../../hooks/firebase.init";

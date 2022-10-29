@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
+import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
 import { MdOutlineAlternateEmail } from "react-icons/md";

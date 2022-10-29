@@ -6,7 +6,7 @@ import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hook
 import { useForm } from "react-hook-form";
 import { BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
+import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";

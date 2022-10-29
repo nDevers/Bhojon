@@ -1,7 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
-import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
+import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { useSendEmailVerification } from "react-firebase-hooks/auth";
