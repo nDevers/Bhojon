@@ -9,13 +9,10 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import auth from "../hooks/firebase.init";
 import LoadingSpinner from "./LoadingSpinner";
-import { MdSettings } from "react-icons/md";
-import { FaFirstOrder, FaUser } from "react-icons/fa";
-import { AiOutlineHome } from "react-icons/ai";
+import { FaFirstOrder } from "react-icons/fa";
 import defaultUserImage from "../assets/images/defaultUser.png";
-import { RiUser5Fill, RiUser6Fill } from "react-icons/ri";
+import { RiUser5Fill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
-import { BiChevronDown } from "react-icons/bi";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
