@@ -96,7 +96,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="normal-case text-xl ml-3">
           <Logo />
         </Link>
       </div>
