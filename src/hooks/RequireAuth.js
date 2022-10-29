@@ -9,11 +9,12 @@ function RequireAuth({ children }) {
     const [user, loading, error] = useAuthState(auth);
     let location = useLocation();
 
-    if (loading) {
-        return <LoadingSpinner />;
-    };
+    loading && <LoadingSpinner />;
 
-    if (!user) {
+    if (user?.emailVerified) {
+        return <Navigate to="/authentication/verify-email" state={{ from: location }} replace />;
+    }
+    else if (!user) {
         Swal.fire({
             icon: 'error',
             title: 'You are not logged in',
@@ -21,15 +22,16 @@ function RequireAuth({ children }) {
         });
 
         return <Navigate to="/authentication/login" state={{ from: location }} replace />;
-    };
+    }
+    else {
+        // 
+    }
 
-    if (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: `${error?.message}`,
-        });
-    };
+    error && Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: `${error?.message}`,
+    });
 
     return children;
 }

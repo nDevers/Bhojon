@@ -35,10 +35,6 @@ const Navbar = () => {
       link: "/contact-us",
     },
     {
-      name: "Login",
-      link: "/authentication/login",
-    },
-    {
       name: <BsSearch />,
       link: "/search",
     },
@@ -105,6 +101,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal font-medium p-0 lg:flex hidden">
           {navbarMenu}
 
+          {
+            !user &&
+            <li>
+              <Link to='/authentication/login'>Login</Link>
+            </li>
+          }
+
           {useSignOut}
         </ul>
 
@@ -117,6 +120,13 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navbarMenu}
+
+            {
+              !user &&
+              <li>
+                <Link to='/authentication/login'>Login</Link>
+              </li>
+            }
 
             {user && (
               <Link

@@ -13,11 +13,7 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
 
 const Login = () => {
-  const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
-  // prevent logged in user to visit login page
-  currentUser && navigate("/");
 
   const {
     register,
@@ -42,34 +38,36 @@ const Login = () => {
   useWebsiteTitle("Bhojon | Login");
 
   // login
-  const onSubmit = async (data, errors) => signInWithEmailAndPassword(watch("email"), watch("password"));
+  const onSubmit = async (data, errors) => {
+    signInWithEmailAndPassword(watch("email"), watch("password"));
 
-  if (user) {
-    // after successfull login display toast message
-    toast.success(`Welcome ${watch("firstName")}`, {
-      toastId: "loginToastMessage",
-    });
+    if (!user?.user?.emailVerified) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Email verification sent',
+        text: `Please verify your email address`,
+      });
 
-    // after successfull login redirect to dashboard page
-    navigate("/dashboard");
+      navigate("/authentication/verify-email");
+    }
   }
 
   // display loading spinner 
-  signInWithEmailAndPasswordLoading || loading && <LoadingSpinner />;
+  signInWithEmailAndPasswordLoading && <LoadingSpinner />;
 
   // display login error
-  signInWithEmailAndPasswordError && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${signInWithEmailAndPasswordError}`,
-  });
+  // signInWithEmailAndPasswordError && Swal.fire({
+  //   icon: "error",
+  //   title: "Error",
+  //   text: `${signInWithEmailAndPasswordError}`,
+  // });
 
   // display user data error
-  error && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${error}`,
-  });
+  // error && Swal.fire({
+  //   icon: "error",
+  //   title: "Error",
+  //   text: `${error}`,
+  // });
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">

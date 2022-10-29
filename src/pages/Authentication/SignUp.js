@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useAuthState, useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification } from "react-firebase-hooks/auth";
 import { BiShowAlt } from "react-icons/bi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLoginButton";
@@ -12,7 +12,11 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 import auth from "../../hooks/firebase.init";
 
 const SignUp = () => {
-  const [currentUser, loading, error] = useAuthState(auth);
+  const [
+    currentUser,
+    loading,
+    error
+  ] = useAuthState(auth);
   const navigate = useNavigate();
 
   const {
@@ -37,6 +41,12 @@ const SignUp = () => {
     createUserWithEmailAndPasswordLoading,
     createUserWithEmailAndPasswordError,
   ] = useCreateUserWithEmailAndPassword(auth);
+
+  const [
+    sendEmailVerification,
+    sendEmailVerificationLoading,
+    sendEmailVerificationError
+  ] = useSendEmailVerification(auth);
 
   let passwordMatchedText, passwordNotMatchedText, temporaryEmailAddressMatchedText;
 
@@ -87,18 +97,21 @@ const SignUp = () => {
   }
 
   // display loading spinner 
-  (createUserWithEmailAndPasswordLoading || loading) && <LoadingSpinner />;
+  (createUserWithEmailAndPasswordLoading || sendEmailVerificationLoading || loading) && <LoadingSpinner />;
 
   // after successfull signup display email verification message
   if (user) {
+    // send email verification
+    sendEmailVerification();
+
     Swal.fire({
       icon: "success",
       title: "Verification email sent",
       text: "Please verify your email",
     });
 
-    // after successfull signup redirect to login page
-    navigate("/authentication/login");
+    // after successfull signup redirect to verify email page
+    navigate("/authentication/verify-email");
   }
 
   // display signup error
@@ -106,6 +119,13 @@ const SignUp = () => {
     icon: "error",
     title: "Error",
     text: `${createUserWithEmailAndPasswordError}`,
+  });
+
+  // display email verification error
+  sendEmailVerificationError && Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: `${sendEmailVerificationError}`,
   });
 
   // display user data error
