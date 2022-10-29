@@ -1,13 +1,24 @@
 import React from "react";
+import Swal from "sweetalert2";
+import { getAuth, deleteUser } from "firebase/auth";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Toggle from "../../components/Toggle";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../hooks/firebase.init";
 
 const UserSettings = () => {
+    const navigate = useNavigate();
+    const auth = getAuth();
+    const user = auth.currentUser;
+
     // set website title
     useWebsiteTitle('User | Settings')
+
+    console.log(user)
 
     return (
         <div className="mx-2 md:mx-32 lg:mx-40 h-screen">
@@ -39,7 +50,47 @@ const UserSettings = () => {
                             inputPlaceHolder="+8801700000000"
                         />
                         <Toggle toggleTitle='Deactivate Account' />
-                        <Toggle toggleTitle='Delete Account' />
+
+                        <div className='grid grid-cols-2 items-center w-full md:4/6 lg:w-3/6'>
+                            <h3 className="text-sm md:text-text-[16px] lg:text-[16px] font-medium">Delete Account</h3>
+                            <button
+                                className="btn btn-xs btn-outline btn-error"
+                                onClick={() =>
+                                    Swal.fire({
+                                        icon: "warning",
+                                        title: "Are you sure?",
+                                        text: 'This can not be undone',
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes",
+                                        customClass: {
+                                            actions: "my-actions",
+                                            cancelButton: "order-2 right-gap",
+                                            confirmButton: "order-1",
+                                        },
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            navigate('/');
+
+                                            deleteUser(user).then(() => {
+                                                // User deleted.
+                                                Swal.fire({
+                                                    icon: "success",
+                                                    title: "Your account has been deleted successfully",
+                                                });
+                                            }).catch((error) => {
+                                                // An error ocurred
+                                                Swal.fire({
+                                                    icon: "error",
+                                                    title: "Error",
+                                                    text: `${error}`,
+                                                });
+                                            });
+                                        }
+                                    })
+                                }>
+                                Delete Account
+                            </button>
+                        </div>
                         <div className="grid w-full md:w-3/6 lg:w-3/6">
                             <div className="flex justify-end gap-x-2">
                                 <Button buttonTitle='Save' />
