@@ -87,7 +87,7 @@ const DashboardHeader = () => {
             <Link
               to={navbarItems.link}
               key={navbarItems.link}
-              className="border rounded-md p-1 md:p-2 lg:p-2"
+              className="border rounded-md p-1 md:p-2 lg:p-2 hover:text-error"
             >
               <span className="flex items-center gap-x-2">
                 {navbarItems?.icon}
@@ -105,7 +105,7 @@ const DashboardHeader = () => {
             <Link
               to={navbarItems.link}
               key={navbarItems.link}
-              className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md"
+              className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md hover:text-error"
             >
               <Link>{navbarItems.icon}</Link>
             </Link>
@@ -134,7 +134,7 @@ const DashboardHeader = () => {
                   }
                 })
               }
-              className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md"
+              className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md hover:text-error"
             >
               <Link>
                 <HiOutlineLogout />
@@ -156,7 +156,7 @@ const DashboardHeader = () => {
               {dasboardMenus?.map((sideMenu) =>
                 sideMenu?.subMenus ? (
                   <details className="group" key={sideMenu?.name}>
-                    <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
+                    <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
                       {sideMenu?.icon}
 
                       <span className="ml-3 text-sm font-medium">
@@ -176,7 +176,7 @@ const DashboardHeader = () => {
                       {sideMenu?.subMenus?.map((subMenu) =>
                         subMenu?.subSubMenus ? (
                           <details className="group" key={subMenu?.name}>
-                            <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
+                            <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
                               {subMenu?.icon}
 
                               <span className="ml-3 text-sm font-medium">
@@ -197,7 +197,7 @@ const DashboardHeader = () => {
                                 <Link
                                   key={subSubMenu?.name}
                                   to={subSubMenu?.link}
-                                  className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                                  className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                                 >
                                   {subSubMenu?.icon}
 
@@ -213,7 +213,7 @@ const DashboardHeader = () => {
                           <Link
                             key={subMenu?.link}
                             to={subMenu?.link}
-                            className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                            className="flex items-center p-2 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                           >
                             {subMenu?.icon}
 
@@ -230,7 +230,7 @@ const DashboardHeader = () => {
                   <Link
                     key={sideMenu?.link}
                     to={sideMenu?.link}
-                    className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                    className="flex items-center p-2 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                   >
                     {sideMenu?.icon}
 
