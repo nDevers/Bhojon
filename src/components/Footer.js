@@ -291,9 +291,9 @@ const Footer = () => {
 
                 <Link
                   className="inline-block text-white underline transition hover:text-white/75"
-                  to="/cookies"
+                  to="/cookie-policy"
                 >
-                  Cookies
+                  Cookie Policy
                 </Link>
               </p>
 
