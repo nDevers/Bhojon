@@ -7,6 +7,7 @@ import Logo from "./Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  let temporaryEmailAddressMatchedText;
 
   const {
     register,
@@ -19,26 +20,47 @@ const Footer = () => {
     },
   });
 
-  const onSubmit = (data, errors) => {
-    console.log(data, errors);
+  // checking temporary email
+  const checkTemporaryEmailAddress = () => {
+    watch("email") &&
+      fetch(`https://www.disify.com/api/email/${watch("email")}`)
+        .then(response => response.json())
+        .then(isTemporaryEmail => {
+          if (isTemporaryEmail?.disposable === true) {
+            temporaryEmailAddressMatchedText = 'Sorry temporary email address is not allowed';
+          }
+        });
+  }
 
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Email send successfully!",
-    });
-  };
+  // sent email request
+  const onSubmit = async (data, errors) => {
+    // prevent signup using temporary email
+    if (temporaryEmailAddressMatchedText) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: `${temporaryEmailAddressMatchedText}`,
+      });
+    }
+    else {
+      Swal.fire({
+        icon: "success",
+        title: "Email sent successfully",
+        text: 'We will contact you soon',
+        confirmButtonText: "Yes",
+        customClass: {
+          actions: "my-actions",
+          cancelButton: "order-2 right-gap",
+          confirmButton: "order-1",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+        }
+      })
+    }
+  }
 
   return (
-    // <footer className="p-3 bg-gray-300 text-xs md:text-sm lg:text-sm text-base-content font-mono z-10">
-    //   <p className="flex items-center justify-center">
-    //     Copyright <span>&copy; {currentYear}</span> - All right reserved by
-    //     <Link to="/">
-    //       <Logo />
-    //     </Link>
-    //   </p>
-    // </footer>
-
     <footer aria-label="Site Footer" className="bg-gray-900">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2">
@@ -70,18 +92,18 @@ const Footer = () => {
               >
                 <div className="relative mx-auto max-w-lg lg:mx-0">
                   <label className="sr-only" htmlFor="email">
-                    {" "}
                     Email{watch("email")}
                   </label>
 
                   <input
+                    onBlur={checkTemporaryEmailAddress()}
                     type="text"
-                    className="w-full rounded-md border-none bg-gray-800 py-4 pl-3 pr-16 text-sm text-white"
+                    className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                     placeholder="Enter email"
                     {...register("email", {
                       required: "* Email is required",
                       pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,40}$/i,
                         message: "Invalid email address",
                       },
                     })}
@@ -97,8 +119,15 @@ const Footer = () => {
                   </button>
                 </div>
 
-                <p role="alert" className="text-error text-sm mt-2">
-                  {errors.email?.message}
+                {
+                  errors.email?.message &&
+                  <p role="alert" className="text-error text-sm mt-2 mx-4">
+                    {errors.email?.message}
+                  </p>
+                }
+
+                <p role="alert" className="text-error text-sm mt-2 mx-4">
+                  {temporaryEmailAddressMatchedText}
                 </p>
               </form>
             </div>
