@@ -52,7 +52,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="drawer-side">
+        <div className="drawer-side w-72">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="flex flex-col justify-between bg-[#2c3136]">
             <div>
@@ -87,7 +87,7 @@ const Dashboard = () => {
                   {dasboardMenus?.map((sideMenu) =>
                     sideMenu?.subMenus ? (
                       <details className="group" key={sideMenu?.name}>
-                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
+                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
                           {sideMenu?.icon}
 
                           <span className="ml-3 text-sm font-medium">
@@ -107,7 +107,7 @@ const Dashboard = () => {
                           {sideMenu?.subMenus?.map((subMenu) =>
                             subMenu?.subSubMenus ? (
                               <details className="group" key={subMenu?.link}>
-                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
+                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
                                   {subMenu?.icon}
 
                                   <span className="ml-3 text-sm font-medium">
@@ -128,7 +128,7 @@ const Dashboard = () => {
                                     <Link
                                       key={subSubMenu?.link}
                                       to={subSubMenu?.link}
-                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                                     >
                                       {subSubMenu?.icon}
 
@@ -144,7 +144,7 @@ const Dashboard = () => {
                               <Link
                                 key={subMenu?.link}
                                 to={subMenu?.link}
-                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                               >
                                 {subMenu?.icon}
 
@@ -161,7 +161,7 @@ const Dashboard = () => {
                       <Link
                         key={sideMenu?.link}
                         to={sideMenu?.link}
-                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                       >
                         {sideMenu?.icon}
 
