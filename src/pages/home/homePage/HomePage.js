@@ -2,8 +2,10 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import useWebsiteTitle from '../../../hooks/useWebsiteTitle';
+import Banner from './Banner';
 import Features from './Features';
 import Hero from './Hero';
+import Products from './Products';
 
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
@@ -25,8 +27,8 @@ const HomePage = () => {
 
     return (
         <div>
-            <Hero />
-            <Features />
+            <Banner />
+            <Products />
         </div>
     );
 };
