@@ -16,6 +16,8 @@ import DashboardFooter from "../../components/DashboardFooter";
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
 
+  console.log(user)
+
   // set website title
   useWebsiteTitle("Bhojon | Dashboard");
 
