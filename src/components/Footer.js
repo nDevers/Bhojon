@@ -65,7 +65,7 @@ const Footer = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2">
           <div className="border-b border-gray-800 py-16 lg:order-last lg:border-b-0 lg:border-l lg:py-24 lg:pl-12">
-            <div className="flex justify-center text-teal-300 lg:hidden">
+            <div className="flex justify-center text-white lg:hidden">
               <Logo />
             </div>
 
@@ -135,7 +135,7 @@ const Footer = () => {
               <Logo />
             </Link>
 
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-12">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:mt-12">
               <div className="text-center lg:text-left">
                 <p className="text-lg font-medium text-white">About Us</p>
 
@@ -144,7 +144,7 @@ const Footer = () => {
                     {
                       <li>
                         <Link
-                          className="text-white transition hover:text-white/75 hover:underline"
+                          className="text-white transition hover:text-error hover:underline"
                           to="/company-history"
                         >
                           Company History
@@ -154,7 +154,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/meet-the-team"
                       >
                         Meet the Team
@@ -163,7 +163,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/employee-handbook"
                       >
                         Employee Handbook
@@ -172,7 +172,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/careers"
                       >
                         Careers
@@ -189,7 +189,7 @@ const Footer = () => {
                   <ul className="space-y-1.5 text-sm">
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/web-development"
                       >
                         Web Development
@@ -198,7 +198,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/web-design"
                       >
                         Web Design
@@ -207,7 +207,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/marketing"
                       >
                         Marketing
@@ -216,7 +216,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/google-ads"
                       >
                         Google Ads
@@ -233,7 +233,7 @@ const Footer = () => {
                   <ul className="space-y-1.5 text-sm">
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/faqs"
                       >
                         FAQs
@@ -242,7 +242,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        className="text-white transition hover:text-white/75 hover:underline"
+                        className="text-white transition hover:text-error hover:underline"
                         to="/support"
                       >
                         Support
@@ -254,7 +254,7 @@ const Footer = () => {
                         className="group flex justify-center gap-1.5 lg:justify-start"
                         to="/live-chat"
                       >
-                        <span className="text-white transition group-hover:text-white/75 hover:underline">
+                        <span className="text-white transition group-hover:text-error hover:underline">
                           Live Chat
                         </span>
 
@@ -272,7 +272,7 @@ const Footer = () => {
             <div className="mt-16 border-t border-gray-800 pt-8 text-sm text-white lg:mt-24">
               <p className="flex gap-x-4 items-center justify-center md:justify-start lg:justify-start md:text-center lg:text-left">
                 <Link
-                  className="inline-block text-white underline transition hover:text-white/75"
+                  className="inline-block text-white underline transition hover:text-error"
                   to="/privacy-policy"
                 >
                   Privacy Policy
@@ -281,7 +281,7 @@ const Footer = () => {
                 <span>&middot;</span>
 
                 <Link
-                  className="inline-block text-white underline transition hover:text-white/75"
+                  className="inline-block text-white underline transition hover:text-error"
                   to="/terms-and-conditions"
                 >
                   Terms & Conditions
@@ -290,14 +290,14 @@ const Footer = () => {
                 <span>&middot;</span>
 
                 <Link
-                  className="inline-block text-white underline transition hover:text-white/75"
+                  className="inline-block text-white underline transition hover:text-error"
                   to="/cookie-policy"
                 >
                   Cookie Policy
                 </Link>
               </p>
 
-              <p className="mt-4 text-center lg:text-left flex items-center gap-3">
+              <p className="mt-4 text-center lg:text-left flex items-center justify-center md:justify-start lg:justify-start gap-3">
                 &copy; {currentYear} <Logo customClass='flex gap-x-2 items-center text-md text-center text-black-50 font-semibold font-mono uppercase' /> All rights reserved.
               </p>
             </div>
