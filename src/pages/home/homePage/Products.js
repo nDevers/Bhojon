@@ -37,7 +37,7 @@ const Products = () => {
 
     return (
         <div className='mx-2 my-20 md:m-12 lg:m-28'>
-            <div className='text-center'>
+            <div className='text-center p-3 m-3'>
                 <h3 className='text-2xl md:text-2xl lg:text-3xl font-semibold font capitalize'>We offer you different taste</h3>
                 <p className='mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eius accusamus, incidunt corrupti libero nihil animi.</p>
             </div>
