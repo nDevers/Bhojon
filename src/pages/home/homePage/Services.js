@@ -38,7 +38,6 @@ const Services = () => {
                             <div>
                                 <img
                                     src={service?.image}
-                                    width="350"
                                     alt="" />
                             </div>
 
