@@ -26,7 +26,7 @@ const Services = () => {
 
     return (
         <div className='my-16 mx-2 md:mx-10 lg:mx-16'>
-            <div className='ms-5 mb-3 col-5'>
+            <div className='p-3 m-3 col-5'>
                 <h2 className='text-xl md:text-2xl lg:text-3xl font-semibold font capitalize'>Why Choose Us</h2>
                 <p className='mt-5 w-full md:w-2/3 lg:1/3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate porro voluptatibus commodi error illum veritatis tenetur corporis modi labore?</p>
             </div>
@@ -34,7 +34,7 @@ const Services = () => {
             <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-16 items-center justify-center'>
                 {
                     services?.map(service =>
-                        <div className='col-4 shadow-xl flex flex-col items-center p-8 rounded-lg'>
+                        <div className='col-4 shadow-xl flex flex-col items-center p-3 m-5 rounded-lg'>
                             <div>
                                 <img
                                     src={service?.image}
