@@ -4,8 +4,8 @@ const Input = ({
   inputTitle = "Input Title",
   inputType = "text",
   inputPlaceHolder = "Input Placeholder",
-  inputComponentsCustomClass = "grid grid-cols-2 items-center w-full md:4/6 lg:w-3/6",
-  inputCustomClass = "input input-bordered input-xs md:input-sm lg:input-sm w-full max-w-xs",
+  inputComponentsCustomClass = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 items-center justify-center w-full md:4/6 lg:w-3/6",
+  inputCustomClass = "input input-bordered input-xs md:input-sm lg:input-sm w-full",
 }) => {
   return (
     <div className={inputComponentsCustomClass}>

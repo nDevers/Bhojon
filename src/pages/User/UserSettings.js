@@ -7,8 +7,6 @@ import Input from "../../components/Input";
 import Toggle from "../../components/Toggle";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../hooks/firebase.init";
 
 const UserSettings = () => {
     const navigate = useNavigate();

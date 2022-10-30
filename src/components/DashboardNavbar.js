@@ -35,14 +35,6 @@ const DashboardNavbar = () => {
 
   const navbarRight = [
     {
-      icon: <BsArrowsFullscreen />,
-      link: ''
-    },
-    {
-      icon: <BsBell />,
-      link: '/dashboard/notification'
-    },
-    {
       icon: <FiSettings />,
       link: '/dashboard/settings'
     },
@@ -54,6 +46,7 @@ const DashboardNavbar = () => {
 
   return (
     <navbar className="navbar bg-base-100 px-4">
+      {/* navbar right */}
       <div className="navbar-start">
         <div className='flex gap-x-2 items-center justify-center text-xl text-center text-gray-900 font-semibold font-mono uppercase md:hidden lg:hidden'>
           <SiFoodpanda />
@@ -61,19 +54,33 @@ const DashboardNavbar = () => {
         </div>
       </div>
 
+      {/* navbar middle */}
       <div className='navbar-middle'>
         <ul className="menu menu-horizontal lg:flex gap-x-2 hidden">
           {
-            navbarMiddle.map(navbarItems => <li key={navbarItems.link} className='border rounded-md'>
-              <Link to={navbarItems.link}>
+            <Link>
+              <BsArrowsFullscreen />
+            </Link>
+          }
+
+          {
+            <Link to='/dashboard/notification'>
+              <BsBell />
+            </Link>
+          }
+
+          {
+            navbarMiddle?.map(navbarItems =>
+              <Link to={navbarItems?.link} key={navbarItems?.link} className='border rounded-md'>
                 <span>{navbarItems?.icon}</span>
-                {navbarItems.name}
+                {navbarItems?.name}
               </Link>
-            </li>)
+            )
           }
         </ul>
       </div>
 
+      {/* mobile navbar */}
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

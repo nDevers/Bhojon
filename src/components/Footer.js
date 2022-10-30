@@ -134,7 +134,7 @@ const Footer = () => {
           </div>
 
           <div className="pt-16 pb-8 lg:pt-24 lg:pr-12">
-            <Link className="hidden text-teal-300 lg:flex" to="/">
+            <Link className="hidden text-white lg:flex" to="/">
               <Logo />
             </Link>
 
@@ -300,8 +300,8 @@ const Footer = () => {
                 </Link>
               </p>
 
-              <p className="mt-4 text-center lg:text-left">
-                &copy; {currentYear} Bhojon. All rights reserved.
+              <p className="mt-4 text-center lg:text-left flex items-center gap-3">
+                &copy; {currentYear} <Logo customClass='flex gap-x-2 items-center text-md text-center text-black-50 font-semibold font-mono uppercase' /> All rights reserved.
               </p>
             </div>
           </div>

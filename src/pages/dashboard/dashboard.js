@@ -12,6 +12,8 @@ import ScrollToTop from "../../components/ScrollToTop";
 import defaultUserImage from "../../assets/images/defaultUser.png";
 import dasboardMenus from "../../hooks/useDashboardMenu";
 import DashboardFooter from "../../components/DashboardFooter";
+import { CgProfile } from "react-icons/cg";
+import { FiSettings } from "react-icons/fi";
 
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -39,7 +41,7 @@ const Dashboard = () => {
         <div className="drawer-content flex flex-col">
           <DashboardHeader />
 
-          <div className="m-2">
+          <div className="mx-2 mt-2 mb-10">
             <Outlet />
           </div>
 
@@ -52,32 +54,34 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="drawer-side">
+        <div className="drawer-side w-72">
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="flex flex-col justify-between bg-[#2c3136]">
             <div>
               <Logo customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" />
 
-              <div className="text-gray-50 border-t">
-                <Link to="/user" className="flex gap-x-3 items-center p-4">
-                  <img
-                    alt="Default user"
-                    src={user?.photoURL ? user?.photoURL : defaultUserImage}
-                    className="h-16 w-16 rounded-full object-cover"
-                  />
+              <Link to="/user/settings" className="flex gap-x-3 items-center p-4 text-gray-50 border-t">
+                <img
+                  alt="Default user"
+                  src={user?.photoURL ? user?.photoURL : defaultUserImage}
+                  className="h-16 w-16 rounded-full object-cover"
+                />
 
-                  <div className="flex flex-col items-start gap-y-2">
+                <div className="flex flex-col items-start gap-y-2">
+                  <span className="flex items-center justify-between w-full">
                     <p className="flex items-center text-sm text-success">
                       {user?.displayName ? user?.displayName : "Default User"}{" "}
                       <BsDot className="text-xl" />
                     </p>
-                    <p className="text-xs underline">
-                      {" "}
-                      {user?.email ? user?.email : "user@email.com"}{" "}
-                    </p>
-                  </div>
-                </Link>
-              </div>
+
+                    <Link className="hover:text-error" to='/user/settings'><FiSettings /></Link>
+                  </span>
+                  <p className="text-xs hover:underline">
+                    {" "}
+                    {user?.email ? user?.email : "user@email.com"}{" "}
+                  </p>
+                </div>
+              </Link>
 
               <nav
                 aria-label="Main Nav"
@@ -87,7 +91,7 @@ const Dashboard = () => {
                   {dasboardMenus?.map((sideMenu) =>
                     sideMenu?.subMenus ? (
                       <details className="group" key={sideMenu?.name}>
-                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
+                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
                           {sideMenu?.icon}
 
                           <span className="ml-3 text-sm font-medium">
@@ -107,7 +111,7 @@ const Dashboard = () => {
                           {sideMenu?.subMenus?.map((subMenu) =>
                             subMenu?.subSubMenus ? (
                               <details className="group" key={subMenu?.link}>
-                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
+                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
                                   {subMenu?.icon}
 
                                   <span className="ml-3 text-sm font-medium">
@@ -128,7 +132,7 @@ const Dashboard = () => {
                                     <Link
                                       key={subSubMenu?.link}
                                       to={subSubMenu?.link}
-                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                                     >
                                       {subSubMenu?.icon}
 
@@ -144,7 +148,7 @@ const Dashboard = () => {
                               <Link
                                 key={subMenu?.link}
                                 to={subMenu?.link}
-                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                               >
                                 {subMenu?.icon}
 
@@ -161,7 +165,7 @@ const Dashboard = () => {
                       <Link
                         key={sideMenu?.link}
                         to={sideMenu?.link}
-                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
                       >
                         {sideMenu?.icon}
 
