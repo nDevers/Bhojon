@@ -281,7 +281,6 @@ function App() {
 
           {/* other routes */}
           <Route path="notification" element={<DashboardNotification />} />
-          <Route path="select-language" element={<SelectLanguage />} />
         </Route>
 
         {/* other routes */}

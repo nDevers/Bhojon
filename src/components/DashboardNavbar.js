@@ -40,7 +40,7 @@ const DashboardNavbar = () => {
     },
     {
       icon: <TbLanguage />,
-      link: '/dashboard/select-language'
+      link: '/dashboard/settings/language'
     }
   ];
 
