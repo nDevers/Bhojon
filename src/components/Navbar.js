@@ -13,11 +13,14 @@ import { FaFirstOrder } from "react-icons/fa";
 import defaultUserImage from "../assets/images/defaultUser.png";
 import { RiUser5Fill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
+import { MdOutlineDashboard } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
+import { BiLogIn } from "react-icons/bi";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
 
-  const navbar = [
+  const navbarMiddle = [
     {
       name: "Home",
       link: "/home",
@@ -38,6 +41,9 @@ const Navbar = () => {
       name: "Contact Us",
       link: "/contact-us",
     },
+  ];
+
+  const navbarRight = [
     {
       name: <BsSearch />,
       link: "/search",
@@ -48,91 +54,87 @@ const Navbar = () => {
     },
   ];
 
-  const navbarMenu = navbar.map((navbarItems) => (
-    <li key={navbarItems.link}>
-      <Link to={navbarItems.link}>{navbarItems.name}</Link>
-    </li>
-  ));
+  const userMenu = [
+    {
+      name: 'Dashboard',
+      icon: <MdOutlineDashboard />,
+      link: '/dashboard'
+    },
+    {
+      name: 'Summary',
+      icon: <FaFirstOrder />,
+      link: '/user/summary'
+    },
+    {
+      name: 'Profile',
+      icon: <CgProfile />,
+      link: '/user/profile'
+    },
+    {
+      name: 'Settings',
+      icon: <IoMdSettings />,
+      link: '/user/settings'
+    },
+  ];
 
-  const useSignOut = user && (
-    <li className="dropdown">
-      <label tabIndex={0} className="flex items-center">
-        <span class="mr-1"> {user?.email ? user?.email.split('@')[0] : "defaultuser"} </span>
+  const logoutMenu = <li>
+    <Link
+      onClick={() =>
+        Swal.fire({
+          icon: "warning",
+          title: "Are you sure want to sign out?",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          customClass: {
+            actions: "my-actions",
+            cancelButton: "order-2 right-gap",
+            confirmButton: "order-1",
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            signOut(auth);
 
+            toast.success("See you soon!");
+          }
+        })
+      }
+      className='flex items-center'>
+      <BiLogIn />
+      Logout
+    </Link>
+  </li>
+
+  const loginMenu = !user && <li>
+    <Link to='/authentication/login' className="bg-error px-4 py-1 rounded-md text-white text-center">Login</Link>
+  </li>
+
+  const currentUserMenu = user && (
+    <div className="dropdown dropdown-end">
+      <label tabIndex={0}>
         <img
           alt="Default user"
           src={user?.photoURL ? user?.photoURL : defaultUserImage}
           className="h-7 w-7 rounded-full object-cover"
         />
       </label>
-      <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-        <Link
-          to="/user/user-summary"
-          class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          <FaFirstOrder />
-
-          <span class="ml-3 text-sm font-medium"> Orders </span>
-        </Link>
-
-        <Link
-          to="/user/profile"
-          class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          <RiUser5Fill />
-
-          <span class="ml-3 text-sm font-medium"> Profile </span>
-        </Link>
-
-        <Link
-          to="/user/settings"
-          class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          <IoMdSettings />
-
-          <span class="ml-3 text-sm font-medium"> Settings </span>
-        </Link>
-        <li>
-          <Link
-            onClick={() =>
-              Swal.fire({
-                icon: "warning",
-                title: "Are you sure want to sign out?",
-                showCancelButton: true,
-                confirmButtonText: "Yes",
-                customClass: {
-                  actions: "my-actions",
-                  cancelButton: "order-2 right-gap",
-                  confirmButton: "order-1",
-                },
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  signOut(auth);
-
-                  toast.success("See you soon!");
-                }
-              })
-            }
-            class="flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-          >
-            <HiOutlineLogout />
-
-            <span class="text-sm font-medium"> Logout </span>
-          </Link>
-        </li>
+      <ul
+        tabIndex={0}
+        className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        {
+          userMenu.map((userMenu) =>
+            <li key={userMenu?.link}>
+              <Link to={userMenu?.link}>
+                {userMenu?.icon}
+                {userMenu?.name}
+              </Link>
+            </li>
+          )
+        }
+        {logoutMenu}
       </ul>
-    </li>
+    </div>
   );
-
-  const dashboardMenu =
-    user?.emailVerified && <li>
-      <Link to='/dashboard'>Dashboard</Link>
-    </li>
-
-  const loginMenu =
-    !user && <li>
-      <Link to='/authentication/login'>Login</Link>
-    </li>
 
   loading && <LoadingSpinner />;
 
@@ -144,43 +146,90 @@ const Navbar = () => {
     });
 
   return (
-    <div className="navbar md:flex md:items-center md:justify-between lg:flex lg:items-center lg:justify-between bg-base-100">
-      <div className="navbar-start md:navbar lg:navbar">
-        <Link to="/" className="normal-case text-xl ml-3">
-          <Logo />
-        </Link>
-      </div>
+    <header aria-label="Site Header" class="bg-white">
+      <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          {/* navbar left */}
+          <Link to='/'>
+            <Logo />
+          </Link>
 
-      <div className="navbar-end md:navbar lg:navbar">
-        <ul className="menu menu-horizontal font-medium p-0 lg:flex hidden">
-          {navbarMenu}
+          {/* navbar middle */}
+          <nav>
+            <ul class="hidden md:flex lg:flex items-center gap-6 text-md font-medium">
+              {
+                navbarMiddle.map((navbarItems) =>
+                  <li key={navbarItems.link} className='hover:text-error active:text-gray-900 active:bg-rose-200 active:px-4 active:py-2 active:rounded-md focus:bg-rose-200 focus:px-4 focus:py-2 focus:rounded-md'>
+                    <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                  </li>
+                )
+              }
+            </ul>
+          </nav>
 
-          {loginMenu}
+          {/* navbar right */}
+          <div class="flex items-center gap-4">
+            <ul class="hidden md:hidden lg:flex items-center gap-6 text-sm font-medium">
+              {
+                navbarRight.map((navbarItems) => (
+                  <li key={navbarItems.link}>
+                    <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                  </li>
+                ))
+              }
 
-          {dashboardMenu}
+              {loginMenu}
 
-          {useSignOut}
-        </ul>
+              {currentUserMenu}
+            </ul>
 
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <HiMenuAlt3 className="text-2xl" />
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {navbarMenu}
+            <div className="navbar-end md:hidden lg:hidden">
+              <ul className="menu menu-horizontal font-medium lg:flex hidden">
+                {
+                  navbarMiddle.map((navbarItems) =>
+                    <li key={navbarItems.link}>
+                      <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                    </li>
+                  )
+                }
 
-            {loginMenu}
+                {loginMenu}
+              </ul>
 
-            {dashboardMenu}
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0}>
+                  <HiMenuAlt3 className="text-2xl" />
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  {
+                    navbarMiddle.map((navbarItems) =>
+                      <li key={navbarItems.link}>
+                        <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                      </li>
+                    )
+                  }
 
-            {useSignOut}
-          </ul>
+                  {
+                    navbarRight.map((navbarItems) => (
+                      <li key={navbarItems.link}>
+                        <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                      </li>
+                    ))}
+
+                  {loginMenu}
+
+                  {currentUserMenu}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
+
   );
 };
 
