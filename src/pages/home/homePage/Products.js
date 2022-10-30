@@ -41,13 +41,13 @@ const Products = () => {
                 <h3 className='text-2xl md:text-2xl lg:text-3xl font-semibold font capitalize'>We offer you different taste</h3>
                 <p className='mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eius accusamus, incidunt corrupti libero nihil animi.</p>
             </div>
-            <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-16 items-center justify-center'>
+            <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-10 items-center justify-center'>
                 {
                     homePageProducts?.map(homePageProduct =>
-                        <div className="bg-base-100 shadow-xl p-4 m-4 rounded-md">
+                        <div className="bg-base-100 shadow-xl p-4 m-4 rounded-md relative">
                             <button
                                 type="button"
-                                class="absolute right-4 top-4 rounded-full bg-error p-2 text-white"
+                                class="absolute right-8 top-8 rounded-full bg-error p-2 text-white"
                             >
                                 <span class="sr-only">Wishlist</span>
                                 <BsSuitHeart />

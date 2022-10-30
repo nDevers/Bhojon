@@ -9,29 +9,15 @@ import Products from './Products';
 import Services from './Services';
 
 const HomePage = () => {
-    const [loading, setLoading] = useState(true);
-
     // set website title
     useWebsiteTitle('Home')
-
-    const onLoadEffect = () => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 3000);
-    };
-
-    useEffect(onLoadEffect, []);
-
-    if (loading) {
-        return <LoadingSpinner />;
-    }
 
     return (
         <div>
             <Banner />
             <Products />
             <Services />
-        </div>
+        </div >
     );
 };
 
