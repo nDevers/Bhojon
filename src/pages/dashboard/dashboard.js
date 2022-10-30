@@ -39,7 +39,7 @@ const Dashboard = () => {
         <div className="drawer-content flex flex-col">
           <DashboardHeader />
 
-          <div className="m-2">
+          <div className="mx-2 mt-2 mb-10">
             <Outlet />
           </div>
 
