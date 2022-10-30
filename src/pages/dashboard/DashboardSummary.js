@@ -278,8 +278,20 @@ const DashboardSummary = () => {
   ];
 
   return (
-    <>
-      <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
+    <div>
+      {/* for medium and large device */}
+      <div className="hidden md:grid lg:gird lg:grid-cols-6 md:grid-cols-4 gap-4">
+        {summaryData?.map((summary) => (
+          <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center" key={summary?.name}>
+            <h2 className="text-2xl font-semibold">{summary?.value}</h2>
+            <h3 className="text-md font-medium">{summary?.name}</h3>
+          </div>
+        ))}
+      </div>
+
+
+      {/* for small device */}
+      <div className="flex gap-4 overflow-x-auto pb-2">
         {summaryData?.map((summary) => (
           <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center" key={summary?.name}>
             <h2 className="text-2xl font-semibold">{summary?.value}</h2>
@@ -308,7 +320,7 @@ const DashboardSummary = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
