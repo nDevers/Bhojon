@@ -33,11 +33,6 @@ const Products = () => {
             image: 'https://placeimg.com/400/225/arch',
             description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!'
         },
-        {
-            name: 'Product 1',
-            image: 'https://placeimg.com/400/225/arch',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!'
-        },
     ];
 
     return (
