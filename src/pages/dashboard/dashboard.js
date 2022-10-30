@@ -62,7 +62,7 @@ const Dashboard = () => {
                 <Link to="/user" className="flex gap-x-3 items-center p-4">
                   <img
                     alt="Default user"
-                    src={defaultUserImage}
+                    src={user?.photoURL ? user?.photoURL : defaultUserImage}
                     className="h-16 w-16 rounded-full object-cover"
                   />
 
