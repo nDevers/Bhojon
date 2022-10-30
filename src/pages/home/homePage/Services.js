@@ -31,7 +31,7 @@ const Services = () => {
                 <p className='mt-5 w-full md:w-2/3 lg:1/3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate porro voluptatibus commodi error illum veritatis tenetur corporis modi labore?</p>
             </div>
 
-            <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-16 items-center justify-center'>
+            <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-10 items-center justify-center'>
                 {
                     services?.map(service =>
                         <div className='col-4 shadow-xl flex flex-col items-center p-4 m-4 rounded-lg'>
