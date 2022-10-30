@@ -121,7 +121,7 @@ function App() {
             </RequireAuth>
           }>
             <Route index element={<UserSummary />} />
-            <Route path="user-summary" element={<UserSummary />} />
+            <Route path="summary" element={<UserSummary />} />
             <Route path="profile" element={<Profile />} />
             <Route path="settings" element={<UserSettings />} />
           </Route>
