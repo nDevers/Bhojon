@@ -6,6 +6,7 @@ import Banner from './Banner';
 import Features from './Features';
 import Hero from './Hero';
 import Products from './Products';
+import Services from './Services';
 
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ const HomePage = () => {
         <div>
             <Banner />
             <Products />
+            <Services />
         </div>
     );
 };
