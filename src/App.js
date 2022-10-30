@@ -104,6 +104,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import NotFound from "./pages/NotFound";
 
 import RequireAuth from "./hooks/RequireAuth";
+import DashboardNotification from "./pages/dashboard/DashboardNotification";
 
 function App() {
   return (
@@ -276,6 +277,9 @@ function App() {
             <Route path="add-user" element={<AddUser />} />
             <Route path="user-list" element={<UserList />} />
           </Route>
+
+          {/* other routes */}
+          <Route path="notification" element={<DashboardNotification />} />
         </Route>
 
         {/* other routes */}

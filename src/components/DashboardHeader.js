@@ -42,7 +42,6 @@ const DashboardHeader = () => {
   const navbarRight = [
     {
       icon: <BsArrowsFullscreen />,
-      link: "",
     },
     {
       icon: <BsBell />,
