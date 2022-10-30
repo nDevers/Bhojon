@@ -73,7 +73,7 @@ const DashboardHeader = () => {
     <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
       {/* navbar left */}
       <div className="navbar-start">
-        <Logo customClass="flex md:flex lg:hidden gap-x-3 items-center text-xl md:text-2xl lg:text-2xl text-center text-black-50 font-semibold font-mono uppercase ml-4" />
+        <Logo customClass="flex md:flex lg:hidden gap-x-3 items-center text-xl md:text-2xl lg:text-2xl text-center text-black-50 font-semibold font-mono uppercase ml-4" link="/dashboard" />
 
         <label tabIndex={0} className="btn btn-ghost hidden lg:flex">
           <AiOutlineMenuFold className="text-xl font-black" />
@@ -156,7 +156,7 @@ const DashboardHeader = () => {
               {dasboardMenus?.map((sideMenu) =>
                 sideMenu?.subMenus ? (
                   <details className="group" key={sideMenu?.name}>
-                    <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
+                    <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
                       {sideMenu?.icon}
 
                       <span className="ml-3 text-sm font-medium">
@@ -176,7 +176,7 @@ const DashboardHeader = () => {
                       {sideMenu?.subMenus?.map((subMenu) =>
                         subMenu?.subSubMenus ? (
                           <details className="group" key={subMenu?.name}>
-                            <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success">
+                            <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
                               {subMenu?.icon}
 
                               <span className="ml-3 text-sm font-medium">
@@ -197,7 +197,7 @@ const DashboardHeader = () => {
                                 <Link
                                   key={subSubMenu?.name}
                                   to={subSubMenu?.link}
-                                  className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                                  className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
                                 >
                                   {subSubMenu?.icon}
 
@@ -213,7 +213,7 @@ const DashboardHeader = () => {
                           <Link
                             key={subMenu?.link}
                             to={subMenu?.link}
-                            className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                            className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
                           >
                             {subMenu?.icon}
 
@@ -230,7 +230,7 @@ const DashboardHeader = () => {
                   <Link
                     key={sideMenu?.link}
                     to={sideMenu?.link}
-                    className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-success"
+                    className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
                   >
                     {sideMenu?.icon}
 
