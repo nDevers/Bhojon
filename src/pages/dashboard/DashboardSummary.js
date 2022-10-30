@@ -281,7 +281,7 @@ const DashboardSummary = () => {
     <div>
       <div className="flex md:grid lg:gird lg:grid-cols-6 md:grid-cols-4 gap-4 pb-2 overflow-auto">
         {summaryData?.map((summary) => (
-          <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center" key={summary?.name}>
+          <div className="p-3 bg-gray-200 rounded-md flex flex-col text-center" key={summary?.name}>
             <h2 className="text-2xl font-semibold">{summary?.value}</h2>
             <h3 className="text-md font-medium">{summary?.name}</h3>
           </div>
@@ -289,10 +289,10 @@ const DashboardSummary = () => {
       </div>
 
       {/* for medium and large device */}
-      <div className="hidden mt-2 md:grid lg:grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+      <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {latestSummary?.map((summary) => (
-          <div className="h-96 p-2 border rounded-md overflow-y-auto scroll-smooth" key={summary?.title}>
-            <h4 className="text-lg font-medium pb-4 mb-4 border-b">
+          <div className="h-64 md:h-86 lg:h-96 p-2 border rounded-md overflow-y-auto scroll-smooth" key={summary?.title}>
+            <h4 className="text-lg font-medium pb-3 mb-3 border-b">
               {summary?.title}
             </h4>
             {summary?.data?.map((customer) => (
@@ -306,31 +306,6 @@ const DashboardSummary = () => {
                 </span>
               </div>
             ))}
-          </div>
-        ))}
-      </div>
-
-      {/* for small device */}
-      <div className="mt-2 flex flex-col gap-4">
-        {latestSummary?.map((summary) => (
-          <div className="h-64 p-2 border rounded-md overflow-x-auto scroll-smooth" key={summary?.title}>
-            <h4 className="text-lg font-medium pb-3 mb-3 border-b">
-              {summary?.title}
-            </h4>
-
-            <div className="">
-              {summary?.data?.map((customer) => (
-                <div className="border-b mb-2 pb-2" key={customer?.time}>
-                  <h2 className="font-medium">Name: {customer?.name}</h2>
-                  <span className="text-sm font-light">
-                    <p>Phone: {customer?.phone}</p>
-                    <p>Order No: {customer?.order}</p>
-                    <p>Table No: {customer?.table}</p>
-                    <p>Time: {customer?.time}</p>
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
         ))}
       </div>
