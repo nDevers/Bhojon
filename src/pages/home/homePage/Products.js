@@ -38,13 +38,13 @@ const Products = () => {
     return (
         <div className='mx-2 my-20 md:m-12 lg:m-28'>
             <div className='text-center'>
-                <h3 className='text-xl md:text-2xl lg:text-3xl font-semibold font capitalize'>We offer you different taste</h3>
+                <h3 className='text-2xl md:text-2xl lg:text-3xl font-semibold font capitalize'>We offer you different taste</h3>
                 <p className='mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eius accusamus, incidunt corrupti libero nihil animi.</p>
             </div>
             <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-16 items-center justify-center'>
                 {
                     homePageProducts?.map(homePageProduct =>
-                        <div className="card w-full md:w-auto lg:w-auto bg-base-100 shadow-xl">
+                        <div className="bg-base-100 shadow-xl p-4 m-4 rounded-md">
                             <button
                                 type="button"
                                 class="absolute right-4 top-4 rounded-full bg-error p-2 text-white"
@@ -52,11 +52,15 @@ const Products = () => {
                                 <span class="sr-only">Wishlist</span>
                                 <BsSuitHeart />
                             </button>
-                            {
-                                (homePageProduct?.image) ?
-                                    <img src={homePageProduct?.image} alt={`${homePageProduct?.name} image`} /> : <p>No product image to display</p>
-                            }
-                            <div className="mx-2 px-2 my-4 py-4">
+
+                            <div className='rounded-md'>
+                                {
+                                    (homePageProduct?.image) ?
+                                        <img className='rounded-3xl' src={homePageProduct?.image} alt={`${homePageProduct?.name} image`} /> : <p>No product image to display</p>
+                                }
+                            </div>
+
+                            <div className="my-4 py-4">
                                 <h2 className="card-title mb-4">
                                     {homePageProduct?.name}
                                     <div className="badge badge-warning text-white">NEW</div>
@@ -71,7 +75,7 @@ const Products = () => {
                             </div>
 
                             <button
-                                class="btn btn-error text-white"
+                                class="btn btn-error w-full text-white mb-2"
                             >
                                 <span class="text-sm font-medium"> Add to Cart </span>
 

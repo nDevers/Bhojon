@@ -27,7 +27,7 @@ const Services = () => {
     return (
         <div className='my-16 mx-2 md:mx-10 lg:mx-16'>
             <div className='p-3 m-3 col-5'>
-                <h2 className='text-xl md:text-2xl lg:text-3xl font-semibold font capitalize'>Why Choose Us</h2>
+                <h2 className='text-2xl md:text-2xl lg:text-3xl font-semibold font capitalize'>Why Choose Us</h2>
                 <p className='mt-5 w-full md:w-2/3 lg:1/3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate porro voluptatibus commodi error illum veritatis tenetur corporis modi labore?</p>
             </div>
 
@@ -50,10 +50,10 @@ const Services = () => {
 
                                 <p>{service?.description.slice(0, 95)}</p>
 
-                                <div className='flex items-center gap-4 mt-6 cursor-pointer hover:text-error hover:underline'>
+                                <button className='flex items-center gap-4 mt-6 mb-2 cursor-pointer hover:text-error hover:underline'>
                                     <h6 className='font-medium'>See More</h6>
                                     <BsFillArrowRightCircleFill className='text-success' />
-                                </div>
+                                </button>
                             </div>
                         </div>
                     )
