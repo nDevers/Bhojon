@@ -1,10 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Swal from "sweetalert2";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import auth from "../../hooks/firebase.init";
 import { BsDot } from "react-icons/bs";
 import { IoIosArrowUp } from "react-icons/io";
+import { FiSettings } from "react-icons/fi";
+import auth from "../../hooks/firebase.init";
 import Logo from "../../components/Logo";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import DashboardHeader from "../../components/DashboardHeader";
@@ -12,8 +12,7 @@ import ScrollToTop from "../../components/ScrollToTop";
 import defaultUserImage from "../../assets/images/defaultUser.png";
 import dasboardMenus from "../../hooks/useDashboardMenu";
 import DashboardFooter from "../../components/DashboardFooter";
-import { CgProfile } from "react-icons/cg";
-import { FiSettings } from "react-icons/fi";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -58,7 +57,7 @@ const Dashboard = () => {
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="flex flex-col justify-between bg-[#2c3136]">
             <div>
-              <Logo customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" />
+              <Logo customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" link="/dashboard" />
 
               <Link to="/user/settings" className="flex gap-x-3 items-center p-4 text-gray-50 border-t">
                 <img
