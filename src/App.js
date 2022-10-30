@@ -107,6 +107,7 @@ import RequireAuth from "./hooks/RequireAuth";
 import DashboardNotification from "./pages/dashboard/DashboardNotification";
 import SelectLanguage from "./pages/dashboard/SelectLanguage";
 import PrivacyPolicy from "./pages/dashboard/PricavyPolicy";
+import TermsAndConditions from "./pages/dashboard/TermsAndConditions";
 
 function App() {
   return (
@@ -139,6 +140,7 @@ function App() {
 
           {/* other routes */}
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
         </Route>
 
         {/* dashboard routes */}
