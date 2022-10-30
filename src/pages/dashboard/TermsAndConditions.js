@@ -20,7 +20,7 @@ const TermsAndConditions = () => {
                         <div class="lg:py-24">
                             <h2 class="text-3xl font-bold sm:text-4xl"><span className='text-error'>Terms And Conditions</span></h2>
 
-                            <p class="mt-4 text-gray-600">
+                            <p class="mt-4 text-gray-600 text-justify">
                                 <span className='font-semibold'>STRING LAB SOLUTION</span> establishes itself as a recognized software development company worldwide. We provide various readymade software solutions and customized services. Our readymade software assists entrepreneurs to start their businesses with dynamic and automatic coverage.
 
                                 <br />
