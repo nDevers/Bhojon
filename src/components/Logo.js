@@ -7,7 +7,7 @@ const Logo = ({
 }) => {
   return (
     <p className={customClass}>
-      <SiFoodpanda />
+      <SiFoodpanda className="text-error" />
       <span>
         <span className="text-error">B</span>hojon
       </span>
