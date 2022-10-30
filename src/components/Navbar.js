@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { BsSearch, BsCart3 } from "react-icons/bs";
-import { HiMenuAlt3, HiOutlineLogout } from "react-icons/hi";
+import { HiMenu, HiMenuAlt3, HiOutlineLogout } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import auth from "../hooks/firebase.init";
@@ -12,7 +12,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import { FaFirstOrder } from "react-icons/fa";
 import defaultUserImage from "../assets/images/defaultUser.png";
 import { RiUser5Fill } from "react-icons/ri";
-import { IoMdSettings } from "react-icons/io";
+import { IoIosArrowUp, IoMdSettings } from "react-icons/io";
 import { MdOutlineDashboard } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { BiLogIn } from "react-icons/bi";
@@ -98,7 +98,7 @@ const Navbar = () => {
           }
         })
       }
-      className='flex items-center'>
+      className='flex items-center font-medium px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error'>
       <BiLogIn />
       Logout
     </Link>
@@ -109,17 +109,19 @@ const Navbar = () => {
   </li>
 
   const currentUserMenu = user && (
-    <div className="dropdown dropdown-end">
-      <label tabIndex={0}>
+    <li className="dropdown dropdown-bottom lg:dropdown-end">
+      <label tabIndex={0} className='flex items-center gap-3'>
         <img
           alt="Default user"
           src={user?.photoURL ? user?.photoURL : defaultUserImage}
           className="h-7 w-7 rounded-full object-cover"
         />
+
+        <p className="block md:hidden lg:hidden font-medium">{user?.email?.split('@')[0]}</p>
       </label>
       <ul
         tabIndex={0}
-        className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
+        className="menu menu-compact dropdown-content dropdown-bottom mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
       >
         {
           userMenu.map((userMenu) =>
@@ -133,7 +135,7 @@ const Navbar = () => {
         }
         {logoutMenu}
       </ul>
-    </div>
+    </li>
   );
 
   loading && <LoadingSpinner />;
@@ -156,7 +158,7 @@ const Navbar = () => {
 
           {/* navbar middle */}
           <nav>
-            <ul class="hidden md:flex lg:flex items-center gap-6 text-md font-medium">
+            <ul class="hidden md:hidden lg:flex items-center gap-6 text-md font-medium">
               {
                 navbarMiddle.map((navbarItems) =>
                   <li key={navbarItems.link} className='hover:text-error active:text-gray-900 active:bg-rose-200 active:px-4 active:py-2 active:rounded-md focus:bg-rose-200 focus:px-4 focus:py-2 focus:rounded-md'>
@@ -183,47 +185,77 @@ const Navbar = () => {
               {currentUserMenu}
             </ul>
 
-            <div className="navbar-end md:hidden lg:hidden">
-              <ul className="menu menu-horizontal font-medium lg:flex hidden">
-                {
-                  navbarMiddle.map((navbarItems) =>
-                    <li key={navbarItems.link}>
-                      <Link to={navbarItems.link}>{navbarItems.name}</Link>
-                    </li>
-                  )
-                }
-
-                {loginMenu}
-              </ul>
-
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0}>
-                  <HiMenuAlt3 className="text-2xl" />
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
+            {/* mobile navbar */}
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                <HiMenuAlt3 className="text-xl text-black" />
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-2 md:mt-3 lg:mt-3 shadow bg-base-100 rounded-box w-60"
+              >
+                <nav
+                  aria-label="Teams Nav"
+                  className="mt-1.5 p-4 flex flex-col"
                 >
                   {
-                    navbarMiddle.map((navbarItems) =>
-                      <li key={navbarItems.link}>
-                        <Link to={navbarItems.link}>{navbarItems.name}</Link>
-                      </li>
+                    navbarMiddle?.map(navbarRightMenu =>
+                      <Link
+                        key={navbarRightMenu?.link}
+                        to={navbarRightMenu?.link}
+                        className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                      >
+                        {navbarRightMenu?.icon}
+
+                        <span className="text-sm font-medium">
+                          {" "}
+                          {navbarRightMenu?.name}
+                        </span>
+                      </Link>
                     )
                   }
-
                   {
-                    navbarRight.map((navbarItems) => (
-                      <li key={navbarItems.link}>
-                        <Link to={navbarItems.link}>{navbarItems.name}</Link>
-                      </li>
-                    ))}
+                    <details className="group">
+                      <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
+                        <span className="text-sm font-medium flex items-center gap-3">
+                          <img
+                            alt="Default user"
+                            src={user?.photoURL ? user?.photoURL : defaultUserImage}
+                            className="h-7 w-7 rounded-full object-cover"
+                          />
 
-                  {loginMenu}
+                          {user?.email?.split('@')[0]}
+                        </span>
 
-                  {currentUserMenu}
-                </ul>
-              </div>
+                        <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
+                          <IoIosArrowUp />
+                        </span>
+                      </summary>
+
+                      <nav
+                        aria-label="Teams Nav"
+                        className="mt-1.5 ml-2 flex flex-col"
+                      >
+                        {userMenu?.map(navbarUserMenu => (
+                          <Link
+                            key={navbarUserMenu?.name}
+                            to={navbarUserMenu?.link}
+                            className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                          >
+                            {navbarUserMenu?.icon}
+
+                            <span className="ml-3 text-sm font-medium">
+                              {" "}
+                              {navbarUserMenu?.name}{" "}
+                            </span>
+                          </Link>
+                        ))}
+                        {logoutMenu}
+                      </nav>
+                    </details>
+                  }
+                </nav>
+              </ul>
             </div>
           </div>
         </div>
