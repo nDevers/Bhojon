@@ -78,10 +78,7 @@ const Footer = () => {
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-gray-400 lg:mx-0">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Veritatis, harum deserunt nesciunt praesentium, repellendus
-                  eum perspiciatis ratione pariatur a aperiam eius numquam
-                  doloribus asperiores sunt.
+                  Here all software, apps, themes, plugins, are our own property. Therefore copying or reselling is strictly prohibited.
                 </p>
               </div>
 
