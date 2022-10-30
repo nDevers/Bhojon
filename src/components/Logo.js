@@ -9,7 +9,7 @@ const Logo = ({
     <p className={customClass}>
       <SiFoodpanda />
       <span>
-        <span className="text-red-500">B</span>hojon
+        <span className="text-error">B</span>hojon
       </span>
     </p>
   );
