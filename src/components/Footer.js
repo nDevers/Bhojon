@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiFillFacebook, AiFillGithub, AiFillLinkedin, AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
@@ -58,7 +58,28 @@ const Footer = () => {
         }
       })
     }
-  }
+  };
+
+  const socialMediaLinks = [
+    {
+      "id": 1,
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/montasim",
+      "icon": <AiFillLinkedin />
+    },
+    {
+      "id": 2,
+      "name": "GitHub",
+      "link": "https://github.com/montasim",
+      "icon": <AiFillGithub />
+    },
+    {
+      "id": 3,
+      "name": "Facebook",
+      "link": "https://www.facebook.com/montasimmamun/",
+      "icon": <AiFillFacebook />
+    }
+  ];
 
   return (
     <footer aria-label="Site Footer" className="bg-gray-900">
@@ -128,6 +149,20 @@ const Footer = () => {
                 </p>
               </form>
             </div>
+
+            {/* social media links */}
+            <div className="flex items-center justify-center md:justify-start lg:justify-start col-span-2 space-x-4 text-gray-300 lg:col-span-5 mt-10">
+              {
+                socialMediaLinks.map(socialMediaLink =>
+                  <a key={socialMediaLink.id} className="hover:text-error" href={socialMediaLink.link} target="_blank" rel="noreferrer">
+                    <span className="sr-only"> {socialMediaLink.name} </span>
+
+                    <span className='text-2xl'>
+                      {socialMediaLink.icon}
+                    </span>
+                  </a>)
+              }
+            </div>
           </div>
 
           <div className="pt-16 pb-8 lg:pt-24 lg:pr-12">
@@ -135,7 +170,7 @@ const Footer = () => {
               <Logo />
             </Link>
 
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 lg:mt-12">
               <div className="text-center lg:text-left">
                 <p className="text-lg font-medium text-white">About Us</p>
 
@@ -272,7 +307,7 @@ const Footer = () => {
             <div className="mt-16 border-t border-gray-800 pt-8 text-sm text-white lg:mt-24">
               <p className="flex gap-x-4 items-center justify-center md:justify-start lg:justify-start md:text-center lg:text-left">
                 <Link
-                  className="inline-block text-white underline transition hover:text-error"
+                  className="inline-block text-white hover:underline transition hover:text-error"
                   to="/privacy-policy"
                 >
                   Privacy Policy
@@ -281,7 +316,7 @@ const Footer = () => {
                 <span>&middot;</span>
 
                 <Link
-                  className="inline-block text-white underline transition hover:text-error"
+                  className="inline-block text-white hover:underline transition hover:text-error"
                   to="/terms-and-conditions"
                 >
                   Terms & Conditions
@@ -290,7 +325,7 @@ const Footer = () => {
                 <span>&middot;</span>
 
                 <Link
-                  className="inline-block text-white underline transition hover:text-error"
+                  className="inline-block text-white hover:underline transition hover:text-error"
                   to="/cookie-policy"
                 >
                   Cookie Policy
