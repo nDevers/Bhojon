@@ -105,6 +105,7 @@ import NotFound from "./pages/NotFound";
 
 import RequireAuth from "./hooks/RequireAuth";
 import DashboardNotification from "./pages/dashboard/DashboardNotification";
+import SelectLanguage from "./pages/dashboard/SelectLanguage";
 
 function App() {
   return (
@@ -280,6 +281,7 @@ function App() {
 
           {/* other routes */}
           <Route path="notification" element={<DashboardNotification />} />
+          <Route path="select-language" element={<SelectLanguage />} />
         </Route>
 
         {/* other routes */}
