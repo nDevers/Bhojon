@@ -34,27 +34,25 @@ const Services = () => {
             <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-16 items-center justify-center'>
                 {
                     services?.map(service =>
-                        <div className='col-4'>
+                        <div className='col-4 shadow-xl flex flex-col items-center p-8 rounded-lg'>
                             <div>
                                 <img
                                     src={service?.image}
                                     alt="" />
                             </div>
 
-                            <div className='d-flex mt-4 ms-4'>
+                            <div>
                                 <div className='flex items-center gap-4 mt-10 mb-6'>
                                     <button className='p-3 bg-error rounded-full text-white'>{service?.logo}</button>
 
                                     <h5 className='text-xl font-medium'>{service?.name}</h5>
                                 </div>
 
-                                <div className='ms-3'>
-                                    <p>{service?.description.slice(0, 95)}</p>
+                                <p>{service?.description.slice(0, 95)}</p>
 
-                                    <div className='flex items-center gap-4 mt-6'>
-                                        <h6 className='font-medium hover:text-error hover:underline'>See More</h6>
-                                        <BsFillArrowRightCircleFill className='text-success' />
-                                    </div>
+                                <div className='flex items-center gap-4 mt-6 cursor-pointer hover:text-error hover:underline'>
+                                    <h6 className='font-medium'>See More</h6>
+                                    <BsFillArrowRightCircleFill className='text-success' />
                                 </div>
                             </div>
                         </div>
