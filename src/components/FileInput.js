@@ -9,7 +9,7 @@ const FileInput = ({
 }) => {
   return (
     <div className={fileComponentCustomClass}>
-      <h3 className="text-sm md:text-text-[16px] lg:text-[16px] font-medium">{fileInputTitle}</h3>
+      <h3 className="text-md md:text-text-[16px] lg:text-[16px] font-medium">{fileInputTitle}</h3>
       <div className="flex items-center gap-x-4">
         <input type="file" id="myfile" name="myfile" />
         <button className={`p-1 ${fileButtonColor} border-0`}>

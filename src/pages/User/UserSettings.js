@@ -52,7 +52,7 @@ const UserSettings = () => {
                         <div className='grid grid-cols-2 items-center w-full md:4/6 lg:w-3/6'>
                             <h3 className="text-sm md:text-text-[16px] lg:text-[16px] font-medium">Delete Account</h3>
                             <button
-                                className="btn btn-xs btn-outline btn-error"
+                                className="btn btn-sm btn-outline btn-error"
                                 onClick={() =>
                                     Swal.fire({
                                         icon: "warning",
