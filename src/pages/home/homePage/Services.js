@@ -34,7 +34,7 @@ const Services = () => {
             <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-16 items-center justify-center'>
                 {
                     services?.map(service =>
-                        <div className='col-4 shadow-xl flex flex-col items-center p-3 m-5 rounded-lg'>
+                        <div className='col-4 shadow-xl flex flex-col items-center p-4 m-4 rounded-lg'>
                             <div>
                                 <img
                                     src={service?.image}
