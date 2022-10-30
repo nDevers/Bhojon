@@ -2,9 +2,10 @@ import React from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
 
 const FileInput = ({
+  fileComponentCustomClass = "grid grid-cols-2 items-center w-full md:4/6 lg:w-3/6",
   fileInputTitle = "File Input Title",
   fileButtonColor = "text-cyan-400",
-  fileComponentCustomClass = "grid grid-cols-2 items-center w-full md:4/6 lg:w-3/6"
+  fileTypeText = 'PNG and JPEG',
 }) => {
   return (
     <div className={fileComponentCustomClass}>
@@ -18,7 +19,7 @@ const FileInput = ({
             </label>
             <div tabIndex={0} className="card compact dropdown-content shadow bg-base-100 rounded-box w-64">
               <div className="card-body text-black text-center">
-                <h2 className="text-xl text-warning">PNG and JPEG</h2>
+                <h2 className="text-xl text-warning">{fileTypeText}</h2>
                 <p>file types are supported only.</p>
               </div>
             </div>
