@@ -56,83 +56,93 @@ const Navbar = () => {
 
   const userMenu = [
     {
-      name: 'Dashboard',
+      name: "Dashboard",
       icon: <MdOutlineDashboard />,
-      link: '/dashboard'
+      link: "/dashboard",
     },
     {
-      name: 'Summary',
+      name: "Summary",
       icon: <FaFirstOrder />,
-      link: '/user/summary'
+      link: "/user/summary",
     },
     {
-      name: 'Profile',
+      name: "Profile",
       icon: <CgProfile />,
-      link: '/user/profile'
+      link: "/user/profile",
     },
     {
-      name: 'Settings',
+      name: "Settings",
       icon: <IoMdSettings />,
-      link: '/user/settings'
+      link: "/user/settings",
     },
   ];
 
-  const logoutMenu = <li>
-    <Link
-      onClick={() =>
-        Swal.fire({
-          icon: "warning",
-          title: "Are you sure want to sign out?",
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          customClass: {
-            actions: "my-actions",
-            cancelButton: "order-2 right-gap",
-            confirmButton: "order-1",
-          },
-        }).then((result) => {
-          if (result.isConfirmed) {
-            signOut(auth);
+  const logoutMenu = (
+    <li>
+      <Link
+        onClick={() =>
+          Swal.fire({
+            icon: "warning",
+            title: "Are you sure want to sign out?",
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            customClass: {
+              actions: "my-actions",
+              cancelButton: "order-2 right-gap",
+              confirmButton: "order-1",
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              signOut(auth);
 
-            toast.success("See you soon!");
-          }
-        })
-      }
-      className='flex items-center font-medium px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error'>
-      <BiLogIn />
-      Logout
-    </Link>
-  </li>
+              toast.success("See you soon!");
+            }
+          })
+        }
+        className="flex items-center font-medium px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+      >
+        <BiLogIn />
+        Logout
+      </Link>
+    </li>
+  );
 
-  const loginMenu = !user && <li>
-    <Link to='/authentication/login' className="bg-error px-4 py-1 rounded-md text-white text-center">Login</Link>
-  </li>
+  const loginMenu = !user && (
+    <li>
+      <Link
+        to="/authentication/login"
+        className="bg-error px-4 py-1 rounded-md text-white text-center"
+      >
+        Login
+      </Link>
+    </li>
+  );
 
   const currentUserMenu = user && (
     <li className="dropdown dropdown-bottom lg:dropdown-end">
-      <label tabIndex={0} className='flex items-center gap-3'>
+      <label tabIndex={0} className="flex items-center gap-3">
         <img
           alt="Default user"
           src={user?.photoURL ? user?.photoURL : defaultUserImage}
           className="h-7 w-7 rounded-full object-cover"
         />
 
-        <p className="block md:hidden lg:hidden font-medium">{user?.email?.split('@')[0]}</p>
+        <p className="block md:hidden lg:hidden font-medium">
+          {user?.email?.split("@")[0]}
+        </p>
       </label>
       <ul
         tabIndex={0}
         className="menu menu-compact dropdown-content dropdown-bottom mt-3 font-medium p-2 shadow bg-base-100 rounded-box w-52"
       >
-        {
-          userMenu.map((userMenu) =>
-            <li key={userMenu?.link}>
-              <Link to={userMenu?.link}>
-                {userMenu?.icon}
-                {userMenu?.name}
-              </Link>
-            </li>
-          )
-        }
+        {userMenu.map((userMenu) => (
+          <li key={userMenu?.link}>
+            <Link to={userMenu?.link}>
+              {userMenu?.icon}
+              {userMenu?.name}
+            </Link>
+          </li>
+        ))}
         {logoutMenu}
       </ul>
     </li>
@@ -152,33 +162,32 @@ const Navbar = () => {
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           {/* navbar left */}
-          <Link to='/'>
+          <Link to="/">
             <Logo />
           </Link>
 
           {/* navbar middle */}
           <nav>
             <ul class="hidden md:hidden lg:flex items-center gap-6 text-md font-medium">
-              {
-                navbarMiddle.map((navbarItems) =>
-                  <li key={navbarItems.link} className='hover:text-error active:text-gray-900 active:bg-rose-200 active:px-4 active:py-2 active:rounded-md focus:bg-rose-200 focus:px-4 focus:py-2 focus:rounded-md'>
-                    <Link to={navbarItems.link}>{navbarItems.name}</Link>
-                  </li>
-                )
-              }
+              {navbarMiddle.map((navbarItems) => (
+                <li
+                  key={navbarItems.link}
+                  className="hover:text-error active:text-gray-900 active:bg-rose-200 active:px-4 active:py-2 active:rounded-md focus:bg-rose-200 focus:px-4 focus:py-2 focus:rounded-md"
+                >
+                  <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
           {/* navbar right */}
           <div class="flex items-center gap-4">
             <ul class="hidden md:hidden lg:flex items-center gap-6 text-sm font-medium">
-              {
-                navbarRight.map((navbarItems) => (
-                  <li key={navbarItems.link}>
-                    <Link to={navbarItems.link}>{navbarItems.name}</Link>
-                  </li>
-                ))
-              }
+              {navbarRight.map((navbarItems) => (
+                <li key={navbarItems.link}>
+                  <Link to={navbarItems.link}>{navbarItems.name}</Link>
+                </li>
+              ))}
 
               {loginMenu}
 
@@ -198,33 +207,34 @@ const Navbar = () => {
                   aria-label="Teams Nav"
                   className="mt-1.5 p-4 flex flex-col"
                 >
-                  {
-                    navbarMiddle?.map(navbarRightMenu =>
-                      <Link
-                        key={navbarRightMenu?.link}
-                        to={navbarRightMenu?.link}
-                        className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
-                      >
-                        {navbarRightMenu?.icon}
+                  {navbarMiddle?.map((navbarRightMenu) => (
+                    <Link
+                      key={navbarRightMenu?.link}
+                      to={navbarRightMenu?.link}
+                      className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                    >
+                      {navbarRightMenu?.icon}
 
-                        <span className="text-sm font-medium">
-                          {" "}
-                          {navbarRightMenu?.name}
-                        </span>
-                      </Link>
-                    )
-                  }
-                  {
+                      <span className="text-sm font-medium">
+                        {" "}
+                        {navbarRightMenu?.name}
+                      </span>
+                    </Link>
+                  ))}
+                  {loginMenu}
+                  {user && (
                     <details className="group">
                       <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
                         <span className="text-sm font-medium flex items-center gap-3">
                           <img
                             alt="Default user"
-                            src={user?.photoURL ? user?.photoURL : defaultUserImage}
+                            src={
+                              user?.photoURL ? user?.photoURL : defaultUserImage
+                            }
                             className="h-7 w-7 rounded-full object-cover"
                           />
 
-                          {user?.email?.split('@')[0]}
+                          {user?.email?.split("@")[0]}
                         </span>
 
                         <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
@@ -236,7 +246,7 @@ const Navbar = () => {
                         aria-label="Teams Nav"
                         className="mt-1.5 ml-2 flex flex-col"
                       >
-                        {userMenu?.map(navbarUserMenu => (
+                        {userMenu?.map((navbarUserMenu) => (
                           <Link
                             key={navbarUserMenu?.name}
                             to={navbarUserMenu?.link}
@@ -253,7 +263,7 @@ const Navbar = () => {
                         {logoutMenu}
                       </nav>
                     </details>
-                  }
+                  )}
                 </nav>
               </ul>
             </div>
@@ -261,7 +271,6 @@ const Navbar = () => {
         </div>
       </div>
     </header>
-
   );
 };
 
