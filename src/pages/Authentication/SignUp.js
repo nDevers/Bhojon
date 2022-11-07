@@ -417,7 +417,10 @@ const SignUp = () => {
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Already a member?</p>
 
-              <Link to="/authentication/login" className="underline">
+              <Link
+                to="/authentication/login"
+                className="underline hover:text-rose-400"
+              >
                 Login
               </Link>
             </div>
@@ -425,7 +428,10 @@ const SignUp = () => {
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Forgot password?</p>
 
-              <Link to="/authentication/reset-password" className="underline">
+              <Link
+                to="/authentication/reset-password"
+                className="underline hover:text-rose-400"
+              >
                 Reset password
               </Link>
             </div>
