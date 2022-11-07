@@ -8,9 +8,9 @@ const Logo = ({
 }) => {
   return (
     <Link className={customClass} to={link}>
-      <SiFoodpanda className="text-error" />
+      <SiFoodpanda className="text-primary" />
       <span>
-        <span className="text-error">B</span>hojon
+        <span className="text-primary">B</span>hojon
       </span>
     </Link>
   );

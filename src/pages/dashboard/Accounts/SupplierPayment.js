@@ -54,7 +54,7 @@ const SupplierPayment = () => {
                 <tr className="hover border border-gray-400">
                   <th className="border border-gray-400">1</th>
                   <td className="border border-gray-400">
-                    <select className="select select-error select-xs w-full max-w-xs">
+                    <select className="select select-primary select-xs w-full max-w-xs">
                       <option selected>Food Panda</option>
                       <option>Hungry Naki</option>
                     </select>
@@ -74,7 +74,7 @@ const SupplierPayment = () => {
                     />
                   </td>
                   <td className="flex items-center gap-x-2">
-                    <button className="btn btn-xs btn-error text-xs text-white">
+                    <button className="btn btn-xs btn-primary text-xs text-white">
                       <AiFillDelete className="text-sm mr-1" />
                       Delete
                     </button>
@@ -100,7 +100,7 @@ const SupplierPayment = () => {
             <div className="m-2">
               <div className="flex justify-end gap-x-2">
                 <Button
-                  customclassName="btn btn-sm btn-error text-xs text-white"
+                  customclassName="btn btn-sm btn-primary text-xs text-white"
                   buttonTitle="Reset"
                 />
                 <Button buttonTitle="Save" />

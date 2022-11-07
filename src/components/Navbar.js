@@ -18,7 +18,7 @@ import { CgProfile } from "react-icons/cg";
 import { BiLogIn } from "react-icons/bi";
 
 const Navbar = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading, primary] = useAuthState(auth);
 
   const navbarMiddle = [
     {
@@ -99,7 +99,7 @@ const Navbar = () => {
             }
           })
         }
-        className="flex items-center font-medium px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+        className="flex items-center font-medium px-4 py-2 hover:bg-primary hover:rounded-md hover:text-white focus:border-l-4 border-l-primary"
       >
         <BiLogIn />
         Logout
@@ -111,7 +111,7 @@ const Navbar = () => {
     <li>
       <Link
         to="/authentication/login"
-        className="bg-error px-4 py-1 rounded-md text-white text-center"
+        className="bg-primary px-5 py-2 rounded-md text-white text-center"
       >
         Login
       </Link>
@@ -150,11 +150,11 @@ const Navbar = () => {
 
   loading && <LoadingSpinner />;
 
-  error &&
+  primary &&
     Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: `${error}`,
+      icon: "primary",
+      title: "primary",
+      text: `${primary}`,
     });
 
   return (
@@ -172,7 +172,7 @@ const Navbar = () => {
               {navbarMiddle.map((navbarItems) => (
                 <li
                   key={navbarItems.link}
-                  className="hover:text-error active:text-gray-900 active:bg-rose-200 active:px-4 active:py-2 active:rounded-md focus:bg-rose-200 focus:px-4 focus:py-2 focus:rounded-md"
+                  className="hover:text-primary active:text-white active:bg-primary active:px-4 active:py-2 active:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:rounded-md"
                 >
                   <Link to={navbarItems.link}>{navbarItems.name}</Link>
                 </li>
@@ -211,7 +211,7 @@ const Navbar = () => {
                     <Link
                       key={navbarRightMenu?.link}
                       to={navbarRightMenu?.link}
-                      className="flex items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                      className="flex items-center p-2 hover:bg-primary hover:rounded-md hover:text-white focus:border-l-4 border-l-primary"
                     >
                       {navbarRightMenu?.icon}
 
@@ -224,7 +224,7 @@ const Navbar = () => {
                   {loginMenu}
                   {user && (
                     <details className="group">
-                      <summary className="flex cursor-pointer items-center p-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error">
+                      <summary className="flex cursor-pointer items-center p-2 hover:bg-primary hover:rounded-md hover:text-white focus:border-l-4 border-l-primary">
                         <span className="text-sm font-medium flex items-center gap-3">
                           <img
                             alt="Default user"
@@ -250,7 +250,7 @@ const Navbar = () => {
                           <Link
                             key={navbarUserMenu?.name}
                             to={navbarUserMenu?.link}
-                            className="flex items-center px-4 py-2 hover:bg-gray-100 hover:text-gray-900 focus:border-l-4 border-l-error"
+                            className="flex items-center px-4 py-2 hover:bg-primary hover:rounded-md hover:text-white focus:border-l-4 border-l-primary"
                           >
                             {navbarUserMenu?.icon}
 

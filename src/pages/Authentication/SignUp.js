@@ -62,11 +62,11 @@ const SignUp = () => {
 
   // change password visibility icon
   const hidePasswordIcon = (
-    <BiHide className="text-gray-400 text-lg hover:text-rose-400" />
+    <BiHide className="text-gray-400 text-lg hover:text-primary" />
   );
 
   const showPasswordIcon = (
-    <BiShowAlt className="text-gray-400 text-lg hover:text-rose-400" />
+    <BiShowAlt className="text-gray-400 text-lg hover:text-primary" />
   );
 
   // checking temporary email
@@ -159,7 +159,7 @@ const SignUp = () => {
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            <span className="text-rose-400">Signup</span> to continue
+            <span className="text-primary">Signup</span> to continue
           </h1>
 
           <p className="mt-4 text-gray-500">
@@ -198,7 +198,7 @@ const SignUp = () => {
                 </span>
               </div>
 
-              <p role="alert" className="text-error text-sm m-4">
+              <p role="alert" className="text-primary text-sm m-4">
                 {errors.firstName?.message}
               </p>
             </div>
@@ -227,7 +227,7 @@ const SignUp = () => {
                 </span>
               </div>
 
-              <p role="alert" className="text-error text-sm m-4">
+              <p role="alert" className="text-primary text-sm m-4">
                 {errors.lastName?.message}
               </p>
             </div>
@@ -259,12 +259,12 @@ const SignUp = () => {
             </div>
 
             {errors.email?.message && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {errors.email?.message}
               </p>
             )}
 
-            <p role="alert" className="text-error text-sm mt-2 mx-4">
+            <p role="alert" className="text-primary text-sm mt-2 mx-4">
               {temporaryEmailAddressMatchedText}
             </p>
           </div>
@@ -323,7 +323,7 @@ const SignUp = () => {
             )}
 
             {passwordNotMatchedText && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {passwordNotMatchedText}
               </p>
             )}
@@ -335,7 +335,7 @@ const SignUp = () => {
             )}
 
             {errors.password?.message && !passwordNotMatchedText && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {errors.password?.message}
               </p>
             )}
@@ -395,7 +395,7 @@ const SignUp = () => {
             )}
 
             {passwordNotMatchedText && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {passwordNotMatchedText}
               </p>
             )}
@@ -407,7 +407,7 @@ const SignUp = () => {
             )}
 
             {errors.confirmPassword?.message && !passwordNotMatchedText && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {errors.confirmPassword?.message}
               </p>
             )}
@@ -419,7 +419,7 @@ const SignUp = () => {
 
               <Link
                 to="/authentication/login"
-                className="underline hover:text-rose-400"
+                className="underline hover:text-primary"
               >
                 Login
               </Link>
@@ -430,7 +430,7 @@ const SignUp = () => {
 
               <Link
                 to="/authentication/reset-password"
-                className="underline hover:text-rose-400"
+                className="underline hover:text-primary"
               >
                 Reset password
               </Link>
@@ -440,7 +440,7 @@ const SignUp = () => {
           <div className="flex justify-end mr-4">
             <button
               type="submit"
-              className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              className="ml-3 inline-block rounded-lg bg-primary px-5 py-3 text-sm font-medium text-white"
             >
               Signup
             </button>

@@ -281,7 +281,7 @@ const MenuType = () => {
   ];
 
   // set website title
-  useWebsiteTitle('Manage Food | Menu Type')
+  useWebsiteTitle("Manage Food | Menu Type");
 
   return (
     <div className="border rounded-md">
@@ -347,7 +347,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -363,7 +363,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -379,7 +379,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -395,7 +395,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -411,7 +411,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -427,7 +427,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -443,7 +443,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -459,7 +459,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -475,7 +475,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -491,7 +491,7 @@ const MenuType = () => {
               <td>Quality Control Specialist</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>

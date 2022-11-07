@@ -92,7 +92,7 @@ const VerifyEmail = () => {
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            Verify Your <span className="text-rose-400">Email</span>
+            Verify Your <span className="text-primary">Email</span>
           </h1>
 
           <p className="mt-4 text-gray-500">
@@ -132,12 +132,12 @@ const VerifyEmail = () => {
             </div>
 
             {errors.email?.message && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {errors.email?.message}
               </p>
             )}
 
-            <p role="alert" className="text-error text-sm mt-2 mx-4">
+            <p role="alert" className="text-primary text-sm mt-2 mx-4">
               {temporaryEmailAddressMatchedText}
             </p>
           </div>
@@ -148,7 +148,7 @@ const VerifyEmail = () => {
 
               <Link
                 to="/authentication/login"
-                className="underline hover:text-rose-400"
+                className="underline hover:text-primary"
               >
                 Login
               </Link>
@@ -159,7 +159,7 @@ const VerifyEmail = () => {
 
               <Link
                 to="/authentication/reset-password"
-                className="underline hover:text-rose-400"
+                className="underline hover:text-primary"
               >
                 Reset password
               </Link>
@@ -169,7 +169,7 @@ const VerifyEmail = () => {
           <div className="flex justify-end mr-4">
             <button
               type="submit"
-              className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              className="ml-3 inline-block rounded-lg bg-primary px-5 py-3 text-sm font-medium text-white"
             >
               Send Email
             </button>

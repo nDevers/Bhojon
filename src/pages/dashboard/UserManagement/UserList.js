@@ -6,7 +6,7 @@ import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const UserList = () => {
   // set website title
-  useWebsiteTitle('User | User List')
+  useWebsiteTitle("User | User List");
 
   return (
     <div className="border rounded-md">
@@ -91,7 +91,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -121,7 +121,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -151,7 +151,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -181,7 +181,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -211,7 +211,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -241,7 +241,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -271,7 +271,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -301,7 +301,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -331,7 +331,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -361,7 +361,7 @@ const UserList = () => {
               <td>Littel, Schaden </td>
               <td>Littel, Schaden </td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>

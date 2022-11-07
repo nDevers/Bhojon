@@ -57,7 +57,7 @@ const AccountsSummary = () => {
 
             <div className="flex justify-end gap-x-2">
               <Button
-                customclassName="btn btn-xs md:btn-sm lg:btn-sm btn-error text-xs text-white"
+                customclassName="btn btn-xs md:btn-sm lg:btn-sm btn-primary text-xs text-white"
                 buttonTitle="Reset"
               />
               <Button buttonTitle="Save" />
@@ -86,7 +86,7 @@ const AccountsSummary = () => {
                 <td>Littel, Schaden and Vandervort</td>
                 <td>Canada</td>
                 <td>
-                  <select className="select select-error select-xs w-fullmax-w-xs">
+                  <select className="select select-primary select-xs w-fullmax-w-xs">
                     <option selected>Pending</option>
                     <option>Completed</option>
                     <option>Canceled</option>

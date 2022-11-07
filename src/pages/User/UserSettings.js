@@ -59,7 +59,7 @@ const UserSettings = () => {
                 Delete Account
               </h3>
               <button
-                className="btn btn-sm btn-outline btn-error"
+                className="btn btn-sm btn-outline btn-primary"
                 onClick={() =>
                   Swal.fire({
                     icon: "warning",

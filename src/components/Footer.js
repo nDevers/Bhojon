@@ -173,7 +173,7 @@ const Footer = () => {
             </div>
 
             <div className="mt-12 space-y-4 lg:mt-0">
-              <span className="rounded bg-teal-500 lg:block lg:h-1 lg:w-10"></span>
+              <span className="rounded bg-primary lg:block lg:h-1 lg:w-10"></span>
 
               <div className="text-center lg:text-left">
                 <h2 className="text-2xl font-medium text-white">
@@ -213,7 +213,7 @@ const Footer = () => {
 
                   <button
                     type="submit"
-                    className="absolute top-1/2 right-1.5 -translate-y-1/2 rounded bg-indigo-600 p-3 text-white transition hover:bg-indigo-700"
+                    className="absolute top-1/2 right-1.5 -translate-y-1/2 rounded bg-primary p-3 text-white transition hover:bg-neutral"
                   >
                     <span className="sr-only">Submit Search</span>
 
@@ -222,12 +222,12 @@ const Footer = () => {
                 </div>
 
                 {errors.email?.message && (
-                  <p role="alert" className="text-error text-sm mt-2 mx-4">
+                  <p role="alert" className="text-primary text-sm mt-2 mx-4">
                     {errors.email?.message}
                   </p>
                 )}
 
-                <p role="alert" className="text-error text-sm mt-2 mx-4">
+                <p role="alert" className="text-primary text-sm mt-2 mx-4">
                   {temporaryEmailAddressMatchedText}
                 </p>
               </form>
@@ -238,7 +238,7 @@ const Footer = () => {
               {socialMediaLinks.map((socialMediaLink) => (
                 <a
                   key={socialMediaLink.id}
-                  className="hover:text-error"
+                  className="hover:text-primary"
                   href={socialMediaLink.link}
                   target="_blank"
                   rel="noreferrer"
@@ -271,7 +271,7 @@ const Footer = () => {
                       {footerLink?.links?.map((link) => (
                         <li>
                           <Link
-                            className="text-white transition hover:text-error hover:underline"
+                            className="text-white transition hover:text-primary hover:underline"
                             to={link?.link}
                           >
                             {link?.name}
@@ -290,7 +290,7 @@ const Footer = () => {
                   <>
                     <Link
                       key={otherLink?.name}
-                      className="inline-block text-white hover:underline transition hover:text-error"
+                      className="inline-block text-white hover:underline transition hover:text-primary"
                       to={otherLink?.link}
                     >
                       {otherLink?.name}

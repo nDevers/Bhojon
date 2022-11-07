@@ -75,7 +75,7 @@ const ResetPassword = () => {
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            <span className="text-rose-400">Reset Password</span> Here
+            <span className="text-primary">Reset Password</span> Here
           </h1>
 
           <p className="mt-4 text-gray-500">
@@ -98,7 +98,7 @@ const ResetPassword = () => {
               <input
                 onBlur={checkTemporaryEmailAddress()}
                 type="text"
-                className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 focus:bg-primary p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
                   required: "* Email is required",
@@ -115,12 +115,12 @@ const ResetPassword = () => {
             </div>
 
             {errors.email?.message && (
-              <p role="alert" className="text-error text-sm mt-2 mx-4">
+              <p role="alert" className="text-primary text-sm mt-2 mx-4">
                 {errors.email?.message}
               </p>
             )}
 
-            <p role="alert" className="text-error text-sm mt-2 mx-4">
+            <p role="alert" className="text-primary text-sm mt-2 mx-4">
               {temporaryEmailAddressMatchedText}
             </p>
           </div>
@@ -131,7 +131,7 @@ const ResetPassword = () => {
 
               <Link
                 to="/authentication/login"
-                className="underline hover:text-rose-400"
+                className="underline hover:text-primary"
               >
                 Login
               </Link>
@@ -141,7 +141,7 @@ const ResetPassword = () => {
           <div className="flex justify-end mr-4">
             <button
               type="submit"
-              className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              className="ml-3 inline-block rounded-lg bg-primary px-5 py-3 text-sm font-medium text-white"
             >
               Send Email
             </button>

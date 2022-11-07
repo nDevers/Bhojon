@@ -282,7 +282,7 @@ const FoodAvailability = () => {
   ];
 
   // set website title
-  useWebsiteTitle('Manage Food | Food Availability')
+  useWebsiteTitle("Manage Food | Food Availability");
 
   return (
     <div className="border rounded-md">
@@ -359,7 +359,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -385,7 +385,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -411,7 +411,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -437,7 +437,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -463,7 +463,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -489,7 +489,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -515,7 +515,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -541,7 +541,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -567,7 +567,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>
@@ -593,7 +593,7 @@ const FoodAvailability = () => {
               <td>Littel, Schaden and Vandervort</td>
               <td>Littel, Schaden and Vandervort</td>
               <td>
-                <select className="select select-error select-xs w-fullmax-w-xs">
+                <select className="select select-primary select-xs w-fullmax-w-xs">
                   <option selected>Active</option>
                   <option>Inactive</option>
                 </select>

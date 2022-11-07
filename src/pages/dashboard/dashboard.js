@@ -17,7 +17,7 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
 
-  console.log(user)
+  console.log(user);
 
   // set website title
   useWebsiteTitle("Bhojon | Dashboard");
@@ -57,9 +57,15 @@ const Dashboard = () => {
           <label htmlFor="sidebar" className="drawer-overlay"></label>
           <div className="flex flex-col justify-between bg-[#2c3136]">
             <div>
-              <Logo customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4" link="/dashboard" />
+              <Logo
+                customClass="flex gap-x-4 items-center justify-center text-2xl text-center text-stone-100 font-semibold uppercase p-4"
+                link="/dashboard"
+              />
 
-              <Link to="/user/settings" className="flex gap-x-3 items-center p-4 text-gray-50 border-t">
+              <Link
+                to="/user/settings"
+                className="flex gap-x-3 items-center p-4 text-gray-50 border-t"
+              >
                 <img
                   alt="Default user"
                   src={user?.photoURL ? user?.photoURL : defaultUserImage}
@@ -73,7 +79,9 @@ const Dashboard = () => {
                       <BsDot className="text-xl" />
                     </p>
 
-                    <Link className="hover:text-error" to='/user/settings'><FiSettings /></Link>
+                    <Link className="hover:text-primary" to="/user/settings">
+                      <FiSettings />
+                    </Link>
                   </span>
                   <p className="text-xs hover:underline">
                     {" "}
@@ -90,7 +98,7 @@ const Dashboard = () => {
                   {dasboardMenus?.map((sideMenu) =>
                     sideMenu?.subMenus ? (
                       <details className="group" key={sideMenu?.name}>
-                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
+                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary">
                           {sideMenu?.icon}
 
                           <span className="ml-3 text-sm font-medium">
@@ -110,7 +118,7 @@ const Dashboard = () => {
                           {sideMenu?.subMenus?.map((subMenu) =>
                             subMenu?.subSubMenus ? (
                               <details className="group" key={subMenu?.link}>
-                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error">
+                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary">
                                   {subMenu?.icon}
 
                                   <span className="ml-3 text-sm font-medium">
@@ -131,7 +139,7 @@ const Dashboard = () => {
                                     <Link
                                       key={subSubMenu?.link}
                                       to={subSubMenu?.link}
-                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
+                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
                                     >
                                       {subSubMenu?.icon}
 
@@ -147,7 +155,7 @@ const Dashboard = () => {
                               <Link
                                 key={subMenu?.link}
                                 to={subMenu?.link}
-                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
+                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
                               >
                                 {subMenu?.icon}
 
@@ -164,7 +172,7 @@ const Dashboard = () => {
                       <Link
                         key={sideMenu?.link}
                         to={sideMenu?.link}
-                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-error focus:border-l-4 border-l-error"
+                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
                       >
                         {sideMenu?.icon}
 
