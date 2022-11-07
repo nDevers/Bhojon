@@ -182,7 +182,7 @@ const SignUp = () => {
               <div className="relative">
                 <input
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                   placeholder="First name"
                   {...register("firstName", {
                     required: "* First name is required",
@@ -211,7 +211,7 @@ const SignUp = () => {
               <div className="relative">
                 <input
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                   placeholder="Last name"
                   {...register("lastName", {
                     required: "* Last name is required",
@@ -242,7 +242,7 @@ const SignUp = () => {
               <input
                 onBlur={checkTemporaryEmailAddress()}
                 type="text"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
                   required: "* Email is required",
@@ -278,7 +278,7 @@ const SignUp = () => {
                 <input
                   onChange={matchPasswordAndConfirmPassword()}
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                   placeholder="Enter password"
                   {...register("password", {
                     required: "* Password is required",
@@ -293,7 +293,7 @@ const SignUp = () => {
                 <input
                   onChange={matchPasswordAndConfirmPassword()}
                   type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                   placeholder="Enter password"
                   {...register("password", {
                     required: "* Password is required",
@@ -350,7 +350,7 @@ const SignUp = () => {
                 <input
                   onChange={matchPasswordAndConfirmPassword()}
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                   placeholder="Confirm password"
                   {...register("confirmPassword", {
                     required: "* Confirm Password is required",
@@ -365,7 +365,7 @@ const SignUp = () => {
                 <input
                   onChange={matchPasswordAndConfirmPassword()}
                   type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
                   placeholder="Confirm password"
                   {...register("confirmPassword", {
                     required: "* Confirm Password is required",
