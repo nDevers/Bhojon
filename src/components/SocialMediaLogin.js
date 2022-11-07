@@ -69,7 +69,7 @@ const SocialMediaLoginButton = () => {
 
       <button
         onClick={() => signInWithGoogle()}
-        className="inline-flex items-center justify-center rounded border-2 bg-[#eee]  px-5 py-3 text-sm font-medium text-[#757575] transition-colors hover:bg-transparent focus:outline-none focus:ring active:opacity-75 shadow-lg"
+        className="inline-flex items-center justify-center rounded border-2 border-[#E5E4E2] bg-[#E5E4E2]  px-5 py-3 text-sm font-medium text-[#757575] transition-colors hover:bg-transparent focus:outline-none focus:ring active:opacity-75 shadow-lg"
       >
         Continue with Google
         <FaGoogle className="ml-2" />
