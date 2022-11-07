@@ -110,7 +110,7 @@ const Login = () => {
             <div className="relative">
               <input
                 type="text"
-                className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
                   required: "* Email is required",
@@ -140,7 +140,7 @@ const Login = () => {
                 <input
                   id="passwordInput"
                   type="text"
-                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50  p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-secondary  p-4 pr-12 text-sm shadow-sm"
                   placeholder="Enter password"
                   {...register("password", {
                     required: "* Password is required",
@@ -150,7 +150,7 @@ const Login = () => {
                 <input
                   id="passwordInput"
                   type="password"
-                  className="w-full rounded-lg border-gray-200 focus:bg-rose-50 p-4 pr-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                   placeholder="Enter password"
                   {...register("password", {
                     required: "* Password is required",
