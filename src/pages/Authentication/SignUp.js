@@ -1,15 +1,20 @@
 import React from "react";
 import Swal from "sweetalert2";
-import PasswordStrengthBar from 'react-password-strength-bar';
+import PasswordStrengthBar from "react-password-strength-bar";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import { BiShowAlt } from "react-icons/bi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import auth from "../../hooks/firebase.init";
+import signupImage from "../../assets/svgs/signup.svg";
 
 const SignUp = () => {
   const [currentUser, loading, error] = useAuthState(auth);
@@ -41,10 +46,12 @@ const SignUp = () => {
   const [
     sendEmailVerification,
     sendEmailVerificationSending,
-    sendEmailVerificationError
+    sendEmailVerificationError,
   ] = useSendEmailVerification(auth);
 
-  let passwordMatchedText, passwordNotMatchedText, temporaryEmailAddressMatchedText;
+  let passwordMatchedText,
+    passwordNotMatchedText,
+    temporaryEmailAddressMatchedText;
 
   // set website title
   useWebsiteTitle("Bhojon | Signup");
@@ -56,13 +63,14 @@ const SignUp = () => {
   const checkTemporaryEmailAddress = () => {
     watch("email") &&
       fetch(`https://www.disify.com/api/email/${watch("email")}`)
-        .then(response => response.json())
-        .then(isTemporaryEmail => {
+        .then((response) => response.json())
+        .then((isTemporaryEmail) => {
           if (isTemporaryEmail?.disposable === true) {
-            temporaryEmailAddressMatchedText = 'Sorry temporary email address is not allowed';
+            temporaryEmailAddressMatchedText =
+              "Sorry temporary email address is not allowed";
           }
         });
-  }
+  };
 
   // signup
   const onSubmit = async (data, errors) => {
@@ -73,16 +81,15 @@ const SignUp = () => {
         title: "Error",
         text: `${temporaryEmailAddressMatchedText}`,
       });
-    }
-    else {
+    } else {
       createUserWithEmailAndPassword(watch("email"), watch("password"));
 
-      navigate('/authentication/verify-email')
+      navigate("/authentication/verify-email");
 
       Swal.fire({
         icon: "success",
         title: "Verification email sent",
-        text: 'Please check your inbox',
+        text: "Please check your inbox",
         confirmButtonText: "Yes",
         customClass: {
           actions: "my-actions",
@@ -93,53 +100,56 @@ const SignUp = () => {
         if (result.isConfirmed) {
           sendEmailVerification();
         }
-      })
+      });
     }
-  }
+  };
 
   // check if password and confirm password are same
   const matchPasswordAndConfirmPassword = () => {
-    if (watch("password") === '' || watch("confirmPassword") === '') {
-      passwordMatchedText = '';
+    if (watch("password") === "" || watch("confirmPassword") === "") {
+      passwordMatchedText = "";
+    } else if (watch("password") === watch("confirmPassword")) {
+      passwordMatchedText = "Password matched";
+    } else {
+      passwordNotMatchedText = "Password do not match";
     }
-    else if (watch("password") === watch("confirmPassword")) {
-      passwordMatchedText = 'Password matched';
-    }
-    else {
-      passwordNotMatchedText = 'Password do not match';
-    }
-  }
+  };
 
-  // display loading spinner 
-  (createUserWithEmailAndPasswordLoading || sendEmailVerificationSending || loading) && <LoadingSpinner />;
+  // display loading spinner
+  (createUserWithEmailAndPasswordLoading ||
+    sendEmailVerificationSending ||
+    loading) && <LoadingSpinner />;
 
   // display signup error
-  createUserWithEmailAndPasswordError && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${createUserWithEmailAndPasswordError}`,
-  });
+  createUserWithEmailAndPasswordError &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${createUserWithEmailAndPasswordError}`,
+    });
 
   // display verification email error
-  sendEmailVerificationError && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${sendEmailVerificationError}`,
-  });
+  sendEmailVerificationError &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${sendEmailVerificationError}`,
+    });
 
   // display user error
-  createUserWithEmailAndPasswordError && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${error}`,
-  });
+  createUserWithEmailAndPasswordError &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${error}`,
+    });
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            Sign up to continue
+            <span className="text-rose-400">Signup</span> to continue
           </h1>
 
           <p className="mt-4 text-gray-500">
@@ -238,12 +248,11 @@ const SignUp = () => {
               </span>
             </div>
 
-            {
-              errors.email?.message &&
+            {errors.email?.message && (
               <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {errors.email?.message}
               </p>
-            }
+            )}
 
             <p role="alert" className="text-error text-sm mt-2 mx-4">
               {temporaryEmailAddressMatchedText}
@@ -263,7 +272,8 @@ const SignUp = () => {
                 {...register("password", {
                   required: "* Password is required",
                   pattern: {
-                    value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                    value:
+                      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
                     message: "Invalid password",
                   },
                 })}
@@ -275,27 +285,30 @@ const SignUp = () => {
             </div>
 
             {/* password strength bar */}
-            {watch("password") && <PasswordStrengthBar password={watch("password")} className='mx-4 mt-4' />}
+            {watch("password") && (
+              <PasswordStrengthBar
+                password={watch("password")}
+                className="mx-4 mt-4"
+              />
+            )}
 
-            {
-              passwordNotMatchedText &&
+            {passwordNotMatchedText && (
               <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {passwordNotMatchedText}
               </p>
-            }
+            )}
 
-            {
-              (passwordMatchedText && !errors.password?.message) &&
+            {passwordMatchedText && !errors.password?.message && (
               <p role="alert" className="text-success text-sm mt-2 mx-4">
                 {passwordMatchedText}
               </p>
-            }
+            )}
 
-            {
-              (errors.password?.message && !passwordNotMatchedText) && <p role="alert" className="text-error text-sm mt-2 mx-4">
+            {errors.password?.message && !passwordNotMatchedText && (
+              <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {errors.password?.message}
               </p>
-            }
+            )}
           </div>
 
           <div>
@@ -311,7 +324,8 @@ const SignUp = () => {
                 {...register("confirmPassword", {
                   required: "* Confirm Password is required",
                   pattern: {
-                    value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                    value:
+                      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
                     message: "Invalid confirm password",
                   },
                 })}
@@ -323,27 +337,30 @@ const SignUp = () => {
             </div>
 
             {/* password strength bar */}
-            {watch("confirmPassword") && <PasswordStrengthBar password={watch("confirmPassword")} className='mx-4 mt-4' />}
+            {watch("confirmPassword") && (
+              <PasswordStrengthBar
+                password={watch("confirmPassword")}
+                className="mx-4 mt-4"
+              />
+            )}
 
-            {
-              passwordNotMatchedText &&
+            {passwordNotMatchedText && (
               <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {passwordNotMatchedText}
               </p>
-            }
+            )}
 
-            {
-              (passwordMatchedText && !errors.password?.message) &&
+            {passwordMatchedText && !errors.password?.message && (
               <p role="alert" className="text-success text-sm mt-2 mx-4">
                 {passwordMatchedText}
               </p>
-            }
+            )}
 
-            {
-              (errors.confirmPassword?.message && !passwordNotMatchedText) && <p role="alert" className="text-error text-sm mt-2 mx-4">
+            {errors.confirmPassword?.message && !passwordNotMatchedText && (
+              <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {errors.confirmPassword?.message}
               </p>
-            }
+            )}
           </div>
 
           <div className="flex flex-col gap-3 mx-4 py-4">
@@ -380,7 +397,7 @@ const SignUp = () => {
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 hidden md:block lg:block">
         <img
           alt="Welcome"
-          src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+          src={signupImage}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
