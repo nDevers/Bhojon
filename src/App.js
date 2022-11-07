@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./pages/home/Home";
 import HomePage from "./pages/home/homePage/HomePage";
@@ -109,6 +109,8 @@ import SelectLanguage from "./pages/dashboard/SelectLanguage";
 import PrivacyPolicy from "./pages/dashboard/PricavyPolicy";
 import TermsAndConditions from "./pages/dashboard/TermsAndConditions";
 import CookiePolicy from "./pages/dashboard/CookiePolicy";
+import Support from "./pages/home/Support";
+import FAQs from "./pages/home/FAQs";
 
 function App() {
   return (
@@ -120,11 +122,14 @@ function App() {
           <Route path="home" element={<HomePage />} />
 
           {/* user routes */}
-          <Route path="user" element={
-            <RequireAuth>
-              <User />
-            </RequireAuth>
-          }>
+          <Route
+            path="user"
+            element={
+              <RequireAuth>
+                <User />
+              </RequireAuth>
+            }
+          >
             <Route index element={<UserSummary />} />
             <Route path="summary" element={<UserSummary />} />
             <Route path="profile" element={<Profile />} />
@@ -142,14 +147,19 @@ function App() {
           {/* other routes */}
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-and-conditions" element={<TermsAndConditions />} />
-          <Route path="cookie-policy" element={<CookiePolicy />} />
+          <Route path="support" element={<Support />} />
+          <Route path="faqs" element={<FAQs />} />
         </Route>
 
         {/* dashboard routes */}
-        <Route path="dashboard" element={
-          <RequireAuth>
-            <Dashboard />
-          </RequireAuth>}>
+        <Route
+          path="dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
           <Route index element={<DashboardSummary />} />
 
           {/* orders routes */}
@@ -165,7 +175,10 @@ function App() {
           {/* reservation routes */}
           <Route path="reservation" element={<Reservation />}>
             <Route index element={<ReservationSummary />} />
-            <Route path="reservation-summary" element={<ReservationSummary />} />
+            <Route
+              path="reservation-summary"
+              element={<ReservationSummary />}
+            />
             <Route path="add-booking" element={<AddBooking />} />
             <Route path="reserved-day" element={<ReservedDay />} />
             <Route path="unavailable-day" element={<UnavailableDay />} />
@@ -178,7 +191,10 @@ function App() {
           {/* purchase management routes */}
           <Route path="purchase-manage" element={<PurchaseManage />}>
             <Route index element={<PurchaseManageSummary />} />
-            <Route path="purchase-summary" element={<PurchaseManageSummary />} />
+            <Route
+              path="purchase-summary"
+              element={<PurchaseManageSummary />}
+            />
             <Route path="purchase-item" element={<PurchaseItem />} />
             <Route path="add-purchase" element={<AddPurchase />} />
             <Route path="purchase-return" element={<PurchaseReturn />} />
@@ -198,7 +214,10 @@ function App() {
             <Route path="purchase-report" element={<PurchaseReport />} />
             <Route path="stock-report" element={<StockReport />} />
             <Route path="sell-report" element={<SellReport />} />
-            <Route path="cash-register-report" element={<CashRegisterReport />} />
+            <Route
+              path="cash-register-report"
+              element={<CashRegisterReport />}
+            />
           </Route>
 
           {/* food management routes */}
@@ -240,7 +259,10 @@ function App() {
             <Route path="add-production" element={<AddProduction />} />
             <Route path="production-list" element={<ProductionList />} />
             <Route path="set-production-unit" element={<SetProductionUnit />} />
-            <Route path="production-settings" element={<ProductionSettings />} />
+            <Route
+              path="production-settings"
+              element={<ProductionSettings />}
+            />
           </Route>
 
           {/* settings routes */}
@@ -308,7 +330,7 @@ function App() {
         pauseOnHover={true}
         theme="dark"
       />
-    </div >
+    </div>
   );
 }
 
