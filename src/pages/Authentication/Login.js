@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
-import PasswordStrengthBar from 'react-password-strength-bar';
+import PasswordStrengthBar from "react-password-strength-bar";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { BiShowAlt } from "react-icons/bi";
+import { BiHide, BiShowAlt } from "react-icons/bi";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -12,6 +15,7 @@ import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
 
 const Login = () => {
+  const [showPasswordIcon, setShowPasswordIcon] = useState(false);
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -40,39 +44,66 @@ const Login = () => {
   // prevent logged in user to visit login page
   currentUser && navigate("/");
 
+  // change password visibility icon
+  const inactiveIcon = (
+    <BiHide
+      className="text-gray-400 text-lg hover:text-rose-400"
+      onClick={showPassword()}
+    />
+  );
+
+  const activeIcon = (
+    <BiShowAlt
+      className="text-gray-400 text-lg hover:text-rose-400"
+      onClick={showPassword()}
+    />
+  );
+
+  // show password
+  function showPassword() {
+    var password = document.getElementById("passwordInput");
+    // if (password.type === "password") {
+    //   password.type = "text";
+    // } else {
+    //   password.type = "password";
+    // }
+  }
+
   // login
   const onSubmit = async (data, errors) => {
     // display login error
-    signInWithEmailAndPasswordError && Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: `${signInWithEmailAndPasswordError}`,
-    });
+    signInWithEmailAndPasswordError &&
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: `${signInWithEmailAndPasswordError}`,
+      });
 
     signInWithEmailAndPassword(watch("email"), watch("password"));
-  }
+  };
 
   if (user) {
     // after successfull login redirect to dashboard page
     navigate("/dashboard");
   }
 
-  // display loading spinner 
-  signInWithEmailAndPasswordLoading || loading && <LoadingSpinner />;
+  // display loading spinner
+  signInWithEmailAndPasswordLoading || (loading && <LoadingSpinner />);
 
   // display user data error
-  error && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${error}`,
-  });
+  error &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${error}`,
+    });
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            Sign up or log in to continue
+            <span className="text-rose-400">Sign up or login</span> to continue
           </h1>
 
           <p className="mt-4 text-gray-500">
@@ -120,22 +151,43 @@ const Login = () => {
               Password
             </label>
             <div className="relative">
-              <input
-                type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter password"
-                {...register("password", {
-                  required: "* Password is required",
-                })}
-              />
+              {showPasswordIcon ? (
+                <input
+                  id="passwordInput"
+                  type="text"
+                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Enter password"
+                  {...register("password", {
+                    required: "* Password is required",
+                  })}
+                />
+              ) : (
+                <input
+                  id="passwordInput"
+                  type="password"
+                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Enter password"
+                  {...register("password", {
+                    required: "* Password is required",
+                  })}
+                />
+              )}
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400 text-lg" />
+              <span
+                className="absolute inset-y-0 right-4 inline-flex items-center"
+                onClick={() => setShowPasswordIcon(!showPasswordIcon)}
+              >
+                {showPasswordIcon ? activeIcon : inactiveIcon}
               </span>
             </div>
 
             {/* password strength bar */}
-            {watch("password") && <PasswordStrengthBar password={watch("password")} className='m-4' />}
+            {watch("password") && (
+              <PasswordStrengthBar
+                password={watch("password")}
+                className="m-4"
+              />
+            )}
 
             <p role="alert" className="text-error text-sm mt-2 mx-4">
               {errors.password?.message}
@@ -146,7 +198,10 @@ const Login = () => {
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>New to our site?</p>
 
-              <Link to="/authentication/signup" className="underline">
+              <Link
+                to="/authentication/signup"
+                className="underline hover:text-rose-400"
+              >
                 Sign up
               </Link>
             </div>
@@ -154,7 +209,10 @@ const Login = () => {
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Forgot password?</p>
 
-              <Link to="/authentication/reset-password" className="underline">
+              <Link
+                to="/authentication/reset-password"
+                className="underline hover:text-rose-400"
+              >
                 Reset password
               </Link>
             </div>
