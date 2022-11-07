@@ -8,6 +8,7 @@ import { useSendEmailVerification } from "react-firebase-hooks/auth";
 import auth from "../../hooks/firebase.init";
 import { useForm } from "react-hook-form";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import veridyEmailImage from "../../assets/svgs/verifyEmail.svg";
 
 const VerifyEmail = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const VerifyEmail = () => {
   const [
     sendEmailVerification,
     sendEmailVerificationSending,
-    sendEmailVerificationError
+    sendEmailVerificationError,
   ] = useSendEmailVerification(auth);
 
   let temporaryEmailAddressMatchedText;
@@ -38,13 +39,14 @@ const VerifyEmail = () => {
   const checkTemporaryEmailAddress = () => {
     watch("email") &&
       fetch(`https://www.disify.com/api/email/${watch("email")}`)
-        .then(response => response.json())
-        .then(isTemporaryEmail => {
+        .then((response) => response.json())
+        .then((isTemporaryEmail) => {
           if (isTemporaryEmail?.disposable === true) {
-            temporaryEmailAddressMatchedText = 'Sorry temporary email address is not allowed';
+            temporaryEmailAddressMatchedText =
+              "Sorry temporary email address is not allowed";
           }
         });
-  }
+  };
 
   // send verification email
   const onSubmit = async (data, errors) => {
@@ -55,12 +57,11 @@ const VerifyEmail = () => {
         title: "Error",
         text: `${temporaryEmailAddressMatchedText}`,
       });
-    }
-    else {
+    } else {
       Swal.fire({
         icon: "success",
         title: "Verification email sent",
-        text: 'Please check your inbox',
+        text: "Please check your inbox",
         confirmButtonText: "Yes",
         customClass: {
           actions: "my-actions",
@@ -71,19 +72,20 @@ const VerifyEmail = () => {
         if (result.isConfirmed) {
           sendEmailVerification();
         }
-      })
+      });
     }
-  }
+  };
 
-  // display loading spinner 
+  // display loading spinner
   sendEmailVerificationSending && <LoadingSpinner />;
 
   // display verification email error
-  sendEmailVerificationError && Swal.fire({
-    icon: "error",
-    title: "Error",
-    text: `${sendEmailVerificationError}`,
-  });
+  sendEmailVerificationError &&
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: `${sendEmailVerificationError}`,
+    });
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -127,12 +129,11 @@ const VerifyEmail = () => {
               </span>
             </div>
 
-            {
-              errors.email?.message &&
+            {errors.email?.message && (
               <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {errors.email?.message}
               </p>
-            }
+            )}
 
             <p role="alert" className="text-error text-sm mt-2 mx-4">
               {temporaryEmailAddressMatchedText}
@@ -173,7 +174,7 @@ const VerifyEmail = () => {
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 hidden md:block lg:block">
         <img
           alt="Welcome"
-          src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+          src={veridyEmailImage}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
