@@ -142,7 +142,7 @@ const VerifyEmail = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 mx-4 py-4">
+          <div className="flex flex-col gap-5 mx-4 py-4">
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Already a member?</p>
 
