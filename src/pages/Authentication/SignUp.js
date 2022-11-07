@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import PasswordStrengthBar from "react-password-strength-bar";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
 } from "react-firebase-hooks/auth";
-import { BiShowAlt } from "react-icons/bi";
+import { BiHide, BiShowAlt } from "react-icons/bi";
 import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
@@ -17,6 +17,7 @@ import auth from "../../hooks/firebase.init";
 import signupImage from "../../assets/svgs/signup.svg";
 
 const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -58,6 +59,15 @@ const SignUp = () => {
 
   // prevent logged in user to visit signup page
   currentUser && navigate("/");
+
+  // change password visibility icon
+  const hidePasswordIcon = (
+    <BiHide className="text-gray-400 text-lg hover:text-rose-400" />
+  );
+
+  const showPasswordIcon = (
+    <BiShowAlt className="text-gray-400 text-lg hover:text-rose-400" />
+  );
 
   // checking temporary email
   const checkTemporaryEmailAddress = () => {
@@ -264,23 +274,43 @@ const SignUp = () => {
               Password
             </label>
             <div className="relative">
-              <input
-                onChange={matchPasswordAndConfirmPassword()}
-                type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter password"
-                {...register("password", {
-                  required: "* Password is required",
-                  pattern: {
-                    value:
-                      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
-                    message: "Invalid password",
-                  },
-                })}
-              />
+              {showPassword ? (
+                <input
+                  onChange={matchPasswordAndConfirmPassword()}
+                  type="text"
+                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Enter password"
+                  {...register("password", {
+                    required: "* Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                      message: "Invalid password",
+                    },
+                  })}
+                />
+              ) : (
+                <input
+                  onChange={matchPasswordAndConfirmPassword()}
+                  type="password"
+                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Enter password"
+                  {...register("password", {
+                    required: "* Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                      message: "Invalid password",
+                    },
+                  })}
+                />
+              )}
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400 text-lg" />
+              <span
+                className="absolute inset-y-0 right-4 inline-flex items-center"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? showPasswordIcon : hidePasswordIcon}
               </span>
             </div>
 
@@ -316,23 +346,43 @@ const SignUp = () => {
               Confirm Password
             </label>
             <div className="relative">
-              <input
-                onChange={matchPasswordAndConfirmPassword()}
-                type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Confirm password"
-                {...register("confirmPassword", {
-                  required: "* Confirm Password is required",
-                  pattern: {
-                    value:
-                      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
-                    message: "Invalid confirm password",
-                  },
-                })}
-              />
+              {showPassword ? (
+                <input
+                  onChange={matchPasswordAndConfirmPassword()}
+                  type="text"
+                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Confirm password"
+                  {...register("confirmPassword", {
+                    required: "* Confirm Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                      message: "Invalid confirm password",
+                    },
+                  })}
+                />
+              ) : (
+                <input
+                  onChange={matchPasswordAndConfirmPassword()}
+                  type="password"
+                  className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Confirm password"
+                  {...register("confirmPassword", {
+                    required: "* Confirm Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                      message: "Invalid confirm password",
+                    },
+                  })}
+                />
+              )}
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <BiShowAlt className="text-gray-400 text-lg" />
+              <span
+                className="absolute inset-y-0 right-4 inline-flex items-center"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? showPasswordIcon : hidePasswordIcon}
               </span>
             </div>
 
