@@ -91,7 +91,9 @@ const VerifyEmail = () => {
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
-          <h1 className="text-2xl font-bold sm:text-3xl">Verify Your Email</h1>
+          <h1 className="text-2xl font-bold sm:text-3xl">
+            Verify Your <span className="text-rose-400">Email</span>
+          </h1>
 
           <p className="mt-4 text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
@@ -144,7 +146,10 @@ const VerifyEmail = () => {
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Already a member?</p>
 
-              <Link to="/authentication/login" className="underline">
+              <Link
+                to="/authentication/login"
+                className="underline hover:text-rose-400"
+              >
                 Login
               </Link>
             </div>
@@ -152,7 +157,10 @@ const VerifyEmail = () => {
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Forgot password?</p>
 
-              <Link to="/authentication/reset-password" className="underline">
+              <Link
+                to="/authentication/reset-password"
+                className="underline hover:text-rose-400"
+              >
                 Reset password
               </Link>
             </div>
