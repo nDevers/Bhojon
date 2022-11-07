@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Support = () => {
   return (
-    <section class="bg-gray-50">
+    <section>
       <div class="p-8 md:p-12 lg:px-16 lg:py-24">
         <div class="mx-auto max-w-3xl text-center">
           <h2 class="text-2xl font-bold text-gray-900 md:text-3xl capitalize">
@@ -36,7 +36,7 @@ const Support = () => {
               <input
                 type="email"
                 placeholder="Describe your issue"
-                class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-gray-700"
+                class="w-full rounded-md border-gray-200 bg-white focus:bg-secondary p-3 text-gray-700 shadow-md transition focus:border-white focus:outline-none focus:ring focus:ring-gray-700"
               />
             </div>
 
