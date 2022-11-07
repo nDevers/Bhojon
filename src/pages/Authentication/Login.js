@@ -13,9 +13,10 @@ import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
+import loginOrSignupImage from "../../assets/svgs/loginOrSignup.svg";
 
 const Login = () => {
-  const [showPasswordIcon, setShowPasswordIcon] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -45,29 +46,13 @@ const Login = () => {
   currentUser && navigate("/");
 
   // change password visibility icon
-  const inactiveIcon = (
-    <BiHide
-      className="text-gray-400 text-lg hover:text-rose-400"
-      onClick={showPassword()}
-    />
+  const hidePasswordIcon = (
+    <BiHide className="text-gray-400 text-lg hover:text-rose-400" />
   );
 
-  const activeIcon = (
-    <BiShowAlt
-      className="text-gray-400 text-lg hover:text-rose-400"
-      onClick={showPassword()}
-    />
+  const showPasswordIcon = (
+    <BiShowAlt className="text-gray-400 text-lg hover:text-rose-400" />
   );
-
-  // show password
-  function showPassword() {
-    var password = document.getElementById("passwordInput");
-    // if (password.type === "password") {
-    //   password.type = "text";
-    // } else {
-    //   password.type = "password";
-    // }
-  }
 
   // login
   const onSubmit = async (data, errors) => {
@@ -151,7 +136,7 @@ const Login = () => {
               Password
             </label>
             <div className="relative">
-              {showPasswordIcon ? (
+              {showPassword ? (
                 <input
                   id="passwordInput"
                   type="text"
@@ -175,9 +160,9 @@ const Login = () => {
 
               <span
                 className="absolute inset-y-0 right-4 inline-flex items-center"
-                onClick={() => setShowPasswordIcon(!showPasswordIcon)}
+                onClick={() => setShowPassword(!showPassword)}
               >
-                {showPasswordIcon ? activeIcon : inactiveIcon}
+                {showPassword ? showPasswordIcon : hidePasswordIcon}
               </span>
             </div>
 
@@ -234,7 +219,7 @@ const Login = () => {
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 hidden md:block lg:block">
         <img
           alt="Welcome"
-          src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+          src={loginOrSignupImage}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
