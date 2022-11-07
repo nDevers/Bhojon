@@ -1,12 +1,13 @@
 import React from "react";
 import Swal from "sweetalert2";
-import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import auth from "../../hooks/firebase.init";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+import resetPasswordImage from "../../assets/svgs/resetPassword.svg";
 
 const ResetPassword = () => {
   const {
@@ -20,10 +21,11 @@ const ResetPassword = () => {
     },
   });
 
-  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
 
   const actionCodeSettings = {
-    url: 'https://www.example.com/login',
+    url: "https://www.example.com/login",
   };
 
   let temporaryEmailAddressMatchedText;
@@ -35,13 +37,14 @@ const ResetPassword = () => {
   const checkTemporaryEmailAddress = () => {
     watch("email") &&
       fetch(`https://www.disify.com/api/email/${watch("email")}`)
-        .then(response => response.json())
-        .then(isTemporaryEmail => {
+        .then((response) => response.json())
+        .then((isTemporaryEmail) => {
           if (isTemporaryEmail?.disposable === true) {
-            temporaryEmailAddressMatchedText = 'Sorry temporary email address is not allowed';
+            temporaryEmailAddressMatchedText =
+              "Sorry temporary email address is not allowed";
           }
         });
-  }
+  };
 
   // send reset password email
   const onSubmit = async (data, errors) => {
@@ -52,8 +55,7 @@ const ResetPassword = () => {
         title: "Error",
         text: `${temporaryEmailAddressMatchedText}`,
       });
-    }
-    else {
+    } else {
       // createUserWithEmailAndPassword(watch("email"), watch("password"));
 
       // send password reset email
@@ -63,10 +65,10 @@ const ResetPassword = () => {
       Swal.fire({
         icon: "success",
         title: "Pasword reset email sent",
-        text: 'Please check your email',
+        text: "Please check your email",
       });
     }
-  }
+  };
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -82,7 +84,11 @@ const ResetPassword = () => {
           </p>
         </div>
 
-        <form action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          action=""
+          className="mx-auto mt-8 mb-0 max-w-md space-y-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
             <label htmlFor="email" className="sr-only">
               Enter Email
@@ -108,12 +114,11 @@ const ResetPassword = () => {
               </span>
             </div>
 
-            {
-              errors.email?.message &&
+            {errors.email?.message && (
               <p role="alert" className="text-error text-sm mt-2 mx-4">
                 {errors.email?.message}
               </p>
-            }
+            )}
 
             <p role="alert" className="text-error text-sm mt-2 mx-4">
               {temporaryEmailAddressMatchedText}
@@ -146,7 +151,7 @@ const ResetPassword = () => {
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 hidden md:block lg:block">
         <img
           alt="Welcome"
-          src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+          src={resetPasswordImage}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
