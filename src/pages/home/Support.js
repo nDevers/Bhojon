@@ -4,6 +4,7 @@ import { AiOutlineAccountBook, AiOutlineSearch } from "react-icons/ai";
 import { FaChrome, FaMobileAlt } from "react-icons/fa";
 import { FiDownloadCloud } from "react-icons/fi";
 import { SiSpringsecurity } from "react-icons/si";
+import { SlArrowDown } from "react-icons/sl";
 import {
   MdOutlineSocialDistance,
   MdSettingsInputComponent,
@@ -54,6 +55,48 @@ const Support = () => {
     },
   ];
 
+  const importantLinks = [
+    {
+      category: "Your account",
+      links: [
+        {
+          name: "Can't access your account?",
+          link: "",
+        },
+        {
+          name: "Recent transactions with Bhojon",
+          link: "",
+        },
+        {
+          name: "Useful stuff you can do with Bhojon",
+          link: "",
+        },
+      ],
+    },
+    {
+      category: "Help Communities",
+      links: [
+        {
+          name: "Learn more about",
+          link: "",
+        },
+        {
+          name: "Bhojon's Product Experts Program",
+          link: "",
+        },
+      ],
+    },
+    {
+      category: "Status dashboard",
+      links: [
+        {
+          name: "Bhojon Status Dashboard",
+          link: "",
+        },
+      ],
+    },
+  ];
+
   return (
     <section className="flex flex-col items-center justify-center my-20">
       <div class="p-8 md:p-12 lg:px-16 lg:py-24">
@@ -99,7 +142,6 @@ const Support = () => {
           </form>
         </div>
       </div>
-
       <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 gap-6 place-content-center mt-10">
         {supportCategories?.map((supportCategory) => (
           <Link
@@ -111,6 +153,40 @@ const Support = () => {
 
             <p className={`text-[#]`}>{supportCategory?.name}</p>
           </Link>
+        ))}
+      </div>
+      {/* divider */}
+      <div className="my-32 lg:mx-40 md:mx-20 mx-10 divider divide-gray-500">
+        <button className="btn btn-circle border-gray-500 btn-outline hover:btn-secondary hover:text-white">
+          <SlArrowDown className="text-xl font-bold" />
+        </button>
+      </div>
+      {/* important links */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-40 md:gap-10 gap-4 sm:justify-start">
+        {importantLinks?.map((importantLink) => (
+          <div
+            className="text-center lg:text-left"
+            key={importantLink?.category}
+          >
+            <p className="text-lg font-medium text-start">
+              {importantLink?.category}
+            </p>
+
+            <nav aria-label="Footer About Nav" className="mt-4 ml-5">
+              <ul className="space-y-1.5 text-sm">
+                {importantLink?.links?.map((link) => (
+                  <li className="list-disc text-start">
+                    <Link
+                      className="text-sky-500 transition hover:text-primary hover:underline"
+                      to={link?.link}
+                    >
+                      {link?.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         ))}
       </div>
     </section>
