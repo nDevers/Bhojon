@@ -41,9 +41,6 @@ const DashboardHeader = () => {
 
   const navbarRight = [
     {
-      icon: <BsArrowsFullscreen />,
-    },
-    {
       icon: <BsBell />,
       link: "/dashboard/notification",
     },
@@ -68,8 +65,30 @@ const DashboardHeader = () => {
       text: `${error}`,
     });
 
+  const makeFullScreen = () => {
+    /* Get the element you want displayed in fullscreen mode (a video in this example): */
+    var elem = document.getElementById("dashboardView");
+
+    // When the openFullscreen() function is executed, open the video in fullscreen.
+    // Note that we must include prefixes for different browsers, as they don't support the requestFullscreen property yet
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+  };
+
   return (
-    <header className="navbar sticky top-0 z-50 bg-base-100 border-b">
+    <header
+      id="dashboardView"
+      className="navbar sticky top-0 z-50 bg-base-100 border-b"
+    >
       {/* navbar left */}
       <div className="navbar-start">
         <Logo
@@ -102,14 +121,17 @@ const DashboardHeader = () => {
 
       {/* navbar right */}
       <div className="navbar-end">
-        <ul className="menu menu-horizontal gap-x-4 hidden lg:flex">
+        <ul className="menu menu-horizontal gap-x-4 hidden lg:flex items-center">
+          <Link className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md hover:text-primary">
+            <BsArrowsFullscreen onClick={() => makeFullScreen()} />
+          </Link>
           {navbarRight.map((navbarItems) => (
             <Link
               to={navbarItems.link}
               key={navbarItems.link}
               className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md hover:text-primary"
             >
-              <Link>{navbarItems.icon}</Link>
+              {navbarItems.icon}
             </Link>
           ))}
 
@@ -138,9 +160,7 @@ const DashboardHeader = () => {
               }
               className="bg-gray-200 p-1 md:p-2 lg:p-2 rounded-md hover:text-primary"
             >
-              <Link>
-                <HiOutlineLogout />
-              </Link>
+              <HiOutlineLogout />
             </Link>
           )}
         </ul>

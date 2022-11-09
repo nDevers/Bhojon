@@ -17,12 +17,8 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
 
-  console.log(user);
-
   // set website title
   useWebsiteTitle("Bhojon | Dashboard");
-
-  // console.log(userInfo)
 
   loading && <LoadingSpinner />;
 
@@ -62,10 +58,7 @@ const Dashboard = () => {
                 link="/dashboard"
               />
 
-              <Link
-                to="/user/settings"
-                className="flex gap-x-3 items-center p-4 text-gray-50 border-t"
-              >
+              <span className="flex gap-x-3 items-center p-4 text-gray-50 border-t">
                 <img
                   alt="Default user"
                   src={user?.photoURL ? user?.photoURL : defaultUserImage}
@@ -88,7 +81,7 @@ const Dashboard = () => {
                     {user?.email ? user?.email : "user@email.com"}{" "}
                   </p>
                 </div>
-              </Link>
+              </span>
 
               <nav
                 aria-label="Main Nav"

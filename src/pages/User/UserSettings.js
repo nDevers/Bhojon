@@ -16,8 +16,6 @@ const UserSettings = () => {
   // set website title
   useWebsiteTitle("User | Settings");
 
-  console.log(user);
-
   return (
     <div className="mx-4 md:mx-32 lg:mx-40 h-screen">
       <div className="m-2">
