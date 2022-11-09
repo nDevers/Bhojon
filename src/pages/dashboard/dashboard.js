@@ -87,96 +87,94 @@ const Dashboard = () => {
                 aria-label="Main Nav"
                 className="mt-6 p-2 flex flex-col space-y-1"
               >
-                <>
-                  {dasboardMenus?.map((sideMenu) =>
-                    sideMenu?.subMenus ? (
-                      <details className="group" key={sideMenu?.name}>
-                        <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary">
-                          {sideMenu?.icon}
-
-                          <span className="ml-3 text-sm font-medium">
-                            {" "}
-                            {sideMenu?.name}{" "}
-                          </span>
-
-                          <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
-                            <IoIosArrowUp />
-                          </span>
-                        </summary>
-
-                        <nav
-                          aria-label="Teams Nav"
-                          className="mt-1.5 ml-8 flex flex-col"
-                        >
-                          {sideMenu?.subMenus?.map((subMenu) =>
-                            subMenu?.subSubMenus ? (
-                              <details className="group" key={subMenu?.link}>
-                                <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary">
-                                  {subMenu?.icon}
-
-                                  <span className="ml-3 text-sm font-medium">
-                                    {" "}
-                                    {subMenu?.name}{" "}
-                                  </span>
-
-                                  <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
-                                    <IoIosArrowUp />
-                                  </span>
-                                </summary>
-
-                                <nav
-                                  aria-label="Teams Nav"
-                                  className="mt-1.5 ml-8 flex flex-col"
-                                >
-                                  {subMenu?.subSubMenus?.map((subSubMenu) => (
-                                    <Link
-                                      key={subSubMenu?.link}
-                                      to={subSubMenu?.link}
-                                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
-                                    >
-                                      {subSubMenu?.icon}
-
-                                      <span className="ml-3 text-sm font-medium">
-                                        {" "}
-                                        {subSubMenu?.name}{" "}
-                                      </span>
-                                    </Link>
-                                  ))}
-                                </nav>
-                              </details>
-                            ) : (
-                              <Link
-                                key={subMenu?.link}
-                                to={subMenu?.link}
-                                className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
-                              >
-                                {subMenu?.icon}
-
-                                <span className="ml-3 text-sm font-medium">
-                                  {" "}
-                                  {subMenu?.name}{" "}
-                                </span>
-                              </Link>
-                            )
-                          )}
-                        </nav>
-                      </details>
-                    ) : (
-                      <Link
-                        key={sideMenu?.link}
-                        to={sideMenu?.link}
-                        className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
-                      >
+                {dasboardMenus?.map((sideMenu) =>
+                  sideMenu?.subMenus ? (
+                    <details className="group" key={sideMenu?.name}>
+                      <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary">
                         {sideMenu?.icon}
 
                         <span className="ml-3 text-sm font-medium">
                           {" "}
                           {sideMenu?.name}{" "}
                         </span>
-                      </Link>
-                    )
-                  )}
-                </>
+
+                        <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
+                          <IoIosArrowUp />
+                        </span>
+                      </summary>
+
+                      <nav
+                        aria-label="Teams Nav"
+                        className="mt-1.5 ml-8 flex flex-col"
+                      >
+                        {sideMenu?.subMenus?.map((subMenu) =>
+                          subMenu?.subSubMenus ? (
+                            <details className="group" key={subMenu?.link}>
+                              <summary className="flex cursor-pointer items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary">
+                                {subMenu?.icon}
+
+                                <span className="ml-3 text-sm font-medium">
+                                  {" "}
+                                  {subMenu?.name}{" "}
+                                </span>
+
+                                <span className="ml-auto shrink-0 transition duration-300 group-open:-rotate-180">
+                                  <IoIosArrowUp />
+                                </span>
+                              </summary>
+
+                              <nav
+                                aria-label="Teams Nav"
+                                className="mt-1.5 ml-8 flex flex-col"
+                              >
+                                {subMenu?.subSubMenus?.map((subSubMenu) => (
+                                  <Link
+                                    key={subSubMenu?.link}
+                                    to={subSubMenu?.link}
+                                    className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
+                                  >
+                                    {subSubMenu?.icon}
+
+                                    <span className="ml-3 text-sm font-medium">
+                                      {" "}
+                                      {subSubMenu?.name}{" "}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </nav>
+                            </details>
+                          ) : (
+                            <Link
+                              key={subMenu?.link}
+                              to={subMenu?.link}
+                              className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
+                            >
+                              {subMenu?.icon}
+
+                              <span className="ml-3 text-sm font-medium">
+                                {" "}
+                                {subMenu?.name}{" "}
+                              </span>
+                            </Link>
+                          )
+                        )}
+                      </nav>
+                    </details>
+                  ) : (
+                    <Link
+                      key={sideMenu?.link}
+                      to={sideMenu?.link}
+                      className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-100 hover:text-primary focus:border-l-4 border-l-primary"
+                    >
+                      {sideMenu?.icon}
+
+                      <span className="ml-3 text-sm font-medium">
+                        {" "}
+                        {sideMenu?.name}{" "}
+                      </span>
+                    </Link>
+                  )
+                )}
               </nav>
             </div>
           </div>
