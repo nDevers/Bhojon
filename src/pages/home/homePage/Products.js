@@ -1,5 +1,5 @@
 import React from "react";
-import { BsBag, BsSuitHeart } from "react-icons/bs";
+import { BsBag, BsFillArrowRightCircleFill, BsSuitHeart } from "react-icons/bs";
 
 const Products = () => {
   const homePageProducts = [
@@ -8,36 +8,42 @@ const Products = () => {
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
+      tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
       name: "Product 1",
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
+      tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
       name: "Product 1",
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
+      tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
       name: "Product 1",
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
+      tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
       name: "Product 1",
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
+      tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
       name: "Product 1",
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
+      tags: [{ name: "Fashion" }, { name: "Products" }],
     },
   ];
 
@@ -52,48 +58,51 @@ const Products = () => {
           accusamus, incidunt corrupti libero nihil animi.
         </p>
       </div>
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-10 items-center justify-center">
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-10 place-items-center">
         {homePageProducts?.map((homePageProduct) => (
-          <div className="bg-base-100 shadow-xl p-4 m-4 rounded-md relative">
+          <div
+            key={homePageProduct?.name}
+            className="col-4 shadow-xl flex flex-col items-center p-4 m-4 rounded-lg relative"
+          >
             <button
               type="button"
-              class="absolute right-8 top-8 rounded-full bg-primary p-2 text-white"
+              className="absolute right-8 top-8 rounded-full bg-primary p-2 text-white"
             >
-              <span class="sr-only">Wishlist</span>
+              <span className="sr-only">Wishlist</span>
               <BsSuitHeart />
             </button>
 
-            <div className="rounded-md">
-              {homePageProduct?.image ? (
-                <img
-                  className="rounded-3xl"
-                  src={homePageProduct?.image}
-                  alt={`${homePageProduct?.name} image`}
-                />
-              ) : (
-                <p>No product image to display</p>
-              )}
+            <div className="w-full">
+              <img
+                className="rounded-3xl w-full"
+                src={homePageProduct?.image}
+                alt=""
+              />
             </div>
 
-            <div className="my-4 py-4">
-              <h2 className="card-title mb-4">
+            <div>
+              <h2 className="card-title mt-8 mb-6">
                 {homePageProduct?.name}
                 <div className="badge badge-warning text-white">NEW</div>
               </h2>
 
               <p>{homePageProduct?.description}</p>
 
-              <div className="card-actions justify-end mt-4">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
+              <div className="card-actions justify-end my-6">
+                {homePageProduct?.tags.map((tag) => (
+                  <p key={tag?.name} className="badge badge-outline">
+                    {tag?.name}
+                  </p>
+                ))}
               </div>
+
+              <button className="btn btn-primary hover:bg-primary w-full text-white mb-2">
+                <span className="text-sm font-medium"> Add to Cart </span>
+
+                <BsBag className="ml-4" />
+              </button>
             </div>
-
-            <button class="btn btn-primary hover:bg-primary w-full text-white mb-2">
-              <span class="text-sm font-medium"> Add to Cart </span>
-
-              <BsBag className="ml-4" />
-            </button>
           </div>
         ))}
       </div>

@@ -99,13 +99,13 @@ const Support = () => {
 
   return (
     <section className="flex flex-col items-center justify-center my-20">
-      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
-        <div class="mx-auto max-w-3xl text-center">
-          <h2 class="text-2xl font-bold text-gray-900 md:text-3xl capitalize">
+      <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-2xl font-bold text-gray-900 md:text-3xl capitalize">
             How can we <span className="text-primary">help</span> you?
           </h2>
 
-          <p class="hidden text-gray-500 sm:mt-4 sm:block">
+          <p className="hidden text-gray-500 sm:mt-4 sm:block">
             If you're having trouble accessing your account, there's a chance
             we're currently experiencing a temporary problem. You can check for
             outages and downtime on the{" "}
@@ -119,23 +119,23 @@ const Support = () => {
           </p>
         </div>
 
-        <div class="mx-auto mt-8 max-w-xl">
-          <form action="#" class="sm:flex sm:gap-4">
-            <div class="sm:flex-1">
-              <label for="se" class="sr-only">
+        <div className="mx-auto mt-8 max-w-xl">
+          <form action="#" className="sm:flex sm:gap-4">
+            <div className="sm:flex-1">
+              <label for="se" className="sr-only">
                 Search
               </label>
 
               <input
                 type="text"
                 placeholder="Describe your issue"
-                class="w-full rounded-md border-gray-200 bg-white focus:bg-secondary p-3 text-gray-700 shadow-md transition focus:border-white focus:outline-none focus:ring focus:ring-gray-700"
+                className="w-full rounded-md border-gray-200 bg-white focus:bg-secondary p-3 text-gray-700 shadow-md transition focus:border-white focus:outline-none focus:ring focus:ring-gray-700"
               />
             </div>
 
             <button
               type="submit"
-              class="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-1 text-white transition focus:outline-none focus:ring focus:ring-primary sm:mt-0 sm:w-auto"
+              className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-1 text-white transition focus:outline-none focus:ring focus:ring-primary sm:mt-0 sm:w-auto"
             >
               <AiOutlineSearch className="text-2xl font-medium" />
             </button>
@@ -175,7 +175,7 @@ const Support = () => {
             <nav aria-label="Footer About Nav" className="mt-4 ml-5">
               <ul className="space-y-1.5 text-sm">
                 {importantLink?.links?.map((link) => (
-                  <li className="list-disc text-start">
+                  <li key={link?.link} className="list-disc text-start">
                     <Link
                       className="text-sky-500 transition hover:text-primary hover:underline"
                       to={link?.link}

@@ -46,21 +46,21 @@ const FAQs = () => {
         </p>
       </div>
 
-      <div class="divide-y divide-gray-100 mt-20 px-3 mx-3">
+      <div className="divide-y divide-gray-100 mt-20 px-3 mx-3">
         {frequentQuestionsAndAnswers?.map((frequentQuestionAndAnswer) => (
           <details
-            class="group group py-8"
+            className="group group py-8"
             key={frequentQuestionAndAnswer?.title}
           >
-            <summary class="flex cursor-pointer items-center justify-between">
-              <h2 class="text-lg font-medium text-gray-700">
+            <summary className="flex cursor-pointer items-center justify-between">
+              <h2 className="text-lg font-medium text-gray-700">
                 {frequentQuestionAndAnswer?.title}
               </h2>
 
-              <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+              <span className="relative ml-1.5 h-5 w-5 flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                  className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -75,7 +75,7 @@ const FAQs = () => {
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                  className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -90,7 +90,7 @@ const FAQs = () => {
               </span>
             </summary>
 
-            <p class="mt-4 leading-relaxed text-gray-700">
+            <p className="mt-4 leading-relaxed text-gray-700">
               {frequentQuestionAndAnswer?.description}
             </p>
           </details>

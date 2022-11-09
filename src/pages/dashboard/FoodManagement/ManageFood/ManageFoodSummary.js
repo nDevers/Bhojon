@@ -279,13 +279,16 @@ const ManageFoodSummary = () => {
   ];
 
   // set website title
-  useWebsiteTitle('Food Management | Manage Food')
+  useWebsiteTitle("Food Management | Manage Food");
 
   return (
     <div>
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 lg:gap-6 md:gap-5 gap-4">
         {summaryData?.map((summary) => (
-          <div className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center">
+          <div
+            key={summary?.name}
+            className="p-3 bg-gray-200 rounded-md flex flex-col items-center justify-center text-center"
+          >
             <h2 className="text-3xl font-semibold">{summary?.value}</h2>
             <h3 className="text-lg font-medium">{summary?.name}</h3>
           </div>
@@ -299,7 +302,7 @@ const ManageFoodSummary = () => {
               {summary?.title}
             </h4>
             {summary?.data?.map((customer) => (
-              <div className="border-b mb-2 pb-2">
+              <div key={customer?.phone} className="border-b mb-2 pb-2">
                 <h2 className="font-medium">Name: {customer?.name}</h2>
                 <span className="text-sm font-light">
                   <p>Phone: {customer?.phone}</p>

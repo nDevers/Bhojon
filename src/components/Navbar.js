@@ -158,9 +158,9 @@ const Navbar = () => {
     });
 
   return (
-    <header aria-label="Site Header" class="bg-white">
-      <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
+    <header aria-label="Site Header" className="bg-white">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
           {/* navbar left */}
           <Link to="/">
             <Logo />
@@ -168,7 +168,7 @@ const Navbar = () => {
 
           {/* navbar middle */}
           <nav>
-            <ul class="hidden md:hidden lg:flex items-center gap-6 text-md font-medium">
+            <ul className="hidden md:hidden lg:flex items-center gap-6 text-md font-medium">
               {navbarMiddle.map((navbarItems) => (
                 <li
                   key={navbarItems.link}
@@ -181,8 +181,8 @@ const Navbar = () => {
           </nav>
 
           {/* navbar right */}
-          <div class="flex items-center gap-4">
-            <ul class="hidden md:hidden lg:flex items-center gap-6 text-sm font-medium">
+          <div className="flex items-center gap-4">
+            <ul className="hidden md:hidden lg:flex items-center gap-6 text-sm font-medium">
               {navbarRight.map((navbarItems) => (
                 <li key={navbarItems.link}>
                   <Link to={navbarItems.link}>{navbarItems.name}</Link>

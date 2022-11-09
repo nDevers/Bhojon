@@ -237,15 +237,15 @@ const Footer = () => {
             <div className="flex items-center justify-center md:justify-start lg:justify-start col-span-2 space-x-4 text-gray-300 lg:col-span-5 mt-10">
               {socialMediaLinks.map((socialMediaLink) => (
                 <a
-                  key={socialMediaLink.id}
+                  key={socialMediaLink?.id}
                   className="hover:text-primary"
-                  href={socialMediaLink.link}
+                  href={socialMediaLink?.link}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="sr-only"> {socialMediaLink.name} </span>
+                  <span className="sr-only"> {socialMediaLink?.name} </span>
 
-                  <span className="text-2xl">{socialMediaLink.icon}</span>
+                  <span className="text-2xl">{socialMediaLink?.icon}</span>
                 </a>
               ))}
             </div>
@@ -269,7 +269,7 @@ const Footer = () => {
                   <nav aria-label="Footer About Nav" className="mt-4">
                     <ul className="space-y-1.5 text-sm">
                       {footerLink?.links?.map((link) => (
-                        <li>
+                        <li key={link?.name}>
                           <Link
                             className="text-white transition hover:text-primary hover:underline"
                             to={link?.link}
@@ -302,8 +302,8 @@ const Footer = () => {
               </p>
 
               <p className="mt-4 text-center lg:text-left flex items-center justify-center md:justify-start lg:justify-start gap-3">
-                &copy; {currentYear}{" "}
-                <Logo customClass="flex gap-x-2 items-center text-md text-center text-black-50 font-semibold font-mono uppercase" />{" "}
+                &copy; {currentYear}
+                <Logo customClass="flex gap-x-2 items-center text-md text-center text-black-50 font-semibold font-mono uppercase" />
                 All rights reserved.
               </p>
             </div>

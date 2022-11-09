@@ -14,14 +14,14 @@ const Services = () => {
     {
       name: "Fast Delivery",
       logo: <GiDeliveryDrone />,
-      image: "https://i.ibb.co/jDzx7MM/service-1.png",
+      image: "https://i.ibb.co/jDzx7MM/service-2.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non repellat laborum debitis ducimus vero quasi placeat error minima incidunt natus modi facilis, doloremque, accusamus nam explicabo recusandae qui distinctio praesentium?",
     },
     {
       name: "Fast Delivery",
       logo: <GiDeliveryDrone />,
-      image: "https://i.ibb.co/jDzx7MM/service-1.png",
+      image: "https://i.ibb.co/jDzx7MM/service-3.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non repellat laborum debitis ducimus vero quasi placeat error minima incidunt natus modi facilis, doloremque, accusamus nam explicabo recusandae qui distinctio praesentium?",
     },
@@ -40,9 +40,12 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-10 items-center justify-center">
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-10 place-items-center">
         {services?.map((service) => (
-          <div className="col-4 shadow-xl flex flex-col items-center p-4 m-4 rounded-lg">
+          <div
+            key={service?.name}
+            className="col-4 shadow-xl flex flex-col items-center p-4 m-4 rounded-lg"
+          >
             <div>
               <img src={service?.image} alt="" />
             </div>
