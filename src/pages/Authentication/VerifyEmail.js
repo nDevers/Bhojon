@@ -4,13 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { useSendEmailVerification } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import auth from "../../hooks/firebase.init";
 import { useForm } from "react-hook-form";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import veridyEmailImage from "../../assets/svgs/verifyEmail.svg";
 
 const VerifyEmail = () => {
+  const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
   const {
@@ -34,6 +38,9 @@ const VerifyEmail = () => {
 
   // set website title
   useWebsiteTitle("Bhojon | Verify Email");
+
+  // prevent logged in user to visit login page
+  currentUser && navigate("/");
 
   // checking temporary email
   const checkTemporaryEmailAddress = () => {

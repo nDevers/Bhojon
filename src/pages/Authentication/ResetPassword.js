@@ -1,7 +1,10 @@
 import React from "react";
 import Swal from "sweetalert2";
-import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import {
+  useAuthState,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
@@ -10,6 +13,8 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import resetPasswordImage from "../../assets/svgs/resetPassword.svg";
 
 const ResetPassword = () => {
+  const [currentUser, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,8 +26,11 @@ const ResetPassword = () => {
     },
   });
 
-  const [sendPasswordResetEmail, sending, error] =
-    useSendPasswordResetEmail(auth);
+  const [
+    sendPasswordResetEmail,
+    passwordResetEmailSending,
+    sendPasswordResetEmailError,
+  ] = useSendPasswordResetEmail(auth);
 
   const actionCodeSettings = {
     url: "https://www.example.com/login",
@@ -32,6 +40,9 @@ const ResetPassword = () => {
 
   // set website title
   useWebsiteTitle("Bhojon | Reset Password");
+
+  // prevent logged in user to visit login page
+  currentUser && navigate("/");
 
   // checking temporary email
   const checkTemporaryEmailAddress = () => {
