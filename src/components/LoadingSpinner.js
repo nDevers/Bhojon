@@ -1,17 +1,19 @@
 import React from "react";
-import useWebsiteTitle from "../hooks/useWebsiteTitle";
+import { ColorRing } from "react-loader-spinner";
 
 const LoadingSpinner = () => {
-  // set website title
-  useWebsiteTitle("Bhojon | Loading Spinner");
-
   return (
-    <div className="backdrop-blur-sm bg-white/30 ...">
+    <div className="backdrop-blur-sm bg-[#fff] ...">
       <div className="flex items-center justify-center h-screen">
-        <div
-          className="radial-progress text-info animate-spin"
-          style={{ "--value": "75", "--size": "4rem", "--thickness": "6px" }}
-        ></div>
+        <ColorRing
+          visible={true}
+          height="100"
+          width="100"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{ opacity: "1" }}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
       </div>
     </div>
   );
