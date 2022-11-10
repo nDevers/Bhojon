@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import PasswordStrengthBar from "react-password-strength-bar";
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
@@ -9,7 +10,8 @@ import {
   useSendEmailVerification,
 } from "react-firebase-hooks/auth";
 import { BiHide, BiShowAlt } from "react-icons/bi";
-import { MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
+import { MdContentCopy, MdEdit, MdOutlineAlternateEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
 import SocialMediaLoginButton from "../../components/SocialMediaLogin";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -18,6 +20,9 @@ import signupImage from "../../assets/svgs/signup.svg";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showGeneratedPassword, setShowGeneratedPassword] = useState(false);
+  const [visibleGeneratePasswordModal, setVisibleGeneratePasswordModal] =
+    useState(false);
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -34,6 +39,7 @@ const SignUp = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      generatePassword: "",
     },
   });
 
@@ -83,7 +89,7 @@ const SignUp = () => {
   };
 
   // signup
-  const onSubmit = async (data, errors) => {
+  const onSubmitSignup = async (data, errors) => {
     // prevent signup using temporary email
     if (temporaryEmailAddressMatchedText) {
       Swal.fire({
@@ -112,6 +118,37 @@ const SignUp = () => {
         }
       });
     }
+  };
+
+  // generate password
+  const generatePassword = async (data, errors) => {
+    const numbers = "0123456789";
+    const smallCharacter = "abcdefghijklmnopqrstuvwxyz";
+    const capitalCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const specialCharacter = "!@#$%^&*()";
+
+    let chars = `${numbers}${smallCharacter}${capitalCharacter}${specialCharacter}${capitalCharacter}`;
+    let passwordLength = 12;
+    let password = "";
+
+    for (let i = 0; i <= passwordLength; i++) {
+      let randomNumber = Math.floor(Math.random() * chars.length);
+      password += chars.substring(randomNumber, randomNumber + 1);
+    }
+
+    document.getElementById("setGeneratedPassword1").value = password;
+    document.getElementById("setGeneratedPassword2").value = password;
+
+    toast.success(`Password generated successfully ${password}`);
+
+    console.log("generated password");
+  };
+
+  // copy password
+  const copyPassword = () => {
+    toast.success("Password copied successfully.", {
+      toastId: "passwordCopiedId",
+    });
   };
 
   // check if password and confirm password are same
@@ -171,7 +208,7 @@ const SignUp = () => {
         <form
           action=""
           className="mx-auto mt-8 mb-0 max-w-md space-y-4"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmitSignup)}
         >
           <div className="flex items-center gap-4">
             <div>
@@ -292,6 +329,8 @@ const SignUp = () => {
               ) : (
                 <input
                   onChange={matchPasswordAndConfirmPassword()}
+                  onFocus={() => setVisibleGeneratePasswordModal(true)}
+                  onBlur={() => setVisibleGeneratePasswordModal(false)}
                   type="password"
                   className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                   placeholder="Enter password"
@@ -313,6 +352,16 @@ const SignUp = () => {
                 {showPassword ? showPasswordIcon : hidePasswordIcon}
               </span>
             </div>
+
+            {visibleGeneratePasswordModal && (
+              <label
+                role="alert"
+                htmlFor="my-modal"
+                className="text-[#435a63] text-sm mt-2 mx-4 flex items-center gap-x-2 hover:text-primary cursor-pointer"
+              >
+                Generate Secure Password <RiLockPasswordLine />
+              </label>
+            )}
 
             {/* password strength bar */}
             {watch("password") && (
@@ -348,6 +397,7 @@ const SignUp = () => {
             <div className="relative">
               {showPassword ? (
                 <input
+                  id="copyPasswordField"
                   onChange={matchPasswordAndConfirmPassword()}
                   type="text"
                   className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
@@ -448,6 +498,156 @@ const SignUp = () => {
 
           <SocialMediaLoginButton />
         </form>
+
+        {/* generate password modal */}
+        <input type="checkbox" id="my-modal" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box">
+            <label
+              htmlFor="my-modal"
+              className="btn btn-sm btn-circle hover:btn-primary hover:text-white text-white absolute right-2 top-2"
+            >
+              ✕
+            </label>
+            <h3 className="font-bold text-xl">
+              Generate <span className="text-primary">Secure Password</span>
+            </h3>
+
+            <div className="my-6">
+              <label htmlFor="password" className="sr-only">
+                Generate Password
+              </label>
+              <div className="relative">
+                {showGeneratedPassword ? (
+                  <input
+                    id="setGeneratedPassword1"
+                    type="text"
+                    className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
+                    placeholder="Generate password"
+                    {...register("generatePassword", {
+                      required: "* Password is required",
+                      pattern: {
+                        value:
+                          /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                        message: "Invalid password",
+                      },
+                    })}
+                  />
+                ) : (
+                  <input
+                    id="setGeneratedPassword2"
+                    type="password"
+                    className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
+                    placeholder="Generate password"
+                    {...register("generatePassword", {
+                      required: "* Password is required",
+                      pattern: {
+                        value:
+                          /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/,
+                        message: "Invalid password",
+                      },
+                    })}
+                  />
+                )}
+
+                <span
+                  className="absolute inset-y-0 right-4 inline-flex items-center"
+                  onClick={() =>
+                    setShowGeneratedPassword(!showGeneratedPassword)
+                  }
+                >
+                  {showGeneratedPassword ? showPasswordIcon : hidePasswordIcon}
+                </span>
+              </div>
+
+              {/* password strength bar */}
+              {watch("generatePassword") && (
+                <span className="flex items-center gap-x-5">
+                  <span className="w-full">
+                    <PasswordStrengthBar
+                      password={watch("generatePassword")}
+                      className="mx-4 mt-4"
+                    />
+                  </span>
+
+                  <MdContentCopy
+                    onClick={() => copyPassword()}
+                    className="cursor-pointer text-xl hover:text-primary"
+                  />
+                </span>
+              )}
+            </div>
+
+            <div className="mb-6">
+              <input
+                type="range"
+                min="10"
+                max="30"
+                value="10"
+                className="range range-xs"
+                step="5"
+              />
+              <div className="w-full flex justify-between text-xs px-2">
+                <span>10</span>
+                <span>15</span>
+                <span>20</span>
+                <span>25</span>
+                <span>30</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center gap-x-5">
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-xs checkbox-accent"
+                  />
+                  <span className="label-text uppercase">Lowercase</span>
+                </label>
+              </div>
+
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center gap-x-5">
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-xs checkbox-accent"
+                  />
+                  <span className="label-text uppercase">Uppercase</span>
+                </label>
+              </div>
+
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center gap-x-5">
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-xs checkbox-accent"
+                  />
+                  <span className="label-text uppercase">Numbers</span>
+                </label>
+              </div>
+
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center gap-x-5">
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-xs checkbox-accent"
+                  />
+                  <span className="label-text uppercase">Symbols</span>
+                </label>
+              </div>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                onClick={() => generatePassword()}
+                className="modal-action btn btn-sm btn-primary text-white"
+              >
+                Generate Password
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 hidden md:block lg:block">
