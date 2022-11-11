@@ -23,6 +23,10 @@ const SignUp = () => {
   const [showGeneratedPassword, setShowGeneratedPassword] = useState(false);
   const [visibleGeneratePasswordModal, setVisibleGeneratePasswordModal] =
     useState(false);
+  const [
+    visibleGeneratedPasswordStrengthModal,
+    setVisibleGeneratedPasswordStrengthModal,
+  ] = useState(false);
   const [currentUser, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -121,7 +125,7 @@ const SignUp = () => {
   };
 
   // generate password
-  const generatePassword = async (data, errors) => {
+  const generateStrongPassword = async (data, errors) => {
     const numbers = "0123456789";
     const smallCharacter = "abcdefghijklmnopqrstuvwxyz";
     const capitalCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -138,15 +142,14 @@ const SignUp = () => {
 
     document.getElementById("setGeneratedPassword1").value = generatedPassword;
     document.getElementById("setGeneratedPassword2").value = generatedPassword;
+    setVisibleGeneratedPasswordStrengthModal(true);
 
-    toast.success(`Password generated successfully ${generatedPassword}`);
-
-    console.log("generated password");
+    toast.success(`Password generated.`);
   };
 
   // copy password
   const copyPassword = () => {
-    toast.success("Password copied successfully.", {
+    toast.success("Password copied.", {
       toastId: "passwordCopiedId",
     });
   };
@@ -364,7 +367,7 @@ const SignUp = () => {
             )}
 
             {/* password strength bar */}
-            {watch("password") && (
+            {visibleGeneratedPasswordStrengthModal && (
               <PasswordStrengthBar
                 password={watch("password")}
                 className="mx-4 mt-4"
@@ -505,7 +508,7 @@ const SignUp = () => {
           <div className="modal-box">
             <label
               htmlFor="my-modal"
-              className="btn btn-sm btn-circle hover:btn-primary hover:text-white text-white absolute right-2 top-2"
+              className="btn btn-sm btn-circle btn-primary text-white absolute right-2 top-2"
             >
               ✕
             </label>
@@ -561,21 +564,19 @@ const SignUp = () => {
               </div>
 
               {/* password strength bar */}
-              {watch("generatePassword") && (
-                <span className="flex items-center gap-x-5">
-                  <span className="w-full">
-                    <PasswordStrengthBar
-                      password={watch("generatePassword")}
-                      className="mx-4 mt-4"
-                    />
-                  </span>
-
-                  <MdContentCopy
-                    onClick={() => copyPassword()}
-                    className="cursor-pointer text-xl hover:text-primary"
+              <span className="flex items-center gap-x-5">
+                <span className="w-full">
+                  <PasswordStrengthBar
+                    password={watch("generatePassword")}
+                    className="mx-4 mt-4"
                   />
                 </span>
-              )}
+
+                <MdContentCopy
+                  onClick={() => copyPassword()}
+                  className="cursor-pointer text-xl hover:text-primary"
+                />
+              </span>
             </div>
 
             <div className="mb-6">
@@ -583,8 +584,9 @@ const SignUp = () => {
                 type="range"
                 min="10"
                 max="30"
+                defaultValue={10}
                 className="range range-xs range-primary"
-                step="5"
+                step="1"
               />
               <div className="w-full flex justify-between text-xs px-2">
                 <span>10</span>
@@ -595,9 +597,9 @@ const SignUp = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div className="form-control">
-                <label className="cursor-pointer flex items-center gap-x-5">
+                <label className="cursor-pointer flex items-center gap-x-4">
                   <input
                     type="checkbox"
                     className="checkbox checkbox-xs checkbox-primary"
@@ -609,7 +611,7 @@ const SignUp = () => {
               </div>
 
               <div className="form-control">
-                <label className="cursor-pointer flex items-center gap-x-5">
+                <label className="cursor-pointer flex items-center gap-x-4">
                   <input
                     type="checkbox"
                     className="checkbox checkbox-xs checkbox-primary"
@@ -621,7 +623,7 @@ const SignUp = () => {
               </div>
 
               <div className="form-control">
-                <label className="cursor-pointer flex items-center gap-x-5">
+                <label className="cursor-pointer flex items-center gap-x-4">
                   <input
                     type="checkbox"
                     className="checkbox checkbox-xs checkbox-primary"
@@ -631,7 +633,7 @@ const SignUp = () => {
               </div>
 
               <div className="form-control">
-                <label className="cursor-pointer flex items-center gap-x-5">
+                <label className="cursor-pointer flex items-center gap-x-4">
                   <input
                     type="checkbox"
                     className="checkbox checkbox-xs checkbox-primary"
@@ -643,7 +645,7 @@ const SignUp = () => {
 
             <div className="flex justify-end">
               <button
-                onClick={() => generatePassword()}
+                onClick={() => generateStrongPassword()}
                 className="modal-action btn btn-sm btn-primary text-white"
               >
                 Generate Password
