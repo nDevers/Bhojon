@@ -417,6 +417,8 @@ const SignUp = () => {
               ) : (
                 <input
                   onChange={matchPasswordAndConfirmPassword()}
+                  onFocus={() => setVisibleGeneratePasswordModal(true)}
+                  onBlur={() => setVisibleGeneratePasswordModal(false)}
                   type="password"
                   className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                   placeholder="Confirm password"
@@ -438,6 +440,16 @@ const SignUp = () => {
                 {showPassword ? showPasswordIcon : hidePasswordIcon}
               </span>
             </div>
+
+            {visibleGeneratePasswordModal && (
+              <label
+                role="alert"
+                htmlFor="my-modal"
+                className="text-[#435a63] text-sm mt-2 mx-4 flex items-center gap-x-2 hover:text-primary cursor-pointer"
+              >
+                Generate Secure Password <RiLockPasswordLine />
+              </label>
+            )}
 
             {/* password strength bar */}
             {watch("confirmPassword") && (
