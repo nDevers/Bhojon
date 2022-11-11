@@ -129,17 +129,17 @@ const SignUp = () => {
 
     let chars = `${numbers}${smallCharacter}${capitalCharacter}${specialCharacter}${capitalCharacter}`;
     let passwordLength = 12;
-    let password = "";
+    let generatedPassword = "";
 
     for (let i = 0; i <= passwordLength; i++) {
       let randomNumber = Math.floor(Math.random() * chars.length);
-      password += chars.substring(randomNumber, randomNumber + 1);
+      generatedPassword += chars.substring(randomNumber, randomNumber + 1);
     }
 
-    document.getElementById("setGeneratedPassword1").value = password;
-    document.getElementById("setGeneratedPassword2").value = password;
+    document.getElementById("setGeneratedPassword1").value = generatedPassword;
+    document.getElementById("setGeneratedPassword2").value = generatedPassword;
 
-    toast.success(`Password generated successfully ${password}`);
+    toast.success(`Password generated successfully ${generatedPassword}`);
 
     console.log("generated password");
   };
@@ -520,8 +520,8 @@ const SignUp = () => {
               <div className="relative">
                 {showGeneratedPassword ? (
                   <input
-                    id="setGeneratedPassword1"
-                    type="text"
+                    id="setGeneratedPassword2"
+                    type="password"
                     className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                     placeholder="Generate password"
                     {...register("generatePassword", {
@@ -535,8 +535,8 @@ const SignUp = () => {
                   />
                 ) : (
                   <input
-                    id="setGeneratedPassword2"
-                    type="password"
+                    id="setGeneratedPassword1"
+                    type="text"
                     className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                     placeholder="Generate password"
                     {...register("generatePassword", {
@@ -556,7 +556,7 @@ const SignUp = () => {
                     setShowGeneratedPassword(!showGeneratedPassword)
                   }
                 >
-                  {showGeneratedPassword ? showPasswordIcon : hidePasswordIcon}
+                  {showGeneratedPassword ? hidePasswordIcon : showPasswordIcon}
                 </span>
               </div>
 
@@ -583,8 +583,7 @@ const SignUp = () => {
                 type="range"
                 min="10"
                 max="30"
-                value="10"
-                className="range range-xs"
+                className="range range-xs range-primary"
                 step="5"
               />
               <div className="w-full flex justify-between text-xs px-2">
@@ -601,9 +600,11 @@ const SignUp = () => {
                 <label className="cursor-pointer flex items-center gap-x-5">
                   <input
                     type="checkbox"
-                    className="checkbox checkbox-xs checkbox-accent"
+                    className="checkbox checkbox-xs checkbox-primary"
                   />
-                  <span className="label-text uppercase">Lowercase</span>
+                  <span className="label-text uppercase text-xs">
+                    Lowercase
+                  </span>
                 </label>
               </div>
 
@@ -611,9 +612,11 @@ const SignUp = () => {
                 <label className="cursor-pointer flex items-center gap-x-5">
                   <input
                     type="checkbox"
-                    className="checkbox checkbox-xs checkbox-accent"
+                    className="checkbox checkbox-xs checkbox-primary"
                   />
-                  <span className="label-text uppercase">Uppercase</span>
+                  <span className="label-text uppercase text-xs">
+                    Uppercase
+                  </span>
                 </label>
               </div>
 
@@ -621,9 +624,9 @@ const SignUp = () => {
                 <label className="cursor-pointer flex items-center gap-x-5">
                   <input
                     type="checkbox"
-                    className="checkbox checkbox-xs checkbox-accent"
+                    className="checkbox checkbox-xs checkbox-primary"
                   />
-                  <span className="label-text uppercase">Numbers</span>
+                  <span className="label-text uppercase text-xs">Numbers</span>
                 </label>
               </div>
 
@@ -631,9 +634,9 @@ const SignUp = () => {
                 <label className="cursor-pointer flex items-center gap-x-5">
                   <input
                     type="checkbox"
-                    className="checkbox checkbox-xs checkbox-accent"
+                    className="checkbox checkbox-xs checkbox-primary"
                   />
-                  <span className="label-text uppercase">Symbols</span>
+                  <span className="label-text uppercase text-xs">Symbols</span>
                 </label>
               </div>
             </div>
