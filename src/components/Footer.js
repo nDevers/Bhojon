@@ -237,7 +237,7 @@ const Footer = () => {
             <div className="flex items-center justify-center md:justify-start lg:justify-start col-span-2 space-x-4 text-gray-300 lg:col-span-5 mt-10">
               {socialMediaLinks.map((socialMediaLink) => (
                 <a
-                  key={socialMediaLink?.id}
+                  key={socialMediaLink?.link}
                   className="hover:text-primary"
                   href={socialMediaLink?.link}
                   target="_blank"
