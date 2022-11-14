@@ -211,7 +211,7 @@ const SignUp = () => {
         <form
           action=""
           className="mx-auto mt-8 mb-0 max-w-md space-y-4"
-          onSubmit={handleSubmit(onSubmitSignup)}
+          onSubmit={() => onSubmitSignup()}
         >
           <div className="flex items-center gap-4">
             <div>
