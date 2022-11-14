@@ -108,7 +108,7 @@ import DashboardNotification from "./pages/dashboard/DashboardNotification";
 import SelectLanguage from "./pages/dashboard/SelectLanguage";
 import PrivacyPolicy from "./pages/dashboard/PricavyPolicy";
 import TermsAndConditions from "./pages/dashboard/TermsAndConditions";
-import CookiePolicy from "./pages/dashboard/CookiePolicy";
+import CookiePolicy from "./pages/home/homePage/CookiePolicy";
 import Support from "./pages/home/Support";
 import FAQs from "./pages/home/FAQs";
 
@@ -147,6 +147,7 @@ function App() {
           {/* other routes */}
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="cookie-policy" element={<CookiePolicy />} />
           <Route path="support" element={<Support />} />
           <Route path="faqs" element={<FAQs />} />
         </Route>
