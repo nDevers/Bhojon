@@ -39,8 +39,11 @@ const VerifyEmail = () => {
   // set website title
   useWebsiteTitle("Bhojon | Verify Email");
 
-  // prevent logged in user to visit login page
-  currentUser && navigate("/");
+  // prevent verified user from visiting verify email page
+  if (currentUser && currentUser?.emailVerified) {
+    currentUser && navigate("/");
+  }
+  console.log(currentUser?.emailVerified);
 
   // checking temporary email
   const checkTemporaryEmailAddress = () => {
