@@ -479,6 +479,37 @@ const SignUp = () => {
           </div>
 
           <div className="flex flex-col gap-5 mx-4 py-4">
+            <label for="MarketingAccept" class="flex gap-4">
+              <input
+                type="checkbox"
+                id="MarketingAccept"
+                name="marketing_accept"
+                class="checkbox checkbox-sm checkbox-primary"
+              />
+
+              <span class="text-sm text-gray-700">
+                I want to receive emails about events, product updates and
+                company announcements.
+              </span>
+            </label>
+
+            <div class="col-span-6">
+              <p class="text-sm text-gray-500">
+                By creating an account, you agree to our{" "}
+                <Link
+                  to="/terms-and-conditions"
+                  class="text-gray-700 underline"
+                >
+                  terms and conditions
+                </Link>{" "}
+                and{" "}
+                <Link to="/privacy-policy" class="text-gray-700 underline">
+                  privacy policy
+                </Link>
+                .
+              </p>
+            </div>
+
             <div className="flex justify-between items-center text-sm text-gray-500">
               <p>Already a member?</p>
 
