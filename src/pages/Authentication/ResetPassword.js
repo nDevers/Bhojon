@@ -109,7 +109,7 @@ const ResetPassword = () => {
               <input
                 onBlur={checkTemporaryEmailAddress()}
                 type="text"
-                className="w-full rounded-lg border-gray-200 focus:bg-primary p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 focus:bg-secondary p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
                 {...register("email", {
                   required: "* Email is required",
