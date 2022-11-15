@@ -281,17 +281,47 @@ const DashboardSummary = () => {
     <div>
       <div className="flex md:grid lg:gird lg:grid-cols-6 md:grid-cols-4 gap-4 pb-2 overflow-auto">
         {summaryData?.map((summary) => (
-          <div className="p-3 bg-gray-200 rounded-md flex flex-col text-center" key={summary?.name}>
-            <h2 className="text-2xl font-semibold">{summary?.value}</h2>
-            <h3 className="text-md font-medium">{summary?.name}</h3>
-          </div>
+          <article
+            key={summary?.name}
+            className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6"
+          >
+            <div>
+              <p className="text-sm text-gray-500">{summary?.name}</p>
+
+              <p className="text-2xl font-medium text-gray-900">
+                ${summary?.value}
+              </p>
+            </div>
+
+            <div className="inline-flex gap-2 rounded bg-green-100 p-1 text-green-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
+              </svg>
+
+              <span className="text-xs font-medium"> 67.81% </span>
+            </div>
+          </article>
         ))}
       </div>
 
       {/* for medium and large device */}
       <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {latestSummary?.map((summary) => (
-          <div className="h-64 md:h-86 lg:h-96 p-2 border rounded-md overflow-y-auto scroll-smooth" key={summary?.title}>
+          <div
+            className="h-64 md:h-86 lg:h-96 p-2 border rounded-md overflow-y-auto scroll-smooth"
+            key={summary?.title}
+          >
             <h4 className="text-lg font-medium pb-3 mb-3 border-b">
               {summary?.title}
             </h4>
