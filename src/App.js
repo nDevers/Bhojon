@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/home/Home";
 import HomePage from "./pages/home/homePage/HomePage";
 
+import CartPage from "./pages/cart/CartPage";
+
 import User from "./pages/User/User";
 import UserSummary from "./pages/User/UserSummary";
 import Profile from "./pages/User/Profile";
@@ -120,6 +122,7 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route index element={<HomePage />} />
           <Route path="home" element={<HomePage />} />
+          <Route path="cart" element={<CartPage />} /> 
 
           {/* user routes */}
           <Route
