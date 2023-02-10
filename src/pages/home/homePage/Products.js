@@ -1,45 +1,54 @@
-import React from "react";
+import React, {useContext} from "react";
 import { BsBag, BsFillArrowRightCircleFill, BsSuitHeart } from "react-icons/bs";
+import {CartContext} from "../../../context/CartContext";
 
 const Products = () => {
+  const { addToCart } = useContext(CartContext);
+
   const homePageProducts = [
     {
       name: "Product 1",
+      price: 100,
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
       tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
-      name: "Product 1",
+      name: "Product 2",
+      price: 200,
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
       tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
-      name: "Product 1",
+      name: "Product 3",
+      price: 300,
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
       tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
-      name: "Product 1",
+      name: "Product 4",
+      price: 400,
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
       tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
-      name: "Product 1",
+      name: "Product 5",
+      price: 500,
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
       tags: [{ name: "Fashion" }, { name: "Products" }],
     },
     {
-      name: "Product 1",
+      name: "Product 6",
+      price: 600,
       image: "https://placeimg.com/400/225/arch",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias repudiandae nostrum cupiditate error impedit obcaecati explicabo libero fuga ipsa!",
@@ -83,8 +92,8 @@ const Products = () => {
 
             <div>
               <h2 className="card-title mt-8 mb-6">
-                {homePageProduct?.name}
-                <div className="badge badge-warning text-white">NEW</div>
+                {homePageProduct?.name} <span className="text-sm">({homePageProduct?.price}$)</span>
+                <div className="badge badge-warning text-white tm">NEW</div>
               </h2>
 
               <p>{homePageProduct?.description}</p>
@@ -97,7 +106,7 @@ const Products = () => {
                 ))}
               </div>
 
-              <button className="btn btn-primary hover:bg-primary w-full text-white mb-2">
+              <button className="btn btn-primary hover:bg-primary w-full text-white mb-2" onClick={()=> addToCart(homePageProduct)}>
                 <span className="text-sm font-medium"> Add to Cart </span>
 
                 <BsBag className="ml-4" />
