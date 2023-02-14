@@ -1,33 +1,4 @@
-# Bhojon
-
-Live site : https://bhojon-39d34.web.app/
-
-# Features
-
-1. Landing Page
-  - Login
-
-## Management View
-
-1. Dashboard
-2. Menu Setup
-  i. CRUD
-3. Order Management
-4. Payment Mangement
-
-
-## Waiter View
-
-1. Dashboard
-2. Order Collection
-
-## Cook View
-
-1. Order Receive, Cancel and Complete
-
-
-<br/>
-<br/>
+<h1 align="center">Bhojon</h1>
 
 <!-- repository summary badges start -->
 <div align="center">
@@ -55,5 +26,43 @@ Live site : https://bhojon-39d34.web.app/
 </div>
 <!-- repository summary badges end -->
 
-<br/>
-<br/>
+<br>
+<br>
+
+Live site : https://bhojon-39d34.web.app/
+
+# Features
+
+1. Landing Page
+  - Login
+
+## Management View
+
+1. Dashboard
+2. Menu Setup
+  i. CRUD
+3. Order Management
+4. Payment Mangement
+
+
+## Waiter View
+
+1. Dashboard
+2. Order Collection
+
+## Cook View
+
+1. Order Receive, Cancel and Complete
+
+
+<br>
+<br>
+
+<div align="center">
+    <a href="https://github.com/STRINGLABITSOLUTIONS/Bhojon">
+        <img width="396" src="https://github-readme-stats-mu-jet.vercel.app/api/pin/?username=STRINGLABITSOLUTIONS&repo=Bhojon&theme=react&bg_color=0D1117&border_color=61dafb&hide_border=false" alt="repository badge" />
+    </a>
+</div>
+
+<br>
+<br>
